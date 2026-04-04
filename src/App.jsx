@@ -81,7 +81,7 @@ const App = () => {
               AI coding capability has advanced faster in the past six months than in the three years before it. That's worth saying plainly. Models that couldn't resolve a meaningful fraction of real GitHub issues in 2023 now handle nearly half of enterprise-grade software engineering tasks under controlled, contamination-resistant conditions. That is genuine, substantial progress.
             </p>
             <p>
-              The problem isn't the progress. It's that the most widely cited number — 80%+ on SWE-bench Verified — is measured on a benchmark that OpenAI's own audit found compromised. Every frontier model tested showed training data overlap with the evaluation tasks. That doesn't erase the progress underneath; it means the ruler is broken. On the contamination-resistant version of the same task, the number is 45.9%. Both are real. Only one is honest.
+              The problem isn't the progress. It's that the most widely cited number — 80%+ on SWE-bench Verified — is measured on a benchmark that OpenAI's own audit found compromised. Every frontier model tested showed training data overlap with the evaluation tasks. That doesn't erase the progress underneath; it means the ruler is broken. On the contamination-resistant version of the same task, the number is 45.9%. Both are real. Only one is honest. (Source: morphllm.com/swe-bench-pro; Augment Code benchmark blog, Feb 2026)
             </p>
           </div>
 
@@ -161,10 +161,10 @@ const App = () => {
         <Section title="Six Dimensions. Two Realities." icon={Target} isOpenDefault={true} id="s4">
           <div className="space-y-4 text-slate-300 leading-relaxed mb-6">
             <p>
-              The original report tracked six capability dimensions. V1's radar measured individual model benchmarks. This one tracks what AI services actually deliver to users — regardless of whether the result comes from a base model, a RAG pipeline, or an agent harness. Six dimensions. Six things that matter to anyone relying on AI output: <strong className="text-white">Reasoning. Execution. Memory. Self-Awareness. Coherence. Reliability.</strong>
+              The original report tracked six capability dimensions. V1's radar measured individual model benchmarks. This one tracks what AI services actually deliver to users — regardless of whether the result comes from a base model, a RAG pipeline, or an agent harness. Six dimensions. Six things that matter to anyone relying on AI output: <strong className="text-white">Reasoning. Execution. Memory. Confidence Calibration. Coherence. Reliability.</strong>
             </p>
             <p className="text-sm text-slate-400">
-              The radar below shows two polygons deliberately. The inner shape is what a standard deployment delivers today — the 95% that MIT found seeing no measurable ROI. The outer shape is what the top 5% achieve with deliberate systems design. The gap between them is the engineering opportunity.
+              The radar below shows two polygons deliberately. The inner shape is what a standard deployment delivers today — the 95% that MIT found seeing no measurable ROI. (MIT NANDA Initiative, "The GenAI Divide: State of AI in Business 2025", July 2025. Available at: nandapapers GitHub repo) The outer shape is what the top 5% achieve with deliberate systems design. The gap between them is the engineering opportunity.
             </p>
           </div>
 
@@ -183,14 +183,14 @@ const App = () => {
             </DimensionDetailCard>
 
             <DimensionDetailCard title="Memory" subtitle="The fastest-moving dimension — and the most underrated">
-              <p>Six months ago, memory was effectively zero for most AI services. Every session started fresh. The MIT GenAI Divide report identifies this as the #1 root cause of AI deployment failure: "systems do not retain feedback, adapt to context, or improve over time."</p>
+              <p>Six months ago, memory was effectively zero for most AI services. Every session started fresh. The MIT GenAI Divide report identifies this as the #1 root cause of AI deployment failure: "systems do not retain feedback, adapt to context, or improve over time." (MIT NANDA Initiative, "The GenAI Divide: State of AI in Business 2025", July 2025. Available at: nandapapers GitHub repo)</p>
               <p>By December 2025, Vectorize Hindsight crossed 91.4% on LongMemEval. By February 2026, Mastra's Observational Memory reports 95%+. On LOCOMO, Mem0 achieves 66.9% — 26% above OpenAI's native memory.</p>
               <p>The inner/outer track gap on Memory is the widest of any dimension, and it closes faster than any other. This is not incremental improvement — it is a capability that <strong className="text-white">didn't meaningfully exist six months ago</strong> and now has clear architectural solutions.</p>
               <p className="text-xs text-slate-500 mt-2">Standard: 47 | Well-Engineered: 89 | 2027: 95 · Sources: LongMemEval, LOCOMO, Mem0 Research, Vectorize Hindsight</p>
             </DimensionDetailCard>
 
-            <DimensionDetailCard title="Self-Awareness" subtitle="Does the AI know what it doesn't know?">
-              <p>Self-awareness (metacognition) is the ability to accurately signal uncertainty. Research distinguishes two components: <strong className="text-white">calibration</strong> (does confidence match accuracy?) and <strong className="text-white">sensitivity</strong> (can the model discriminate its correct answers from incorrect ones?).</p>
+            <DimensionDetailCard title="Confidence Calibration" subtitle="Does the AI know what it doesn't know?">
+              <p>Confidence calibration (metacognition) is the ability to accurately signal uncertainty. Research distinguishes two components: <strong className="text-white">calibration</strong> (does confidence match accuracy?) and <strong className="text-white">sensitivity</strong> (can the model discriminate its correct answers from incorrect ones?).</p>
               <p>GPT-4.1 mini achieves an AUC of 0.83 on metacognitive sensitivity — an 83% chance that a correct answer is rated higher-confidence than an incorrect one. Human baseline: ~0.90–0.95. The gap matters: over-reliance on AI (an OWASP top LLM vulnerability) is directly a self-awareness problem.</p>
               <p>The harder problem: current models are systematically reluctant to express uncertainty. Training objectives reward confident guessing over calibrated abstention — models learn to bluff (Kalai & Nachum, OpenAI, arXiv:2509.04664).</p>
               <p className="text-xs text-slate-500 mt-2">Standard: 62 | Well-Engineered: 77 | 2027: 85 · Sources: Steyvers et al. 2025 (Nature Machine Intelligence); arXiv:2510.05126</p>
@@ -243,7 +243,7 @@ const App = () => {
               <div className="space-y-3 text-sm text-slate-300 leading-relaxed animate-fade-in">
                 <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider">The Barbell in practice</h5>
                 <p>Junior share of IT hiring: <strong className="text-white">15% → 7%</strong> in three years. Senior AI-role salaries: <strong className="text-white">+40%</strong>. Entry-level developer postings: <strong className="text-white">–67%</strong> since 2022. Salesforce: zero new engineering hires 2025. Block: workforce cut from 10,000 to under 6,000.</p>
-                <p>Google's DORA 2024 report found roughly <strong className="text-white">2% productivity increase</strong> for every 25% increase in AI adoption — a gap of ~12× between executive expectation and measured engineering outcome.</p>
+                <p>Google's DORA 2024 report found roughly <strong className="text-white">2% productivity increase</strong> for every 25% increase in AI adoption — a gap of ~12× between executive expectation and measured engineering outcome. (MIT NANDA Initiative, "The GenAI Divide: State of AI in Business 2025", July 2025. Available at: nandapapers GitHub repo)</p>
                 <p className="text-slate-500 text-xs">Confidence: 60%, revised upward from 55% in V1. Every pillar confirmed by independent data sources.</p>
               </div>
             )}
@@ -295,7 +295,7 @@ const App = () => {
 
           {/* Pipeline Problem */}
           <CalloutBox type="blue" title="The Pipeline Problem">
-            CS enrolment dropped 8.1% in 2025–2026 — the steepest decline of any field (National Student Clearinghouse). CS specifically fell 11.2%. 62% of computing departments report declining enrolment (CRA CERP, 133 departments). If this persists 3–4 years, the senior engineer shortage lands 2033–2037 — precisely when enterprise AI orchestration demand is projected to peak. The organisations cutting junior hiring today are trading short-term savings for a <strong>compounding strategic liability</strong>.
+            CS enrolment dropped 8.1% in 2025–2026 — the steepest decline of any field (National Student Clearinghouse). (National Student Clearinghouse, Fall 2025 Enrollment Trends, cited in Built In, March 2026; corroborated by CRA CERP Pulse Survey, Oct 2025) CS specifically fell 11.2%. 62% of computing departments report declining enrolment (CRA CERP, 133 departments). If this persists 3–4 years, the senior engineer shortage lands 2033–2037 — precisely when enterprise AI orchestration demand is projected to peak. The organisations cutting junior hiring today are trading short-term savings for a <strong>compounding strategic liability</strong>.
           </CalloutBox>
 
           {/* Sector Split Table */}
@@ -386,6 +386,9 @@ const App = () => {
           <p className="text-sm text-slate-400 mb-6 leading-relaxed">
             Three scenarios for how AI deployment evolves from here. These aren't predictions — they're structured possibilities, each grounded in current data and trajectories. The base case is what the evidence currently points to; the other two map what happens if key assumptions break.
           </p>
+          <p className="text-[10px] text-slate-500 mb-6 leading-relaxed max-w-3xl">
+            Weights are informed by five inputs: (1) ARC-AGI-2/3 progress rates and benchmark saturation history, (2) inference cost curve trajectory, (3) BLS and Stanford/Harvard labour market data, (4) open-source model capability trajectory, and (5) LangChain State of AI Agents survey (2026). These are informed estimates reflecting systems design diffusion vs. capability improvement.
+          </p>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <ScenarioCard emoji="🐢" title="Conservative" probability="~25%" horizon="EOY 2027" headline="Progress slows. The gap between typical and best systems widens rather than narrows."
               isActive={active2027Scenario === 'conservative'} onClick={() => setActive2027Scenario('conservative')}>
@@ -417,7 +420,7 @@ const App = () => {
                 <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
                   <div>
                     <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
-                    <p>Your AI deployment ROI problem is not a model problem. It's an architecture problem. 95% of 2025 enterprise GenAI projects saw no measurable ROI (MIT). The organisations getting results are running engineered systems — RAG, verification loops, memory infrastructure — not raw API calls.</p>
+                    <p>Your AI deployment ROI problem is not a model problem. It's an architecture problem. 95% of 2025 enterprise GenAI projects saw no measurable ROI (MIT). (MIT NANDA Initiative, "The GenAI Divide: State of AI in Business 2025", July 2025. Available at: nandapapers GitHub repo) The organisations getting results are running engineered systems — RAG, verification loops, memory infrastructure — not raw API calls.</p>
                   </div>
                   <div>
                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
@@ -465,7 +468,7 @@ const App = () => {
                 <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
                   <div>
                     <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
-                    <p>CS enrolment dropped 8.1% in 2025–2026 — the steepest decline of any field of study (National Student Clearinghouse). 62% of computing departments report declining enrolment. This is the compounding risk nobody is pricing. A generation that doesn't learn to code produces no senior engineers in 2032.</p>
+                    <p>CS enrolment dropped 8.1% in 2025–2026 — the steepest decline of any field of study (National Student Clearinghouse). (National Student Clearinghouse, Fall 2025 Enrollment Trends, cited in Built In, March 2026; corroborated by CRA CERP Pulse Survey, Oct 2025) 62% of computing departments report declining enrolment. This is the compounding risk nobody is pricing. A generation that doesn't learn to code produces no senior engineers in 2032.</p>
                   </div>
                   <div>
                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>

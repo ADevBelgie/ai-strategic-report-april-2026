@@ -9,7 +9,7 @@ const RadarChart = () => {
     { key: 'reasoning', label: 'REASONING', icon: Brain, angle: -90 },
     { key: 'execution', label: 'EXECUTION', icon: Terminal, angle: -30 },
     { key: 'memory', label: 'MEMORY', icon: Database, angle: 30 },
-    { key: 'selfawareness', label: 'SELF-AWARENESS', icon: Lightbulb, angle: 90 },
+    { key: 'confidencecalibration', label: 'CONFIDENCE CALIBRATION', icon: Lightbulb, angle: 90, tooltip: "The ability to accurately signal uncertainty (metacognition: calibration vs sensitivity)." },
     { key: 'coherence', label: 'COHERENCE', icon: Network, angle: 150 },
     { key: 'reliability', label: 'RELIABILITY', icon: Shield, angle: 210 },
   ];
@@ -18,19 +18,19 @@ const RadarChart = () => {
     standard: {
       label: 'Typical Deployment',
       color: '#6366f1',
-      values: { reasoning: 58, execution: 46, memory: 47, selfawareness: 62, coherence: 45, reliability: 35 },
+      values: { reasoning: 58, execution: 46, memory: 47, confidencecalibration: 62, coherence: 45, reliability: 35 },
       desc: 'What most organisations are actually running today — the 95% that MIT\'s GenAI Divide found seeing no measurable P&L impact. Raw API calls, no memory infrastructure, no verification loops. Base model performance on most benchmarks.'
     },
     engineered: {
       label: 'Best System Today',
       color: '#34d399',
-      values: { reasoning: 75, execution: 65, memory: 95, selfawareness: 78, coherence: 75, reliability: 88 },
+      values: { reasoning: 75, execution: 65, memory: 95, confidencecalibration: 78, coherence: 75, reliability: 88 },
       desc: 'What the best-engineered agent systems achieve today with full tool access, retrieval architecture, and memory infrastructure. This is the whole-system score — model plus scaffold plus engineering — not a base model number. The gap between the inner and outer polygon is the engineering opportunity that narrows as inference costs fall.'
     },
     projection: {
       label: '2027 Base Case',
       color: '#f59e0b',
-      values: { reasoning: 90, execution: 82, memory: 96, selfawareness: 88, coherence: 90, reliability: 94 },
+      values: { reasoning: 90, execution: 82, memory: 96, confidencecalibration: 88, coherence: 90, reliability: 94 },
       desc: 'Where Typical Deployment lands by mid-to-late 2027 (~55% probability). Speculative. Execution crosses 80% on contamination-resistant benchmarks. Memory and coherence become table-stakes features as MCP and framework RAG mature. Reliability convergence arrives for grounded enterprise tasks. Reasoning advances on ARC-AGI-3 via RL approaches — while ARC-AGI-4 is probably already launched.'
     }
   };
@@ -117,7 +117,7 @@ const RadarChart = () => {
                   <div className="p-1.5 rounded-md bg-slate-800 text-slate-400 group-hover:text-white transition-colors">
                     <m.icon size={14} />
                   </div>
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{m.label}</span>
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider" title={m.tooltip}>{m.label}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   {standardVal !== null && (
@@ -147,9 +147,9 @@ const RadarChart = () => {
             return (
               <g key={i}>
                 <line x1={center} y1={center} x2={pEnd.x} y2={pEnd.y} stroke="#475569" strokeWidth="0.5" opacity="0.4" />
-                <text x={pLabel.x} y={pLabel.y} textAnchor="middle" dominantBaseline="middle" fill="#64748b" fontSize="6.5" fontWeight="700" className="uppercase">
-                  {m.label.includes('-') ? m.label.split('-').map((w, wi) => (
-                    <tspan key={wi} x={pLabel.x} dy={wi === 0 ? 0 : 8}>{wi === 0 ? w + '-' : w}</tspan>
+                <text x={pLabel.x} y={pLabel.y} textAnchor="middle" dominantBaseline="middle" fill="#64748b" fontSize="6.5" fontWeight="700" className="uppercase" title={m.tooltip}>
+                  {m.label.includes(' ') ? m.label.split(' ').map((w, wi) => (
+                    <tspan key={wi} x={pLabel.x} dy={wi === 0 ? 0 : 8}>{w}</tspan>
                   )) : m.label}
                 </text>
               </g>
