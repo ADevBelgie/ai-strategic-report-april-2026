@@ -483,10 +483,10 @@ const App = () => {
             <a href="#" className="inline-flex items-center gap-2 px-4 py-2.5 bg-indigo-500/10 border border-indigo-500/30 rounded-xl text-sm text-indigo-400 hover:bg-indigo-500/20 transition-colors">
               <Download size={16} /> Download full V2 data document
             </a>
-            <a href="#" className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-800 border border-slate-700 rounded-xl text-sm text-slate-300 hover:bg-slate-700 transition-colors">
+            <a href="https://ai-strategic-report.vercel.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-800 border border-slate-700 rounded-xl text-sm text-slate-300 hover:bg-slate-700 transition-colors">
               <ExternalLink size={16} /> View V1 original report
             </a>
-            <a href="#" className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-800 border border-slate-700 rounded-xl text-sm text-slate-300 hover:bg-slate-700 transition-colors">
+            <a href="https://github.com/ADevBelgie/ai-strategic-report-april-2026" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-800 border border-slate-700 rounded-xl text-sm text-slate-300 hover:bg-slate-700 transition-colors">
               <Github size={16} /> Source code
             </a>
           </div>
