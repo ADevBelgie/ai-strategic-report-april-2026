@@ -571,7 +571,7 @@ const App = () => {
           </p>
 
           <div className="flex flex-wrap gap-3 mb-8">
-            <a href="#" className="inline-flex items-center gap-2 px-4 py-2.5 bg-indigo-500/10 border border-indigo-500/30 rounded-xl text-sm text-indigo-400 hover:bg-indigo-500/20 transition-colors">
+            <a href="/AI-Strategic-Brief-V2-Data.docx" download className="inline-flex items-center gap-2 px-4 py-2.5 bg-indigo-500/10 border border-indigo-500/30 rounded-xl text-sm text-indigo-400 hover:bg-indigo-500/20 transition-colors">
               <Download size={16} /> Download full V2 data document
             </a>
             <a href="https://ai-strategic-report.vercel.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-800 border border-slate-700 rounded-xl text-sm text-slate-300 hover:bg-slate-700 transition-colors">
