@@ -49,7 +49,7 @@ const App = () => {
         {/* HERO / MASTHEAD                                           */}
         {/* ═══════════════════════════════════════════════════════════ */}
         <div className="space-y-6 py-4">
-          <div className="space-y-4 max-w-3xl">
+          <div className="space-y-4">
             <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
               The Bottleneck Has <span className="gradient-text">Moved</span>
             </h2>
@@ -60,7 +60,7 @@ const App = () => {
               Updated from the November 2025 Strategic Report
             </p>
           </div>
-          <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 text-sm text-slate-400 leading-relaxed max-w-4xl">
+          <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 text-sm text-slate-400 leading-relaxed">
             Six months ago this report predicted the transition from emergence to deployment. The benchmarks have moved faster than forecast. The economics have moved faster still. What's changed: the hard problem is no longer whether AI can do the task — it's whether the systems, skills, and structures around it can keep up. This brief updates every major prediction and adds new dimensions the original report didn't have language for yet.
           </div>
 
