@@ -31,7 +31,7 @@ const App = () => {
               <div className="flex flex-col sm:flex-row sm:gap-4 text-[10px] text-slate-400 font-semibold uppercase tracking-widest">
                 <span>April 4, 2026</span>
                 <span className="hidden sm:inline">•</span>
-                <span className="text-indigo-400">By Arthur Devresse</span>
+                <span className="text-indigo-400">By Arthur Devresse & Claude Sonnet 4.6 & Gemini 3.1 Pro</span>
               </div>
             </div>
           </div>
