@@ -1,108 +1,123 @@
 # The AI Revolution: 2026 Strategic Brief
-**April 4, 2026 • By Arthur Devresse & Claude Sonnet 4.6 & Gemini 3.1 Pro**
 
-A React + Vite implementation of this report is available in this repository.
+**April 4, 2026 · By Arthur Devresse & Claude Sonnet 4.6 & Gemini 3.1 Pro**
 
-### Live Deployment
-[https://ai-strategic-report-april-2026.vercel.app](https://ai-strategic-report-april-2026.vercel.app)
+🔗 **Live:** [ai-strategic-report-april-2026.vercel.app](https://ai-strategic-report-april-2026.vercel.app)  
+📄 **V1 Report:** [ai-strategic-report.vercel.app](https://ai-strategic-report.vercel.app)
 
 ---
 
 ## The Bottleneck Has Moved
+
 Capability is no longer what's holding AI back. **System engineering** and **talent** are — whether you're building, investing, hiring, or deciding what to study next.
 
-Six months ago this report predicted the transition from emergence to deployment. The benchmarks have moved faster than forecast. The economics have moved faster still. What's changed: the hard problem is no longer whether AI can do the task — it's whether the systems, skills, and structures around it can keep up.
-
-- **SWE-bench Pro (SEAL):** 45.9% (Coding Autonomy)  
-- **Junior IT Hiring Share:** 7% (Down from 15% in 2022)  
-- **ARC-AGI-2:** 77.1% (Reasoning Frontier)  
+| Metric | Value | Context |
+|--------|-------|---------|
+| SWE-bench Pro (SEAL) | 45.9% | Coding Autonomy |
+| Junior IT Hiring Share | 7% | Down from 15% in 2022 |
+| ARC-AGI-2 | 77.1% | Reasoning Frontier |
 
 ---
 
 ## 1. Real Progress. Wrong Ruler.
-AI coding capability has advanced faster in the past six months than in the three years before it. Models that couldn't resolve a meaningful fraction of real GitHub issues in 2023 now handle nearly half of enterprise-grade software engineering tasks under contamination-resistant conditions.
 
-SWE-bench Verified is saturated (80%+). It's also contaminated. Every frontier model tested showed training data overlap with the evaluation tasks. On the contamination-resistant version (SWE-bench Pro), the number is 45.9%. Both are real. Only one is honest.
+AI coding capability has advanced faster in the past six months than in the three years before it. Models now handle nearly half of enterprise-grade software engineering tasks under contamination-resistant conditions.
 
-> **The gap that matters most isn't Verified vs. Pro. It's SEAL vs. custom.**
-> Three different agent systems running the same base model (Claude Opus 4.5) scored between 50.2% and 55.4% on SWE-bench Pro. The SEAL standardised score for that same model is 45.9%. The 5–10 point spread comes entirely from how the agent retrieves context and manages its tool calls. It's an engineering problem.
+The most widely cited number — 80.9% on SWE-bench Verified — is measured on a benchmark that OpenAI's own audit found contaminated. On the contamination-resistant version (SWE-bench Pro), the number is 45.9%. Both are real. Only one is honest.
+
+> **The gap that matters most isn't Verified vs. Pro. It's SEAL vs. custom.**  
+> Three different agent systems running the same base model (Claude Opus 4.5) scored between 50.2% and 55.4% on SWE-bench Pro (Source: morphllm.com/swe-bench-pro; Augment Code, Feb 2026). The 5–10 point spread comes entirely from agent architecture — not the model.
 
 ---
 
 ## 2. The Reasoning Tradeoff
-The models best at complex reasoning are, by a measurable margin, the most likely to hallucinate on simple grounded tasks. Vectara's open hallucination leaderboard found that non-reasoning models now dominate the top spots (Gemini-2.0-Flash leads at 0.7%).
 
-This isn't a universal law: OpenAI's o3-mini achieved 0.8% on the same benchmark, showing that tightly-constrained reasoning on structured tasks *can* improve grounding. But broadly speaking, for grounded tasks without proper architecture, the capability curve and the reliability curve pull in opposite directions.
+Models best at complex reasoning are, by a measurable margin, the most likely to hallucinate on grounded tasks. Gemini-2.0-Flash leads at 0.7% hallucination; most reasoning models exceed 10% on the same task (Vectara HHEM). Exception: o3-mini at 0.8% shows constrained reasoning *can* improve grounding.
 
-**The Solution:** Self-Reflective RAG and multi-agent verification systems. They work, and thanks to collapsed inference costs (down 1,000x in 3 years), they are cheap.
+**The fix is architectural.** Self-Reflective RAG reduces hallucination from 64% to 5.8%. Multi-agent verification brings enterprise rates below 2%. Inference costs have collapsed 1,000×.
 
 ---
 
-## 3. The Technical Landscape: Benchmarks
+## 3. The Technical Landscape
 
-- **SWE-bench Pro:** 45.9% (Claude Opus 4.5, SEAL-standardised) - *Active*
-- **ARC-AGI-2:** 77.1% (Gemini 3.1 Pro) - *Ceiling*
-- **ARC-AGI-3:** <1% Frontier - *Active*
-- **SWE-bench Verified:** 80.9% - *Contaminated / Retired*
-- **GAIA L3:** Unsaturated - *Active*
-- **MMLU / GPQA / HumanEval:** - *Retired*
+| Benchmark | Score | Status |
+|-----------|-------|--------|
+| Terminal-Bench 2.0 | 78.4% (Gemini 3.1 Pro + Forge Code) | 🟢 Active |
+| SWE-bench Pro | 45.9% (Claude Opus 4.5, SEAL) | 🟢 Active |
+| GAIA (All Levels) | 74.6% (Claude Sonnet 4.5 + HAL, Feb 2026) | 🟢 Active |
+| ARC-AGI-2 | 77.1% (Gemini 3.1 Pro) | 🟡 Ceiling |
+| ARC-AGI-3 | <1% Frontier | 🟢 Active |
+| SWE-bench Verified | 80.9% | 🔴 Contaminated |
+| MMLU / GPQA / HumanEval | — | ⚫ Retired |
 
 ---
 
 ## 4. Six Dimensions. Two Realities.
-This tracks what AI services actually deliver to users — base model, RAG pipeline, or agent harness. The *"Typical Deployment"* is raw API calls. The *"Best System Today"* is full tool access, retrieval architecture, and memory infrastructure. The gap between them is the engineering opportunity.
 
-1. **Execution** (Typical: 46% | Best System: 65% | 2027: 82%)  
-   Measures end-to-end task completion (Terminal-Bench 2.0).
-2. **Memory** (Typical: 47% | Best System: 89% | 2027: 95%)  
-   The fastest-moving dimension. Lack of memory is the #1 root cause of AI deployment failure.
-3. **Self-Awareness** (Typical: 62% | Best System: 77% | 2027: 85%)  
-   Can the AI signal uncertainty? Models still learn to bluff rather than abstain.
-4. **Coherence** (Typical: 45% | Best System: 75% | 2027: 90%)  
-   Maintaining the thread across long tasks. Effective recall collapses in the middle of a 1M context window.
-5. **Reliability** (Typical: 35% | Best System: 82% | 2027: 92%)  
-   Trusting the output. 10%+ hallucination drops to sub-1% with proper RAG verification.
-6. **Reasoning** (Typical: 58% | Best System: 75% | 2027: 90%)  
+Tracks what AI services actually deliver — base model, RAG pipeline, or agent harness. The gap between *Typical Deployment* and *Best System Today* is the engineering opportunity.
+
+| Dimension | Typical | Best System Today | 2027 Projection |
+|-----------|---------|-------------------|-----------------|
+| Reasoning | 58% | 75% | 90% |
+| Execution | 46% | 65% | 82% |
+| Memory | 47% | 95% | 96% |
+| Self-Awareness | 62% | 78% | 88% |
+| Coherence | 45% | 75% | 90% |
+| Reliability | 35% | 88% | 94% |
 
 ---
 
 ## 5. The Barbell Economy
-The polarisation of labour demand into a "Hollow Middle".
 
-- **The Barbell (60% probability):** Agentic costs collapse. Junior roles decimated. Senior Orchestrators in extreme demand. Framework RAG commoditises.
-- **Frictionless (30% probability):** Self-correction advances faster than expected. Structural unemployment across all cognitive tiers.
-- **The Plateau (<10% probability):** AI remains a productivity multiplier—not an autonomous replacement. Junior hiring stabilises.
+| Scenario | Probability | Summary |
+|----------|-------------|---------|
+| 🐢 The Plateau | <10% | AI stays a super-tool. Junior hiring stabilises. |
+| 📊 The Barbell | 60% | Agentic costs collapse. Senior Orchestrators in extreme demand. |
+| ⚡ Frictionless | 30% | Self-correction advances. Structural unemployment across tiers. |
 
-**The Pipeline Problem:** CS enrolment dropped 8.1% in 2025–2026. The organisations cutting junior hiring today are trading short-term savings for a compounding strategic liability.
+**The Pipeline Problem:** CS enrolment dropped 8.1% in 2025–2026 — the steepest decline of any field. If this persists, senior engineer shortage lands 2033–2037.
 
 ---
 
 ## 6. How We Get From Here to 2027
+
 **The Convergence Mechanisms:**
-- **Inference Cost Collapse** (Cost of 5 verification passes today = 1 pass 18 months ago)
-- **Synthetic Data Verification** (Models that verify their own outputs)
-- **Multimodal / Document AI** (Enterprise workflows broadly unlocked)
-- **Memory as Infrastructure** (Model Context Protocol, MCP)
-- **Open-Source Parity** (Self-hosted pipelines match proprietary APIs)
+- **Inference Cost Collapse** — 280× drop since Nov 2022
+- **Synthetic Data Verification** — DeepSeek-R1 trained for $294K
+- **Multimodal / Document AI** — Enterprise workflows broadly unlocked
+- **Memory as Infrastructure** — MCP adopted by OpenAI, Google, Microsoft; Claude Sonnet 4.5 achieves 74.6% on GAIA via HAL framework vs 44.8% base model
+- **Open-Source Parity** — 434 open-source vs 217 closed-source API models
 
 ---
 
-## 7. What This Means for You
+## 7. Where This Goes Next
 
-- **Enterprise Leaders:** Your AI deployment ROI problem is not a model problem. It's an architecture problem. Audit deployments against the Base vs System-Level gap.
-- **Investors:** Companies still using SWE-bench Verified scores are making decisions on a compromised signal. SWE-bench Pro is the honest measure.
-- **Career Entrants:** Position around orchestration, not execution. The AI-native junior of 2026 needs the system-design understanding of a 2020 mid-level engineer.
-- **Educators:** The framing needs to shift from "will AI replace developers" to "what does a developer do when AI writes the code."
+| Scenario | Probability | Horizon | Key Trigger |
+|----------|-------------|---------|-------------|
+| 🐢 Conservative | ~25% | EOY 2027 | SWE-bench Pro stalls below 60%. Engineering gap becomes permanent moat. |
+| 📈 Base Case | ~55% | Q2 2027 | SWE-bench Pro 60–70%. System engineering becomes the competitive differentiator. |
+| 🚀 Accelerated | ~20% | EOY 2026→2027 | SWE-bench Pro exceeds 70% by Q3 2026. Reliability solutions ship in production APIs. |
 
 ---
+
+## 8. What This Means for You
+
+- **Enterprise:** Your AI ROI problem is an architecture problem. 95% of 2025 GenAI projects saw no measurable ROI (MIT).
+- **Investors:** Companies using SWE-bench Verified are making decisions on a compromised signal.
+- **Careers:** Position around orchestration, not execution. The AI-native junior needs system-design understanding.
+- **Education:** CS education must shift from "will AI replace developers" to "what does a developer do when AI writes the code."
+
+---
+
+## Tech Stack
+
+- React 19, Vite 7, Tailwind CSS 3, Lucide React
 
 ## Local Development
-Clone this repository to run the interactive React application locally.
 
 ```bash
 npm install
 npm run dev
-
-# Building for Production:
+# Production build:
 npm run build
 ```
