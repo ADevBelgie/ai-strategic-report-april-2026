@@ -10,6 +10,7 @@ import {
   DimensionDetailCard, ScenarioCard, TabComponent
 } from './components/shared';
 import RadarChart from './components/RadarChart';
+import { SWEBenchChart } from './components/SWEBenchChart';
 
 const App = () => {
   const [activeEconScenario, setActiveEconScenario] = useState('B');
@@ -74,39 +75,50 @@ const App = () => {
         {/* ═══════════════════════════════════════════════════════════ */}
         {/* SECTION 1 — NARRATIVE LEAD                                */}
         {/* ═══════════════════════════════════════════════════════════ */}
-        <Section title="The Illusion of Progress" icon={Brain} isOpenDefault={true} id="s1">
-          <div className="space-y-4 text-slate-300 leading-relaxed">
+        <Section title="Real Progress. Wrong Ruler." icon={Brain} isOpenDefault={true} id="s1">
+          <div className="space-y-4 text-slate-300 leading-relaxed mb-8">
             <p>
-              The headline numbers look extraordinary. Frontier models now resolve over 80% of real software engineering issues on the most-cited benchmark. Reasoning scores have more than doubled since this report launched. By almost any chart you'd find on social media, AI capability is accelerating faster than forecast.
+              AI coding capability has advanced faster in the past six months than in the three years before it. That's worth saying plainly. Models that couldn't resolve a meaningful fraction of real GitHub issues in 2023 now handle nearly half of enterprise-grade software engineering tasks under controlled, contamination-resistant conditions. That is genuine, substantial progress.
             </p>
             <p>
-              Here's what the charts don't show: the most widely cited coding benchmark has been <strong className="text-white">contaminated</strong>. OpenAI's own audit found training data overlap across every frontier model tested — and OpenAI has since stopped reporting scores on it. The benchmark that showed 80%+ scores is no longer a trustworthy signal of coding autonomy. On the harder, contamination-resistant version — <strong className="text-indigo-400">SWE-bench Pro</strong>, evaluated on private codebases models have never seen — top scores sit at <strong className="text-white">45.9%</strong>. That gap between 80% and 45% is the gap between a benchmark and reality. Every major score in AI right now has a version of this gap inside it.
+              The problem isn't the progress. It's that the most widely cited number — 80%+ on SWE-bench Verified — is measured on a benchmark that OpenAI's own audit found compromised. Every frontier model tested showed training data overlap with the evaluation tasks. That doesn't erase the progress underneath; it means the ruler is broken. On the contamination-resistant version of the same task, the number is 45.9%. Both are real. Only one is honest.
             </p>
           </div>
-          <CalloutBox type="amber" title="The Benchmark Half-Life is Shortening">
-            In November 2025, this report predicted an ~8-month benchmark lifespan before saturation. ARC-AGI-2 launched March 2025, approached saturation by February 2026, and ARC-AGI-3 launched March 25, 2026 — 12 months exactly. <strong>MMLU: saturated. GPQA: near-saturated. HumanEval: retired.</strong> The benchmarks that matter today didn't exist 12 months ago.
+
+          {/* SWE-bench Dual Line Chart replacing Timeline */}
+          <SWEBenchChart />
+
+          <CalloutBox type="amber" title="The gap that matters most isn't Verified vs. Pro. It's SEAL vs. custom.">
+            Three different agent systems running the same base model (Claude Opus 4.5) scored between 50.2% and 55.4% on SWE-bench Pro. The SEAL standardised score for that same model is 45.9%. The 5–10 point spread comes entirely from how the agent retrieves context and manages its tool calls — not from the model. This means investing in agent architecture yields higher returns right now than switching to a marginally better base model. It's an engineering problem, not a capability problem.
+          </CalloutBox>
+
+          <CalloutBox type="insight" title="Benchmarks Are Being Replaced Faster Than Ever — That's a Good Sign">
+            SWE-bench Verified saturated and was replaced by SWE-bench Pro. ARC-AGI-2 approached its ceiling in under 12 months; ARC-AGI-3 launched March 25, 2026. MMLU, GPQA, HumanEval — all retired. The ~8-month benchmark half-life this report predicted in November 2025 is holding, and possibly shortening. A field that replaces its measuring sticks this fast is a field where the underlying capability is genuinely moving. The saturation isn't the story. The replacement is.
           </CalloutBox>
         </Section>
 
         {/* ═══════════════════════════════════════════════════════════ */}
         {/* SECTION 2 — THE RELIABILITY PARADOX                       */}
         {/* ═══════════════════════════════════════════════════════════ */}
-        <Section title="The More It Thinks, The More It Hallucinates" icon={AlertTriangle} isOpenDefault={true} id="s2">
-          <div className="space-y-4 text-slate-300 leading-relaxed">
+        <Section title="The Reasoning Tradeoff" icon={AlertTriangle} isOpenDefault={true} id="s2">
+          <div className="space-y-4 text-slate-300 leading-relaxed mb-6">
             <p>
-              The models that reason best are, by a measurable margin, the ones most likely to hallucinate on simple factual questions. This is not a coincidence. It is a structural property of how extended reasoning works.
+              The models best at complex reasoning are, by a measurable margin, the most likely to hallucinate on simple grounded tasks. This isn't a coincidence — it's a documented structural pattern, and understanding it is more useful than being alarmed by it.
             </p>
             <p>
-              Vectara's open hallucination leaderboard (7,700 articles, controlled conditions) found that four non-reasoning models now achieve sub-1% hallucination on grounded summarisation. Every major reasoning model — GPT-5 with thinking, Claude with extended thinking, DeepSeek-R1 — exceeded 10% on the same task. The wronger the model, the longer it thinks, and the more confident it sounds. MIT research formalised this: models are <strong className="text-white">34% more likely</strong> to use high-confidence language — "definitely," "certainly" — when generating incorrect information.
+              Vectara's open hallucination leaderboard — 7,700 articles, controlled conditions, enterprise-relevant domains — found that non-reasoning models now dominate the top spots: Gemini-2.0-Flash leads at 0.7%, with several models achieving sub-1% on grounded summarisation. Most major reasoning models — GPT-5 with extended thinking, Claude with extended thinking, DeepSeek-R1 — exceeded 10% on the same task. The hypothesis is mechanically sound: reasoning models invest compute into generating internal deliberation, and that deliberation sometimes leads them to deviate from the source material rather than simply restating it.
+            </p>
+            <p>
+              The important caveat: this isn't a universal law of reasoning. OpenAI's o3-mini achieved 0.8% on the same benchmark — showing that tightly-constrained reasoning on structured tasks can actually <strong className="text-white font-medium italic">improve</strong> grounding. The failure mode belongs to extended, open-ended chain-of-thought on retrieval tasks, not to reasoning as a category.
             </p>
             <p className="text-indigo-400 font-medium">
-              This is called the Reliability Paradox: the capability curve and the reliability curve are, for now, pulling in opposite directions.
+              This is called the Reliability Tradeoff: for grounded tasks without proper architecture, the capability curve and the reliability curve are pulling in opposite directions. The fix is architectural, not a reason to avoid reasoning models.
             </p>
           </div>
 
           <SplitStatDisplay
-            left={{ value: "Sub-1%", label: "Non-reasoning models on grounded tasks", source: "Vectara HHEM Leaderboard, Feb 2026" }}
-            right={{ value: "10%+", label: "Reasoning models on the same task", source: "Same benchmark, same conditions" }}
+            left={{ value: "Sub-1%", label: "Non-reasoning models + o3-mini on grounded tasks", source: "Vectara HHEM Leaderboard, 7,700-article dataset" }}
+            right={{ value: "10%+", label: "Extended reasoning models on the same task", source: "Same benchmark, same conditions" }}
           />
 
           <CalloutBox type="blue" title="The Paradox Has a Solution — But Not a Free One">
@@ -125,7 +137,7 @@ const App = () => {
             <BenchmarkCard status="active" name="SWE-bench Pro" score="45.9%" model="Claude Opus 4.5 (SEAL-standardised)"
               description="The honest measure of coding autonomy. Evaluated on private codebases, controlled scaffold." source="Scale AI SEAL Leaderboard" />
             <BenchmarkCard status="ceiling" name="ARC-AGI-2" score="77.1%" model="Gemini 3.1 Pro (official, semi-private)"
-              description="Reasoning frontier as of Feb 2026. With refinement harnesses: 95%+. ARC-AGI-3 now active." source="ARC Prize Foundation" />
+              description="Approaching saturation — launched March 2025, near ceiling by February 2026. With refinement harnesses: 95%+. ARC-AGI-3 now active." source="ARC Prize Foundation" />
             <BenchmarkCard status="active" name="ARC-AGI-3" score="<1% Frontier" model="Interactive environments — no instructions"
               description="LLMs score below 1%. Humans score 100%. Best result (12.58%) used CNN + RL, not a language model." source="ARC Prize, March 2026" />
             <BenchmarkCard status="contaminated" name="SWE-bench Verified" score="80.9%" model="Contamination confirmed by OpenAI audit"
@@ -197,13 +209,13 @@ const App = () => {
           {/* Probability Badges */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <ScenarioCard emoji="🐢" title="The Plateau" probability="<10%" isActive={activeEconScenario === 'A'} onClick={() => setActiveEconScenario('A')}>
-              Inference costs stall. Reliability engineering harder than expected. AI stays a super-tool, not an autonomous agent.
+              Inference costs stall. Reliability engineering harder than expected. AI stays a super-tool, not an autonomous agent. Junior hiring stabilises.
             </ScenarioCard>
-            <ScenarioCard emoji="📊" title="The Barbell" probability=">85%" isActive={activeEconScenario === 'B'} onClick={() => setActiveEconScenario('B')}>
-              Validated by hard data. Junior roles decimated. Senior Orchestrators in extreme demand. Klarna counter-pattern confirms the correction loop. Confidence revised upward from 60% in V1.
+            <ScenarioCard emoji="📊" title="The Barbell" probability="60%" isActive={activeEconScenario === 'B'} onClick={() => setActiveEconScenario('B')}>
+              Agentic costs collapse. Junior roles decimated. Senior Orchestrators in extreme demand. Framework RAG commoditises. The engineering gap becomes the competitive moat. Revised up from 55% in V1.
             </ScenarioCard>
-            <ScenarioCard emoji="⚡" title="Frictionless" probability="<5%" isActive={activeEconScenario === 'C'} onClick={() => setActiveEconScenario('C')}>
-              Self-correction advances faster than expected. Reliability convergence ahead of schedule. Structural unemployment across all tiers.
+            <ScenarioCard emoji="⚡" title="Frictionless" probability="30%" isActive={activeEconScenario === 'C'} onClick={() => setActiveEconScenario('C')}>
+              Self-correction and metacognition advances faster than expected. Architectural solutions ship in production APIs. Reliability convergence ahead of schedule. Structural unemployment across all cognitive tiers.
             </ScenarioCard>
           </div>
 
@@ -221,7 +233,7 @@ const App = () => {
                 <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider">The Barbell in practice</h5>
                 <p>Junior share of IT hiring: <strong className="text-white">15% → 7%</strong> in three years. Senior AI-role salaries: <strong className="text-white">+40%</strong>. Entry-level developer postings: <strong className="text-white">–67%</strong> since 2022. Salesforce: zero new engineering hires 2025. Block: workforce cut from 10,000 to under 6,000.</p>
                 <p>Google's DORA 2024 report found roughly <strong className="text-white">2% productivity increase</strong> for every 25% increase in AI adoption — a gap of ~12× between executive expectation and measured engineering outcome.</p>
-                <p className="text-slate-500 text-xs">Confidence: {'>'}85%, revised upward from 60% in V1. Every pillar confirmed by independent data sources.</p>
+                <p className="text-slate-500 text-xs">Confidence: 60%, revised upward from 55% in V1. Every pillar confirmed by independent data sources.</p>
               </div>
             )}
             {activeEconScenario === 'C' && (
@@ -359,22 +371,22 @@ const App = () => {
         {/* ═══════════════════════════════════════════════════════════ */}
         {/* SECTION 7 — 2027 SCENARIOS                                */}
         {/* ═══════════════════════════════════════════════════════════ */}
-        <Section title="Three Futures. One Methodology." icon={Compass} isOpenDefault={true} id="s7">
-          <p className="text-xs text-slate-500 mb-6 leading-relaxed">
-            <em>Probabilities informed by: ARC-AGI trajectory and half-life pattern; SWE-bench Pro improvement trajectory; inference cost curve (Epoch AI); labour market data (BLS, Stanford, Harvard); reliability research (ICLR 2025, Vectara); ARC Prize Foundation public statements; frontier lab leadership statements; enterprise technology adoption base rates. Each probability carries ±10 percentage point uncertainty.</em>
+        <Section title="Where This Goes Next" icon={Compass} isOpenDefault={true} id="s7">
+          <p className="text-sm text-slate-400 mb-6 leading-relaxed">
+            Three scenarios for how AI deployment evolves from here. These aren't predictions — they're structured possibilities, each grounded in current data and trajectories. The base case is what the evidence currently points to; the other two map what happens if key assumptions break.
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            <ScenarioCard emoji="🐢" title="Conservative" probability="~25%" headline="The engineering gap becomes a permanent moat rather than a temporary transition."
+            <ScenarioCard emoji="🐢" title="Conservative" probability="~25%" horizon="EOY 2027" headline="Progress slows. The engineering gap becomes a permanent moat."
               isActive={active2027Scenario === 'conservative'} onClick={() => setActive2027Scenario('conservative')}>
-              SWE-bench Pro stays below 45% (SEAL-standardised). ARC-AGI-3 remains under 20%. System-level reliability improves via RAG/agents but parametric reliability shows no structural breakthrough. Junior hiring stabilises at 7%. Klarna-pattern corrections dampen full replacement sentiment. EU AI Act enforcement creates material friction for agentic deployment.
+              Coding autonomy stalls below 45% on clean benchmarks. Reasoning improvements plateau. Reliability engineering remains hard and expensive. Junior hiring stabilises around 7%. Regulatory friction creates real barriers to agentic deployment.
             </ScenarioCard>
-            <ScenarioCard emoji="📈" title="Base Case" probability="~55%" headline="System engineering becomes the primary competitive differentiator in AI deployment."
+            <ScenarioCard emoji="📈" title="Base Case" probability="~55%" horizon="Q2 2027" headline="System engineering becomes the primary competitive differentiator."
               isActive={active2027Scenario === 'base'} onClick={() => setActive2027Scenario('base')}>
-              SWE-bench Pro reaches 55–70% (SEAL). ARC-AGI-3 sees 30–50% by Q1 2027 via RL/CNN approaches. Inference costs fall 40–60% enabling verification loops at commodity prices. Junior share falls to 3–5%. Enterprise RAG deployment becomes the default pattern. First preceptorship programmes announced. Agentic coding the default in 40–60% of dev workflows.
+              Coding autonomy reaches 55–70% on clean benchmarks. Inference costs fall another 40–60%, making verification loops cheap enough for everyone. Junior share of hiring falls to 3–5%. RAG becomes the default pattern. The gap between organisations that engineer AI systems well and those that don't becomes the defining competitive divide.
             </ScenarioCard>
-            <ScenarioCard emoji="🚀" title="Accelerated" probability="~20%" headline="Reliability convergence arrives ahead of schedule, unlocking regulated sector deployment at scale."
+            <ScenarioCard emoji="🚀" title="Accelerated" probability="~20%" horizon="EOY 2026" headline="Reliability converges ahead of schedule. Regulated sectors unlock at scale."
               isActive={active2027Scenario === 'accelerated'} onClick={() => setActive2027Scenario('accelerated')}>
-              SWE-bench Pro exceeds 70%. ARC-AGI-3 50%+ by EOY 2026 via RL. Self-correcting agent architectures make hallucination largely irrelevant for structured tasks. Open-source frontier parity forces proprietary price collapse. Junior developer roles largely automated in tech-native orgs. Autonomous code deployment standard for defined workflow classes.
+              Coding autonomy exceeds 70%. Self-correcting architectures make hallucination largely irrelevant for structured tasks. Open-source models reach full parity with proprietary ones, driving prices to near-zero. Junior developer roles largely automated in tech-native organisations.
             </ScenarioCard>
           </div>
         </Section>

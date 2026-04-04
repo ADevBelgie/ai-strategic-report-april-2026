@@ -89,7 +89,7 @@ export const SplitStatDisplay = ({ left, right }) => (
 export const BenchmarkCard = ({ status, name, score, model, description, source }) => {
   const statusStyles = {
     active: { icon: '🟢', label: 'Active', border: 'border-emerald-500/30', labelColor: 'text-emerald-400' },
-    ceiling: { icon: '🟢', label: 'Approaching Ceiling', border: 'border-emerald-500/30', labelColor: 'text-emerald-400' },
+    ceiling: { icon: '🟢', label: 'Approaching Saturation', border: 'border-emerald-500/30', labelColor: 'text-emerald-400' },
     contaminated: { icon: '🔴', label: 'Contaminated', border: 'border-rose-500/30', labelColor: 'text-rose-400' },
     retired: { icon: '⬛', label: 'Retired', border: 'border-slate-600/30', labelColor: 'text-slate-500' },
   };
@@ -130,7 +130,7 @@ export const DimensionDetailCard = ({ title, subtitle, children }) => {
   );
 };
 
-export const ScenarioCard = ({ emoji, title, probability, headline, children, isActive, onClick }) => (
+export const ScenarioCard = ({ emoji, title, probability, horizon, headline, children, isActive, onClick }) => (
   <div
     onClick={onClick}
     className={`cursor-pointer p-5 rounded-xl border transition-all duration-300 relative overflow-hidden ${isActive
@@ -146,6 +146,13 @@ export const ScenarioCard = ({ emoji, title, probability, headline, children, is
         {probability}
       </span>
     </div>
+    {horizon && (
+      <div className="mb-2">
+        <span className={`text-[10px] font-mono px-2 py-0.5 rounded-md ${isActive ? 'bg-amber-500/20 text-amber-300' : 'bg-slate-700/50 text-slate-500'}`}>
+          ⏱ {horizon}
+        </span>
+      </div>
+    )}
     <div className="text-sm text-slate-400 leading-relaxed mb-2">{children}</div>
     {headline && <p className="text-xs text-indigo-400 font-medium italic mt-3">→ {headline}</p>}
     {isActive && <div className="absolute bottom-0 left-0 h-1 bg-indigo-500 w-full animate-pulse" />}
