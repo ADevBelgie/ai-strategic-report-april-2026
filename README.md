@@ -61,7 +61,7 @@ Tracks what AI services actually deliver — base model, RAG pipeline, or agent 
 | Reasoning | 58% | 75% | 90% |
 | Execution | 46% | 65% | 82% |
 | Memory | 47% | 95% | 96% |
-| Self-Awareness | 62% | 78% | 88% |
+| Confidence Calibration | 62% | 78% | 88% |
 | Coherence | 45% | 75% | 90% |
 | Reliability | 35% | 88% | 94% |
 
@@ -86,7 +86,7 @@ Tracks what AI services actually deliver — base model, RAG pipeline, or agent 
 - **Synthetic Data Verification** — DeepSeek-R1 trained for $294K
 - **Multimodal / Document AI** — Enterprise workflows broadly unlocked
 - **Memory as Infrastructure** — MCP adopted by OpenAI, Google, Microsoft; Claude Sonnet 4.5 achieves 74.6% on GAIA via HAL framework vs 44.8% base model
-- **Open-Source Parity** — 434 open-source vs 217 closed-source API models
+- **Open-Source Parity & The Action Moat** — The Data Moat is dead; competitive advantage has shifted to "Action Moats" (integrations, tools, and MCP ecosystems). 434 open-source vs 217 closed-source API models.
 
 ---
 
