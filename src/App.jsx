@@ -89,7 +89,7 @@ const App = () => {
           <SWEBenchChart />
 
           <CalloutBox type="amber" title="The gap that matters most isn't Verified vs. Pro. It's SEAL vs. custom.">
-            Three different agent systems running the same base model (Claude Opus 4.5) scored between 50.2% and 55.4% on SWE-bench Pro. The SEAL standardised score for that same model is 45.9%. The 5–10 point spread comes entirely from how the agent retrieves context and manages its tool calls — not from the model. This means investing in agent architecture yields higher returns right now than switching to a marginally better base model. It's an engineering problem, not a capability problem.
+            Three different agent systems running the same base model (Claude Opus 4.5) scored between 50.2% and 55.4% on SWE-bench Pro. (Source: morphllm.com/swe-bench-pro; Augment Code benchmark blog, Feb 2026) The SEAL standardised score for that same model is 45.9%. The 5–10 point spread comes entirely from how the agent retrieves context and manages its tool calls — not from the model. This means investing in agent architecture yields higher returns right now than switching to a marginally better base model. It's an engineering problem, not a capability problem.
           </CalloutBox>
 
           <CalloutBox type="insight" title="Benchmarks Are Being Replaced Faster Than Ever — That's a Good Sign">
@@ -134,6 +134,8 @@ const App = () => {
             Not all benchmarks are created equal. Not all scores mean what they appear to mean. Here is the current map.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 stagger-children">
+            <BenchmarkCard status="active" name="Terminal-Bench 2.0" score="78.4%" model="Gemini 3.1 Pro + Forge Code agent"
+              description="89 realistic terminal tasks — software engineering, security, data science, system administration. Tests whole-system agent performance in real shell environments. Top 5 entries within 3.7pp. Scaffolding contributes 2–6 points over model alone." source="tbench.ai" />
             <BenchmarkCard status="active" name="SWE-bench Pro" score="45.9%" model="Claude Opus 4.5 (SEAL-standardised)"
               description="The honest measure of coding autonomy. Evaluated on private codebases, controlled scaffold." source="Scale AI SEAL Leaderboard" />
             <BenchmarkCard status="ceiling" name="ARC-AGI-2" score="77.1%" model="Gemini 3.1 Pro (official, semi-private)"
@@ -142,8 +144,8 @@ const App = () => {
               description="LLMs score below 1%. Humans score 100%. Best result (12.58%) used CNN + RL, not a language model." source="ARC Prize, March 2026" />
             <BenchmarkCard status="contaminated" name="SWE-bench Verified" score="80.9%" model="Contamination confirmed by OpenAI audit"
               description="Every frontier model showed training data overlap. OpenAI has stopped reporting this score." source="OpenAI internal audit, 2026" />
-            <BenchmarkCard status="active" name="GAIA L3" model="Long-horizon planning. Multi-step general assistant tasks. Unsaturated."
-              description="Still the cleanest measure of real-world planning capability. No clean April 2026 figure — still moving." />
+            <BenchmarkCard status="active" name="GAIA (All Levels)" score="74.6%" model="Claude Sonnet 4.5 + HAL framework, Feb 2026"
+              description="The 30-point gap between base model (44.8%, Mar 2026) and agent system on the same benchmark is the clearest demonstration of the engineering opportunity." source="awesomeagents.ai (Feb 2026); hal.cs.princeton.edu" />
             <BenchmarkCard status="retired" name="MMLU / GPQA / HumanEval"
               description="Saturated. No meaningful signal remaining. A 27-character answer-length heuristic achieves 93%+ on HaluEval without reading the question." />
           </div>
@@ -174,9 +176,10 @@ const App = () => {
 
             <DimensionDetailCard title="Execution" subtitle="From patch generation to end-to-end completion">
               <p>Execution measures whether an AI agent can complete real software engineering work end-to-end — not just generate a patch, but explore an environment, run commands, recover from errors, and finish the job.</p>
-              <p>Two benchmarks now capture this at the system level. On SWE-bench Pro (contamination-resistant, multi-language): the best agent systems reach 57% with custom scaffolding; SEAL-standardised (fair comparison) sits at 45.9%. On Terminal-Bench 2.0, which tests 89 realistic terminal tasks across software engineering, security, and data science: Gemini 3.1 Pro leads at 78.4%, GPT-5.3-Codex at 77.3%, Claude Opus 4.6 at 74.7%.</p>
-              <p>The 65% 'Best System Today' figure is a task-weighted blend across both. The dominant failure mode on SWE-bench Pro is context overflow (35.6% of top-model failures) — the exact problem RL-trained search agents like WarpGrep directly address. That's why the 2027 trajectory is aggressive: the bottleneck is addressable and being addressed now.</p>
-              <p className="text-xs text-slate-500 mt-2">Typical: 46 | Best System Today: 65 | 2027: 82 · Sources: Scale AI SEAL; tbench.ai Terminal-Bench 2.0; morphllm.com</p>
+              <p>Two benchmarks now capture this at the system level. On SWE-bench Pro (contamination-resistant, multi-language): the best agent systems reach 57% with custom scaffolding; SEAL-standardised (fair comparison) sits at 45.9%.</p>
+              <p>Terminal-Bench 2.0 measures the same capability from a different angle: 89 real terminal tasks across software engineering, security, and data science, each running in a Docker container with automated verification. There's no patch generation here — the agent must explore an unknown environment, run commands, and recover from errors autonomously. Top agent systems reach 78.4% (Gemini 3.1 Pro + Forge Code) and 74.7% (Claude Opus 4.6 + Terminus-KIRA). The same scaffolding-matters finding holds: the same model scores 2–6 points differently depending purely on agent architecture. The 65% 'Best System Today' figure for Execution blends both benchmarks across real software task types.</p>
+              <p>The dominant failure mode on SWE-bench Pro is context overflow (35.6% of top-model failures) — the exact problem RL-trained search agents like WarpGrep directly address. That's why the 2027 trajectory is aggressive: the bottleneck is addressable and being addressed now.</p>
+              <p className="text-xs text-slate-500 mt-2">Typical: 46 | Best System Today: 65 | 2027: 82 · Sources: Scale AI SEAL; tbench.ai leaderboard (Mar 2026); morphllm.com/terminal-bench-2</p>
             </DimensionDetailCard>
 
             <DimensionDetailCard title="Memory" subtitle="The fastest-moving dimension — and the most underrated">
@@ -360,7 +363,7 @@ const App = () => {
               { icon: Zap, color: 'text-amber-400', title: 'Inference Cost Collapse', desc: 'Inference costs have fallen ~280× between November 2022 and October 2024 (Stanford AI Index). The cost of running 5 verification passes today equals the cost of 1 pass 18 months ago. Two-thirds of all AI compute is now inference, up from one-third in 2023.' },
               { icon: RotateCcw, color: 'text-emerald-400', title: 'Synthetic Data Verification', desc: 'The data wall is permeable. Models that verify their own outputs — the DeepSeek-R1 / ARC refinement loop pattern — generate synthetic training signal without human annotation. DeepSeek-R1 trained for $294K using RL on synthetic data — frontier capability at <5% of proprietary cost.' },
               { icon: Layers, color: 'text-indigo-400', title: 'Multimodal / Document AI', desc: 'Enterprise document workflows broadly unlocked. Multimodal parsing effectively solved for standard formats. Entire categories of knowledge-worker tasks are economically automatable today — the barrier is implementation, not capability.' },
-              { icon: Database, color: 'text-blue-400', title: 'Memory as Infrastructure', desc: 'Graph memory in AI agents moved from experimental to production in early 2026. The Model Context Protocol (MCP), adopted by OpenAI, Google, Microsoft, and donated to the Linux Foundation in January 2026, is becoming the USB-C of AI agent integration — one protocol, works everywhere.' },
+              { icon: Database, color: 'text-blue-400', title: 'Memory as Infrastructure', desc: 'Graph memory in AI agents moved from experimental to production in early 2026. The Model Context Protocol (MCP), adopted by OpenAI, Google, Microsoft, and donated to the Linux Foundation in January 2026, is becoming the USB-C of AI agent integration — one protocol, works everywhere. The practical effect: Claude Sonnet 4.5 achieves 74.6% on GAIA overall inside the HAL framework, versus 44.8% for the same benchmark run with minimal tooling. Memory architecture is now the gap between typical and best deployment — not model capability.' },
               { icon: Globe, color: 'text-rose-400', title: 'Open-Source Parity', desc: 'NEW — not in V1. MiniMax M2.5: 80.2% SWE-bench Verified (#4 globally). 434 open-source vs 217 closed-source API models (Dec 2025). DeepSeek-V3 at $0.27/M tokens. Self-hosted RAG pipelines with open models are now cost-competitive with proprietary APIs.' },
             ].map((card, i) => (
               <div key={i} className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-5 hover:border-slate-600/50 transition-colors">
@@ -384,17 +387,17 @@ const App = () => {
             Three scenarios for how AI deployment evolves from here. These aren't predictions — they're structured possibilities, each grounded in current data and trajectories. The base case is what the evidence currently points to; the other two map what happens if key assumptions break.
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            <ScenarioCard emoji="🐢" title="Conservative" probability="~25%" horizon="EOY 2027" headline="Progress slows. The engineering gap becomes a permanent moat."
+            <ScenarioCard emoji="🐢" title="Conservative" probability="~25%" horizon="EOY 2027" headline="Progress slows. The gap between typical and best systems widens rather than narrows."
               isActive={active2027Scenario === 'conservative'} onClick={() => setActive2027Scenario('conservative')}>
-              Coding autonomy stalls below 45% on clean benchmarks. Reasoning improvements plateau. Reliability engineering remains hard and expensive. Junior hiring stabilises around 7%. Regulatory friction creates real barriers to agentic deployment.
+              SWE-bench Pro stalls below 60%. ARC-AGI-3 proves harder than ARC-AGI-2's trajectory implies — interactive environments require architectural innovation, not just more compute. Reliability engineering slower to commoditise than projected. Junior hiring stabilises at 7% share. The engineering gap becomes a permanent moat rather than a temporary transition.
             </ScenarioCard>
-            <ScenarioCard emoji="📈" title="Base Case" probability="~55%" horizon="Q2 2027" headline="System engineering becomes the primary competitive differentiator."
+            <ScenarioCard emoji="📈" title="Base Case" probability="~55%" horizon="Q2 2027" headline="System engineering becomes the primary competitive differentiator in AI deployment."
               isActive={active2027Scenario === 'base'} onClick={() => setActive2027Scenario('base')}>
-              Coding autonomy reaches 55–70% on clean benchmarks. Inference costs fall another 40–60%, making verification loops cheap enough for everyone. Junior share of hiring falls to 3–5%. RAG becomes the default pattern. The gap between organisations that engineer AI systems well and those that don't becomes the defining competitive divide.
+              SWE-bench Pro reaches 60–70% with best agent systems. ARC-AGI-3 approaches 30–50% by Q1 2027 via RL/CNN approaches. Memory and coherence become table-stakes enterprise features as MCP and framework RAG mature. Junior share falls to 3–5%. System engineering becomes the primary competitive differentiator. Parametric factuality hits 75–80% for top models.
             </ScenarioCard>
-            <ScenarioCard emoji="🚀" title="Accelerated" probability="~20%" horizon="EOY 2026" headline="Reliability converges ahead of schedule. Regulated sectors unlock at scale."
+            <ScenarioCard emoji="🚀" title="Accelerated" probability="~20%" horizon="EOY 2026 → 2027" headline="Reliability convergence ahead of schedule. Regulated sectors unlock at scale."
               isActive={active2027Scenario === 'accelerated'} onClick={() => setActive2027Scenario('accelerated')}>
-              Coding autonomy exceeds 70%. Self-correcting architectures make hallucination largely irrelevant for structured tasks. Open-source models reach full parity with proprietary ones, driving prices to near-zero. Junior developer roles largely automated in tech-native organisations.
+              SWE-bench Pro exceeds 70% by Q3 2026. ARC-AGI-3 cracks 50%+ by EOY 2026. Architectural reliability solutions (AARF-class) ship in production APIs. Junior developer roles largely automated in tech-native firms. CS enrolment collapse triggers policy response. Inference cost-per-task falls below $0.10 at frontier quality.
             </ScenarioCard>
           </div>
         </Section>
