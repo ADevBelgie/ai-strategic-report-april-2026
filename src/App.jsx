@@ -541,7 +541,7 @@ const App = () => {
         </div>
 
         <footer className="py-8 text-center text-slate-600 text-xs">
-          <p>AI Strategic Report V2 · April 4, 2026 · Arthur Devresse</p>
+          <p>AI Strategic Report V2 · April 4, 2026 · By Arthur Devresse & Claude Sonnet 4.6 & Gemini 3.1 Pro</p>
         </footer>
 
       </main>
