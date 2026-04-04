@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import {
   Section, StatCard, CalloutBox, SplitStatDisplay, BenchmarkCard,
-  DimensionDetailCard, ScenarioCard, TabComponent
+  DimensionDetailCard, ScenarioCard, TabComponent, SpeculativeSection, HorizonWatch
 } from './components/shared';
 import RadarChart from './components/RadarChart';
 import { SWEBenchChart } from './components/SWEBenchChart';
@@ -405,7 +405,10 @@ const App = () => {
         {/* ═══════════════════════════════════════════════════════════ */}
         {/* SECTION 8 — IMPLICATIONS BY ACTOR                         */}
         {/* ═══════════════════════════════════════════════════════════ */}
-        <Section title="What This Means for You" icon={Users} isOpenDefault={true} id="s8">
+        <Section title="8 · What This Means for You" icon={Users} isOpenDefault={true} id="s8">
+          <p className="text-sm text-slate-400 mb-6 leading-relaxed italic">
+            The actor-specific actions below apply under the Base Case scenario. The final section of this report looks further out — at the structural shift that sits beyond the scenarios.
+          </p>
           <TabComponent tabs={[
             {
               label: 'Enterprise',
@@ -473,6 +476,91 @@ const App = () => {
             },
           ]} />
         </Section>
+
+        {/* ═══════════════════════════════════════════════════════════ */}
+        {/* SECTION 9 — THE EPISTEMIC FLOOD                           */}
+        {/* ═══════════════════════════════════════════════════════════ */}
+        <SpeculativeSection title="9 · The Epistemic Flood" tag="Speculative Analysis" id="s9">
+          <p className="text-xl text-slate-200 font-light leading-relaxed mb-8 max-w-4xl">
+            The industry has largely misunderstood the end-state of the inference cost collapse. The popular "Dead Internet" framing assumed a future choked by low-quality synthetic spam. The data from 2025–2026 points toward something structurally different: a web saturated by <strong className="text-white">high-quality</strong>, hyper-abundant synthetic intelligence.
+          </p>
+          <p className="text-xl text-slate-200 font-light leading-relaxed mb-8 max-w-4xl">
+            When the cost of a multi-pass RAG verification loop drops to near-zero and tools like MCP standardise agentic memory, the bottleneck in human progress is no longer production. It is consumption and verification.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+            <div>
+              <span className="text-[10px] font-bold tracking-[0.2em] text-indigo-400 uppercase mb-4 block">Already Visible</span>
+              <h3 className="text-xl font-bold text-white mb-4">What the leading edge looks like</h3>
+              <div className="space-y-4 text-slate-400 leading-relaxed">
+                <p>Scientific journals are receiving AI-assisted research at volumes that have prompted formal policy responses from Nature, Science, and IEEE — not because the papers are obviously bad, but because peer review infrastructure was built for human-scale throughput.</p>
+                <p>Legal workflows are beginning to encounter AI-generated filings and arguments at a pace that outstrips case preparation timelines designed for human researchers.</p>
+                <p>Enterprise knowledge workers increasingly find themselves in an auditing role rather than a production role. The output rate of well-engineered AI systems is now structurally mismatched with the processing rate of human institutions built to review them.</p>
+                <p className="text-indigo-400 font-medium italic">The bottleneck has moved. It moved quietly, and most organisations have not yet noticed.</p>
+              </div>
+            </div>
+
+            <div>
+              <span className="text-[10px] font-bold tracking-[0.2em] text-rose-400 uppercase mb-4 block">The Longer Horizon</span>
+              <h3 className="text-xl font-bold text-white mb-4">Where the trajectory leads</h3>
+              <div className="space-y-4 text-slate-400 leading-relaxed">
+                <p>The longer-horizon implication — and this is speculative, not forecast — is that the ultimate resolution to the Barbell Economy may not be humans orchestrating AI. It may be the emergence of agent-to-agent verification layers: systems that generate, review, and challenge output before it reaches human attention at all.</p>
+                <p>MCP provides a technical substrate for exactly this kind of chained agent interaction. It is already doing so at small scale.</p>
+                <p>The human role at the top of the barbell then shifts. Not to read the output. To set the parameters — and to decide which outputs ever reach a human at all.</p>
+              </div>
+            </div>
+          </div>
+
+          <HorizonWatch 
+            title="HORIZON WATCH — Signals to Track"
+            subtitle="Rather than a probability timeline, these are the empirical signals that indicate whether this trajectory is accelerating, stalling, or reversing."
+            columns={[
+              {
+                label: "↑ Accelerating",
+                color: "green",
+                items: [
+                  "Journal submission policies shift from volume caps to mandatory AI disclosure requirements",
+                  "First major appellate ruling on legal weight of AI-generated evidence or filings",
+                  "MCP adoption crosses majority of frontier model providers (already true, Q1 2026)",
+                  "First enterprise publicly announces an agent-to-agent review layer in a regulated workflow"
+                ]
+              },
+              {
+                label: "→ Stalling",
+                color: "amber",
+                items: [
+                  "Hallucination rates in agent-to-agent chains prove harder to control than single-model grounded tasks",
+                  "Regulatory intervention mandates human sign-off on AI-generated scientific or legal output",
+                  "Context coherence failures in multi-agent pipelines emerge as the dominant bottleneck",
+                  "MCP fragmentation — competing standards slow interoperability"
+                ]
+              },
+              {
+                label: "↓ Reversing",
+                color: "red",
+                items: [
+                  "Evidence that human verification is faster or more accurate than agent verification at meaningful scale",
+                  "Open-source AI-content detection achieves reliable detection rates across domains",
+                  "Major institutional failures attributed directly to agent-to-agent output cause regulatory retrenchment"
+                ]
+              }
+            ]}
+          />
+
+          <div className="mt-20 mb-12 text-center max-w-2xl mx-auto space-y-4">
+            <p className="text-lg text-slate-300 italic leading-relaxed">
+              This section does not carry probability estimates. The mechanisms described are emergent; the timeline and scale are genuinely uncertain. The signals above are what to watch — not what to predict.
+            </p>
+            <p className="text-lg text-slate-300 italic leading-relaxed">
+              The rest of this report is grounded in data. This section is grounded in the direction the data is pointing.
+            </p>
+          </div>
+
+          <div className="pt-8 border-t border-slate-800 text-[10px] text-slate-500 font-mono space-y-1">
+            <p>Related reading: Nature editorial policies on AI-assisted submissions (2025); IEEE guidelines on generative AI disclosure;</p>
+            <p>Linux Foundation MCP specification (Jan 2026); Sphere Inc. "The Year of Context / The Year of Coherence" enterprise analysis (2025–2026).</p>
+          </div>
+        </SpeculativeSection>
 
         {/* ═══════════════════════════════════════════════════════════ */}
         {/* FOOTER — METHODOLOGY & SOURCES                            */}

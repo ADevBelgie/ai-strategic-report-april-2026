@@ -179,3 +179,61 @@ export const TabComponent = ({ tabs }) => {
     </div>
   );
 };
+
+export const SpeculativeSection = ({ title, tag, children, id }) => {
+  return (
+    <div id={id} className="mb-12 glass-card rounded-xl overflow-hidden border-indigo-500/20 shadow-2xl">
+      <div className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 bg-slate-800/40 border-b border-slate-700/50">
+        <div className="flex items-center gap-4">
+          <h2 className="text-2xl font-black text-white tracking-[0.2em] uppercase">{title}</h2>
+          <span className="text-[10px] font-bold tracking-[0.2em] px-2 py-1 bg-slate-800 text-slate-400 border border-slate-700 rounded uppercase">
+            {tag}
+          </span>
+        </div>
+      </div>
+      <div className="p-8 section-content">
+        {children}
+      </div>
+    </div>
+  );
+};
+
+export const HorizonWatch = ({ title, subtitle, columns }) => {
+  const borderColors = {
+    green: 'border-emerald-500',
+    amber: 'border-amber-500',
+    red: 'border-rose-500'
+  };
+
+  const textColors = {
+    green: 'text-emerald-400',
+    amber: 'text-amber-400',
+    red: 'text-rose-400'
+  };
+
+  return (
+    <div className="bg-slate-950/80 border border-slate-800 rounded-2xl overflow-hidden mt-12 mb-8 shadow-inner">
+      <div className="p-6 border-b border-slate-800/50">
+        <h4 className="text-white font-bold tracking-tight uppercase text-sm mb-1">{title}</h4>
+        <p className="text-xs text-slate-500 italic">{subtitle}</p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-800/50">
+        {columns.map((col, i) => (
+          <div key={i} className={`p-6 border-l-4 ${borderColors[col.color] || 'border-slate-500'}`}>
+            <h5 className={`text-[10px] font-black tracking-widest mb-4 uppercase ${textColors[col.color] || 'text-slate-400'}`}>
+              {col.label}
+            </h5>
+            <ul className="space-y-3">
+              {col.items.map((item, j) => (
+                <li key={j} className="text-sm text-slate-400 flex gap-2 leading-relaxed">
+                  <span className="text-slate-700 mt-1">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
