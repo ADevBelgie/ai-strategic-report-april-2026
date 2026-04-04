@@ -16,22 +16,22 @@ const RadarChart = () => {
 
   const data = {
     standard: {
-      label: 'Standard Deployment',
+      label: 'Typical Deployment',
       color: '#6366f1',
       values: { reasoning: 58, execution: 46, memory: 47, selfawareness: 62, coherence: 45, reliability: 35 },
-      desc: 'What most organisations are actually running today — the 95% that MIT\'s GenAI Divide found seeing no measurable P&L impact. Raw model calls, minimal engineering, no memory infrastructure.'
+      desc: 'What most organisations are actually running today — the 95% that MIT\'s GenAI Divide found seeing no measurable P&L impact. Raw API calls, no memory infrastructure, no verification loops. Base model performance on most benchmarks.'
     },
     engineered: {
-      label: 'Well-Engineered Deployment',
+      label: 'Best System Today',
       color: '#34d399',
-      values: { reasoning: 81, execution: 57, memory: 89, selfawareness: 77, coherence: 90, reliability: 82 },
-      desc: 'What the top 5% achieve today through deliberate systems design — RAG, verification loops, memory infrastructure. The gap between inner and outer polygon = engineering opportunity.'
+      values: { reasoning: 75, execution: 65, memory: 95, selfawareness: 78, coherence: 75, reliability: 88 },
+      desc: 'What the best-engineered agent systems achieve today with full tool access, retrieval architecture, and memory infrastructure. This is the whole-system score — model plus scaffold plus engineering — not a base model number. The gap between the inner and outer polygon is the engineering opportunity that narrows as inference costs fall.'
     },
     projection: {
       label: '2027 Base Case',
       color: '#f59e0b',
-      values: { reasoning: 85, execution: 68, memory: 95, selfawareness: 85, coherence: 95, reliability: 92 },
-      desc: 'Base case projection for EOY 2027 (~55% probability). Speculative. Memory and coherence become table-stakes features. System-level reliability crosses acceptable thresholds for structured enterprise tasks.'
+      values: { reasoning: 90, execution: 82, memory: 96, selfawareness: 88, coherence: 90, reliability: 94 },
+      desc: 'Where Typical Deployment lands by mid-to-late 2027 (~55% probability). Speculative. Execution crosses 80% on contamination-resistant benchmarks. Memory and coherence become table-stakes features as MCP and framework RAG mature. Reliability convergence arrives for grounded enterprise tasks. Reasoning advances on ARC-AGI-3 via RL approaches — while ARC-AGI-4 is probably already launched.'
     }
   };
 
@@ -52,7 +52,7 @@ const RadarChart = () => {
   };
 
   const views = {
-    standard: { polygons: ['standard'], label: 'Standard Deployment' },
+    standard: { polygons: ['standard'], label: 'Typical Deployment' },
     apr2026: { polygons: ['standard', 'engineered'], label: 'April 2026 (Two Realities)' },
     projection: { polygons: ['projection'], label: '2027 Base Case' },
   };
@@ -76,7 +76,7 @@ const RadarChart = () => {
           {/* Toggle buttons */}
           <div className="flex gap-1 bg-slate-800/80 p-1 rounded-xl border border-slate-700/50 mb-6">
             {[
-              { key: 'standard', label: 'Standard' },
+              { key: 'standard', label: 'Typical' },
               { key: 'apr2026', label: 'Apr 2026 Gap' },
               { key: 'projection', label: '2027 Base Case' },
             ].map(v => (
@@ -97,10 +97,10 @@ const RadarChart = () => {
           {viewMode === 'apr2026' && (
             <div className="flex gap-6 mt-4 text-xs">
               <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-indigo-500" /> <span className="text-slate-400">Standard Deployment</span>
+                <div className="w-3 h-3 rounded-full bg-indigo-500" /> <span className="text-slate-400">Typical Deployment</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-emerald-400" /> <span className="text-slate-400">Well-Engineered</span>
+                <div className="w-3 h-3 rounded-full bg-emerald-400" /> <span className="text-slate-400">Best System Today</span>
               </div>
             </div>
           )}

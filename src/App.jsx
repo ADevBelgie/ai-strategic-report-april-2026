@@ -172,6 +172,13 @@ const App = () => {
           <div className="mt-8 space-y-3">
             <h4 className="text-xs uppercase tracking-widest text-slate-500 font-bold mb-4">Dimension Deep Dives</h4>
 
+            <DimensionDetailCard title="Execution" subtitle="From patch generation to end-to-end completion">
+              <p>Execution measures whether an AI agent can complete real software engineering work end-to-end — not just generate a patch, but explore an environment, run commands, recover from errors, and finish the job.</p>
+              <p>Two benchmarks now capture this at the system level. On SWE-bench Pro (contamination-resistant, multi-language): the best agent systems reach 57% with custom scaffolding; SEAL-standardised (fair comparison) sits at 45.9%. On Terminal-Bench 2.0, which tests 89 realistic terminal tasks across software engineering, security, and data science: Gemini 3.1 Pro leads at 78.4%, GPT-5.3-Codex at 77.3%, Claude Opus 4.6 at 74.7%.</p>
+              <p>The 65% 'Best System Today' figure is a task-weighted blend across both. The dominant failure mode on SWE-bench Pro is context overflow (35.6% of top-model failures) — the exact problem RL-trained search agents like WarpGrep directly address. That's why the 2027 trajectory is aggressive: the bottleneck is addressable and being addressed now.</p>
+              <p className="text-xs text-slate-500 mt-2">Typical: 46 | Best System Today: 65 | 2027: 82 · Sources: Scale AI SEAL; tbench.ai Terminal-Bench 2.0; morphllm.com</p>
+            </DimensionDetailCard>
+
             <DimensionDetailCard title="Memory" subtitle="The fastest-moving dimension — and the most underrated">
               <p>Six months ago, memory was effectively zero for most AI services. Every session started fresh. The MIT GenAI Divide report identifies this as the #1 root cause of AI deployment failure: "systems do not retain feedback, adapt to context, or improve over time."</p>
               <p>By December 2025, Vectorize Hindsight crossed 91.4% on LongMemEval. By February 2026, Mastra's Observational Memory reports 95%+. On LOCOMO, Mem0 achieves 66.9% — 26% above OpenAI's native memory.</p>
@@ -187,10 +194,11 @@ const App = () => {
             </DimensionDetailCard>
 
             <DimensionDetailCard title="Coherence" subtitle="Maintaining the thread across a long task">
-              <p>Coherence asks whether an AI sustains consistent, non-contradictory reasoning across a long agentic task — not just whether it can recall facts. Models advertise 1M tokens; effective recall collapses in the middle.</p>
-              <p>GAM (Global Agent Memory architecture) exceeded 90% accuracy on RULER (long-range state tracking) where standard RAG collapsed. The "lost in the middle" phenomenon means a model claiming 200k usable tokens typically degrades around 130k.</p>
-              <p>The failure mode of 2025 — 95% of GenAI deployments seeing no measurable ROI — is substantially a coherence problem: models that worked for isolated queries became incoherent across multi-step workflows.</p>
-              <p className="text-xs text-slate-500 mt-2">Standard: 45 | Well-Engineered: 90 | 2027: 95 · Sources: RULER (NVIDIA); GAM research (VentureBeat); MIT GenAI Divide</p>
+              <p>Coherence asks whether an AI sustains consistent, non-contradictory reasoning across a long agentic task — not just whether it can recall facts.</p>
+              <p>The clearest whole-system measure: Claude Sonnet 4.5 achieves 74.6% overall on GAIA inside the HAL Generalist Agent framework  — the benchmark designed to test whether AI systems can handle the kind of messy, multi-step tasks that humans do every day. The gap to the 44.8% base-model score on the same benchmark is the coherence engineering dividend.</p>
+              <p>At the architecture level, GAM (Global Agent Memory) exceeded 90% on RULER, the long-range state tracking benchmark, where standard RAG collapsed. But RULER is a research architecture; GAIA is the practical production measure.</p>
+              <p>The 'lost in the middle' phenomenon remains real: a model claiming 200k usable tokens typically degrades around 130k, with middle-positioned content dropping to 76–82% accuracy versus 85–95% at the edges. The 2027 trajectory points toward 90% as MCP standardises tool integration and long-context handling matures.</p>
+              <p className="text-xs text-slate-500 mt-2">Typical: 45 | Best System Today: 75 | 2027: 90 · Sources: awesomeagents.ai GAIA; RULER/GAM; MIT GenAI Divide</p>
             </DimensionDetailCard>
 
             <DimensionDetailCard title="Reliability" subtitle="Can you trust the output?">
@@ -483,14 +491,24 @@ const App = () => {
             </a>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-900/50 p-6 rounded-xl border border-slate-800">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 bg-slate-900/50 p-6 rounded-xl border border-slate-800">
             <div>
-              <h5 className="text-indigo-400 mb-3 font-semibold text-xs uppercase tracking-wider">Benchmarks</h5>
+              <h5 className="text-indigo-400 mb-3 font-semibold text-xs uppercase tracking-wider">Base Benchmarks</h5>
               <ul className="space-y-1.5 text-xs text-slate-500">
                 <li>Scale AI SEAL (labs.scale.com)</li>
                 <li>Epoch AI (epoch.ai/benchmarks)</li>
                 <li>SWE-rebench (swe-rebench.com)</li>
+                <li>SWE-bench Pro (Scale AI SEAL)</li>
                 <li>ARC Prize (arcprize.org)</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="text-sky-400 mb-3 font-semibold text-xs uppercase tracking-wider">Agentic Systems Benchmarks</h5>
+              <ul className="space-y-1.5 text-xs text-slate-500">
+                <li>Terminal-Bench 2.0 (tbench.ai/leaderboard/terminal-bench/2.0)</li>
+                <li>Terminal-Bench Hard (artificialanalysis.ai)</li>
+                <li>GAIA Agentic (awesomeagents.ai)</li>
+                <li>HAL GAIA (hal.cs.princeton.edu/gaia)</li>
               </ul>
             </div>
             <div>
