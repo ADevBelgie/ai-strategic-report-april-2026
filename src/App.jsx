@@ -1,14 +1,522 @@
-function App() {
-  return (
-    <div className="min-h-screen bg-slate-950 text-white">
-      <h1 className="text-4xl font-bold text-center pt-20">
-        AI Strategic Report — April 2026
-      </h1>
-      <p className="text-slate-400 text-center mt-4">
-        Coming soon...
-      </p>
-    </div>
-  )
-}
+import React, { useState } from 'react';
+import './App.css';
+import {
+  Activity, Brain, BarChart3, AlertTriangle, Target, Cpu, Compass, Users,
+  Globe, FileText, Zap, Layers, TrendingUp, BookOpen, Database, Lightbulb,
+  Network, RotateCcw, Map, ArrowRight, Download, ExternalLink, Github
+} from 'lucide-react';
+import {
+  Section, StatCard, CalloutBox, SplitStatDisplay, BenchmarkCard,
+  DimensionDetailCard, ScenarioCard, TabComponent
+} from './components/shared';
+import RadarChart from './components/RadarChart';
 
-export default App
+const App = () => {
+  const [activeEconScenario, setActiveEconScenario] = useState('B');
+  const [active2027Scenario, setActive2027Scenario] = useState('base');
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-200 font-sans">
+
+      {/* ─── STICKY HEADER ─── */}
+      <header className="border-b border-slate-800 bg-slate-900/80 backdrop-blur-xl sticky top-0 z-50">
+        <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <div className="h-9 w-9 bg-indigo-500 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/20">
+              <Activity className="text-white" size={18} />
+            </div>
+            <div>
+              <h1 className="text-lg font-bold text-white tracking-tight">The AI Revolution: 2026 Strategic Brief</h1>
+              <div className="flex flex-col sm:flex-row sm:gap-4 text-[10px] text-slate-400 font-semibold uppercase tracking-widest">
+                <span>April 4, 2026</span>
+                <span className="hidden sm:inline">•</span>
+                <span className="text-indigo-400">By Arthur Devresse</span>
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <button className="p-2 hover:bg-slate-800 rounded-full text-slate-400 hover:text-white transition-colors">
+              <Globe size={20} />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main className="max-w-5xl mx-auto px-6 py-8 space-y-8">
+
+        {/* ═══════════════════════════════════════════════════════════ */}
+        {/* HERO / MASTHEAD                                           */}
+        {/* ═══════════════════════════════════════════════════════════ */}
+        <div className="space-y-6 py-4">
+          <div className="space-y-4 max-w-3xl">
+            <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+              The Bottleneck Has <span className="gradient-text">Moved</span>
+            </h2>
+            <p className="text-xl text-slate-400 font-light leading-relaxed">
+              Capability is no longer what's holding AI back. <strong className="text-slate-200">System engineering</strong> and <strong className="text-slate-200">talent</strong> are — whether you're building, investing, hiring, or deciding what to study next.
+            </p>
+            <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
+              Updated from the November 2025 Strategic Report
+            </p>
+          </div>
+          <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 text-sm text-slate-400 leading-relaxed max-w-4xl">
+            Six months ago this report predicted the transition from emergence to deployment. The benchmarks have moved faster than forecast. The economics have moved faster still. What's changed: the hard problem is no longer whether AI can do the task — it's whether the systems, skills, and structures around it can keep up. This brief updates every major prediction and adds new dimensions the original report didn't have language for yet.
+          </div>
+
+          {/* Hero Stat Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 stagger-children">
+            <StatCard label="SWE-bench Pro (SEAL)" value="45.9%" subtext="Coding Autonomy" trend="up" color="indigo" />
+            <StatCard label="Junior IT Hiring Share" value="7%" subtext="Down from 15% in 2022" trend="down" color="rose" />
+            <StatCard label="ARC-AGI-2" value="77.1%" subtext="Reasoning Frontier" trend="up" color="emerald" />
+          </div>
+        </div>
+
+        {/* ═══════════════════════════════════════════════════════════ */}
+        {/* SECTION 1 — NARRATIVE LEAD                                */}
+        {/* ═══════════════════════════════════════════════════════════ */}
+        <Section title="The Illusion of Progress" icon={Brain} isOpenDefault={true} id="s1">
+          <div className="space-y-4 text-slate-300 leading-relaxed">
+            <p>
+              The headline numbers look extraordinary. Frontier models now resolve over 80% of real software engineering issues on the most-cited benchmark. Reasoning scores have more than doubled since this report launched. By almost any chart you'd find on social media, AI capability is accelerating faster than forecast.
+            </p>
+            <p>
+              Here's what the charts don't show: the most widely cited coding benchmark has been <strong className="text-white">contaminated</strong>. OpenAI's own audit found training data overlap across every frontier model tested — and OpenAI has since stopped reporting scores on it. The benchmark that showed 80%+ scores is no longer a trustworthy signal of coding autonomy. On the harder, contamination-resistant version — <strong className="text-indigo-400">SWE-bench Pro</strong>, evaluated on private codebases models have never seen — top scores sit at <strong className="text-white">45.9%</strong>. That gap between 80% and 45% is the gap between a benchmark and reality. Every major score in AI right now has a version of this gap inside it.
+            </p>
+          </div>
+          <CalloutBox type="amber" title="The Benchmark Half-Life is Shortening">
+            In November 2025, this report predicted an ~8-month benchmark lifespan before saturation. ARC-AGI-2 launched March 2025, approached saturation by February 2026, and ARC-AGI-3 launched March 25, 2026 — 12 months exactly. <strong>MMLU: saturated. GPQA: near-saturated. HumanEval: retired.</strong> The benchmarks that matter today didn't exist 12 months ago.
+          </CalloutBox>
+        </Section>
+
+        {/* ═══════════════════════════════════════════════════════════ */}
+        {/* SECTION 2 — THE RELIABILITY PARADOX                       */}
+        {/* ═══════════════════════════════════════════════════════════ */}
+        <Section title="The More It Thinks, The More It Hallucinates" icon={AlertTriangle} isOpenDefault={true} id="s2">
+          <div className="space-y-4 text-slate-300 leading-relaxed">
+            <p>
+              The models that reason best are, by a measurable margin, the ones most likely to hallucinate on simple factual questions. This is not a coincidence. It is a structural property of how extended reasoning works.
+            </p>
+            <p>
+              Vectara's open hallucination leaderboard (7,700 articles, controlled conditions) found that four non-reasoning models now achieve sub-1% hallucination on grounded summarisation. Every major reasoning model — GPT-5 with thinking, Claude with extended thinking, DeepSeek-R1 — exceeded 10% on the same task. The wronger the model, the longer it thinks, and the more confident it sounds. MIT research formalised this: models are <strong className="text-white">34% more likely</strong> to use high-confidence language — "definitely," "certainly" — when generating incorrect information.
+            </p>
+            <p className="text-indigo-400 font-medium">
+              This is called the Reliability Paradox: the capability curve and the reliability curve are, for now, pulling in opposite directions.
+            </p>
+          </div>
+
+          <SplitStatDisplay
+            left={{ value: "Sub-1%", label: "Non-reasoning models on grounded tasks", source: "Vectara HHEM Leaderboard, Feb 2026" }}
+            right={{ value: "10%+", label: "Reasoning models on the same task", source: "Same benchmark, same conditions" }}
+          />
+
+          <CalloutBox type="blue" title="The Paradox Has a Solution — But Not a Free One">
+            Self-Reflective RAG in clinical settings reduces hallucination from 64% to 5.8%. Multi-agent verification systems bring enterprise rates below 2%. These systems exist. They work. The barrier is architecture, not capability. And as inference costs collapse — down 1,000x in three years — the architecture that was frontier-tier expensive in 2024 costs what a raw API call cost in 2023. <strong>The paradox is temporary. The engineering gap is the real constraint.</strong>
+          </CalloutBox>
+        </Section>
+
+        {/* ═══════════════════════════════════════════════════════════ */}
+        {/* SECTION 3 — BENCHMARKS                                    */}
+        {/* ═══════════════════════════════════════════════════════════ */}
+        <Section title="The Technical Landscape: What's Live, What's Dead" icon={BarChart3} isOpenDefault={true} id="s3">
+          <p className="text-sm text-slate-400 mb-6">
+            Not all benchmarks are created equal. Not all scores mean what they appear to mean. Here is the current map.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 stagger-children">
+            <BenchmarkCard status="active" name="SWE-bench Pro" score="45.9%" model="Claude Opus 4.5 (SEAL-standardised)"
+              description="The honest measure of coding autonomy. Evaluated on private codebases, controlled scaffold." source="Scale AI SEAL Leaderboard" />
+            <BenchmarkCard status="ceiling" name="ARC-AGI-2" score="77.1%" model="Gemini 3.1 Pro (official, semi-private)"
+              description="Reasoning frontier as of Feb 2026. With refinement harnesses: 95%+. ARC-AGI-3 now active." source="ARC Prize Foundation" />
+            <BenchmarkCard status="active" name="ARC-AGI-3" score="<1% Frontier" model="Interactive environments — no instructions"
+              description="LLMs score below 1%. Humans score 100%. Best result (12.58%) used CNN + RL, not a language model." source="ARC Prize, March 2026" />
+            <BenchmarkCard status="contaminated" name="SWE-bench Verified" score="80.9%" model="Contamination confirmed by OpenAI audit"
+              description="Every frontier model showed training data overlap. OpenAI has stopped reporting this score." source="OpenAI internal audit, 2026" />
+            <BenchmarkCard status="active" name="GAIA L3" model="Long-horizon planning. Multi-step general assistant tasks. Unsaturated."
+              description="Still the cleanest measure of real-world planning capability. No clean April 2026 figure — still moving." />
+            <BenchmarkCard status="retired" name="MMLU / GPQA / HumanEval"
+              description="Saturated. No meaningful signal remaining. A 27-character answer-length heuristic achieves 93%+ on HaluEval without reading the question." />
+          </div>
+
+          <CalloutBox type="insight" title="Key Insight">
+            The most important benchmark development of early 2026: <strong>ARC-AGI-3's launch with frontier LLMs at under 1%</strong> is not evidence that AI progress has stalled. It's evidence that the half-life thesis holds — every benchmark measuring crystallised intelligence gets saturated; the field responds by designing a harder one. <em>Predicted: 30–50% scores by end of 2026 via RL-based approaches, not LLMs.</em>
+          </CalloutBox>
+        </Section>
+
+        {/* ═══════════════════════════════════════════════════════════ */}
+        {/* SECTION 4 — CAPABILITY RADAR                              */}
+        {/* ═══════════════════════════════════════════════════════════ */}
+        <Section title="Six Dimensions. Two Realities." icon={Target} isOpenDefault={true} id="s4">
+          <div className="space-y-4 text-slate-300 leading-relaxed mb-6">
+            <p>
+              The original report tracked six capability dimensions. V1's radar measured individual model benchmarks. This one tracks what AI services actually deliver to users — regardless of whether the result comes from a base model, a RAG pipeline, or an agent harness. Six dimensions. Six things that matter to anyone relying on AI output: <strong className="text-white">Reasoning. Execution. Memory. Self-Awareness. Coherence. Reliability.</strong>
+            </p>
+            <p className="text-sm text-slate-400">
+              The radar below shows two polygons deliberately. The inner shape is what a standard deployment delivers today — the 95% that MIT found seeing no measurable ROI. The outer shape is what the top 5% achieve with deliberate systems design. The gap between them is the engineering opportunity.
+            </p>
+          </div>
+
+          <RadarChart />
+
+          {/* Dimension Detail Cards */}
+          <div className="mt-8 space-y-3">
+            <h4 className="text-xs uppercase tracking-widest text-slate-500 font-bold mb-4">Dimension Deep Dives</h4>
+
+            <DimensionDetailCard title="Memory" subtitle="The fastest-moving dimension — and the most underrated">
+              <p>Six months ago, memory was effectively zero for most AI services. Every session started fresh. The MIT GenAI Divide report identifies this as the #1 root cause of AI deployment failure: "systems do not retain feedback, adapt to context, or improve over time."</p>
+              <p>By December 2025, Vectorize Hindsight crossed 91.4% on LongMemEval. By February 2026, Mastra's Observational Memory reports 95%+. On LOCOMO, Mem0 achieves 66.9% — 26% above OpenAI's native memory.</p>
+              <p>The inner/outer track gap on Memory is the widest of any dimension, and it closes faster than any other. This is not incremental improvement — it is a capability that <strong className="text-white">didn't meaningfully exist six months ago</strong> and now has clear architectural solutions.</p>
+              <p className="text-xs text-slate-500 mt-2">Standard: 47 | Well-Engineered: 89 | 2027: 95 · Sources: LongMemEval, LOCOMO, Mem0 Research, Vectorize Hindsight</p>
+            </DimensionDetailCard>
+
+            <DimensionDetailCard title="Self-Awareness" subtitle="Does the AI know what it doesn't know?">
+              <p>Self-awareness (metacognition) is the ability to accurately signal uncertainty. Research distinguishes two components: <strong className="text-white">calibration</strong> (does confidence match accuracy?) and <strong className="text-white">sensitivity</strong> (can the model discriminate its correct answers from incorrect ones?).</p>
+              <p>GPT-4.1 mini achieves an AUC of 0.83 on metacognitive sensitivity — an 83% chance that a correct answer is rated higher-confidence than an incorrect one. Human baseline: ~0.90–0.95. The gap matters: over-reliance on AI (an OWASP top LLM vulnerability) is directly a self-awareness problem.</p>
+              <p>The harder problem: current models are systematically reluctant to express uncertainty. Training objectives reward confident guessing over calibrated abstention — models learn to bluff (Kalai & Nachum, OpenAI, arXiv:2509.04664).</p>
+              <p className="text-xs text-slate-500 mt-2">Standard: 62 | Well-Engineered: 77 | 2027: 85 · Sources: Steyvers et al. 2025 (Nature Machine Intelligence); arXiv:2510.05126</p>
+            </DimensionDetailCard>
+
+            <DimensionDetailCard title="Coherence" subtitle="Maintaining the thread across a long task">
+              <p>Coherence asks whether an AI sustains consistent, non-contradictory reasoning across a long agentic task — not just whether it can recall facts. Models advertise 1M tokens; effective recall collapses in the middle.</p>
+              <p>GAM (Global Agent Memory architecture) exceeded 90% accuracy on RULER (long-range state tracking) where standard RAG collapsed. The "lost in the middle" phenomenon means a model claiming 200k usable tokens typically degrades around 130k.</p>
+              <p>The failure mode of 2025 — 95% of GenAI deployments seeing no measurable ROI — is substantially a coherence problem: models that worked for isolated queries became incoherent across multi-step workflows.</p>
+              <p className="text-xs text-slate-500 mt-2">Standard: 45 | Well-Engineered: 90 | 2027: 95 · Sources: RULER (NVIDIA); GAM research (VentureBeat); MIT GenAI Divide</p>
+            </DimensionDetailCard>
+
+            <DimensionDetailCard title="Reliability" subtitle="Can you trust the output?">
+              <p>Reliability is the dimension where the standard/well-engineered gap is most consequential. Without mitigation: 10%+ hallucination for reasoning models, 64% in medical, 69–88% in legal. With RAG and verification: sub-1% on grounded summarisation, 5.8% in clinical settings.</p>
+              <p>The mechanistic cause is now understood: Knowledge FFNs inside transformers overemphasise parametric memory while Copying Heads fail to integrate retrieved context (ReDeEP, ICLR 2025 Spotlight). This is <strong className="text-white">fixable at the architecture level</strong>.</p>
+              <p>With tools and search: near-perfect on SimpleQA across all frontier models. Without tools: enormous variance (Gemini 3 Pro 72.1% vs GPT-5.2 ~38%). The delta is the systems design signal.</p>
+              <p className="text-xs text-slate-500 mt-2">Standard: 35 | Well-Engineered: 82 | 2027: 92 · Sources: Vectara HHEM; ReDeEP ICLR 2025; SimpleQA Verified</p>
+            </DimensionDetailCard>
+          </div>
+        </Section>
+
+        {/* ═══════════════════════════════════════════════════════════ */}
+        {/* SECTION 5 — ECONOMIC SCENARIOS                            */}
+        {/* ═══════════════════════════════════════════════════════════ */}
+        <Section title="The Barbell Economy: Confirmed. Accelerating. Compounding." icon={TrendingUp} isOpenDefault={true} id="s5">
+          {/* Probability Badges */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <ScenarioCard emoji="🐢" title="The Plateau" probability="<10%" isActive={activeEconScenario === 'A'} onClick={() => setActiveEconScenario('A')}>
+              Inference costs stall. Reliability engineering harder than expected. AI stays a super-tool, not an autonomous agent.
+            </ScenarioCard>
+            <ScenarioCard emoji="📊" title="The Barbell" probability=">85%" isActive={activeEconScenario === 'B'} onClick={() => setActiveEconScenario('B')}>
+              Validated by hard data. Junior roles decimated. Senior Orchestrators in extreme demand. Klarna counter-pattern confirms the correction loop. Confidence revised upward from 60% in V1.
+            </ScenarioCard>
+            <ScenarioCard emoji="⚡" title="Frictionless" probability="<5%" isActive={activeEconScenario === 'C'} onClick={() => setActiveEconScenario('C')}>
+              Self-correction advances faster than expected. Reliability convergence ahead of schedule. Structural unemployment across all tiers.
+            </ScenarioCard>
+          </div>
+
+          {/* Scenario-dependent content */}
+          <div className="mb-8 bg-slate-800/30 border border-slate-700/50 rounded-xl p-5 transition-all">
+            {activeEconScenario === 'A' && (
+              <div className="space-y-3 text-sm text-slate-300 leading-relaxed animate-fade-in">
+                <h5 className="text-amber-400 font-bold text-xs uppercase tracking-wider">If the Plateau holds</h5>
+                <p>AI remains a productivity multiplier — not an autonomous replacement. Hiring patterns stabilise. Junior pipelines survive in most sectors. The gap between AI-native and AI-resistant organisations grows slowly rather than exponentially.</p>
+                <p className="text-slate-500 text-xs">Key signal: inference costs flatten, ARC-AGI-3 remains below 15% by EOY 2026, multiple Klarna-style reversals.</p>
+              </div>
+            )}
+            {activeEconScenario === 'B' && (
+              <div className="space-y-3 text-sm text-slate-300 leading-relaxed animate-fade-in">
+                <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider">The Barbell in practice</h5>
+                <p>Junior share of IT hiring: <strong className="text-white">15% → 7%</strong> in three years. Senior AI-role salaries: <strong className="text-white">+40%</strong>. Entry-level developer postings: <strong className="text-white">–67%</strong> since 2022. Salesforce: zero new engineering hires 2025. Block: workforce cut from 10,000 to under 6,000.</p>
+                <p>Google's DORA 2024 report found roughly <strong className="text-white">2% productivity increase</strong> for every 25% increase in AI adoption — a gap of ~12× between executive expectation and measured engineering outcome.</p>
+                <p className="text-slate-500 text-xs">Confidence: {'>'}85%, revised upward from 60% in V1. Every pillar confirmed by independent data sources.</p>
+              </div>
+            )}
+            {activeEconScenario === 'C' && (
+              <div className="space-y-3 text-sm text-slate-300 leading-relaxed animate-fade-in">
+                <h5 className="text-rose-400 font-bold text-xs uppercase tracking-wider">If Frictionless arrives</h5>
+                <p>Self-correcting agent architectures make hallucination largely irrelevant for structured tasks. Reliability converges with capability. Displacement extends beyond junior roles into mid-level knowledge work.</p>
+                <p>This scenario requires an architectural breakthrough addressing the Knowledge FFN hallucination mechanism — no published result yet demonstrates this at scale.</p>
+                <p className="text-slate-500 text-xs">Key signal: SWE-bench Pro exceeds 70%, ARC-AGI-3 50%+ by EOY 2026, published reliability breakthrough.</p>
+              </div>
+            )}
+          </div>
+
+          {/* Stat Row */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 stagger-children">
+            <StatCard label="US Programmer Employment" value="–27.5%" subtext="2023–2025, BLS" trend="down" color="rose" />
+            <StatCard label="Junior Share of IT Hiring" value="7%" subtext="Down from 15% in 2022" trend="down" color="amber" />
+            <StatCard label="AI Postings in Insurance" value="+74%" subtext="Sector-specific surge" trend="up" color="emerald" />
+          </div>
+
+          {/* Hollow Middle Visualisation */}
+          <div className="bg-slate-900/50 p-6 rounded-xl border border-slate-700 mb-6">
+            <div className="text-center text-xs text-slate-500 mb-4 font-mono uppercase tracking-wider">Polarisation of Labour Demand</div>
+            <div className="flex items-center mb-4 h-36">
+              <div className="h-full flex items-center justify-center w-8">
+                <span className="text-[10px] text-slate-500 font-mono -rotate-90 whitespace-nowrap tracking-widest">REL. DEMAND</span>
+              </div>
+              <div className="flex-1 flex items-end justify-center gap-6 h-full border-l border-b border-slate-700 pl-4 pb-2">
+                <div className="flex-1 max-w-[80px] bg-emerald-500/15 border border-emerald-500/40 h-full flex flex-col justify-end p-3 text-center rounded-t-lg">
+                  <span className="text-xs font-bold text-emerald-400">HIGH</span>
+                  <span className="text-[10px] text-emerald-300/70 mt-1">Senior<br/>Orchestrators</span>
+                </div>
+                <div className="flex-1 max-w-[80px] bg-rose-500/10 border border-rose-500/20 h-[20%] flex flex-col justify-end p-2 text-center rounded-t-lg">
+                  <span className="text-[10px] font-bold text-rose-400">HOLLOWED</span>
+                  <span className="text-[9px] text-rose-300/70 mt-0.5">Junior / Middle</span>
+                </div>
+                <div className="flex-1 max-w-[80px] bg-blue-500/15 border border-blue-500/40 h-[70%] flex flex-col justify-end p-3 text-center rounded-t-lg">
+                  <span className="text-xs font-bold text-blue-400">STABLE</span>
+                  <span className="text-[10px] text-blue-300/70 mt-1">Physical /<br/>Compliance</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Klarna Cycle Callout */}
+          <CalloutBox type="amber" title="The Klarna Cycle — What Overcorrection Looks Like">
+            Klarna stopped all hiring in 2023, slashed headcount from 5,500 to 3,400, and celebrated $10M in savings. By mid-2025 they were scrambling to rehire after customer satisfaction collapsed and engineers were pulled from product work to cover service. This is not evidence AI can't replace roles. <strong>It's the predictable outcome of treating AI as binary replacement rather than productivity layer.</strong> The organisations that maintained junior pipelines through 2024–2026 will have a structural talent advantage by 2028–2030. Harvard research across 62 million workers and 285,000 firms names this pattern: "seniority-biased technological change."
+          </CalloutBox>
+
+          {/* Pipeline Problem */}
+          <CalloutBox type="blue" title="The Pipeline Problem">
+            CS enrolment dropped 8.1% in 2025–2026 — the steepest decline of any field (National Student Clearinghouse). CS specifically fell 11.2%. 62% of computing departments report declining enrolment (CRA CERP, 133 departments). If this persists 3–4 years, the senior engineer shortage lands 2033–2037 — precisely when enterprise AI orchestration demand is projected to peak. The organisations cutting junior hiring today are trading short-term savings for a <strong>compounding strategic liability</strong>.
+          </CalloutBox>
+
+          {/* Sector Split Table */}
+          <div className="mt-6 overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-slate-700">
+                  <th className="text-left py-3 px-4 text-slate-400 font-semibold text-xs uppercase tracking-wider">Sector</th>
+                  <th className="text-left py-3 px-4 text-slate-400 font-semibold text-xs uppercase tracking-wider">Junior Hiring</th>
+                  <th className="text-left py-3 px-4 text-slate-400 font-semibold text-xs uppercase tracking-wider">Senior Demand</th>
+                  <th className="text-left py-3 px-4 text-slate-400 font-semibold text-xs uppercase tracking-wider">Rationale</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-slate-800">
+                  <td className="py-3 px-4 text-white font-medium">Enterprise<br/><span className="text-xs text-slate-500">Finance / Insurance / Healthcare</span></td>
+                  <td className="py-3 px-4 text-emerald-400">Still hiring</td>
+                  <td className="py-3 px-4 text-amber-400">+40% salaries</td>
+                  <td className="py-3 px-4 text-slate-400 text-xs">AI-related postings +74% YoY. Hybrid human+AI roles</td>
+                </tr>
+                <tr className="border-b border-slate-800">
+                  <td className="py-3 px-4 text-white font-medium">Startups / Tech-native</td>
+                  <td className="py-3 px-4 text-rose-400">Effectively zero</td>
+                  <td className="py-3 px-4 text-emerald-400">Extreme demand</td>
+                  <td className="py-3 px-4 text-slate-400 text-xs">54% stopped hiring juniors because of AI (AlterSquare, March 2026)</td>
+                </tr>
+                <tr>
+                  <td className="py-3 px-4 text-white font-medium">Regulated<br/><span className="text-xs text-slate-500">Legal / Healthcare / Finance</span></td>
+                  <td className="py-3 px-4 text-blue-400">Maintaining pipelines</td>
+                  <td className="py-3 px-4 text-amber-400">Growing</td>
+                  <td className="py-3 px-4 text-slate-400 text-xs">Regulatory accountability requires auditable human decision chains at every level</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Section>
+
+        {/* ═══════════════════════════════════════════════════════════ */}
+        {/* SECTION 6 — MECHANISMS & TIMELINE                         */}
+        {/* ═══════════════════════════════════════════════════════════ */}
+        <Section title="How We Get From Here to 2027" icon={Cpu} isOpenDefault={true} id="s6">
+          {/* Vertical Timeline */}
+          <div className="relative border-l-2 border-slate-700 pl-8 space-y-10 mb-10">
+            {[
+              { year: 'Late 2025', status: 'Realised', color: 'bg-emerald-500', desc: 'The Agentic Era. Reasoning tokens standard. Document AI solved. The bottleneck moved from capability to deployment.' },
+              { year: '2026', status: 'Now', color: 'bg-indigo-500', desc: 'The Engineering Year. Framework RAG commoditises. SWE-bench Pro becomes the honest coding measure. ARC-AGI-3 defines the new reasoning frontier. The "Hollow Middle" crystallises in labour data.' },
+              { year: 'EOY 2026', status: 'Projected — Base Case', color: 'bg-amber-500', desc: 'Coding autonomy crosses 70% on contamination-resistant benchmarks. ARC-AGI-3 reaches 30–50% via RL approaches. Memory and context coherence become table-stakes enterprise features. First AI preceptorship programmes announced publicly.' },
+              { year: '2027', status: 'Scenario-Dependent', color: 'bg-rose-500', desc: 'Outcomes diverge based on whether the engineering gap closes, widens, or becomes irrelevant. Conservative: moats harden. Base case: system engineering becomes the differentiator. Accelerated: reliability converges ahead of schedule.' },
+            ].map((node, i) => (
+              <div key={i} className="relative">
+                <div className={`absolute -left-[41px] top-1 h-5 w-5 rounded-full ${node.color} border-4 border-slate-950 shadow-lg`} />
+                <div className="flex items-baseline gap-3 mb-1">
+                  <h4 className="text-white font-bold text-lg">{node.year}</h4>
+                  <span className="text-xs text-slate-500 font-mono uppercase">{node.status}</span>
+                </div>
+                <p className="text-sm text-slate-400 leading-relaxed">{node.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Scaling Law Cards */}
+          <h4 className="text-xs uppercase tracking-widest text-slate-500 font-bold mb-4">The Convergence Mechanisms</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              { icon: Zap, color: 'text-amber-400', title: 'Inference Cost Collapse', desc: 'Inference costs have fallen ~280× between November 2022 and October 2024 (Stanford AI Index). The cost of running 5 verification passes today equals the cost of 1 pass 18 months ago. Two-thirds of all AI compute is now inference, up from one-third in 2023.' },
+              { icon: RotateCcw, color: 'text-emerald-400', title: 'Synthetic Data Verification', desc: 'The data wall is permeable. Models that verify their own outputs — the DeepSeek-R1 / ARC refinement loop pattern — generate synthetic training signal without human annotation. DeepSeek-R1 trained for $294K using RL on synthetic data — frontier capability at <5% of proprietary cost.' },
+              { icon: Layers, color: 'text-indigo-400', title: 'Multimodal / Document AI', desc: 'Enterprise document workflows broadly unlocked. Multimodal parsing effectively solved for standard formats. Entire categories of knowledge-worker tasks are economically automatable today — the barrier is implementation, not capability.' },
+              { icon: Database, color: 'text-blue-400', title: 'Memory as Infrastructure', desc: 'Graph memory in AI agents moved from experimental to production in early 2026. The Model Context Protocol (MCP), adopted by OpenAI, Google, Microsoft, and donated to the Linux Foundation in January 2026, is becoming the USB-C of AI agent integration — one protocol, works everywhere.' },
+              { icon: Globe, color: 'text-rose-400', title: 'Open-Source Parity', desc: 'NEW — not in V1. MiniMax M2.5: 80.2% SWE-bench Verified (#4 globally). 434 open-source vs 217 closed-source API models (Dec 2025). DeepSeek-V3 at $0.27/M tokens. Self-hosted RAG pipelines with open models are now cost-competitive with proprietary APIs.' },
+            ].map((card, i) => (
+              <div key={i} className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-5 hover:border-slate-600/50 transition-colors">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className={`p-2 rounded-lg bg-slate-900/50 ${card.color}`}>
+                    <card.icon size={18} />
+                  </div>
+                  <h5 className="text-white font-bold">{card.title}</h5>
+                </div>
+                <p className="text-sm text-slate-400 leading-relaxed">{card.desc}</p>
+              </div>
+            ))}
+          </div>
+        </Section>
+
+        {/* ═══════════════════════════════════════════════════════════ */}
+        {/* SECTION 7 — 2027 SCENARIOS                                */}
+        {/* ═══════════════════════════════════════════════════════════ */}
+        <Section title="Three Futures. One Methodology." icon={Compass} isOpenDefault={true} id="s7">
+          <p className="text-xs text-slate-500 mb-6 leading-relaxed">
+            <em>Probabilities informed by: ARC-AGI trajectory and half-life pattern; SWE-bench Pro improvement trajectory; inference cost curve (Epoch AI); labour market data (BLS, Stanford, Harvard); reliability research (ICLR 2025, Vectara); ARC Prize Foundation public statements; frontier lab leadership statements; enterprise technology adoption base rates. Each probability carries ±10 percentage point uncertainty.</em>
+          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <ScenarioCard emoji="🐢" title="Conservative" probability="~25%" headline="The engineering gap becomes a permanent moat rather than a temporary transition."
+              isActive={active2027Scenario === 'conservative'} onClick={() => setActive2027Scenario('conservative')}>
+              SWE-bench Pro stays below 45% (SEAL-standardised). ARC-AGI-3 remains under 20%. System-level reliability improves via RAG/agents but parametric reliability shows no structural breakthrough. Junior hiring stabilises at 7%. Klarna-pattern corrections dampen full replacement sentiment. EU AI Act enforcement creates material friction for agentic deployment.
+            </ScenarioCard>
+            <ScenarioCard emoji="📈" title="Base Case" probability="~55%" headline="System engineering becomes the primary competitive differentiator in AI deployment."
+              isActive={active2027Scenario === 'base'} onClick={() => setActive2027Scenario('base')}>
+              SWE-bench Pro reaches 55–70% (SEAL). ARC-AGI-3 sees 30–50% by Q1 2027 via RL/CNN approaches. Inference costs fall 40–60% enabling verification loops at commodity prices. Junior share falls to 3–5%. Enterprise RAG deployment becomes the default pattern. First preceptorship programmes announced. Agentic coding the default in 40–60% of dev workflows.
+            </ScenarioCard>
+            <ScenarioCard emoji="🚀" title="Accelerated" probability="~20%" headline="Reliability convergence arrives ahead of schedule, unlocking regulated sector deployment at scale."
+              isActive={active2027Scenario === 'accelerated'} onClick={() => setActive2027Scenario('accelerated')}>
+              SWE-bench Pro exceeds 70%. ARC-AGI-3 50%+ by EOY 2026 via RL. Self-correcting agent architectures make hallucination largely irrelevant for structured tasks. Open-source frontier parity forces proprietary price collapse. Junior developer roles largely automated in tech-native orgs. Autonomous code deployment standard for defined workflow classes.
+            </ScenarioCard>
+          </div>
+        </Section>
+
+        {/* ═══════════════════════════════════════════════════════════ */}
+        {/* SECTION 8 — IMPLICATIONS BY ACTOR                         */}
+        {/* ═══════════════════════════════════════════════════════════ */}
+        <Section title="What This Means for You" icon={Users} isOpenDefault={true} id="s8">
+          <TabComponent tabs={[
+            {
+              label: 'Enterprise',
+              title: 'Enterprise Leaders',
+              content: (
+                <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
+                  <div>
+                    <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
+                    <p>Your AI deployment ROI problem is not a model problem. It's an architecture problem. 95% of 2025 enterprise GenAI projects saw no measurable ROI (MIT). The organisations getting results are running engineered systems — RAG, verification loops, memory infrastructure — not raw API calls.</p>
+                  </div>
+                  <div>
+                    <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
+                    <p>Audit your existing AI deployments against the Base vs. System-Level gap. Identify which workflows are running raw model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10x in 18 months.</p>
+                  </div>
+                </div>
+              )
+            },
+            {
+              label: 'Investors',
+              title: 'Strategists & Investors',
+              content: (
+                <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
+                  <div>
+                    <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
+                    <p>The benchmark contamination story is the most important thing to understand for competitive positioning. Companies still using SWE-bench Verified scores to evaluate coding capability are making decisions on a compromised signal. SWE-bench Pro is the honest measure.</p>
+                  </div>
+                  <div>
+                    <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
+                    <p>Add metacognition and context coherence to your AI vendor evaluation criteria. A model that knows what it doesn't know is worth more to an enterprise deployment than a model that scores 5% higher on a saturated benchmark.</p>
+                  </div>
+                </div>
+              )
+            },
+            {
+              label: 'Careers',
+              title: 'Tech Professionals & Career Entrants',
+              content: (
+                <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
+                  <div>
+                    <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
+                    <p>The junior role compression is real, structural, and accelerating. The junior share of IT hiring fell from 15% to 7% in three years. But the organisations cutting junior hiring are creating a compounding talent shortage they will pay for in 2028–2030.</p>
+                  </div>
+                  <div>
+                    <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
+                    <p>Position around orchestration, not execution. The AI-native junior of 2026 needs the system-design understanding of a 2020 mid-level engineer. The skills that matter: knowing when to distrust AI output, managing multi-agent workflows, and understanding enough about memory and retrieval architecture to specify what a system should do.</p>
+                  </div>
+                </div>
+              )
+            },
+            {
+              label: 'Education',
+              title: 'Educators & Policymakers',
+              content: (
+                <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
+                  <div>
+                    <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
+                    <p>CS enrolment dropped 8.1% in 2025–2026 — the steepest decline of any field of study (National Student Clearinghouse). 62% of computing departments report declining enrolment. This is the compounding risk nobody is pricing. A generation that doesn't learn to code produces no senior engineers in 2032.</p>
+                  </div>
+                  <div>
+                    <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
+                    <p>The framing for CS education needs to shift from "will AI replace developers" to "what does a developer do when AI writes the code." The answer — system design, verification, orchestration, trust calibration — is harder to teach than syntax, and more valuable.</p>
+                  </div>
+                </div>
+              )
+            },
+          ]} />
+        </Section>
+
+        {/* ═══════════════════════════════════════════════════════════ */}
+        {/* FOOTER — METHODOLOGY & SOURCES                            */}
+        {/* ═══════════════════════════════════════════════════════════ */}
+        <div className="mt-12 pt-8 border-t border-slate-800">
+          <p className="text-sm text-slate-400 leading-relaxed mb-6">
+            This brief synthesises publicly available benchmark data, peer-reviewed research, and labour market statistics current as of April 4, 2026. Full data sources, corrected figures from the November 2025 report, and extended analysis of each section are available in the supporting data document.
+          </p>
+
+          <div className="flex flex-wrap gap-3 mb-8">
+            <a href="#" className="inline-flex items-center gap-2 px-4 py-2.5 bg-indigo-500/10 border border-indigo-500/30 rounded-xl text-sm text-indigo-400 hover:bg-indigo-500/20 transition-colors">
+              <Download size={16} /> Download full V2 data document
+            </a>
+            <a href="#" className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-800 border border-slate-700 rounded-xl text-sm text-slate-300 hover:bg-slate-700 transition-colors">
+              <ExternalLink size={16} /> View V1 original report
+            </a>
+            <a href="#" className="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-800 border border-slate-700 rounded-xl text-sm text-slate-300 hover:bg-slate-700 transition-colors">
+              <Github size={16} /> Source code
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-900/50 p-6 rounded-xl border border-slate-800">
+            <div>
+              <h5 className="text-indigo-400 mb-3 font-semibold text-xs uppercase tracking-wider">Benchmarks</h5>
+              <ul className="space-y-1.5 text-xs text-slate-500">
+                <li>Scale AI SEAL (labs.scale.com)</li>
+                <li>Epoch AI (epoch.ai/benchmarks)</li>
+                <li>SWE-rebench (swe-rebench.com)</li>
+                <li>ARC Prize (arcprize.org)</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="text-emerald-400 mb-3 font-semibold text-xs uppercase tracking-wider">Memory & Metacognition</h5>
+              <ul className="space-y-1.5 text-xs text-slate-500">
+                <li>Mem0 Research (mem0.ai/research)</li>
+                <li>LongMemEval</li>
+                <li>Steyvers et al. 2025 (Nature Machine Intelligence)</li>
+                <li>AA-Omniscience (artificialanalysis.ai)</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="text-amber-400 mb-3 font-semibold text-xs uppercase tracking-wider">Reliability</h5>
+              <ul className="space-y-1.5 text-xs text-slate-500">
+                <li>Vectara HHEM Leaderboard</li>
+                <li>SimpleQA Verified (arxiv.org/abs/2509.07968)</li>
+                <li>ReDeEP ICLR 2025</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="text-rose-400 mb-3 font-semibold text-xs uppercase tracking-wider">Labour Market & Economics</h5>
+              <ul className="space-y-1.5 text-xs text-slate-500">
+                <li>BLS Occupational Employment Statistics</li>
+                <li>Stanford Digital Economy Lab (Brynjolfsson et al.)</li>
+                <li>Harvard Hosseini & Lichtinger</li>
+                <li>Epoch AI Inference Price Trends</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <footer className="py-8 text-center text-slate-600 text-xs">
+          <p>AI Strategic Report V2 · April 4, 2026 · Arthur Devresse</p>
+        </footer>
+
+      </main>
+    </div>
+  );
+};
+
+export default App;
