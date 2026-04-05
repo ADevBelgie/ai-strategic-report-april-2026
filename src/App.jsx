@@ -23,7 +23,7 @@ const App = () => {
 };
 
 const AppContent = () => {
-  const { mode } = useReadingMode();
+  const { mode, setMode } = useReadingMode();
   const [activeEconScenario, setActiveEconScenario] = useState('B');
   const [active2027Scenario, setActive2027Scenario] = useState('base');
   const [isFading, setIsFading] = useState(false);
@@ -92,6 +92,18 @@ const AppContent = () => {
               : "AI can do the work. That's no longer the question. The question is whether the people and systems around it are good enough to keep up — and right now, most aren't. This update covers what's changed in the last six months and what to expect next."
             }
           </div>
+
+          {displayMode === 'expert' && (
+            <div className="flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full w-fit animate-in fade-in slide-in-from-top-4 duration-1000">
+              <span className="text-white">💡 Not deep in the AI industry?</span>
+              <button 
+                onClick={() => setMode('essentials')}
+                className="text-indigo-400 hover:text-indigo-300 underline underline-offset-2 transition-colors cursor-pointer"
+              >
+                Read the Essentials version
+              </button>
+            </div>
+          )}
 
           {/* Hero Stat Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 stagger-children">
