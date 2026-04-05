@@ -224,7 +224,7 @@ export const HorizonWatch = ({ title, subtitle, columns }) => {
               {col.label}
             </h5>
             <ul className="space-y-3">
-              {col.items.map((item, j) => (
+              {col.items?.map((item, j) => (
                 <li key={j} className="text-sm text-slate-400 flex gap-2 leading-relaxed">
                   <span className="text-slate-700 mt-1">•</span>
                   <span>{item}</span>

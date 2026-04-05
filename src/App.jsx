@@ -1,20 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import {
   Activity, Brain, BarChart3, AlertTriangle, Target, Cpu, Compass, Users,
   Globe, FileText, Zap, Layers, TrendingUp, BookOpen, Database, Lightbulb,
   Network, RotateCcw, Map, ArrowRight, Download, ExternalLink, Github
 } from 'lucide-react';
-import {
-  Section, StatCard, CalloutBox, SplitStatDisplay, BenchmarkCard,
+import { Section, StatCard, CalloutBox, SplitStatDisplay, BenchmarkCard,
   DimensionDetailCard, ScenarioCard, TabComponent, SpeculativeSection, HorizonWatch
 } from './components/shared';
 import RadarChart from './components/RadarChart';
 import { SWEBenchChart } from './components/SWEBenchChart';
+import { ReadingModeProvider, useReadingMode } from './context/ReadingModeContext';
+import ReadingModeToggle from './components/ReadingModeToggle';
+import { content, translate } from './content/reportContent';
 
 const App = () => {
+  return (
+    <ReadingModeProvider>
+      <AppContent />
+    </ReadingModeProvider>
+  );
+};
+
+const AppContent = () => {
+  const { mode } = useReadingMode();
   const [activeEconScenario, setActiveEconScenario] = useState('B');
   const [active2027Scenario, setActive2027Scenario] = useState('base');
+  const [isFading, setIsFading] = useState(false);
+  const [displayMode, setDisplayMode] = useState(mode);
+
+  // Handle subtle fade transition when mode changes
+  useEffect(() => {
+    if (mode !== displayMode) {
+      setIsFading(true);
+      setTimeout(() => {
+        setDisplayMode(mode);
+        setIsFading(false);
+      }, 150);
+    }
+  }, [mode, displayMode]);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 font-sans">
@@ -35,7 +59,9 @@ const App = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
+            <ReadingModeToggle />
+            <div className="h-6 w-px bg-slate-800 mx-2 hidden md:block"></div>
             <button className="p-2 hover:bg-slate-800 rounded-full text-slate-400 hover:text-white transition-colors">
               <Globe size={20} />
             </button>
@@ -43,7 +69,7 @@ const App = () => {
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-6 py-8 space-y-8">
+      <main className={`max-w-5xl mx-auto px-6 py-8 space-y-8 content-fade ${isFading ? 'opacity-0' : 'opacity-100'}`}>
 
         {/* ═══════════════════════════════════════════════════════════ */}
         {/* HERO / MASTHEAD                                           */}
@@ -54,14 +80,17 @@ const App = () => {
               The Bottleneck Has <span className="gradient-text">Moved</span>
             </h2>
             <p className="text-xl text-slate-400 font-light leading-relaxed">
-              Capability is no longer what's holding AI back. <strong className="text-slate-200">System engineering</strong> and <strong className="text-slate-200">talent</strong> are — whether you're building, investing, hiring, or deciding what to study next.
+              {translate(content.heroSubheading[displayMode], displayMode)}
             </p>
             <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
               Updated from the November 2025 Strategic Report
             </p>
           </div>
           <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 text-sm text-slate-400 leading-relaxed">
-            Six months ago this report predicted the transition from emergence to deployment. The benchmarks have moved faster than forecast. The economics have moved faster still. What's changed: the hard problem is no longer whether AI can do the task — it's whether the systems, skills, and structures around it can keep up. This brief updates every major prediction and adds new dimensions the original report didn't have language for yet.
+            {displayMode === 'expert' 
+              ? "Six months ago this report predicted the transition from emergence to deployment. The benchmarks have moved faster than forecast. The economics have moved faster still. What's changed: the hard problem is no longer whether AI can do the task — it's whether the systems, skills, and structures around it can keep up. This brief updates every major prediction and adds new dimensions the original report didn't have language for yet."
+              : "AI can do the work. That's no longer the question. The question is whether the people and systems around it are good enough to keep up — and right now, most aren't. This update covers what's changed in the last six months and what to expect next."
+            }
           </div>
 
           {/* Hero Stat Cards */}
@@ -78,22 +107,22 @@ const App = () => {
         <Section title="Real Progress. Wrong Ruler." icon={Brain} isOpenDefault={true} id="s1">
           <div className="space-y-4 text-slate-300 leading-relaxed mb-8">
             <p>
-              AI coding capability has advanced faster in the past six months than in the three years before it. That's worth saying plainly. Models that couldn't resolve a meaningful fraction of real GitHub issues in 2023 now handle nearly half of enterprise-grade software engineering tasks under controlled, contamination-resistant conditions. That is genuine, substantial progress.
+              {translate(content.s1IntroP1[displayMode], displayMode)}
             </p>
             <p>
-              The problem isn't the progress. It's that the most widely cited number — 80%+ on SWE-bench Verified — is measured on a benchmark that OpenAI's own audit found compromised. Every frontier model tested showed training data overlap with the evaluation tasks. That doesn't erase the progress underneath; it means the ruler is broken. On the contamination-resistant version of the same task, the number is 45.9%. Both are real. Only one is honest. (Source: morphllm.com/swe-bench-pro; Augment Code benchmark blog, Feb 2026)
+              {translate(content.s1IntroP2[displayMode], displayMode)}
             </p>
           </div>
 
           {/* SWE-bench Dual Line Chart replacing Timeline */}
           <SWEBenchChart />
 
-          <CalloutBox type="amber" title="The gap that matters most isn't Verified vs. Pro. It's SEAL vs. custom.">
-            Three different agent systems running the same base model (Claude Opus 4.5) scored between 50.2% and 55.4% on SWE-bench Pro. (Source: morphllm.com/swe-bench-pro; Augment Code benchmark blog, Feb 2026) The SEAL standardised score for that same model is 45.9%. The 5–10 point spread comes entirely from how the agent retrieves context and manages its tool calls — not from the model. This means investing in agent architecture yields higher returns right now than switching to a marginally better base model. It's an engineering problem, not a capability problem.
+          <CalloutBox type="amber" title={displayMode === 'expert' ? "The gap that matters most isn't Verified vs. Pro. It's SEAL vs. custom." : "Engineering vs. AI"}>
+            {translate(content.s1Callout1[displayMode], displayMode)}
           </CalloutBox>
 
           <CalloutBox type="insight" title="Benchmarks Are Being Replaced Faster Than Ever — That's a Good Sign">
-            SWE-bench Verified saturated and was replaced by SWE-bench Pro. ARC-AGI-2 approached its ceiling in under 12 months; ARC-AGI-3 launched March 25, 2026. MMLU, GPQA, HumanEval — all retired. The ~8-month benchmark half-life this report predicted in November 2025 is holding, and possibly shortening. A field that replaces its measuring sticks this fast is a field where the underlying capability is genuinely moving. The saturation isn't the story. The replacement is.
+            {translate("SWE-bench Verified saturated and was replaced by SWE-bench Pro. ARC-AGI-2 approached its ceiling in under 12 months; ARC-AGI-3 launched March 25, 2026. MMLU, GPQA, HumanEval — all retired. The ~8-month benchmark half-life this report predicted in November 2025 is holding, and possibly shortening. A field that replaces its measuring sticks this fast is a field where the underlying capability is genuinely moving. The saturation isn't the story. The replacement is.", displayMode)}
           </CalloutBox>
         </Section>
 
@@ -103,16 +132,7 @@ const App = () => {
         <Section title="The Reasoning Tradeoff" icon={AlertTriangle} isOpenDefault={true} id="s2">
           <div className="space-y-4 text-slate-300 leading-relaxed mb-6">
             <p>
-              The models best at complex reasoning are, by a measurable margin, the most likely to hallucinate on simple grounded tasks. This isn't a coincidence — it's a documented structural pattern, and understanding it is more useful than being alarmed by it.
-            </p>
-            <p>
-              Vectara's open hallucination leaderboard — 7,700 articles, controlled conditions, enterprise-relevant domains — found that non-reasoning models now dominate the top spots: Gemini-2.0-Flash leads at 0.7%, with several models achieving sub-1% on grounded summarisation. Most major reasoning models — GPT-5 with extended thinking, Claude with extended thinking, DeepSeek-R1 — exceeded 10% on the same task. The hypothesis is mechanically sound: reasoning models invest compute into generating internal deliberation, and that deliberation sometimes leads them to deviate from the source material rather than simply restating it.
-            </p>
-            <p>
-              The important caveat: this isn't a universal law of reasoning. OpenAI's o3-mini achieved 0.8% on the same benchmark — showing that tightly-constrained reasoning on structured tasks can actually <strong className="text-white font-medium italic">improve</strong> grounding. The failure mode belongs to extended, open-ended chain-of-thought on retrieval tasks, not to reasoning as a category.
-            </p>
-            <p className="text-indigo-400 font-medium">
-              This is called the Reliability Tradeoff: for grounded tasks without proper architecture, the capability curve and the reliability curve are pulling in opposite directions. The fix is architectural, not a reason to avoid reasoning models.
+              {translate(content.s2Intro[displayMode], displayMode)}
             </p>
           </div>
 
@@ -121,17 +141,17 @@ const App = () => {
             right={{ value: "10%+", label: "Extended reasoning models on the same task", source: "Same benchmark, same conditions" }}
           />
 
-          <CalloutBox type="blue" title="The Paradox Has a Solution — But Not a Free One">
-            Self-Reflective RAG in clinical settings reduces hallucination from 64% to 5.8%. Multi-agent verification systems bring enterprise rates below 2%. These systems exist. They work. The barrier is architecture, not capability. And as inference costs collapse — down 1,000x in three years — the architecture that was frontier-tier expensive in 2024 costs what a raw API call cost in 2023. <strong>The paradox is temporary. The engineering gap is the real constraint.</strong>
+          <CalloutBox type="blue" title={displayMode === 'expert' ? "The Paradox Has a Solution — But Not a Free One" : "The Solution"}>
+            {translate(content.s2Fix[displayMode], displayMode)}
           </CalloutBox>
         </Section>
 
         {/* ═══════════════════════════════════════════════════════════ */}
         {/* SECTION 3 — BENCHMARKS                                    */}
         {/* ═══════════════════════════════════════════════════════════ */}
-        <Section title="The Technical Landscape: What's Live, What's Dead" icon={BarChart3} isOpenDefault={true} id="s3">
+        <Section title={translate(content.s3Title[displayMode], displayMode)} icon={BarChart3} isOpenDefault={true} id="s3">
           <p className="text-sm text-slate-400 mb-6">
-            Not all benchmarks are created equal. Not all scores mean what they appear to mean. Here is the current map.
+            {translate(content.s3Context[displayMode], displayMode)}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 stagger-children">
             <BenchmarkCard status="active" name="Terminal-Bench 2.0" score="78.4%" model="Gemini 3.1 Pro + Forge Code agent"
@@ -151,7 +171,7 @@ const App = () => {
           </div>
 
           <CalloutBox type="insight" title="Key Insight">
-            The most important benchmark development of early 2026: <strong>ARC-AGI-3's launch with frontier LLMs at under 1%</strong> is not evidence that AI progress has stalled. It's evidence that the half-life thesis holds — every benchmark measuring crystallised intelligence gets saturated; the field responds by designing a harder one. <em>Predicted: 30–50% scores by end of 2026 via RL-based approaches, not LLMs.</em>
+            {translate("The most important benchmark development of early 2026: ARC-AGI-3's launch with frontier LLMs at under 1% is not evidence that AI progress has stalled. It's evidence that the half-life thesis holds — every benchmark measuring crystallised intelligence gets saturated; the field responds by designing a harder one.", displayMode)} <em>{translate("Predicted: 30–50% scores by end of 2026 via RL-based approaches, not LLMs.", displayMode)}</em>
           </CalloutBox>
         </Section>
 
@@ -161,8 +181,16 @@ const App = () => {
         <Section title="Six Dimensions. Two Realities." icon={Target} isOpenDefault={true} id="s4">
           <div className="space-y-4 text-slate-300 leading-relaxed mb-6">
             <p>
-              The original report tracked six capability dimensions. V1's radar measured individual model benchmarks. This one tracks what AI services actually deliver to users — regardless of whether the result comes from a base model, a RAG pipeline, or an agent harness. Six dimensions. Six things that matter to anyone relying on AI output: <strong className="text-white">Reasoning. Execution. Memory. Confidence Calibration. Coherence. Reliability.</strong>
+              {displayMode === 'expert' 
+                ? "The original report tracked six capability dimensions. V1's radar measured individual model benchmarks. This one tracks what AI services actually deliver to users — regardless of whether the result comes from a base model, a RAG pipeline, or an agent harness. Six dimensions. Six things that matter to anyone relying on AI output: Reasoning. Execution. Memory. Confidence Calibration. Coherence. Reliability."
+                : "The original report tracked six capability dimensions. V1 measured individual AI model tests. This one tracks what AI services actually deliver to users — regardless of whether the result comes from an underlying AI model, an AI with access to real-time information, or an AI system. Six dimensions. Six things that matter to anyone relying on AI output: Reasoning. Execution. Memory. Confidence Calibration. Coherence. Reliability."
+              }
             </p>
+            {displayMode === 'essentials' && (
+              <p className="text-sm font-medium text-indigo-400 bg-indigo-500/5 p-4 rounded-lg border border-indigo-500/20">
+                {content.s4ContextLine[displayMode]}
+              </p>
+            )}
             <p className="text-sm text-slate-400">
               The radar below shows two polygons deliberately. The inner shape is what a standard deployment delivers today — the 95% that MIT found seeing no measurable ROI. (MIT NANDA Initiative, "The GenAI Divide: State of AI in Business 2025", July 2025. Available at: nandapapers GitHub repo) The outer shape is what the top 5% achieve with deliberate systems design. The gap between them is the engineering opportunity.
             </p>
@@ -175,40 +203,42 @@ const App = () => {
             <h4 className="text-xs uppercase tracking-widest text-slate-500 font-bold mb-4">Dimension Deep Dives</h4>
 
             <DimensionDetailCard title="Execution" subtitle="From patch generation to end-to-end completion">
-              <p>Execution measures whether an AI agent can complete real software engineering work end-to-end — not just generate a patch, but explore an environment, run commands, recover from errors, and finish the job.</p>
-              <p>Two benchmarks now capture this at the system level. On SWE-bench Pro (contamination-resistant, multi-language): the best agent systems reach 57% with custom scaffolding; SEAL-standardised (fair comparison) sits at 45.9%.</p>
-              <p>Terminal-Bench 2.0 measures the same capability from a different angle: 89 real terminal tasks across software engineering, security, and data science, each running in a Docker container with automated verification. There's no patch generation here — the agent must explore an unknown environment, run commands, and recover from errors autonomously. Top agent systems reach 78.4% (Gemini 3.1 Pro + Forge Code) and 74.7% (Claude Opus 4.6 + Terminus-KIRA). The same scaffolding-matters finding holds: the same model scores 2–6 points differently depending purely on agent architecture. The 65% 'Best System Today' figure for Execution blends both benchmarks across real software task types.</p>
-              <p>The dominant failure mode on SWE-bench Pro is context overflow (35.6% of top-model failures) — the exact problem RL-trained search agents like WarpGrep directly address. That's why the 2027 trajectory is aggressive: the bottleneck is addressable and being addressed now.</p>
+              <p>{translate(content.s4Dimensions.execution[displayMode].p1, displayMode)}</p>
+              <p>{translate(content.s4Dimensions.execution[displayMode].p2, displayMode)}</p>
+              <p>{translate(content.s4Dimensions.execution[displayMode].p3, displayMode)}</p>
+              {displayMode === 'expert' && <p>{translate(content.s4Dimensions.execution[displayMode].p4, displayMode)}</p>}
               <p className="text-xs text-slate-500 mt-2">Typical: 46 | Best System Today: 65 | 2027: 82 · Sources: Scale AI SEAL; tbench.ai leaderboard (Mar 2026); morphllm.com/terminal-bench-2</p>
             </DimensionDetailCard>
 
             <DimensionDetailCard title="Memory" subtitle="The fastest-moving dimension — and the most underrated">
-              <p>Six months ago, memory was effectively zero for most AI services. Every session started fresh. The MIT GenAI Divide report identifies this as the #1 root cause of AI deployment failure: "systems do not retain feedback, adapt to context, or improve over time." (MIT NANDA Initiative, "The GenAI Divide: State of AI in Business 2025", July 2025. Available at: nandapapers GitHub repo)</p>
-              <p>By December 2025, Vectorize Hindsight crossed 91.4% on LongMemEval. By February 2026, Mastra's Observational Memory reports 95%+. On LOCOMO, Mem0 achieves 66.9% — 26% above OpenAI's native memory.</p>
-              <p>The inner/outer track gap on Memory is the widest of any dimension, and it closes faster than any other. This is not incremental improvement — it is a capability that <strong className="text-white">didn't meaningfully exist six months ago</strong> and now has clear architectural solutions.</p>
+              <p>{translate(content.s4Dimensions.memory[displayMode].p1, displayMode)}</p>
+              <p>{translate(content.s4Dimensions.memory[displayMode].p2, displayMode)}</p>
+              <p>{translate(content.s4Dimensions.memory[displayMode].p3, displayMode)}</p>
               <p className="text-xs text-slate-500 mt-2">Standard: 47 | Well-Engineered: 89 | 2027: 95 · Sources: LongMemEval, LOCOMO, Mem0 Research, Vectorize Hindsight</p>
             </DimensionDetailCard>
 
             <DimensionDetailCard title="Confidence Calibration" subtitle="Does the AI know what it doesn't know?">
-              <p>Confidence calibration (metacognition) is the ability to accurately signal uncertainty. Research distinguishes two components: <strong className="text-white">calibration</strong> (does confidence match accuracy?) and <strong className="text-white">sensitivity</strong> (can the model discriminate its correct answers from incorrect ones?).</p>
-              <p>GPT-4.1 mini achieves an AUC of 0.83 on metacognitive sensitivity — an 83% chance that a correct answer is rated higher-confidence than an incorrect one. Human baseline: ~0.90–0.95. The gap matters: over-reliance on AI (an OWASP top LLM vulnerability) is directly a self-awareness problem.</p>
-              <p>The harder problem: current models are systematically reluctant to express uncertainty. Training objectives reward confident guessing over calibrated abstention — models learn to bluff (Kalai & Nachum, OpenAI, arXiv:2509.04664).</p>
+              <p>{translate(content.s4Dimensions.confidence[displayMode].p1, displayMode)}</p>
+              <p>{translate(content.s4Dimensions.confidence[displayMode].p2, displayMode)}</p>
+              {displayMode === 'expert' && <p>{translate(content.s4Dimensions.confidence[displayMode].p3, displayMode)}</p>}
               <p className="text-xs text-slate-500 mt-2">Standard: 62 | Well-Engineered: 77 | 2027: 85 · Sources: Steyvers et al. 2025 (Nature Machine Intelligence); arXiv:2510.05126</p>
             </DimensionDetailCard>
 
             <DimensionDetailCard title="Coherence" subtitle="Maintaining the thread across a long task">
-              <p>Coherence asks whether an AI sustains consistent, non-contradictory reasoning across a long agentic task — not just whether it can recall facts.</p>
-              <p>The clearest whole-system measure: Claude Sonnet 4.5 achieves 74.6% overall on GAIA inside the HAL Generalist Agent framework  — the benchmark designed to test whether AI systems can handle the kind of messy, multi-step tasks that humans do every day. The gap to the 44.8% base-model score on the same benchmark is the coherence engineering dividend.</p>
-              <p>At the architecture level, GAM (Global Agent Memory) exceeded 90% on RULER, the long-range state tracking benchmark, where standard RAG collapsed. But RULER is a research architecture; GAIA is the practical production measure.</p>
-              <p>The 'lost in the middle' phenomenon remains real: a model claiming 200k usable tokens typically degrades around 130k, with middle-positioned content dropping to 76–82% accuracy versus 85–95% at the edges. The 2027 trajectory points toward 90% as MCP standardises tool integration and long-context handling matures.</p>
+              <p>{translate(content.s4Dimensions.coherence[displayMode].p1, displayMode)}</p>
+              <p>{translate(content.s4Dimensions.coherence[displayMode].p2, displayMode)}</p>
+              <p>{translate(content.s4Dimensions.coherence[displayMode].p3, displayMode)}</p>
               <p className="text-xs text-slate-500 mt-2">Typical: 45 | Best System Today: 75 | 2027: 90 · Sources: awesomeagents.ai GAIA; RULER/GAM; MIT GenAI Divide</p>
             </DimensionDetailCard>
 
             <DimensionDetailCard title="Reliability" subtitle="Can you trust the output?">
-              <p>Reliability is the dimension where the standard/well-engineered gap is most consequential. Without mitigation: 10%+ hallucination for reasoning models, 64% in medical, 69–88% in legal. With RAG and verification: sub-1% on grounded summarisation, 5.8% in clinical settings.</p>
-              <p>The mechanistic cause is now understood: Knowledge FFNs inside transformers overemphasise parametric memory while Copying Heads fail to integrate retrieved context (ReDeEP, ICLR 2025 Spotlight). This is <strong className="text-white">fixable at the architecture level</strong>.</p>
-              <p>With tools and search: near-perfect on SimpleQA across all frontier models. Without tools: enormous variance (Gemini 3 Pro 72.1% vs GPT-5.2 ~38%). The delta is the systems design signal.</p>
-              <p className="text-xs text-slate-500 mt-2">Standard: 35 | Well-Engineered: 82 | 2027: 92 · Sources: Vectara HHEM; ReDeEP ICLR 2025; SimpleQA Verified</p>
+              <p>{translate(content.s4Dimensions.reliability[displayMode].p1, displayMode)}</p>
+              <p>{translate(content.s4Dimensions.reliability[displayMode].p2, displayMode)}</p>
+              <p>{translate(content.s4Dimensions.reliability[displayMode].p3, displayMode)}</p>
+              <p className="text-xs text-slate-500 mt-2 italic font-medium">
+                {content.s4Footnote[displayMode]}
+              </p>
+              <p className="text-xs text-slate-500 mt-1">Typical: 35 | Best System Today: 82 | 2027: 92 · Sources: Vectara HHEM; ReDeEP ICLR 2025; SimpleQA Verified</p>
             </DimensionDetailCard>
           </div>
         </Section>
@@ -220,13 +250,13 @@ const App = () => {
           {/* Probability Badges */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <ScenarioCard emoji="🐢" title="The Plateau" probability="~18%" isActive={activeEconScenario === 'A'} onClick={() => setActiveEconScenario('A')}>
-              Inference costs stall. Capability plateau below 45% on SWE-bench Pro SEAL. Lower probability outlier (revised down from 25%) given current 57% production adoption rates.
+              {content.s5ScenarioPlateau[displayMode]}
             </ScenarioCard>
             <ScenarioCard emoji="📊" title="The Barbell" probability="60%" isActive={activeEconScenario === 'B'} onClick={() => setActiveEconScenario('B')}>
-              Agentic costs collapse. Senior Orchestrators in extreme demand. Every pillar confirmed by 2026 adoption data (Gartner/LangChain). The engineering gap becomes the primary moat.
+              {content.s5ScenarioBarbell[displayMode]}
             </ScenarioCard>
             <ScenarioCard emoji="⚡" title="Frictionless" probability="22%" isActive={activeEconScenario === 'C'} onClick={() => setActiveEconScenario('C')}>
-              Self-correction and metacognition advances faster than expected. Blocked from higher weight by persistent quality barriers (32%) and reasoning frontier resets (ARC-AGI-3).
+              {content.s5ScenarioFrictionless[displayMode]}
             </ScenarioCard>
           </div>
 
@@ -234,25 +264,25 @@ const App = () => {
           <div className="mb-8 bg-slate-800/30 border border-slate-700/50 rounded-xl p-5 transition-all">
             {activeEconScenario === 'A' && (
               <div className="space-y-3 text-sm text-slate-300 leading-relaxed animate-fade-in">
-                <h5 className="text-amber-400 font-bold text-xs uppercase tracking-wider">If the Plateau holds</h5>
-                <p>AI remains a productivity multiplier — not an autonomous replacement. Hiring patterns stabilise. Junior pipelines survive in most sectors. The gap between AI-native and AI-resistant organisations grows slowly rather than exponentially.</p>
-                <p className="text-slate-500 text-xs">Key signal: inference costs flatten, ARC-AGI-3 remains below 15% by EOY 2026, multiple Klarna-style reversals.</p>
+                <h5 className="text-amber-400 font-bold text-xs uppercase tracking-wider">{content.s5ScenarioDetails.A[displayMode].title}</h5>
+                <p>{translate(content.s5ScenarioDetails.A[displayMode].p1, displayMode)}</p>
+                <p className="text-slate-500 text-xs">{translate(content.s5ScenarioDetails.A[displayMode].signal, displayMode)}</p>
               </div>
             )}
             {activeEconScenario === 'B' && (
               <div className="space-y-3 text-sm text-slate-300 leading-relaxed animate-fade-in">
-                <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider">The Barbell in practice</h5>
-                <p>Junior share of IT hiring: <strong className="text-white">15% → 7%</strong> in three years. Senior AI-role salaries: <strong className="text-white">+40%</strong>. Entry-level developer postings: <strong className="text-white">–67%</strong> since 2022. Salesforce: zero new engineering hires 2025. Block: workforce cut from 10,000 to under 6,000.</p>
-                <p>Google's DORA 2024 report found roughly <strong className="text-white">2% productivity increase</strong> for every 25% increase in AI adoption — a gap of ~12× between executive expectation and measured engineering outcome. (MIT NANDA Initiative, "The GenAI Divide: State of AI in Business 2025", July 2025. Available at: nandapapers GitHub repo)</p>
-                <p className="text-slate-500 text-xs">Confidence: 60%, revised upward from 55% in V1. Every pillar confirmed by independent data sources.</p>
+                <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider">{content.s5ScenarioDetails.B[displayMode].title}</h5>
+                <p>{translate(content.s5ScenarioDetails.B[displayMode].p1, displayMode)}</p>
+                {content.s5ScenarioDetails.B[displayMode].p2 && <p>{translate(content.s5ScenarioDetails.B[displayMode].p2, displayMode)}</p>}
+                <p className="text-slate-500 text-xs">{translate(content.s5ScenarioDetails.B[displayMode].signal, displayMode)}</p>
               </div>
             )}
             {activeEconScenario === 'C' && (
               <div className="space-y-3 text-sm text-slate-300 leading-relaxed animate-fade-in">
-                <h5 className="text-rose-400 font-bold text-xs uppercase tracking-wider">If Frictionless arrives</h5>
-                <p>Self-correcting agent architectures make hallucination largely irrelevant for structured tasks. Reliability converges with capability. Displacement extends beyond junior roles into mid-level knowledge work.</p>
-                <p>This scenario requires an architectural breakthrough addressing the Knowledge FFN hallucination mechanism — no published result yet demonstrates this at scale.</p>
-                <p className="text-slate-500 text-xs">Key signal: SWE-bench Pro exceeds 70%, ARC-AGI-3 50%+ by EOY 2026, published reliability breakthrough.</p>
+                <h5 className="text-rose-400 font-bold text-xs uppercase tracking-wider">{content.s5ScenarioDetails.C[displayMode].title}</h5>
+                <p>{translate(content.s5ScenarioDetails.C[displayMode].p1, displayMode)}</p>
+                {content.s5ScenarioDetails.C[displayMode].p2 && <p>{translate(content.s5ScenarioDetails.C[displayMode].p2, displayMode)}</p>}
+                <p className="text-slate-500 text-xs">{translate(content.s5ScenarioDetails.C[displayMode].signal, displayMode)}</p>
               </div>
             )}
           </div>
@@ -289,13 +319,13 @@ const App = () => {
           </div>
 
           {/* Klarna Cycle Callout */}
-          <CalloutBox type="amber" title="The Klarna Cycle — What Overcorrection Looks Like">
-            Klarna stopped all hiring in 2023, slashed headcount from 5,500 to 3,400, and celebrated $10M in savings. By mid-2025 they were scrambling to rehire after customer satisfaction collapsed and engineers were pulled from product work to cover service. This is not evidence AI can't replace roles. <strong>It's the predictable outcome of treating AI as binary replacement rather than productivity layer.</strong> The organisations that maintained junior pipelines through 2024–2026 will have a structural talent advantage by 2028–2030. Harvard research across 62 million workers and 285,000 firms names this pattern: "seniority-biased technological change."
+          <CalloutBox type="amber" title={displayMode === 'expert' ? "The Klarna Cycle — What Overcorrection Looks Like" : "The Klarna Warning"}>
+            {translate(content.s5Klarna[displayMode], displayMode)}
           </CalloutBox>
 
           {/* Pipeline Problem */}
           <CalloutBox type="blue" title="The Pipeline Problem">
-            CS enrolment dropped 8.1% in 2025–2026 — the steepest decline of any field (National Student Clearinghouse). (National Student Clearinghouse, Fall 2025 Enrollment Trends, cited in Built In, March 2026; corroborated by CRA CERP Pulse Survey, Oct 2025) CS specifically fell 11.2%. 62% of computing departments report declining enrolment (CRA CERP, 133 departments). If this persists 3–4 years, the senior engineer shortage lands 2033–2037 — precisely when enterprise AI orchestration demand is projected to peak. The organisations cutting junior hiring today are trading short-term savings for a <strong>compounding strategic liability</strong>.
+            {translate(content.s5Pipeline[displayMode], displayMode)}
           </CalloutBox>
 
           {/* Sector Split Table */}
@@ -357,23 +387,25 @@ const App = () => {
           </div>
 
           {/* Scaling Law Cards */}
-          <h4 className="text-xs uppercase tracking-widest text-slate-500 font-bold mb-4">The Convergence Mechanisms</h4>
+          <h4 className="text-xs uppercase tracking-widest text-slate-500 font-bold mb-4">
+            {translate(content.s6Intro[displayMode], displayMode)}
+          </h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { icon: Zap, color: 'text-amber-400', title: 'Inference Cost Collapse', desc: 'Inference costs have fallen ~280× between November 2022 and October 2024 (Stanford AI Index). The cost of running 5 verification passes today equals the cost of 1 pass 18 months ago. Two-thirds of all AI compute is now inference, up from one-third in 2023.' },
-              { icon: RotateCcw, color: 'text-emerald-400', title: 'Synthetic Data Verification', desc: 'The data wall is permeable. Models that verify their own outputs — the DeepSeek-R1 / ARC refinement loop pattern — generate synthetic training signal without human annotation. DeepSeek-R1 trained for $294K using RL on synthetic data — frontier capability at <5% of proprietary cost.' },
-              { icon: Layers, color: 'text-indigo-400', title: 'Multimodal / Document AI', desc: 'Enterprise document workflows broadly unlocked. Multimodal parsing effectively solved for standard formats. Entire categories of knowledge-worker tasks are economically automatable today — the barrier is implementation, not capability.' },
-              { icon: Database, color: 'text-blue-400', title: 'Memory as Infrastructure', desc: 'Graph memory in AI agents moved from experimental to production in early 2026. The Model Context Protocol (MCP), adopted by OpenAI, Google, Microsoft, and donated to the Linux Foundation in January 2026, is becoming the USB-C of AI agent integration — one protocol, works everywhere. The practical effect: Claude Sonnet 4.5 achieves 74.6% on GAIA overall inside the HAL framework, versus 44.8% for the same benchmark run with minimal tooling. Memory architecture is now the gap between typical and best deployment — not model capability.' },
-              { icon: Globe, color: 'text-rose-400', title: 'Open-Source Parity', desc: 'The "Data Moat" is dead. High-quality synthetic data (DeepSeek-R1 pattern) and open-source parity (Minimax M2.5, DeepSeek-V3) mean training data is no longer a sustainable differentiator. The new competitive advantage is the Action Moat — which organisation has built the best tool integrations, proprietary MCP ecosystems, and agent-scaffolding architecture. 434 open-source vs 217 closed-source API models (Dec 2025).' },
+              { icon: Zap, color: 'text-amber-400', title: 'Inference Cost Collapse', desc: content.s6Mechanisms.costCollapse[displayMode] },
+              { icon: RotateCcw, color: 'text-emerald-400', title: 'Synthetic Data Verification', desc: content.s6Mechanisms.syntheticData[displayMode] },
+              { icon: Layers, color: 'text-indigo-400', title: 'Multimodal / Document AI', desc: content.s6Mechanisms.multimodal[displayMode] },
+              { icon: Database, color: 'text-blue-400', title: 'Memory as Infrastructure', desc: content.s6Mechanisms.memory[displayMode] },
+              { icon: Globe, color: 'text-rose-400', title: 'Open-Source Parity & The Action Moat', desc: content.s6Mechanisms.openSource[displayMode] },
             ].map((card, i) => (
-              <div key={i} className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-5 hover:border-slate-600/50 transition-colors">
+              <div key={i} className={`bg-slate-800/50 border border-slate-700/50 rounded-xl p-5 hover:border-slate-600/50 transition-colors ${i === 4 ? 'md:col-span-2' : ''}`}>
                 <div className="flex items-center gap-3 mb-3">
                   <div className={`p-2 rounded-lg bg-slate-900/50 ${card.color}`}>
                     <card.icon size={18} />
                   </div>
                   <h5 className="text-white font-bold">{card.title}</h5>
                 </div>
-                <p className="text-sm text-slate-400 leading-relaxed">{card.desc}</p>
+                <p className="text-sm text-slate-400 leading-relaxed">{translate(card.desc, displayMode)}</p>
               </div>
             ))}
           </div>
@@ -387,20 +419,20 @@ const App = () => {
             Three scenarios for how AI deployment evolves from here. These aren't predictions — they're structured possibilities, each grounded in current data and trajectories.
           </p>
           <p className="text-[10px] text-slate-500 mb-6 leading-relaxed max-w-3xl">
-            Weights are informed by five inputs: (1) ARC-AGI-2/3 progress rates, (2) inference cost curve trajectory, (3) BLS and Stanford/Harvard labour market data, (4) open-source model capability trajectory, and (5) LangChain State of AI Agents survey (2026). The 60% Base Case weight reflects that both the capability trajectory (SWE-bench Pro doubling in 12 months) and the adoption signals (57% of practitioners with agents in production, Gartner's 40% enterprise prediction for EOY 2026) are on track, while the known structural friction — quality as the persistent production blocker — prevents this from being the Accelerated scenario.
+            {content.s7Methodology[displayMode]}
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <ScenarioCard emoji="🐢" title="Conservative" probability="~18%" horizon="EOY 2027" headline="Progress slows. The gap between typical and best systems widens rather than narrows."
               isActive={active2027Scenario === 'conservative'} onClick={() => setActive2027Scenario('conservative')}>
-              SWE-bench Pro stalls below 60%. ARC-AGI-3 proves harder than ARC-AGI-2's trajectory implies. Gartner/LangChain adoption signals suggest that while diffusion is high (57% in production), a dual-stall in both capability and adoption is the lower-probability outlier (~18%).
+              {content.s7Triggers.conservative[displayMode]}
             </ScenarioCard>
             <ScenarioCard emoji="📈" title="Base Case" probability="~60%" horizon="Q2 2027" headline="System engineering becomes the primary competitive differentiator in AI deployment."
               isActive={active2027Scenario === 'base'} onClick={() => setActive2027Scenario('base')}>
-              SWE-bench Pro reaches 60–70% with best agent systems. ARC-AGI-3 approaches 30–50% by Q1 2027 via RL approaches. Confirmed by early 2026 adoption data: 40% enterprise application embedding target (Gartner) and 57% production rate (LangChain) support this trajectory.
+              {content.s7Triggers.base[displayMode]}
             </ScenarioCard>
             <ScenarioCard emoji="🚀" title="Accelerated" probability="~22%" horizon="EOY 2026 → 2027" headline="Reliability convergence ahead of schedule. Regulated sectors unlock at scale."
               isActive={active2027Scenario === 'accelerated'} onClick={() => setActive2027Scenario('accelerated')}>
-              SWE-bench Pro exceeds 70% by Q3 2026. Architectural reliability solutions ship in production APIs. Blocked from higher weight by the persistent "Quality" barrier cited by 32% of practitioners as their primary production friction.
+              {content.s7Triggers.accelerated[displayMode]}
             </ScenarioCard>
           </div>
         </Section>
@@ -416,54 +448,54 @@ const App = () => {
           <div className="space-y-12 mt-12">
             {/* 8.1 — The Flood Is Already Here */}
             <div>
-              <h3 className="text-lg text-indigo-400 font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
-                <span className="w-8 h-px bg-indigo-500/50"></span> 8.1 — The Flood Is Already Here
+              <h3 className="text-lg text-indigo-400 font-bold uppercase tracking-wider mb-6 flex items-center gap-3">
+                <span className="w-12 h-px bg-indigo-500/50"></span> 8.1 — The Flood Is Already Here
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-400 leading-relaxed">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-slate-400 leading-relaxed mb-6">
                 <p>
-                  The signals are no longer emerging. They are measurable, institutional, and accelerating. In scientific publishing, NeurIPS received 21,575 submissions in 2025—more than double its 2020 volume. ICLR 2026 reported a 70% year-on-year increase in submissions, nearly 20,000 papers. When 21% of ICLR's peer reviews were found to be fully AI-generated, arXiv changed its endorsement policy to stem what it explicitly called a "flood of low-quality submissions."
+                  {translate(content.s8_8_1[displayMode].p1, displayMode)}
                 </p>
                 <p>
-                  In legal practice, a researcher at HEC Paris tracking AI-related court sanctions globally counts more than 1,200 cases. By late 2025, the rate had reached two to three cases per day. In March 2026, a DOJ attorney's brief was found to contain fabricated quotes and misstated case law—identified not by opposing counsel, but by a retired Air Force colonel who knew the regulatory text didn't "read right."
+                  {translate(content.s8_8_1[displayMode].p2, displayMode)}
                 </p>
               </div>
-              <CalloutBox type="insight" title="The Capacity Paradox">
-                The two domains most visibly breaking — scientific publishing and legal practice — share a structural feature: both were built around the assumption that production is the hard part. Those assumptions are gone. The flood is not coming. It arrived.
+              <CalloutBox type="insight" title={displayMode === 'expert' ? "The Capacity Paradox" : "The Problem is Volume"}>
+                {translate("The two domains most visibly breaking — scientific publishing and legal practice — share a structural feature: both were built around the assumption that production is the hard part. Those assumptions are gone. The flood is not coming. It arrived.", displayMode)}
               </CalloutBox>
             </div>
 
             {/* 8.2 — The Structural Paradox */}
             <div>
-              <h3 className="text-lg text-emerald-400 font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
-                <span className="w-8 h-px bg-emerald-500/50"></span> 8.2 — The Structural Paradox
+              <h3 className="text-lg text-emerald-400 font-bold uppercase tracking-wider mb-6 flex items-center gap-3">
+                <span className="w-12 h-px bg-emerald-500/50"></span> 8.2 — The Structural Paradox
               </h3>
               <div className="text-slate-200 font-light text-lg leading-relaxed max-w-4xl mb-6">
-                This is not primarily a reliability problem.
+                {translate("This is not primarily a reliability problem.", displayMode)}
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-400 leading-relaxed">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-slate-400 leading-relaxed mb-6">
                 <p>
-                  The standard framing treats the Epistemic Flood as a consequence of AI generating bad content. Fix the reliability, fix the flood. But well-architected deployments are already approaching very low hallucination rates (Section 4). The paradox is that a flood of <strong className="text-white">reliable</strong> synthetic content breaks institutions just as surely as unreliable content.
+                  {translate(content.s8_8_2[displayMode].p1, displayMode)}
                 </p>
                 <p>
-                  Every institution built on the assumption of human-scale content production has implicit throughput limits baked into its design—"load-bearing walls." Remove them, and the structure responds the same way. The scarcity of expert attention is fixed regardless of content quality. When volume scales 10x, the verification burden on humans increases absolutely.
+                  {translate(content.s8_8_2[displayMode].p2, displayMode)}
                 </p>
               </div>
-              <CalloutBox type="amber" title="Institutional Design Challenge">
-                The reliability problem is a systems engineering challenge. The flood problem is an institutional design challenge. No amount of RAG improvement solves a peer review system designed for 11,000 papers receiving 20,000.
+              <CalloutBox type="amber" title={displayMode === 'expert' ? "Institutional Design Challenge" : "A New Kind of Challenge"}>
+                {translate("The reliability problem is a systems engineering challenge. The flood problem is an institutional design challenge. No amount of RAG improvement solves a peer review system designed for 11,000 papers receiving 20,000.", displayMode)}
               </CalloutBox>
             </div>
 
             {/* 8.3 — The Verification Layer */}
             <div>
-              <h3 className="text-lg text-blue-400 font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
-                <span className="w-8 h-px bg-blue-500/50"></span> 8.3 — The Verification Layer: What Comes Next
+              <h3 className="text-lg text-blue-400 font-bold uppercase tracking-wider mb-6 flex items-center gap-3">
+                <span className="w-12 h-px bg-blue-500/50"></span> 8.3 — The Verification Layer: What Comes Next
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-400 leading-relaxed">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-slate-400 leading-relaxed mb-6">
                 <p>
-                  If production is automated, verification must follow. We see this in legal "Hyperlink Rules"—requiring litigants to hyperlink every citation to an authoritative source at the point of filing. A hallucinated case cannot be hyperlinked because it does not exist. This is human-enforced verification designed in response to machine-generated production.
+                  {translate(content.s8_8_3[displayMode].p1, displayMode)}
                 </p>
                 <p>
-                  In scientific publishing, researchers are proposing machine-readable "structured appendices" that transform manuscripts into queryable, executable research environments—making computational claims directly verifiable by automated systems rather than trusting human reviewers to catch errors in prose.
+                  {translate(content.s8_8_3[displayMode].p2, displayMode)}
                 </p>
               </div>
               <div className="mt-8 p-6 bg-indigo-500/5 border border-dashed border-indigo-500/30 rounded-xl">
@@ -488,37 +520,22 @@ const App = () => {
                   {
                     label: "↑ Accelerating",
                     color: "green",
-                    items: [
-                      "AI-disclosure mandates adopted in major journals (Nature/Science 2026)",
-                      "Appellate rulings treating AI-generated filings as 'per se sanctionable'",
-                      "Enterprise agent-to-agent verification layers reaching production at scale",
-                      "Institutional submission caps imposed in response to volume"
-                    ]
+                    items: content.s8HorizonWatch.accelerating[displayMode]
                   },
                   {
                     label: "→ Stalling",
                     color: "amber",
-                    items: [
-                      "Multi-agent verification proves harder to scale than anticipated",
-                      "Regulatory mandates require human sign-off at every production step",
-                      "MCP ecosystem fragmentation creates incompatible verification standards",
-                      "Context coherence failures emerge as the dominant multi-agent bottleneck"
-                    ]
+                    items: content.s8HorizonWatch.stalling[displayMode]
                   },
                   {
                     label: "↓ Reversing",
                     color: "red",
-                    items: [
-                      "Human verification proves faster and more accurate than automated alternatives",
-                      "Reliable AI-content detection matures across specific domains",
-                      "Institutions adapt throughput capacity rather than changing verification architecture",
-                      "Documented 'reversals' (e.g. Klarna Section 3) where human judgment is re-instated"
-                    ]
+                    items: content.s8HorizonWatch.reversing[displayMode]
                   }
                 ]}
               />
               <p className="mt-8 text-sm text-slate-500 italic text-center max-w-2xl mx-auto">
-                Note: The "Reversing" scenario is grounded in patterns like the Klarna correction (Section 3)—where human judgment proved irreplaceable in context-dependent domains.
+                {translate('Note: The "Reversing" scenario is grounded in patterns like the Klarna correction (Section 3)—where human judgment proved irreplaceable in context-dependent domains.', displayMode)}
               </p>
             </div>
           </div>
@@ -539,11 +556,11 @@ const App = () => {
                 <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
                   <div>
                     <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
-                    <p>Your AI deployment ROI problem is not a model problem. It's an architecture problem. 95% of 2025 enterprise GenAI projects saw no measurable ROI (MIT). The organisations getting results are running engineered systems — RAG, verification loops, memory infrastructure — not raw API calls.</p>
+                    <p>{translate(content.s9Enterprise.moment[displayMode], displayMode)}</p>
                   </div>
                   <div>
                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
-                    <p>Audit your existing AI deployments against the Base vs. System-Level gap. Identify which workflows are running raw model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10x in 18 months.</p>
+                    <p>{translate(content.s9Enterprise.next[displayMode], displayMode)}</p>
                   </div>
                 </div>
               )
@@ -555,11 +572,11 @@ const App = () => {
                 <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
                   <div>
                     <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
-                    <p>The benchmark contamination story is the most important thing to understand for competitive positioning. Companies still using SWE-bench Verified scores to evaluate coding capability are making decisions on a compromised signal. SWE-bench Pro is the honest measure.</p>
+                    <p>{translate(content.s9Investors.moment[displayMode], displayMode)}</p>
                   </div>
                   <div>
                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
-                    <p>Add metacognition and context coherence to your AI vendor evaluation criteria. A model that knows what it doesn't know is worth more to an enterprise deployment than a model that scores 5% higher on a saturated benchmark.</p>
+                    <p>{translate(content.s9Investors.next[displayMode], displayMode)}</p>
                   </div>
                 </div>
               )
@@ -571,27 +588,27 @@ const App = () => {
                 <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
                   <div>
                     <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
-                    <p>The junior role compression is real, structural, and accelerating. The junior share of IT hiring fell from 15% to 7% in three years. But the organisations cutting junior hiring are creating a compounding talent shortage they will pay for in 2028–2030.</p>
+                    <p>{translate(content.s9Careers.moment[displayMode], displayMode)}</p>
                   </div>
                   <div>
                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
-                    <p>Position around orchestration, not execution. The AI-native junior of 2026 needs the system-design understanding of a 2020 mid-level engineer. The skills that matter: knowing when to distrust AI output, managing multi-agent workflows, and understanding enough about memory and retrieval architecture to specify what a system should do.</p>
+                    <p>{translate(content.s9Careers.next[displayMode], displayMode)}</p>
                   </div>
                 </div>
               )
             },
             {
               label: 'Education',
-              title: 'Educators & Policymakers',
+              title: 'Educational Institutions',
               content: (
                 <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
                   <div>
                     <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
-                    <p>CS enrolment dropped 8.1% in 2025–2026 — the steepest decline of any field of study (National Student Clearinghouse). 62% of computing departments report declining enrolment. This is the compounding risk nobody is pricing. A generation that doesn't learn to code produces no senior engineers in 2032.</p>
+                    <p>{translate(content.s9Education.moment[displayMode], displayMode)}</p>
                   </div>
                   <div>
                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
-                    <p>The framing for CS education needs to shift from "will AI replace developers" to "what does a developer do when AI writes the code." The answer — system design, verification, orchestration, trust calibration — is harder to teach than syntax, and more valuable.</p>
+                    <p>{translate(content.s9Education.next[displayMode], displayMode)}</p>
                   </div>
                 </div>
               )
@@ -604,7 +621,7 @@ const App = () => {
         {/* ═══════════════════════════════════════════════════════════ */}
         <div className="mt-12 pt-8 border-t border-slate-800">
           <p className="text-sm text-slate-400 leading-relaxed mb-6">
-            This brief synthesises publicly available benchmark data, peer-reviewed research, and labour market statistics current as of April 4, 2026. Full data sources, corrected figures from the November 2025 report, and extended analysis of each section are available in the supporting data document.
+            {translate("This brief synthesises publicly available benchmark data, peer-reviewed research, and labour market statistics current as of April 4, 2026. Full data sources, corrected figures from the November 2025 report, and extended analysis of each section are available in the supporting data document.", displayMode)}
           </p>
 
           <div className="flex flex-wrap gap-3 mb-8">

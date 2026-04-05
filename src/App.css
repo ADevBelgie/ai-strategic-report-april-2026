@@ -81,6 +81,11 @@
   animation: slideDown 0.3s ease-out;
 }
 
+/* Reading Mode Fade Transition */
+.content-fade {
+  transition: opacity 150ms ease-in-out;
+}
+
 /* Traffic light status icons */
 .status-active { color: #22c55e; }
 .status-contaminated { color: #ef4444; }
