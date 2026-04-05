@@ -133,8 +133,8 @@ const AppContent = () => {
             {translate(content.s1Callout1[displayMode], displayMode)}
           </CalloutBox>
 
-          <CalloutBox type="insight" title="Benchmarks Are Being Replaced Faster Than Ever — That's a Good Sign">
-            {translate("SWE-bench Verified saturated and was replaced by SWE-bench Pro. ARC-AGI-2 approached its ceiling in under 12 months; ARC-AGI-3 launched March 25, 2026. MMLU, GPQA, HumanEval — all retired. The ~8-month benchmark half-life this report predicted in November 2025 is holding, and possibly shortening. A field that replaces its measuring sticks this fast is a field where the underlying capability is genuinely moving. The saturation isn't the story. The replacement is.", displayMode)}
+          <CalloutBox type="insight" title="Benchmarks Are Being Replaced Faster Ever — That's a Good Sign">
+            {translate(content.s1TestContext[displayMode], displayMode)}
           </CalloutBox>
         </Section>
 
@@ -148,6 +148,11 @@ const AppContent = () => {
             </p>
           </div>
 
+          {displayMode === 'essentials' && (
+            <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+              Error rate — how often the AI confidently gives a wrong answer:
+            </p>
+          )}
           <SplitStatDisplay
             left={{ value: "Sub-1%", label: "Non-reasoning models + o3-mini on grounded tasks", source: "Vectara HHEM Leaderboard, 7,700-article dataset" }}
             right={{ value: "10%+", label: "Extended reasoning models on the same task", source: "Same benchmark, same conditions" }}
@@ -172,8 +177,11 @@ const AppContent = () => {
               description="The honest measure of coding autonomy. Evaluated on private codebases, controlled scaffold." source="Scale AI SEAL Leaderboard" />
             <BenchmarkCard status="ceiling" name="ARC-AGI-2" score="77.1%" model="Gemini 3.1 Pro (official, semi-private)"
               description="Approaching saturation — launched March 2025, near ceiling by February 2026. With refinement harnesses: 95%+. ARC-AGI-3 now active." source="ARC Prize Foundation" />
-            <BenchmarkCard status="active" name="ARC-AGI-3" score="<1% Frontier" model="Interactive environments — no instructions"
-              description="LLMs score below 1%. Humans score 100%. Best result (12.58%) used CNN + RL, not a language model." source="ARC Prize, March 2026" />
+            <BenchmarkCard status="active" name="ARC-AGI-3" 
+              score={content.s3Agi3Entry[displayMode].score} 
+              model="Interactive environments — no instructions"
+              description={content.s3Agi3Entry[displayMode].desc} 
+              source="ARC Prize, March 2026" />
             <BenchmarkCard status="contaminated" name="SWE-bench Verified" score="80.9%" model="Contamination confirmed by OpenAI audit"
               description="Every frontier model showed training data overlap. OpenAI has stopped reporting this score." source="OpenAI internal audit, 2026" />
             <BenchmarkCard status="active" name="GAIA (All Levels)" score="74.6%" model="Claude Sonnet 4.5 + HAL framework, Feb 2026"
@@ -193,10 +201,7 @@ const AppContent = () => {
         <Section title="Six Dimensions. Two Realities." icon={Target} isOpenDefault={true} id="s4">
           <div className="space-y-4 text-slate-300 leading-relaxed mb-6">
             <p>
-              {displayMode === 'expert' 
-                ? "The original report tracked six capability dimensions. V1's radar measured individual model benchmarks. This one tracks what AI services actually deliver to users — regardless of whether the result comes from a base model, a RAG pipeline, or an agent harness. Six dimensions. Six things that matter to anyone relying on AI output: Reasoning. Execution. Memory. Confidence Calibration. Coherence. Reliability."
-                : "The original report tracked six capability dimensions. V1 measured individual AI model tests. This one tracks what AI services actually deliver to users — regardless of whether the result comes from an underlying AI model, an AI with access to real-time information, or an AI system. Six dimensions. Six things that matter to anyone relying on AI output: Reasoning. Execution. Memory. Confidence Calibration. Coherence. Reliability."
-              }
+              {content.s4Opening[displayMode]}
             </p>
             {displayMode === 'essentials' && (
               <p className="text-sm font-medium text-indigo-400 bg-indigo-500/5 p-4 rounded-lg border border-indigo-500/20">
@@ -208,6 +213,11 @@ const AppContent = () => {
             </p>
           </div>
 
+          {displayMode === 'essentials' && (
+            <p className="text-sm italic text-slate-400 mb-6 px-4 border-l-2 border-indigo-500/30">
+              Each axis is scored 0–100. Higher is better. The inner shape is what most companies run today. The outer shape is what the best-engineered 5% achieve.
+            </p>
+          )}
           <RadarChart />
 
           {/* Dimension Detail Cards */}

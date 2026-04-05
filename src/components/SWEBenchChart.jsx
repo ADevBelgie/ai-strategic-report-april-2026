@@ -125,17 +125,17 @@ export const SWEBenchChart = () => {
 
           {/* Points & Interactive Zones */}
           {verifiedData.map((d, i) => {
-            const x = getX(d.y, d.m);
-            const y = getY(d.score);
+            const pointX = getX(d.y, d.m);
+            const pointY = getY(d.score);
             return (
               <g key={`v-${i}`} 
-                 onMouseEnter={() => setHoveredPoint({ ...d, type: 'verified', x, y })}
+                 onMouseEnter={() => setHoveredPoint({ ...d, type: 'verified', posX: pointX, posY: pointY })}
                  onMouseLeave={() => setHoveredPoint(null)}
                  className="cursor-pointer"
               >
-                <circle cx={x} cy={y} r="6" fill="#334155" stroke="#94a3b8" strokeWidth="2" className="transition-all hover:r-8 hover:fill-slate-400" />
+                <circle cx={pointX} cy={pointY} r="6" fill="#334155" stroke="#94a3b8" strokeWidth="2" className="transition-all hover:r-8 hover:fill-slate-400" />
                 {d.warning && (
-                  <g transform={`translate(${x - 30}, ${y - 35})`}>
+                  <g transform={`translate(${pointX - 30}, ${pointY - 35})`}>
                     <rect x="-10" y="-12" width="80" height="20" rx="4" fill="#fef3c7" opacity="0.9" />
                     <text x="30" y="2" fill="#b45309" fontSize="11" textAnchor="middle" fontWeight="bold">⚠️ Audit Fail</text>
                   </g>
@@ -145,20 +145,20 @@ export const SWEBenchChart = () => {
           })}
 
           {proData.map((d, i) => {
-            const x = getX(d.y, d.m);
-            const y = getY(d.score);
+            const pointX = getX(d.y, d.m);
+            const pointY = getY(d.score);
             return (
               <g key={`p-${i}`}
-                 onMouseEnter={() => setHoveredPoint({ ...d, type: 'pro', x, y })}
+                 onMouseEnter={() => setHoveredPoint({ ...d, type: 'pro', posX: pointX, posY: pointY })}
                  onMouseLeave={() => setHoveredPoint(null)}
                  className="cursor-pointer"
               >
-                <circle cx={x} cy={y} r={d.projection ? "5" : "7"} fill="#1e1b4b" stroke={d.projection ? "#818cf8" : "#818cf8"} strokeWidth="3" strokeDasharray={d.projection ? "2 2" : "none"} className="transition-all hover:r-9 hover:fill-indigo-500" />
+                <circle cx={pointX} cy={pointY} r={d.projection ? "5" : "7"} fill="#1e1b4b" stroke={d.projection ? "#818cf8" : "#818cf8"} strokeWidth="3" strokeDasharray={d.projection ? "2 2" : "none"} className="transition-all hover:r-9 hover:fill-indigo-500" />
                 {d.projection && (
-                  <text x={x+15} y={y-5} fill="#818cf8" fontSize="12" fontWeight="bold">75%</text>
+                  <text x={pointX+15} y={pointY-5} fill="#818cf8" fontSize="12" fontWeight="bold">75%</text>
                 )}
                 {i === 2 && ( // Current Leader label
-                   <text x={x-15} y={y+20} fill="#818cf8" fontSize="12" fontWeight="bold" textAnchor="end">45.9% SEAL</text>
+                   <text x={pointX-15} y={pointY+20} fill="#818cf8" fontSize="12" fontWeight="bold" textAnchor="end">45.9% SEAL</text>
                 )}
               </g>
             );
@@ -170,8 +170,8 @@ export const SWEBenchChart = () => {
           <div 
             className="absolute z-10 p-3 rounded-lg shadow-xl shadow-slate-900/50 pointer-events-none w-64 backdrop-blur-md"
             style={{
-              left: `max(10px, min(calc(${hoveredPoint.x / width * 100}% - 128px), calc(100% - 260px)))`,
-              top: `calc(${hoveredPoint.y / height * 100}% - ${hoveredPoint.y > height/2 ? '110px' : '-15px'})`,
+              left: `max(10px, min(calc(${hoveredPoint.posX / width * 100}% - 128px), calc(100% - 260px)))`,
+              top: `calc(${hoveredPoint.posY / height * 100}% - ${hoveredPoint.posY > height/2 ? '110px' : '-15px'})`,
               backgroundColor: hoveredPoint.type === 'pro' ? 'rgba(49, 46, 129, 0.9)' : 'rgba(30, 41, 59, 0.95)',
               border: `1px solid ${hoveredPoint.type === 'pro' ? 'rgba(99, 102, 241, 0.4)' : 'rgba(100, 116, 139, 0.4)'}`,
             }}

@@ -12,11 +12,15 @@ export const content = {
   },
   s1IntroP2: {
     expert: "The most widely cited number — 80.9% on SWE-bench Verified — is measured on a benchmark that OpenAI's own audit found contaminated. On the contamination-resistant version (SWE-bench Pro), the number is 45.9%. Both are real. Only one is honest.",
-    essentials: "The headline number most companies quote — 80.9% — comes from a test that's been compromised by the AI companies themselves training on it. The clean, independent measure is 45.9%. Both numbers are real. Only one is useful for making decisions."
+    essentials: "The headline number most companies quote — 80.9% — comes from a test that's been compromised by the AI companies themselves training on it. The clean, independent measure is 45.9%. That's the number worth using."
   },
   s1Callout1: {
     expert: "The gap that matters most isn't Verified vs. Pro. It's SEAL vs. custom. Three different agent systems running the same base model (Claude Opus 4.5) scored between 50.2% and 55.4% on SWE-bench Pro. The 5–10 point spread comes entirely from agent architecture — not the model.",
-    essentials: "The same underlying AI, wrapped three different ways, scored between 50.2% and 55.4% on the same test. The difference isn't the AI — it's the system built around it."
+    essentials: "The same underlying AI, set up three different ways by three different teams, scored between 50.2% and 55.4% on the same test. The difference isn't the AI — it's the system built around it."
+  },
+  s1TestContext: {
+    expert: "SWE-bench Verified saturated and was replaced by SWE-bench Pro. ARC-AGI-2 approached its ceiling in under 12 months; ARC-AGI-3 launched March 25, 2026. MMLU, GPQA, HumanEval — all retired. The ~8-month benchmark half-life this report predicted in November 2025 is holding, and possibly shortening. A field that replaces its measuring sticks this fast is a field where the underlying capability is genuinely moving. The saturation isn't the story. The replacement is.",
+    essentials: "AI tests keep getting mastered and replaced — roughly every eight months, a new harder one launches. The latest, ARC-AGI-3, launched March 25, 2026. Today's leading AI models score under 1% on it. That's not a setback — it's the pattern repeating. Prediction: 30–50% scores by end of 2026."
   },
 
   // SECTION 2
@@ -38,15 +42,22 @@ export const content = {
     expert: "Not all benchmarks are created equal. Not all scores mean what they appear to mean. Here is the current map.",
     essentials: "Not every AI test score you'll see quoted this year is worth trusting. Here's the current map — what's live, what's broken, and what's been retired. Green = actively measuring the frontier. Red = compromised — don't use for decisions."
   },
+  s3Agi3Entry: {
+    expert: { score: "<1% Frontier", desc: "LLMs score below 1%. Humans score 100%. Best result (12.58%) used CNN + RL, not a language model." },
+    essentials: { score: "<1%", desc: "Today's leading AI models score below 1% on this test. Launched March 2026." }
+  },
 
-  // SECTION 4
+  s4Opening: {
+    expert: "The original report tracked six capability dimensions. V1's radar measured individual model benchmarks. This one tracks what AI services actually deliver to users — regardless of whether the result comes from a base model, a RAG pipeline, or an agent harness. Six dimensions. Six things that matter to anyone relying on AI output: Reasoning. Execution. Memory. Confidence Calibration. Coherence. Reliability.",
+    essentials: "The original report tracked six capability dimensions. The first version measured individual AI model tests. This one tracks what AI services actually deliver to users — regardless of whether the result comes from an underlying AI model, an AI with access to real-time information, or an AI system. Six dimensions. Six things that matter to anyone relying on AI output: Reasoning. Execution. Memory. Confidence Calibration. Coherence. Reliability."
+  },
   s4ContextLine: {
     expert: "",
     essentials: "'Typical' is what most companies are actually running today. 'Best System Today' is what the top 5% of well-engineered deployments achieve. The gap between them is not a model problem — it's a design and architecture problem."
   },
   s4Footnote: {
     expert: "*Reliability is domain-dependent. Legal floors at 12%, while Medical RAG achieves 57% Best System today.*",
-    essentials: "*Reliability varies heavily by industry. Legal AI is the least reliable (12% floor); medical AI with the right setup reaches 57%.*"
+    essentials: "*Reliability varies heavily by industry. Legal AI performs worst — even the best setups are wrong at least 12% of the time. Medical AI, done right, reaches 57% reliability.*"
   },
 
   // SECTION 5
