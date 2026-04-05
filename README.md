@@ -63,7 +63,9 @@ Tracks what AI services actually deliver — base model, RAG pipeline, or agent 
 | Memory | 47% | 95% | 96% |
 | Confidence Calibration | 62% | 78% | 88% |
 | Coherence | 45% | 75% | 90% |
-| Reliability | 35% | 88% | 94% |
+| Reliability (General)* | 35% | 82% | 94% |
+
+*\*Reliability is domain-dependent. Legal floors at 12%, while Medical RAG achieves 57% Best System today.*
 
 ---
 
@@ -71,9 +73,9 @@ Tracks what AI services actually deliver — base model, RAG pipeline, or agent 
 
 | Scenario | Probability | Summary |
 |----------|-------------|---------|
-| 🐢 The Plateau | <10% | AI stays a super-tool. Junior hiring stabilises. |
-| 📊 The Barbell | 60% | Agentic costs collapse. Senior Orchestrators in extreme demand. |
-| ⚡ Frictionless | 30% | Self-correction advances. Structural unemployment across tiers. |
+| 🐢 The Plateau | ~18% | Inference costs stall. Outlier given 57% production rate (LangChain). |
+| 📊 The Barbell | 60% | Agentic costs collapse. Confirmed by 2026 adoption data. |
+| ⚡ Frictionless | 22% | Self-correction advances. Blocked by quality barriers (32%). |
 
 **The Pipeline Problem:** CS enrolment dropped 8.1% in 2025–2026 — the steepest decline of any field. If this persists, senior engineer shortage lands 2033–2037.
 
@@ -94,9 +96,11 @@ Tracks what AI services actually deliver — base model, RAG pipeline, or agent 
 
 | Scenario | Probability | Horizon | Key Trigger |
 |----------|-------------|---------|-------------|
-| 🐢 Conservative | ~18% | EOY 2027 | SWE-bench Pro stalls below 60%. LangChain/Gartner adoption tracks stall. |
-| 📈 Base Case | ~60% | Q2 2027 | SWE-bench Pro 60–70%. Confirmed by 57% production rate (LangChain). |
-| 🚀 Accelerated | ~22% | EOY 2026→2027 | SWE-bench Pro exceeds 70% by Q3 2026. Quality barrier (<32%) resolved. |
+| 🐢 Conservative | ~18% | EOY 2027 | Capability plateau below 45% on SWE-bench Pro SEAL. |
+| 📈 Base Case | ~60% | Q2 2027 | SWE-bench Pro 60–70%. Gartner 40% enterprise adoption. |
+| 🚀 Accelerated | ~22% | EOY 2026→2027 | 32% Quality barrier resolved. ARC-AGI-3 cracks 30%+. |
+
+**Methodology:** The 60% Base Case weight reflects that both the capability trajectory (SWE-bench Pro doubling in 12 months) and the adoption signals (57% of practitioners with agents in production, Gartner's 40% enterprise prediction for EOY 2026) are on track, while the known structural friction — quality as the persistent production blocker — prevents this from being the Accelerated scenario.
 
 ---
 
