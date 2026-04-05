@@ -391,12 +391,7 @@ const AppContent = () => {
         <Section title="How We Get From Here to 2027" icon={Cpu} isOpenDefault={true} id="s6">
           {/* Vertical Timeline */}
           <div className="relative border-l-2 border-slate-700 pl-8 space-y-10 mb-10">
-            {[
-              { year: 'Late 2025', status: 'Realised', color: 'bg-emerald-500', desc: 'The Agentic Era. Reasoning tokens standard. Document AI solved. The bottleneck moved from capability to deployment.' },
-              { year: '2026', status: 'Now', color: 'bg-indigo-500', desc: 'The Engineering Year. Framework RAG commoditises. SWE-bench Pro becomes the honest coding measure. ARC-AGI-3 defines the new reasoning frontier. The "Hollow Middle" crystallises in labour data.' },
-              { year: 'EOY 2026', status: 'Projected — Base Case', color: 'bg-amber-500', desc: 'Coding autonomy crosses 70% on contamination-resistant benchmarks. ARC-AGI-3 reaches 30–50% via RL approaches. Memory and context coherence become table-stakes enterprise features. First AI preceptorship programmes announced publicly.' },
-              { year: '2027', status: 'Scenario-Dependent', color: 'bg-rose-500', desc: 'Outcomes diverge based on whether the engineering gap closes, widens, or becomes irrelevant. Conservative: moats harden. Base case: system engineering becomes the differentiator. Accelerated: reliability converges ahead of schedule.' },
-            ].map((node, i) => (
+            {content.s6Timeline[displayMode].map((node, i) => (
               <div key={i} className="relative">
                 <div className={`absolute -left-[41px] top-1 h-5 w-5 rounded-full ${node.color} border-4 border-slate-950 shadow-lg`} />
                 <div className="flex items-baseline gap-3 mb-1">

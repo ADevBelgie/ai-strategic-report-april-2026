@@ -129,6 +129,20 @@ export const content = {
     expert: "The Convergence Mechanisms:",
     essentials: "Five things driving this forward:"
   },
+  s6Timeline: {
+    expert: [
+      { year: 'Late 2025', status: 'Realised', color: 'bg-emerald-500', desc: 'The Agentic Era. Reasoning tokens standard. Document AI solved. The bottleneck moved from capability to deployment.' },
+      { year: '2026', status: 'Now', color: 'bg-indigo-500', desc: 'The Engineering Year. Framework RAG commoditises. SWE-bench Pro becomes the honest coding measure. ARC-AGI-3 defines the new reasoning frontier. The "Hollow Middle" crystallises in labour data.' },
+      { year: 'EOY 2026', status: 'Projected — Base Case', color: 'bg-amber-500', desc: 'Coding autonomy crosses 70% on contamination-resistant benchmarks. ARC-AGI-3 reaches 30–50% via RL approaches. Memory and context coherence become table-stakes enterprise features. First AI preceptorship programmes announced publicly.' },
+      { year: '2027', status: 'Base Case Landing', color: 'bg-rose-500', desc: 'AI handles 60–70% of software engineering tasks under standardised conditions. System engineering is the differentiator. Enterprise adoption crosses 40%. The organisations that closed the architecture gap in 2026 pull ahead.' }
+    ],
+    essentials: [
+      { year: 'Late 2025', status: 'Realised', color: 'bg-emerald-500', desc: 'The "Agent" Era. AI systems started acting on their own. The technical bottlenecks began to clear, shifting the focus to how companies actually use the tech.' },
+      { year: '2026', status: 'Now', color: 'bg-indigo-500', desc: 'The Engineering Year. We stopped asking if AI works and started asking how to build systems around it. A new "middle gap" in the workforce becomes obvious.' },
+      { year: 'EOY 2026', status: 'Projected — Base Case', color: 'bg-amber-500', desc: 'Programming AI hits 70% competence. Most companies have solved the basic memory and reliability problems. Professional training programs for human-AI collaboration launch.' },
+      { year: '2027', status: 'Where we\'re headed', color: 'bg-rose-500', desc: 'In the most likely outcome, AI handles the majority of software development tasks. The companies that built the right systems around AI in 2026 are the ones winning in 2027. The ones that didn\'t are playing catch-up.' }
+    ]
+  },
   s6Mechanisms: {
     costCollapse: {
       expert: "Inference Cost Collapse — 280× drop since Nov 2022",
