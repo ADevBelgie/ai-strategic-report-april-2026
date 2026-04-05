@@ -406,11 +406,130 @@ const App = () => {
         </Section>
 
         {/* ═══════════════════════════════════════════════════════════ */}
-        {/* SECTION 8 — IMPLICATIONS BY ACTOR                         */}
+        {/* SECTION 8 — THE EPISTEMIC FLOOD                           */}
         {/* ═══════════════════════════════════════════════════════════ */}
-        <Section title="8 · What This Means for You" icon={Users} isOpenDefault={true} id="s8">
+        <SpeculativeSection title="8 · The Epistemic Flood" tag="Structural Horizon" id="s8">
+          <p className="text-xl text-slate-200 font-light leading-relaxed mb-4 max-w-4xl">
+            The industry has largely misunderstood the end-state of the inference cost collapse. This is not a speculative addendum. It is the frame the rest of this report is sitting inside.
+          </p>
+
+          <div className="space-y-12 mt-12">
+            {/* 8.1 — The Flood Is Already Here */}
+            <div>
+              <h3 className="text-lg text-indigo-400 font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span className="w-8 h-px bg-indigo-500/50"></span> 8.1 — The Flood Is Already Here
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-400 leading-relaxed">
+                <p>
+                  The signals are no longer emerging. They are measurable, institutional, and accelerating. In scientific publishing, NeurIPS received 21,575 submissions in 2025—more than double its 2020 volume. ICLR 2026 reported a 70% year-on-year increase in submissions, nearly 20,000 papers. When 21% of ICLR's peer reviews were found to be fully AI-generated, arXiv changed its endorsement policy to stem what it explicitly called a "flood of low-quality submissions."
+                </p>
+                <p>
+                  In legal practice, a researcher at HEC Paris tracking AI-related court sanctions globally counts more than 1,200 cases. By late 2025, the rate had reached two to three cases per day. In March 2026, a DOJ attorney's brief was found to contain fabricated quotes and misstated case law—identified not by opposing counsel, but by a retired Air Force colonel who knew the regulatory text didn't "read right."
+                </p>
+              </div>
+              <CalloutBox type="insight" title="The Capacity Paradox">
+                The two domains most visibly breaking — scientific publishing and legal practice — share a structural feature: both were built around the assumption that production is the hard part. Those assumptions are gone. The flood is not coming. It arrived.
+              </CalloutBox>
+            </div>
+
+            {/* 8.2 — The Structural Paradox */}
+            <div>
+              <h3 className="text-lg text-emerald-400 font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span className="w-8 h-px bg-emerald-500/50"></span> 8.2 — The Structural Paradox
+              </h3>
+              <div className="text-slate-200 font-light text-lg leading-relaxed max-w-4xl mb-6">
+                This is not primarily a reliability problem.
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-400 leading-relaxed">
+                <p>
+                  The standard framing treats the Epistemic Flood as a consequence of AI generating bad content. Fix the reliability, fix the flood. But well-architected deployments are already approaching very low hallucination rates (Section 4). The paradox is that a flood of <strong className="text-white">reliable</strong> synthetic content breaks institutions just as surely as unreliable content.
+                </p>
+                <p>
+                  Every institution built on the assumption of human-scale content production has implicit throughput limits baked into its design—"load-bearing walls." Remove them, and the structure responds the same way. The scarcity of expert attention is fixed regardless of content quality. When volume scales 10x, the verification burden on humans increases absolutely.
+                </p>
+              </div>
+              <CalloutBox type="amber" title="Institutional Design Challenge">
+                The reliability problem is a systems engineering challenge. The flood problem is an institutional design challenge. No amount of RAG improvement solves a peer review system designed for 11,000 papers receiving 20,000.
+              </CalloutBox>
+            </div>
+
+            {/* 8.3 — The Verification Layer */}
+            <div>
+              <h3 className="text-lg text-blue-400 font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span className="w-8 h-px bg-blue-500/50"></span> 8.3 — The Verification Layer: What Comes Next
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-400 leading-relaxed">
+                <p>
+                  If production is automated, verification must follow. We see this in legal "Hyperlink Rules"—requiring litigants to hyperlink every citation to an authoritative source at the point of filing. A hallucinated case cannot be hyperlinked because it does not exist. This is human-enforced verification designed in response to machine-generated production.
+                </p>
+                <p>
+                  In scientific publishing, researchers are proposing machine-readable "structured appendices" that transform manuscripts into queryable, executable research environments—making computational claims directly verifiable by automated systems rather than trusting human reviewers to catch errors in prose.
+                </p>
+              </div>
+              <div className="mt-8 p-6 bg-indigo-500/5 border border-dashed border-indigo-500/30 rounded-xl">
+                <h4 className="text-indigo-400 font-bold text-sm mb-2 flex items-center gap-2">
+                  <span>💡</span> THE LONG HORIZON
+                </h4>
+                <div className="text-slate-300 text-sm leading-relaxed">
+                  If both production and verification become automated, the human role moves upstream—from "producer/verifier" to <strong className="text-white font-semibold">parameter setter</strong>: deciding what questions are worth asking, which outputs ever reach human attention, and what standards the verification layer is trained to enforce. This is the 2030+ structural question being determined by 2026 decisions.
+                </div>
+              </div>
+            </div>
+
+            {/* 8.4 — Signals to Track */}
+            <div>
+              <h3 className="text-lg text-rose-400 font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
+                <span className="w-8 h-px bg-rose-500/50"></span> 8.4 — Horizon Watch: Signals to Track
+              </h3>
+              <HorizonWatch 
+                title="STRUCTURAL HORIZON SIGNALS"
+                subtitle="Empirical indicators determining whether institutional adaptation or structural failure dominates."
+                columns={[
+                  {
+                    label: "↑ Accelerating",
+                    color: "green",
+                    items: [
+                      "AI-disclosure mandates adopted in major journals (Nature/Science 2026)",
+                      "Appellate rulings treating AI-generated filings as 'per se sanctionable'",
+                      "Enterprise agent-to-agent verification layers reaching production at scale",
+                      "Institutional submission caps imposed in response to volume"
+                    ]
+                  },
+                  {
+                    label: "→ Stalling",
+                    color: "amber",
+                    items: [
+                      "Multi-agent verification proves harder to scale than anticipated",
+                      "Regulatory mandates require human sign-off at every production step",
+                      "MCP ecosystem fragmentation creates incompatible verification standards",
+                      "Context coherence failures emerge as the dominant multi-agent bottleneck"
+                    ]
+                  },
+                  {
+                    label: "↓ Reversing",
+                    color: "red",
+                    items: [
+                      "Human verification proves faster and more accurate than automated alternatives",
+                      "Reliable AI-content detection matures across specific domains",
+                      "Institutions adapt throughput capacity rather than changing verification architecture",
+                      "Documented 'reversals' (e.g. Klarna Section 3) where human judgment is re-instated"
+                    ]
+                  }
+                ]}
+              />
+              <p className="mt-8 text-sm text-slate-500 italic text-center max-w-2xl mx-auto">
+                Note: The "Reversing" scenario is grounded in patterns like the Klarna correction (Section 3)—where human judgment proved irreplaceable in context-dependent domains.
+              </p>
+            </div>
+          </div>
+        </SpeculativeSection>
+
+        {/* ═══════════════════════════════════════════════════════════ */}
+        {/* SECTION 9 — IMPLICATIONS BY ACTOR                         */}
+        {/* ═══════════════════════════════════════════════════════════ */}
+        <Section title="9 · What This Means for You" icon={Users} isOpenDefault={true} id="s9">
           <p className="text-sm text-slate-400 mb-6 leading-relaxed italic">
-            The actor-specific actions below apply under the Base Case scenario. The final section of this report looks further out — at the structural shift that sits beyond the scenarios.
+            The actor-specific actions below apply under the Base Case scenario.
           </p>
           <TabComponent tabs={[
             {
@@ -420,7 +539,7 @@ const App = () => {
                 <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
                   <div>
                     <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
-                    <p>Your AI deployment ROI problem is not a model problem. It's an architecture problem. 95% of 2025 enterprise GenAI projects saw no measurable ROI (MIT). (MIT NANDA Initiative, "The GenAI Divide: State of AI in Business 2025", July 2025. Available at: nandapapers GitHub repo) The organisations getting results are running engineered systems — RAG, verification loops, memory infrastructure — not raw API calls.</p>
+                    <p>Your AI deployment ROI problem is not a model problem. It's an architecture problem. 95% of 2025 enterprise GenAI projects saw no measurable ROI (MIT). The organisations getting results are running engineered systems — RAG, verification loops, memory infrastructure — not raw API calls.</p>
                   </div>
                   <div>
                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
@@ -468,7 +587,7 @@ const App = () => {
                 <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
                   <div>
                     <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
-                    <p>CS enrolment dropped 8.1% in 2025–2026 — the steepest decline of any field of study (National Student Clearinghouse). (National Student Clearinghouse, Fall 2025 Enrollment Trends, cited in Built In, March 2026; corroborated by CRA CERP Pulse Survey, Oct 2025) 62% of computing departments report declining enrolment. This is the compounding risk nobody is pricing. A generation that doesn't learn to code produces no senior engineers in 2032.</p>
+                    <p>CS enrolment dropped 8.1% in 2025–2026 — the steepest decline of any field of study (National Student Clearinghouse). 62% of computing departments report declining enrolment. This is the compounding risk nobody is pricing. A generation that doesn't learn to code produces no senior engineers in 2032.</p>
                   </div>
                   <div>
                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
@@ -479,91 +598,6 @@ const App = () => {
             },
           ]} />
         </Section>
-
-        {/* ═══════════════════════════════════════════════════════════ */}
-        {/* SECTION 9 — THE EPISTEMIC FLOOD                           */}
-        {/* ═══════════════════════════════════════════════════════════ */}
-        <SpeculativeSection title="9 · The Epistemic Flood" tag="Speculative Analysis" id="s9">
-          <p className="text-xl text-slate-200 font-light leading-relaxed mb-8 max-w-4xl">
-            The industry has largely misunderstood the end-state of the inference cost collapse. The popular "Dead Internet" framing assumed a future choked by low-quality synthetic spam. The data from 2025–2026 points toward something structurally different: a web saturated by <strong className="text-white">high-quality</strong>, hyper-abundant synthetic intelligence.
-          </p>
-          <p className="text-xl text-slate-200 font-light leading-relaxed mb-8 max-w-4xl">
-            When the cost of a multi-pass RAG verification loop drops to near-zero and tools like MCP standardise agentic memory, the bottleneck in human progress is no longer production. It is consumption and verification.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
-            <div>
-              <span className="text-[10px] font-bold tracking-[0.2em] text-indigo-400 uppercase mb-4 block">Already Visible</span>
-              <h3 className="text-xl font-bold text-white mb-4">What the leading edge looks like</h3>
-              <div className="space-y-4 text-slate-400 leading-relaxed">
-                <p>Scientific journals are receiving AI-assisted research at volumes that have prompted formal policy responses from Nature, Science, and IEEE — not because the papers are obviously bad, but because peer review infrastructure was built for human-scale throughput.</p>
-                <p>Legal workflows are beginning to encounter AI-generated filings and arguments at a pace that outstrips case preparation timelines designed for human researchers.</p>
-                <p>Enterprise knowledge workers increasingly find themselves in an auditing role rather than a production role. The output rate of well-engineered AI systems is now structurally mismatched with the processing rate of human institutions built to review them.</p>
-                <p className="text-indigo-400 font-medium italic">The bottleneck has moved. It moved quietly, and most organisations have not yet noticed.</p>
-              </div>
-            </div>
-
-            <div>
-              <span className="text-[10px] font-bold tracking-[0.2em] text-rose-400 uppercase mb-4 block">The Longer Horizon</span>
-              <h3 className="text-xl font-bold text-white mb-4">Where the trajectory leads</h3>
-              <div className="space-y-4 text-slate-400 leading-relaxed">
-                <p>The longer-horizon implication — and this is speculative, not forecast — is that the ultimate resolution to the Barbell Economy may not be humans orchestrating AI. It may be the emergence of agent-to-agent verification layers: systems that generate, review, and challenge output before it reaches human attention at all.</p>
-                <p>MCP provides a technical substrate for exactly this kind of chained agent interaction. It is already doing so at small scale.</p>
-                <p>The human role at the top of the barbell then shifts. Not to read the output. To set the parameters — and to decide which outputs ever reach a human at all.</p>
-              </div>
-            </div>
-          </div>
-
-          <HorizonWatch 
-            title="HORIZON WATCH — Signals to Track"
-            subtitle="Rather than a probability timeline, these are the empirical signals that indicate whether this trajectory is accelerating, stalling, or reversing."
-            columns={[
-              {
-                label: "↑ Accelerating",
-                color: "green",
-                items: [
-                  "Journal submission policies shift from volume caps to mandatory AI disclosure requirements",
-                  "First major appellate ruling on legal weight of AI-generated evidence or filings",
-                  "MCP adoption crosses majority of frontier model providers (already true, Q1 2026)",
-                  "First enterprise publicly announces an agent-to-agent review layer in a regulated workflow"
-                ]
-              },
-              {
-                label: "→ Stalling",
-                color: "amber",
-                items: [
-                  "Hallucination rates in agent-to-agent chains prove harder to control than single-model grounded tasks",
-                  "Regulatory intervention mandates human sign-off on AI-generated scientific or legal output",
-                  "Context coherence failures in multi-agent pipelines emerge as the dominant bottleneck",
-                  "MCP fragmentation — competing standards slow interoperability"
-                ]
-              },
-              {
-                label: "↓ Reversing",
-                color: "red",
-                items: [
-                  "Evidence that human verification is faster or more accurate than agent verification at meaningful scale",
-                  "Open-source AI-content detection achieves reliable detection rates across domains",
-                  "Major institutional failures attributed directly to agent-to-agent output cause regulatory retrenchment"
-                ]
-              }
-            ]}
-          />
-
-          <div className="mt-20 mb-12 text-center max-w-2xl mx-auto space-y-4">
-            <p className="text-lg text-slate-300 italic leading-relaxed">
-              This section does not carry probability estimates. The mechanisms described are emergent; the timeline and scale are genuinely uncertain. The signals above are what to watch — not what to predict.
-            </p>
-            <p className="text-lg text-slate-300 italic leading-relaxed">
-              The rest of this report is grounded in data. This section is grounded in the direction the data is pointing.
-            </p>
-          </div>
-
-          <div className="pt-8 border-t border-slate-800 text-[10px] text-slate-500 font-mono space-y-1">
-            <p>Related reading: Nature editorial policies on AI-assisted submissions (2025); IEEE guidelines on generative AI disclosure;</p>
-            <p>Linux Foundation MCP specification (Jan 2026); Sphere Inc. "The Year of Context / The Year of Coherence" enterprise analysis (2025–2026).</p>
-          </div>
-        </SpeculativeSection>
 
         {/* ═══════════════════════════════════════════════════════════ */}
         {/* FOOTER — METHODOLOGY & SOURCES                            */}
@@ -629,6 +663,16 @@ const App = () => {
                 <li>Stanford Digital Economy Lab (Brynjolfsson et al.)</li>
                 <li>Harvard Hosseini & Lichtinger</li>
                 <li>Epoch AI Inference Price Trends</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="text-indigo-400 mb-3 font-semibold text-xs uppercase tracking-wider">Epistemic Infrastructure</h5>
+              <ul className="space-y-1.5 text-xs text-slate-500">
+                <li>Nature — ICLR AI Study (2025)</li>
+                <li>HEC Paris / NPR — Legal Sanctions Tracker</li>
+                <li>FindLaw — DOJ Fabrication Case (2026)</li>
+                <li>arXiv — Structured Appendices Proposal</li>
+                <li>National Law Review — Hyperlink Rule</li>
               </ul>
             </div>
           </div>

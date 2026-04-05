@@ -104,32 +104,36 @@ Tracks what AI services actually deliver — base model, RAG pipeline, or agent 
 
 ---
 
+## 8. The Epistemic Flood
+
+The industry has largely misunderstood the end-state of the inference cost collapse. This is not a speculative addendum. It is the frame the rest of this report is sitting inside.
+
+### 8.1 — The Flood Is Already Here
+The signals are no longer emerging. They are measurable, institutional, and accelerating. In scientific publishing, ICLR 2026 reported a 70% year-on-year increase in submissions (~20,000 papers), with 21% of peer reviews found to be fully AI-generated. In legal practice, AI-related court sanctions have reached 1,200+ cases globally, with fabrication rates accelerating from 2/week to 2-3/day in late 2025.
+
+### 8.2 — The Structural Paradox
+This is not primarily a reliability problem. A flood of *reliable* synthetic content breaks institutions just as surely as a flood of unreliable content. Every institution built on the assumption of human-scale content production has implicit throughput limits (load-bearing walls). Remove them, and the structure responds the same way—expert attention remains fixed while volume scales infinitely.
+
+### 8.3 — The Verification Layer: What Comes Next
+If production is automated, verification must follow. We see this in the "Hyperlink Rule" proposals for legal filings and "structured appendices" for scientific manuscripts. The human role shifts from producer/verifier to **parameter setter**: deciding what questions are worth asking and what standards the verification layer must enforce.
+
+### 8.4 — Horizon Watch: Signals to Track
+| Signal Tier | Indicators |
+|-------------|------------|
+| ↑ Accelerating | AI-disclosure mandates in journals; appellate rulings on AI filings; enterprise agent-to-agent layers; institutional submission caps. |
+| → Stalling | Multi-agent verification proves harder to scale; regulatory mandates for human sign-off; MCP fragmentation. |
+| ↓ Reversing | Human verification proves faster/better at scale (e.g., Klarna reversal patterns); reliable AI-content detection matures. |
+
 ---
 
-## 8. What This Means for You
+## 9. What This Means for You
 
-The actor-specific actions below apply under the Base Case scenario. The final section of this report looks further out — at the structural shift that sits beyond the scenarios.
+The actor-specific actions below apply under the Base Case scenario.
 
 - **Enterprise:** Your AI ROI problem is an architecture problem. 95% of 2025 GenAI projects saw no measurable ROI (MIT).
 - **Investors:** Companies using SWE-bench Verified are making decisions on a compromised signal.
 - **Careers:** Position around orchestration, not execution. The AI-native junior needs system-design understanding.
 - **Education:** CS education must shift from "will AI replace developers" to "what does a developer do when AI writes the code."
-
----
-
-## 9. The Epistemic Flood (Speculative)
-
-The industry has largely misunderstood the end-state of the inference cost collapse. We are moving toward a web saturated by **high-quality**, hyper-abundant synthetic intelligence.
-
-- **Already Visible:** Scientific journals and legal workflows are overwhelmed by AI-assisted throughput. Peer review and prep timelines built for human scales are breaking.
-- **The Longer Horizon:** Emergence of agent-to-agent verification layers. The human role shifts from production to setting parameters and deciding which outputs ever reach human attention.
-
-### Horizon Watch — Signals to Track
-| Signal Tier | Indicators |
-|-------------|------------|
-| ↑ Accelerating | AI-disclosure mandates in journals; appellate rulings on AI filings; enterprise agent-to-agent layers. |
-| → Stalling | Multi-agent hallucination proves harder to control; regulatory mandates for human sign-off; MCP fragmentation. |
-| ↓ Reversing | Human verification proves faster/better at scale; reliable AI-content detection across domains. |
 
 ---
 
