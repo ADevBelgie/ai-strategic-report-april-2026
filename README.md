@@ -94,9 +94,9 @@ Tracks what AI services actually deliver — base model, RAG pipeline, or agent 
 
 | Scenario | Probability | Horizon | Key Trigger |
 |----------|-------------|---------|-------------|
-| 🐢 Conservative | ~25% | EOY 2027 | SWE-bench Pro stalls below 60%. Engineering gap becomes permanent moat. |
-| 📈 Base Case | ~55% | Q2 2027 | SWE-bench Pro 60–70%. System engineering becomes the competitive differentiator. |
-| 🚀 Accelerated | ~20% | EOY 2026→2027 | SWE-bench Pro exceeds 70% by Q3 2026. Reliability solutions ship in production APIs. |
+| 🐢 Conservative | ~18% | EOY 2027 | SWE-bench Pro stalls below 60%. LangChain/Gartner adoption tracks stall. |
+| 📈 Base Case | ~60% | Q2 2027 | SWE-bench Pro 60–70%. Confirmed by 57% production rate (LangChain). |
+| 🚀 Accelerated | ~22% | EOY 2026→2027 | SWE-bench Pro exceeds 70% by Q3 2026. Quality barrier (<32%) resolved. |
 
 ---
 

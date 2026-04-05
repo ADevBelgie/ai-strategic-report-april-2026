@@ -3,6 +3,26 @@ import { Brain, Terminal, Database, Lightbulb, Network, Shield } from 'lucide-re
 
 const RadarChart = () => {
   const [viewMode, setViewMode] = useState('apr2026');
+  const [reliabilityDomain, setReliabilityDomain] = useState('general');
+
+  const reliabilityByDomain = {
+    general: { 
+      standard: 35, engineered: 82, projection: 94,
+      tooltip: "Reliability 82 — Best-practice RAG deployments on structured enterprise tasks achieve under 1% hallucination on grounded summarisation (Vectara HHEM, 2026). Score = 100 minus hallucination rate."
+    },
+    medical: { 
+      standard: 36, engineered: 57, projection: 72,
+      tooltip: "Reliability 57 — Best mitigation (structured RAG on MEDLINE) reduces hallucination from 64% to 43% in clinical settings (MDPI Electronics, Oct 2025)."
+    },
+    legal: { 
+      standard: 12, engineered: 45, projection: 58,
+      tooltip: "Reliability 45 — High variance (69-88% hallucination base). Regulatory and legal-grade reliability remains a structural barrier. Courts imposing sanctions for unverified AI filings (Gartner 2026)."
+    },
+    financial: { 
+      standard: 31, engineered: 68, projection: 82,
+      tooltip: "Reliability 68 — Strongest ROI signal and mature RAG adoption in risk-governed sector. High requirement for auditable decision chains."
+    }
+  };
 
   // V2 data: 6 dimensions, scored 0-100
   const metrics = [
@@ -11,27 +31,36 @@ const RadarChart = () => {
     { key: 'memory', label: 'MEMORY', icon: Database, angle: 30 },
     { key: 'confidencecalibration', label: 'CONFIDENCE CALIBRATION', icon: Lightbulb, angle: 90, tooltip: "The ability to accurately signal uncertainty (metacognition: calibration vs sensitivity)." },
     { key: 'coherence', label: 'COHERENCE', icon: Network, angle: 150 },
-    { key: 'reliability', label: 'RELIABILITY', icon: Shield, angle: 210 },
+    { key: 'reliability', label: 'RELIABILITY (domain-dependent)', icon: Shield, angle: 210, tooltip: reliabilityByDomain[reliabilityDomain].tooltip },
   ];
 
   const data = {
     standard: {
       label: 'Typical Deployment',
       color: '#6366f1',
-      values: { reasoning: 58, execution: 46, memory: 47, confidencecalibration: 62, coherence: 45, reliability: 35 },
+      values: { 
+        reasoning: 58, execution: 46, memory: 47, confidencecalibration: 62, coherence: 45, 
+        reliability: reliabilityByDomain[reliabilityDomain].standard 
+      },
       desc: 'What most organisations are actually running today — the 95% that MIT\'s GenAI Divide found seeing no measurable P&L impact. Raw API calls, no memory infrastructure, no verification loops. Base model performance on most benchmarks.'
     },
     engineered: {
       label: 'Best System Today',
       color: '#34d399',
-      values: { reasoning: 75, execution: 65, memory: 95, confidencecalibration: 78, coherence: 75, reliability: 88 },
+      values: { 
+        reasoning: 75, execution: 65, memory: 95, confidencecalibration: 78, coherence: 75, 
+        reliability: reliabilityByDomain[reliabilityDomain].engineered 
+      },
       desc: 'What the best-engineered agent systems achieve today with full tool access, retrieval architecture, and memory infrastructure. This is the whole-system score — model plus scaffold plus engineering — not a base model number. The gap between the inner and outer polygon is the engineering opportunity that narrows as inference costs fall.'
     },
     projection: {
       label: '2027 Base Case',
       color: '#f59e0b',
-      values: { reasoning: 90, execution: 82, memory: 96, confidencecalibration: 88, coherence: 90, reliability: 94 },
-      desc: 'Where Typical Deployment lands by mid-to-late 2027 (~55% probability). Speculative. Execution crosses 80% on contamination-resistant benchmarks. Memory and coherence become table-stakes features as MCP and framework RAG mature. Reliability convergence arrives for grounded enterprise tasks. Reasoning advances on ARC-AGI-3 via RL approaches — while ARC-AGI-4 is probably already launched.'
+      values: { 
+        reasoning: 90, execution: 82, memory: 96, confidencecalibration: 88, coherence: 90, 
+        reliability: reliabilityByDomain[reliabilityDomain].projection 
+      },
+      desc: 'Where Typical Deployment lands by mid-to-late 2027 (~60% probability). Speculative. Execution crosses 80% on contamination-resistant benchmarks. Memory and coherence become table-stakes features as MCP and framework RAG mature. Reliability convergence arrives for grounded enterprise tasks. Reasoning advances on ARC-AGI-3 via RL approaches.'
     }
   };
 
@@ -68,8 +97,21 @@ const RadarChart = () => {
           <div className="flex justify-between items-end mb-5">
             <h3 className="text-2xl font-bold text-white">Capability Radar</h3>
             <div className="text-right">
-              <div className="text-[10px] text-slate-500 uppercase font-bold tracking-wider">View</div>
-              <div className="text-sm font-mono text-indigo-400">{activeView.label}</div>
+              <div className="text-[10px] text-slate-500 uppercase font-bold tracking-wider mb-1">Reliability Domain</div>
+              <div className="flex gap-1">
+                {[
+                  { id: 'general', label: 'Gen' },
+                  { id: 'medical', label: 'Med' },
+                  { id: 'legal', label: 'Law' },
+                  { id: 'financial', label: 'Fin' },
+                ].map(d => (
+                  <button key={d.id} onClick={() => setReliabilityDomain(d.id)}
+                    className={`px-2 py-0.5 text-[9px] rounded uppercase font-bold transition-all border ${reliabilityDomain === d.id ? 'bg-slate-700 border-indigo-500 text-indigo-400' : 'border-slate-800 text-slate-500 hover:text-slate-300'}`}
+                  >
+                    {d.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -117,7 +159,9 @@ const RadarChart = () => {
                   <div className="p-1.5 rounded-md bg-slate-800 text-slate-400 group-hover:text-white transition-colors">
                     <m.icon size={14} />
                   </div>
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider" title={m.tooltip}>{m.label}</span>
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider" title={m.tooltip}>
+                    {m.key === 'reliability' ? `${m.label} (${reliabilityDomain})` : m.label}
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   {standardVal !== null && (

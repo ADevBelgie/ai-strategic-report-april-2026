@@ -219,14 +219,14 @@ const App = () => {
         <Section title="The Barbell Economy: Confirmed. Accelerating. Compounding." icon={TrendingUp} isOpenDefault={true} id="s5">
           {/* Probability Badges */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            <ScenarioCard emoji="🐢" title="The Plateau" probability="<10%" isActive={activeEconScenario === 'A'} onClick={() => setActiveEconScenario('A')}>
-              Inference costs stall. Reliability engineering harder than expected. AI stays a super-tool, not an autonomous agent. Junior hiring stabilises.
+            <ScenarioCard emoji="🐢" title="The Plateau" probability="~18%" isActive={activeEconScenario === 'A'} onClick={() => setActiveEconScenario('A')}>
+              Inference costs stall. Capability plateau below 45% on SWE-bench Pro SEAL. Lower probability outlier (revised down from 25%) given current 57% production adoption rates.
             </ScenarioCard>
             <ScenarioCard emoji="📊" title="The Barbell" probability="60%" isActive={activeEconScenario === 'B'} onClick={() => setActiveEconScenario('B')}>
-              Agentic costs collapse. Junior roles decimated. Senior Orchestrators in extreme demand. Framework RAG commoditises. The engineering gap becomes the competitive moat. Revised up from 55% in V1.
+              Agentic costs collapse. Senior Orchestrators in extreme demand. Every pillar confirmed by 2026 adoption data (Gartner/LangChain). The engineering gap becomes the primary moat.
             </ScenarioCard>
-            <ScenarioCard emoji="⚡" title="Frictionless" probability="30%" isActive={activeEconScenario === 'C'} onClick={() => setActiveEconScenario('C')}>
-              Self-correction and metacognition advances faster than expected. Architectural solutions ship in production APIs. Reliability convergence ahead of schedule. Structural unemployment across all cognitive tiers.
+            <ScenarioCard emoji="⚡" title="Frictionless" probability="22%" isActive={activeEconScenario === 'C'} onClick={() => setActiveEconScenario('C')}>
+              Self-correction and metacognition advances faster than expected. Blocked from higher weight by persistent quality barriers (32%) and reasoning frontier resets (ARC-AGI-3).
             </ScenarioCard>
           </div>
 
@@ -384,23 +384,23 @@ const App = () => {
         {/* ═══════════════════════════════════════════════════════════ */}
         <Section title="Where This Goes Next" icon={Compass} isOpenDefault={true} id="s7">
           <p className="text-sm text-slate-400 mb-6 leading-relaxed">
-            Three scenarios for how AI deployment evolves from here. These aren't predictions — they're structured possibilities, each grounded in current data and trajectories. The base case is what the evidence currently points to; the other two map what happens if key assumptions break.
+            Three scenarios for how AI deployment evolves from here. These aren't predictions — they're structured possibilities, each grounded in current data and trajectories.
           </p>
           <p className="text-[10px] text-slate-500 mb-6 leading-relaxed max-w-3xl">
-            Weights are informed by five inputs: (1) ARC-AGI-2/3 progress rates and benchmark saturation history, (2) inference cost curve trajectory, (3) BLS and Stanford/Harvard labour market data, (4) open-source model capability trajectory, and (5) LangChain State of AI Agents survey (2026). These are informed estimates reflecting systems design diffusion vs. capability improvement.
+            Weights are informed by five inputs: (1) ARC-AGI-2/3 progress rates, (2) inference cost curve trajectory, (3) BLS and Stanford/Harvard labour market data, (4) open-source model capability trajectory, and (5) LangChain State of AI Agents survey (2026). The 60% Base Case weight reflects that both the capability trajectory (SWE-bench Pro doubling in 12 months) and the adoption signals (57% of practitioners with agents in production, Gartner's 40% enterprise prediction for EOY 2026) are on track, while the known structural friction — quality as the persistent production blocker — prevents this from being the Accelerated scenario.
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            <ScenarioCard emoji="🐢" title="Conservative" probability="~25%" horizon="EOY 2027" headline="Progress slows. The gap between typical and best systems widens rather than narrows."
+            <ScenarioCard emoji="🐢" title="Conservative" probability="~18%" horizon="EOY 2027" headline="Progress slows. The gap between typical and best systems widens rather than narrows."
               isActive={active2027Scenario === 'conservative'} onClick={() => setActive2027Scenario('conservative')}>
-              SWE-bench Pro stalls below 60%. ARC-AGI-3 proves harder than ARC-AGI-2's trajectory implies — interactive environments require architectural innovation, not just more compute. Reliability engineering slower to commoditise than projected. Junior hiring stabilises at 7% share. The engineering gap becomes a permanent moat rather than a temporary transition.
+              SWE-bench Pro stalls below 60%. ARC-AGI-3 proves harder than ARC-AGI-2's trajectory implies. Gartner/LangChain adoption signals suggest that while diffusion is high (57% in production), a dual-stall in both capability and adoption is the lower-probability outlier (~18%).
             </ScenarioCard>
-            <ScenarioCard emoji="📈" title="Base Case" probability="~55%" horizon="Q2 2027" headline="System engineering becomes the primary competitive differentiator in AI deployment."
+            <ScenarioCard emoji="📈" title="Base Case" probability="~60%" horizon="Q2 2027" headline="System engineering becomes the primary competitive differentiator in AI deployment."
               isActive={active2027Scenario === 'base'} onClick={() => setActive2027Scenario('base')}>
-              SWE-bench Pro reaches 60–70% with best agent systems. ARC-AGI-3 approaches 30–50% by Q1 2027 via RL/CNN approaches. Memory and coherence become table-stakes enterprise features as MCP and framework RAG mature. Junior share falls to 3–5%. System engineering becomes the primary competitive differentiator. Parametric factuality hits 75–80% for top models.
+              SWE-bench Pro reaches 60–70% with best agent systems. ARC-AGI-3 approaches 30–50% by Q1 2027 via RL approaches. Confirmed by early 2026 adoption data: 40% enterprise application embedding target (Gartner) and 57% production rate (LangChain) support this trajectory.
             </ScenarioCard>
-            <ScenarioCard emoji="🚀" title="Accelerated" probability="~20%" horizon="EOY 2026 → 2027" headline="Reliability convergence ahead of schedule. Regulated sectors unlock at scale."
+            <ScenarioCard emoji="🚀" title="Accelerated" probability="~22%" horizon="EOY 2026 → 2027" headline="Reliability convergence ahead of schedule. Regulated sectors unlock at scale."
               isActive={active2027Scenario === 'accelerated'} onClick={() => setActive2027Scenario('accelerated')}>
-              SWE-bench Pro exceeds 70% by Q3 2026. ARC-AGI-3 cracks 50%+ by EOY 2026. Architectural reliability solutions (AARF-class) ship in production APIs. Junior developer roles largely automated in tech-native firms. CS enrolment collapse triggers policy response. Inference cost-per-task falls below $0.10 at frontier quality.
+              SWE-bench Pro exceeds 70% by Q3 2026. Architectural reliability solutions ship in production APIs. Blocked from higher weight by the persistent "Quality" barrier cited by 32% of practitioners as their primary production friction.
             </ScenarioCard>
           </div>
         </Section>
