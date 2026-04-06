@@ -93,8 +93,8 @@ const PipelineTimeline = () => {
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative">
-          {/* Vertical central line (Made thicker and brighter for visibility) */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/40 via-slate-600/60 to-emerald-500/40 md:-translate-x-1/2 z-0" />
+          {/* Vertical central line (Constrained to start/stop at dots) */}
+          <div className="absolute left-4 md:left-1/2 top-[34px] sm:top-[38px] bottom-[14rem] md:bottom-[23rem] w-0.5 bg-gradient-to-b from-blue-500/40 via-slate-600/60 to-emerald-500/40 md:-translate-x-1/2 z-0" />
 
           {events.map((ev, i) => {
             const nextEv = events[i+1];

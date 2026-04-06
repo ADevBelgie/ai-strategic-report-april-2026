@@ -15,49 +15,66 @@ const BarbellConcept = () => {
           </div>
         </div>
 
-        {/* Connecting Line (Upper) */}
-        <div className="flex justify-center">
-          <div className="w-0.5 h-16 bg-gradient-to-b from-slate-800 to-slate-900/40"></div>
+        {/* Connecting Line (Upper) - Solid structural pipe overlap */}
+        <div className="flex justify-center -my-1 relative z-0">
+          <div className="w-0.5 h-16 bg-slate-700/60 shadow-[0_0_8px_rgba(51,65,85,0.4)]"></div>
         </div>
 
         {/* Mid Tier — The Compressed Middle (Subordinate - Dimmed Further) */}
-        <div className="flex flex-col items-center relative py-4 opacity-20 grayscale transition-all hover:opacity-100 hover:grayscale-0">
-          <div className="w-1/3 h-14 border border-dashed border-slate-800 bg-transparent rounded-xl flex items-center justify-center group shadow-inner shadow-black/20">
-            <span className="text-slate-600 font-bold tracking-widest uppercase text-[12px]">Compressed Middle</span>
+        <div className="flex flex-col items-center relative py-4 opacity-70 transition-all hover:opacity-100 z-10">
+          <div className="w-40 h-14 border border-dashed border-slate-700 bg-slate-950/50 rounded-xl flex items-center justify-center group shadow-inner shadow-black/20">
+            <span className="text-slate-400 font-bold tracking-widest uppercase text-[12px]">Compressed Middle</span>
           </div>
-          <div className="absolute -right-12 top-1/2 -translate-y-1/2 hidden lg:block">
-            <p className="text-[12px] text-slate-500 font-bold uppercase tracking-widest leading-tight">
-              Coordination <br /> & Synthesis <br /> <span className="text-rose-500/10 line-through">Squeezed</span>
+          <div className="absolute left-[calc(100%+0.5rem)] md:left-[calc(50%+6rem)] top-1/2 -translate-y-1/2 hidden sm:block whitespace-nowrap">
+            <p className="text-[12px] text-slate-300 font-bold uppercase tracking-widest leading-[1.1]">
+              Coordination <br /> & Synthesis <br /> <span className="text-rose-500/50 line-through">Squeezed</span>
             </p>
           </div>
         </div>
 
-        {/* Connecting Line (Lower) */}
-        <div className="flex justify-center">
-          <div className="w-0.5 h-16 bg-gradient-to-t from-slate-800 to-transparent"></div>
+        {/* Connecting Line (Lower) - Structural pipe overlap */}
+        <div className="flex justify-center -my-1 relative z-0">
+          <div className="w-0 border-l-2 border-dashed border-rose-500/40 h-16 bg-transparent"></div>
         </div>
 
         {/* Junior Tier — The Structurally Removed Layer (Primary Signal: Striking Collapse) */}
-        <div className="flex flex-col items-center relative py-6">
-          {/* Striking Background Layer (Ampped up) */}
-          <div 
-            className="absolute inset-x-0 top-0 bottom-0 bg-rose-500/10 border border-dashed border-rose-500/50 rounded-t-lg -z-10 mx-auto w-1/3 shadow-[0_0_40px_-10px_rgba(244,63,94,0.3)]"
-            style={{ clipPath: 'polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%)' }}
-          />
+        <div className="flex flex-col items-center relative z-10 w-full mt-2">
           
+          {/* Ghost outline showing what WAS there (The V1 stable base) - Synchronized with top tier width */}
+          <div className="absolute top-0 inset-x-0 mx-auto w-5/6 max-w-lg h-32 border-2 border-slate-800/40 rounded-2xl -z-20 border-dashed opacity-50 hidden sm:block" />
+          
+          {/* Striking Background Layer (SVG Collapsing Pyramid) */}
+          <div className="absolute inset-x-0 mx-auto w-5/6 max-w-lg h-32 top-0 bottom-0 -z-10 hidden sm:block">
+            <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+              {/* The tapering polygon matching the 'collapsing base' metaphor */}
+              <polygon 
+                points="15,0 85,0 60,100 40,100" 
+                fill="url(#collapseGradient)" 
+                stroke="rgba(244,63,94,0.4)" 
+                strokeWidth="0.5" 
+                strokeDasharray="2,2" 
+              />
+              <defs>
+                <linearGradient id="collapseGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="rgba(244,63,94,0.15)" />
+                  <stop offset="100%" stopColor="rgba(244,63,94,0.02)" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div className="absolute inset-x-0 mx-auto w-full h-full top-0 bottom-0 bg-gradient-to-b from-rose-500/10 to-transparent -z-10 sm:hidden border-t border-dashed border-rose-500/50 rounded-t-xl" />
+
           {/* Text Layer (Primary Impact) */}
-          <div className="flex flex-col items-center justify-center h-12 z-10 px-4">
-            <span className="text-rose-500 font-black tracking-widest uppercase text-[15px] drop-shadow-[0_0_8px_rgba(244,63,94,0.5)] whitespace-nowrap">
-              Removal in Progress
+          <div className="flex flex-col items-center justify-center h-16 z-10 px-4 mt-2">
+            <span className="text-rose-500 font-black tracking-widest uppercase text-[15px] drop-shadow-[0_0_8px_rgba(244,63,94,0.6)] whitespace-nowrap text-center leading-tight">
+              Removal in<br className="sm:hidden" /> Progress
             </span>
+            <span className="text-[10px] text-rose-500/60 font-bold uppercase tracking-tighter mt-1 hidden sm:block">Structural Contraction</span>
           </div>
           
-          {/* Ghost outline showing what WAS there */}
-          <div className="absolute top-0 w-4/6 h-12 border border-slate-800/30 rounded-xl -z-20 border-dashed" />
-          
-          <div className="mt-6 flex gap-4">
-             <div className="text-[11px] text-rose-500/60 font-bold uppercase px-3 py-1.5 border border-rose-500/30 rounded tracking-tighter bg-rose-500/5">Postings: -67%</div>
-             <div className="text-[11px] text-rose-500/60 font-bold uppercase px-3 py-1.5 border border-rose-500/30 rounded tracking-tighter bg-rose-500/5">Jobs: -27.5%</div>
+          <div className="mt-3 flex gap-4 pb-6">
+             <div className="text-[11px] text-rose-500/80 font-bold uppercase px-3 py-1.5 border border-rose-500/30 rounded tracking-[0.1em] bg-rose-500/10 backdrop-blur-sm">Postings: -67%</div>
+             <div className="text-[11px] text-rose-500/80 font-bold uppercase px-3 py-1.5 border border-rose-500/30 rounded tracking-[0.1em] bg-rose-500/10 backdrop-blur-sm">Jobs: -27.5%</div>
           </div>
         </div>
       </div>

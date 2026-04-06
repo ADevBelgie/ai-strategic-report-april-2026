@@ -333,17 +333,25 @@ const AppContent = () => {
         {/* ═══════════════════════════════════════════════════════════ */}
         <Section title="How We Get From Here to 2027" icon={Cpu} isOpenDefault={true} id="s6">
           {/* Vertical Timeline */}
-          <div className="relative border-l-2 border-slate-700 pl-8 space-y-10 mb-10">
-            {content.s6Timeline[displayMode].map((node, i) => (
-              <div key={i} className="relative">
-                <div className={`absolute -left-[41px] top-1 h-5 w-5 rounded-full ${node.color} border-4 border-slate-950 shadow-lg`} />
-                <div className="flex items-baseline gap-3 mb-1">
-                  <h4 className="text-white font-bold text-lg">{node.year}</h4>
-                  <span className="text-xs text-slate-500 font-mono uppercase">{node.status}</span>
+          <div className="space-y-10 mb-10">
+            {content.s6Timeline[displayMode].map((node, i) => {
+              const isLast = i === content.s6Timeline[displayMode].length - 1;
+              return (
+                <div key={i} className="relative pl-10">
+                  {/* Vertical Line Segment */}
+                  {!isLast && (
+                    <div className="absolute left-[9px] top-[14px] w-[2px] h-[calc(100%+40px)] bg-slate-700" />
+                  )}
+                  {/* Dot */}
+                  <div className={`absolute left-0 top-1 h-5 w-5 rounded-full z-10 ${node.color} border-4 border-slate-950 shadow-lg`} />
+                  <div className="flex items-baseline gap-3 mb-1">
+                    <h4 className="text-white font-bold text-lg">{node.year}</h4>
+                    <span className="text-xs text-slate-500 font-mono uppercase">{node.status}</span>
+                  </div>
+                  <p className="text-sm text-slate-400 leading-relaxed">{node.desc}</p>
                 </div>
-                <p className="text-sm text-slate-400 leading-relaxed">{node.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Scaling Law Cards */}
