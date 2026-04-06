@@ -60,61 +60,7 @@ export const content = {
     essentials: "*Reliability varies heavily by industry. Legal AI performs worst — even the best setups are wrong at least 12% of the time. Medical AI, done right, reaches 57% reliability.*"
   },
 
-  // SECTION 5
-  s5ScenarioPlateau: {
-    expert: "Inference costs stall. Outlier given 57% production rate (LangChain).",
-    essentials: "AI progress slows and costs stop falling. Unlikely given current data."
-  },
-  s5ScenarioBarbell: {
-    expert: "Agentic costs collapse. Confirmed by 2026 adoption data.",
-    essentials: "AI takes over routine work; senior roles become more valuable. Already happening."
-  },
-  s5ScenarioFrictionless: {
-    expert: "Self-correction advances. Blocked by quality barriers (32%).",
-    essentials: "AI handles almost everything end-to-end. Possible but blocked by reliability problems."
-  },
-  s5ScenarioDetails: {
-    A: {
-      expert: {
-        title: "If the Plateau holds",
-        p1: "AI remains a productivity multiplier — not an autonomous replacement. Hiring patterns stabilise. Junior pipelines survive in most sectors. The gap between AI-native and AI-resistant organisations grows slowly rather than exponentially.",
-        signal: "Key signal: inference costs flatten, ARC-AGI-3 remains below 15% by EOY 2026, multiple Klarna-style reversals."
-      },
-      essentials: {
-        title: "If progress slows",
-        p1: "AI stays as a helper tool rather than a replacement for workers. Companies keep hiring juniors, and the shift to AI happens much more slowly. The difference between companies that use AI and those that don't doesn't grow as fast.",
-        signal: "Key signal: AI costs stop falling and new capability tests show little improvement."
-      }
-    },
-    B: {
-      expert: {
-        title: "The Barbell in practice",
-        p1: "Junior share of IT hiring: 15% → 7% in three years. Senior AI-role salaries: +40%. Entry-level developer postings: –67% since 2022. Salesforce: zero new engineering hires 2025. Block: workforce cut from 10,000 to under 6,000.",
-        p2: "Google's DORA 2024 report found roughly 2% productivity increase for every 25% increase in AI adoption — a gap of ~12× between executive expectation and measured engineering outcome.",
-        signal: "Base Case is confirmed by 2026 adoption data. Every pillar is now anchored in direct labor market measurement."
-      },
-      essentials: {
-        title: "How the 'Barbell' works",
-        p1: "The share of junior hiring has halved in three years, while senior salaries are up 40%. Large tech companies like Salesforce have stopped hiring new engineers entirely for periods. The middle is being hollowed out.",
-        p2: "Current data shows a massive gap between how much executives expect AI to help and how much it actually improves productivity in real-world teams.",
-        signal: "This is the most likely scenario based on all current industry data."
-      }
-    },
-    C: {
-      expert: {
-        title: "If Frictionless arrives",
-        p1: "Self-correcting agent architectures make hallucination largely irrelevant for structured tasks. Reliability converges with capability. Displacement extends beyond junior roles into mid-level knowledge work.",
-        p2: "This scenario requires an architectural breakthrough addressing the Knowledge FFN hallucination mechanism — no published result yet demonstrates this at scale.",
-        signal: "Key signal: SWE-bench Pro exceeds 70%, ARC-AGI-3 50%+ by EOY 2026, published reliability breakthrough."
-      },
-      essentials: {
-        title: "If AI becomes seamless",
-        p1: "Systems that can check their own work solve most reliability problems. AI becomes as reliable as it is capable. This starts affecting not just juniors but experienced middle-management roles too.",
-        p2: "This would require a major technical breakthrough in how AI handles facts, which hasn't happened at scale quite yet.",
-        signal: "Key signal: AI starts passing the hardest technical and reasoning tests with very high scores."
-      }
-    }
-  },
+  s5ScenarioDetails: {}, // Legacy - now using src/data/scenarios.js
   s5BarbellIntro: {
     expert: "The data has refined this shape since the previous V1 report. The V1 barbell assumed a stable base of junior execution work at one end and senior judgment at the other, with the middle hollowing out between them. That base is gone. Entry-level postings are down 67% since 2022. The bottom weight isn't holding — it's contracting. What remains is an asymmetric structure: the top growing, the middle under pressure from both directions, the bottom being structurally removed. The section name persists because V1 readers will recognise the thesis. The shape has changed.",
     essentials: "The data has refined this shape since the previous V1 report. The 'Barbell' model originally assumed we'd have stable senior and junior roles with the middle disappearing. That's no longer what we see. Entry-level job openings are down 67% since 2022. The bottom is falling away entirely. What remains is an unbalanced pyramid: the top is growing, the middle is being squeezed from both sides, and the bottom is being structurally removed. The name stays because it's the same economic shift — just more extreme."

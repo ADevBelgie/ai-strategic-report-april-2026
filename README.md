@@ -116,6 +116,12 @@ The data has refined this shape since the previous V1 report. The V1 barbell ass
 
 What remains is an asymmetric structure: the top growing, the middle under pressure from both directions, and the bottom being **structurally removed**.
 
+| Scenario | Probability | Summary |
+|----------|-------------|---------|
+| 🐢 Conservative | ~18% | Progress slows. Capability plateau below 45% on SWE-bench Pro SEAL. |
+| 📈 Base Case | ~60% | Agentic costs collapse. SWE-bench Pro reaches 60–70%. Confirmed by 2026 adoption data. |
+| 🚀 Accelerated | ~22% | Quality barrier resolved. Self-correction advances. ARC-AGI-3 cracks 30%+. |
+
 ### 5.1 The Barbell in Practice: Sector Divergence
 Where you work determines whether the Barbell is already here, arriving soon, or structurally delayed:
 - **Tech-Native / Startup**: Junior hiring effectively eliminated. **Salesforce** reported zero new engineering hires in 2025; **Block** cut its workforce from 10,000 to under 6,000.
@@ -166,9 +172,9 @@ Five structural drivers are compressing the timeline between capability and depl
 The 60% Base Case weight reflects that both the capability trajectory (SWE-bench Pro doubling in 12 months) and the adoption signals (57% of practitioners with agents in production, Gartner's 40% enterprise prediction for EOY 2026) are on track, while the known structural friction — quality as the persistent production blocker — prevents this from being the Accelerated scenario.
 
 ### Three scenarios grounded in current trajectories:
-1. **Conservative (18%)**: Progress slows. Capability plateau below 45% on SWE-bench Pro SEAL. AI remains a productivity multiplier — not an autonomous replacement. Hiring patterns stabilise. Junior pipelines survive in most sectors. The gap between AI-native and AI-resistant organisations grows slowly.
-2. **Base Case (60%)**: AI handles 60–70% of software tasks. Engineering differentiates the top 5% of companies. Gartner 40% enterprise adoption. 
-3. **Accelerated (22%)**: Reliability barrier resolved (the 32% quality barrier). ARC-AGI-3 cracks 30%+. AI handles most end-to-end tasks. Self-correcting agent architectures make hallucination largely irrelevant for structured tasks. Reliability converges with capability.
+1. **Conservative (~18%)**: Progress slows. Capability plateau below 45% on SWE-bench Pro SEAL. AI remains a productivity multiplier — not an autonomous replacement. Hiring patterns stabilise. Junior pipelines survive in most sectors. The gap between AI-native and AI-resistant organisations grows slowly.
+2. **Base Case (~60%)**: AI handles 60–70% of software tasks. Engineering differentiates the top 5% of companies. Gartner 40% enterprise adoption. 
+3. **Accelerated (~22%)**: Reliability barrier resolved (the 32% quality barrier). ARC-AGI-3 cracks 30%+. AI handles most end-to-end tasks. Self-correcting agent architectures make hallucination largely irrelevant for structured tasks. Reliability converges with capability.
 
 ---
 

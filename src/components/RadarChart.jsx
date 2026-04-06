@@ -224,7 +224,7 @@ const RadarChart = () => {
         {/* Projection warning */}
         {viewMode === 'projection' && (
           <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[9px] text-amber-400/70 font-medium bg-slate-900/80 px-3 py-1 rounded-full">
-            ⚠ Speculative — ~55% probability
+            ⚠ Speculative — ~60% probability
           </div>
         )}
       </div>

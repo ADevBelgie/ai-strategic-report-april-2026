@@ -19,6 +19,7 @@ import SectorSplit from './components/visuals/SectorSplit';
 import PipelineTimeline from './components/visuals/PipelineTimeline';
 import BarbellConcept from './components/visuals/BarbellConcept';
 import { content, translate } from './content/reportContent';
+import { scenarios } from './data/scenarios';
 
 const App = () => {
   return (
@@ -287,44 +288,44 @@ const AppContent = () => {
             <h4 className="text-xs uppercase tracking-widest text-slate-500 font-bold">Labor Market Scenarios: The Barbell Effect</h4>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            <ScenarioCard emoji="🐢" title="The Plateau" probability="~18%" isActive={activeEconScenario === 'A'} onClick={() => setActiveEconScenario('A')}>
-              {content.s5ScenarioPlateau[displayMode]}
-            </ScenarioCard>
-            <ScenarioCard emoji="📊" title="The Barbell" probability="60%" isActive={activeEconScenario === 'B'} onClick={() => setActiveEconScenario('B')}>
-              {content.s5ScenarioBarbell[displayMode]}
-            </ScenarioCard>
-            <ScenarioCard emoji="⚡" title="Frictionless" probability="22%" isActive={activeEconScenario === 'C'} onClick={() => setActiveEconScenario('C')}>
-              {content.s5ScenarioFrictionless[displayMode]}
-            </ScenarioCard>
+            {scenarios.map((scenario, index) => (
+              <ScenarioCard 
+                key={index}
+                emoji={scenario.emoji} 
+                title={scenario.name} 
+                probability={scenario.probability} 
+                isActive={activeEconScenario === String.fromCharCode(65 + index)} 
+                onClick={() => setActiveEconScenario(String.fromCharCode(65 + index))}
+              >
+                {scenario.description}
+              </ScenarioCard>
+            ))}
           </div>
 
           {/* Scenario-dependent content */}
           <div className="mb-8 bg-slate-800/30 border border-slate-700/50 rounded-xl p-5 transition-all">
             {activeEconScenario === 'A' && (
               <div className="space-y-3 text-sm text-slate-300 leading-relaxed animate-fade-in">
-                <h5 className="text-amber-400 font-bold text-xs uppercase tracking-wider">{content.s5ScenarioDetails.A[displayMode].title}</h5>
-                <p>{translate(content.s5ScenarioDetails.A[displayMode].p1, displayMode)}</p>
-                <p className="text-slate-500 text-xs">{translate(content.s5ScenarioDetails.A[displayMode].signal, displayMode)}</p>
+                <h5 className="text-amber-400 font-bold text-xs uppercase tracking-wider">{scenarios[0].name} Scenario</h5>
+                <p>{scenarios[0].description}</p>
+                <p className="text-slate-500 text-xs">Trigger: {scenarios[0].trigger}</p>
               </div>
             )}
             {activeEconScenario === 'B' && (
               <div className="space-y-3 text-sm text-slate-300 leading-relaxed animate-fade-in">
-                <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider">{content.s5ScenarioDetails.B[displayMode].title}</h5>
-                <p>{translate(content.s5ScenarioDetails.B[displayMode].p1, displayMode)}</p>
-                {content.s5ScenarioDetails.B[displayMode].p2 && <p>{translate(content.s5ScenarioDetails.B[displayMode].p2, displayMode)}</p>}
-                <p className="text-slate-500 text-xs">{translate(content.s5ScenarioDetails.B[displayMode].signal, displayMode)}</p>
+                <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider">{scenarios[1].name} Scenario</h5>
+                <p>{scenarios[1].description}</p>
+                <p className="text-slate-500 text-xs">Trigger: {scenarios[1].trigger}</p>
               </div>
             )}
             {activeEconScenario === 'C' && (
               <div className="space-y-3 text-sm text-slate-300 leading-relaxed animate-fade-in">
-                <h5 className="text-rose-400 font-bold text-xs uppercase tracking-wider">{content.s5ScenarioDetails.C[displayMode].title}</h5>
-                <p>{translate(content.s5ScenarioDetails.C[displayMode].p1, displayMode)}</p>
-                {content.s5ScenarioDetails.C[displayMode].p2 && <p>{translate(content.s5ScenarioDetails.C[displayMode].p2, displayMode)}</p>}
-                <p className="text-slate-500 text-xs">{translate(content.s5ScenarioDetails.C[displayMode].signal, displayMode)}</p>
+                <h5 className="text-rose-400 font-bold text-xs uppercase tracking-wider">{scenarios[2].name} Scenario</h5>
+                <p>{scenarios[2].description}</p>
+                <p className="text-slate-500 text-xs">Trigger: {scenarios[2].trigger}</p>
               </div>
             )}
           </div>
-
           <SectorSplit />
         </Section>
 
@@ -390,18 +391,20 @@ const AppContent = () => {
             {content.s7Methodology[displayMode]}
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            <ScenarioCard emoji="🐢" title="Conservative" probability="~18%" horizon="EOY 2027" headline="Progress slows. The gap between typical and best systems widens rather than narrows."
-              isActive={active2027Scenario === 'conservative'} onClick={() => setActive2027Scenario('conservative')}>
-              {content.s7Triggers.conservative[displayMode]}
-            </ScenarioCard>
-            <ScenarioCard emoji="📈" title="Base Case" probability="~60%" horizon="Q2 2027" headline="System engineering becomes the primary competitive differentiator in AI deployment."
-              isActive={active2027Scenario === 'base'} onClick={() => setActive2027Scenario('base')}>
-              {content.s7Triggers.base[displayMode]}
-            </ScenarioCard>
-            <ScenarioCard emoji="🚀" title="Accelerated" probability="~22%" horizon="EOY 2026 → 2027" headline="Reliability convergence ahead of schedule. Regulated sectors unlock at scale."
-              isActive={active2027Scenario === 'accelerated'} onClick={() => setActive2027Scenario('accelerated')}>
-              {content.s7Triggers.accelerated[displayMode]}
-            </ScenarioCard>
+            {scenarios.map((scenario, index) => (
+              <ScenarioCard 
+                key={index}
+                emoji={scenario.emoji} 
+                title={scenario.name} 
+                probability={scenario.probability} 
+                horizon={scenario.horizon} 
+                headline={scenario.implication}
+                isActive={active2027Scenario === scenario.name.toLowerCase().replace(' ', '')} 
+                onClick={() => setActive2027Scenario(scenario.name.toLowerCase().replace(' ', ''))}
+              >
+                {scenario.trigger}
+              </ScenarioCard>
+            ))}
           </div>
 
           <PipelineTimeline />
