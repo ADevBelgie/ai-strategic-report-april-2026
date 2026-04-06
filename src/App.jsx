@@ -13,6 +13,11 @@ import { SWEBenchChart } from './components/SWEBenchChart';
 import { ReadingModeProvider, useReadingMode } from './context/ReadingModeContext';
 import ReadingModeToggle from './components/ReadingModeToggle';
 import EssayCrossLink from './components/EssayCrossLink';
+import ProductivityParadox from './components/visuals/ProductivityParadox';
+import HiringCollapse from './components/visuals/HiringCollapse';
+import SectorSplit from './components/visuals/SectorSplit';
+import PipelineTimeline from './components/visuals/PipelineTimeline';
+import BarbellConcept from './components/visuals/BarbellConcept';
 import { content, translate } from './content/reportContent';
 
 const App = () => {
@@ -221,6 +226,8 @@ const AppContent = () => {
           )}
           <RadarChart />
 
+          <ProductivityParadox />
+
           {/* Dimension Detail Cards */}
           <div className="mt-8 space-y-3">
             <h4 className="text-xs uppercase tracking-widest text-slate-500 font-bold mb-4">Dimension Deep Dives</h4>
@@ -270,10 +277,15 @@ const AppContent = () => {
         {/* SECTION 5 — ECONOMIC SCENARIOS                            */}
         {/* ═══════════════════════════════════════════════════════════ */}
         <Section title="The Barbell Economy: Confirmed. Accelerating. Compounding." icon={TrendingUp} isOpenDefault={true} id="s5">
+          <BarbellConcept />
           <p className="text-slate-300 leading-relaxed mb-8">
             {translate(content.s5BarbellIntro[displayMode], displayMode)}
           </p>
+          <HiringCollapse />
           {/* Probability Badges */}
+          <div className="mb-4 text-center">
+            <h4 className="text-xs uppercase tracking-widest text-slate-500 font-bold">Labor Market Scenarios: The Barbell Effect</h4>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <ScenarioCard emoji="🐢" title="The Plateau" probability="~18%" isActive={activeEconScenario === 'A'} onClick={() => setActiveEconScenario('A')}>
               {content.s5ScenarioPlateau[displayMode]}
@@ -313,80 +325,7 @@ const AppContent = () => {
             )}
           </div>
 
-          {/* Stat Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 stagger-children">
-            <StatCard label="US Programmer Employment" value="–27.5%" subtext="2023–2025, BLS" trend="down" color="rose" />
-            <StatCard label="Junior Share of IT Hiring" value="7%" subtext="Down from 15% in 2022" trend="down" color="amber" />
-            <StatCard label="AI Postings in Insurance" value="+74%" subtext="Sector-specific surge" trend="up" color="emerald" />
-          </div>
-
-          {/* Hollow Middle Visualisation */}
-          <div className="bg-slate-900/50 p-6 rounded-xl border border-slate-700 mb-6">
-            <div className="text-center text-xs text-slate-500 mb-4 font-mono uppercase tracking-wider">Polarisation of Labour Demand</div>
-            <div className="flex items-center mb-4 h-36">
-              <div className="h-full flex items-center justify-center w-8">
-                <span className="text-[10px] text-slate-500 font-mono -rotate-90 whitespace-nowrap tracking-widest">REL. DEMAND</span>
-              </div>
-              <div className="flex-1 flex items-end justify-center gap-6 h-full border-l border-b border-slate-700 pl-4 pb-2">
-                <div className="flex-1 max-w-[80px] bg-emerald-500/15 border border-emerald-500/40 h-full flex flex-col justify-end p-3 text-center rounded-t-lg">
-                  <span className="text-xs font-bold text-emerald-400">HIGH</span>
-                  <span className="text-[10px] text-emerald-300/70 mt-1">Senior<br/>Orchestrators</span>
-                </div>
-                <div className="flex-1 max-w-[80px] bg-rose-500/10 border border-rose-500/20 h-[20%] flex flex-col justify-end p-2 text-center rounded-t-lg">
-                  <span className="text-[10px] font-bold text-rose-400">HOLLOWED</span>
-                  <span className="text-[9px] text-rose-300/70 mt-0.5">Junior / Middle</span>
-                </div>
-                <div className="flex-1 max-w-[80px] bg-blue-500/15 border border-blue-500/40 h-[70%] flex flex-col justify-end p-3 text-center rounded-t-lg">
-                  <span className="text-xs font-bold text-blue-400">STABLE</span>
-                  <span className="text-[10px] text-blue-300/70 mt-1">Physical /<br/>Compliance</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Klarna Cycle Callout */}
-          <CalloutBox type="amber" title={displayMode === 'expert' ? "The Klarna Cycle — What Overcorrection Looks Like" : "The Klarna Warning"}>
-            {translate(content.s5Klarna[displayMode], displayMode)}
-          </CalloutBox>
-
-          {/* Pipeline Problem */}
-          <CalloutBox type="blue" title="The Pipeline Problem">
-            {translate(content.s5Pipeline[displayMode], displayMode)}
-          </CalloutBox>
-
-          {/* Sector Split Table */}
-          <div className="mt-6 overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-slate-700">
-                  <th className="text-left py-3 px-4 text-slate-400 font-semibold text-xs uppercase tracking-wider">Sector</th>
-                  <th className="text-left py-3 px-4 text-slate-400 font-semibold text-xs uppercase tracking-wider">Junior Hiring</th>
-                  <th className="text-left py-3 px-4 text-slate-400 font-semibold text-xs uppercase tracking-wider">Senior Demand</th>
-                  <th className="text-left py-3 px-4 text-slate-400 font-semibold text-xs uppercase tracking-wider">Rationale</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-slate-800">
-                  <td className="py-3 px-4 text-white font-medium">Enterprise<br/><span className="text-xs text-slate-500">Finance / Insurance / Healthcare</span></td>
-                  <td className="py-3 px-4 text-emerald-400">Still hiring</td>
-                  <td className="py-3 px-4 text-amber-400">+40% salaries</td>
-                  <td className="py-3 px-4 text-slate-400 text-xs">AI-related postings +74% YoY. Hybrid human+AI roles</td>
-                </tr>
-                <tr className="border-b border-slate-800">
-                  <td className="py-3 px-4 text-white font-medium">Startups / Tech-native</td>
-                  <td className="py-3 px-4 text-rose-400">Effectively zero</td>
-                  <td className="py-3 px-4 text-emerald-400">Extreme demand</td>
-                  <td className="py-3 px-4 text-slate-400 text-xs">54% stopped hiring juniors because of AI (AlterSquare, March 2026)</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-white font-medium">Regulated<br/><span className="text-xs text-slate-500">Legal / Healthcare / Finance</span></td>
-                  <td className="py-3 px-4 text-blue-400">Maintaining pipelines</td>
-                  <td className="py-3 px-4 text-amber-400">Growing</td>
-                  <td className="py-3 px-4 text-slate-400 text-xs">Regulatory accountability requires auditable human decision chains at every level</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <SectorSplit />
         </Section>
 
         {/* ═══════════════════════════════════════════════════════════ */}
@@ -456,6 +395,8 @@ const AppContent = () => {
               {content.s7Triggers.accelerated[displayMode]}
             </ScenarioCard>
           </div>
+
+          <PipelineTimeline />
         </Section>
 
         {/* ═══════════════════════════════════════════════════════════ */}
@@ -688,6 +629,7 @@ const AppContent = () => {
                 <li>Mem0 Research (mem0.ai/research)</li>
                 <li>LongMemEval</li>
                 <li>Steyvers et al. 2025 (Nature Machine Intelligence)</li>
+                <li>Google DORA 2024</li>
                 <li>AA-Omniscience (artificialanalysis.ai)</li>
               </ul>
             </div>
@@ -706,6 +648,9 @@ const AppContent = () => {
                 <li>Stanford Digital Economy Lab (Brynjolfsson et al.)</li>
                 <li>Harvard Hosseini & Lichtinger</li>
                 <li>Epoch AI Inference Price Trends</li>
+                <li>AlterSquare (March 2026)</li>
+                <li>National Student Clearinghouse (2025–2026)</li>
+                <li>CRA CERP Pulse Survey (Fall 2025)</li>
               </ul>
             </div>
             <div>
