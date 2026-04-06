@@ -12,6 +12,7 @@ import RadarChart from './components/RadarChart';
 import { SWEBenchChart } from './components/SWEBenchChart';
 import { ReadingModeProvider, useReadingMode } from './context/ReadingModeContext';
 import ReadingModeToggle from './components/ReadingModeToggle';
+import EssayCrossLink from './components/EssayCrossLink';
 import { content, translate } from './content/reportContent';
 
 const App = () => {
@@ -269,6 +270,9 @@ const AppContent = () => {
         {/* SECTION 5 — ECONOMIC SCENARIOS                            */}
         {/* ═══════════════════════════════════════════════════════════ */}
         <Section title="The Barbell Economy: Confirmed. Accelerating. Compounding." icon={TrendingUp} isOpenDefault={true} id="s5">
+          <p className="text-slate-300 leading-relaxed mb-8">
+            {translate(content.s5BarbellIntro[displayMode], displayMode)}
+          </p>
           {/* Probability Badges */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <ScenarioCard emoji="🐢" title="The Plateau" probability="~18%" isActive={activeEconScenario === 'A'} onClick={() => setActiveEconScenario('A')}>
@@ -530,6 +534,9 @@ const AppContent = () => {
               <h3 className="text-lg text-rose-400 font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
                 <span className="w-8 h-px bg-rose-500/50"></span> 8.4 — Horizon Watch: Signals to Track
               </h3>
+              <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                {translate(content.s8HorizonWatchFraming[displayMode], displayMode)}
+              </p>
               <HorizonWatch 
                 title="STRUCTURAL HORIZON SIGNALS"
                 subtitle="Empirical indicators determining whether institutional adaptation or structural failure dominates."
@@ -632,6 +639,8 @@ const AppContent = () => {
             },
           ]} />
         </Section>
+
+        <EssayCrossLink />
 
         {/* ═══════════════════════════════════════════════════════════ */}
         {/* FOOTER — METHODOLOGY & SOURCES                            */}

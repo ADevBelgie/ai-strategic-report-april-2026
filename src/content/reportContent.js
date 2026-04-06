@@ -115,6 +115,10 @@ export const content = {
       }
     }
   },
+  s5BarbellIntro: {
+    expert: "The Barbell Economy describes a labor market shaped like its namesake: weight concentrated at both ends, hollowed out in the middle. AI handles the routine cognitive work at one end; senior judgment, oversight, and accountability roles command increasing premiums at the other. The mid-level knowledge worker — neither directing the work nor doing the most routine parts — is where the displacement concentrates first. The middle looks like this in practice: the project manager coordinating work that AI now coordinates, the business analyst synthesising data that AI now synthesises, the mid-level developer writing boilerplate that AI now writes. It is not that these people lack skill. It is that the specific skills they built their careers around are precisely the ones the capability curve is climbing fastest.",
+    essentials: "Picture a barbell: heavy weight on both ends, nothing in the middle. That is what is happening to knowledge work. AI takes over the routine tasks at one end. Experienced people who can direct, judge, and take accountability become more valuable at the other. The people in between — doing mid-level work that is neither senior strategy nor junior execution — are where the pressure lands first. In practice, the middle is project managers, business analysts, generalist coordinators — people whose core value was synthesising information, managing routine complexity, or executing well-defined tasks. Those are exactly the things AI is getting good at, fast."
+  },
   s5Pipeline: {
     expert: "The Pipeline Problem: CS enrolment dropped 8.1% in 2025–2026 — the steepest decline of any field. If this persists, senior engineer shortage lands 2033–2037.",
     essentials: "A second problem is building quietly: fewer students are choosing to study computer science — the steepest drop of any field. If that continues, there won't be enough senior engineers to meet demand by the mid-2030s."
@@ -323,6 +327,10 @@ export const content = {
         "Human judgment is re-instated in complex domains (like the Klarna example)."
       ]
     }
+  },
+  s8HorizonWatchFraming: {
+    expert: "The signals below track which direction the Epistemic Flood resolves. Accelerating signals indicate the verification layer is developing fast enough to keep pace with automated production. Stalling signals indicate friction slowing the structural response. Reversing signals would suggest the institutional pressure is forcing a recalibration back toward human production rates. Watch all three simultaneously — the story is in which tier is accumulating the most signals at any given time.",
+    essentials: "This table tracks what to watch to understand where this is heading. Think of it like early warning signs: some signals tell you things are moving faster than expected, some tell you the system is struggling to adapt, and some would suggest the disruption is correcting itself. No single signal settles the question — the pattern across all three is what matters."
   },
 
   // SECTION 9
