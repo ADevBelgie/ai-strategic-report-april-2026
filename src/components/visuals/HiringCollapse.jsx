@@ -55,9 +55,14 @@ const DumbbellRow = ({ row }) => {
   return (
     <div className="mb-8 group">
       {/* Row label + source */}
-      <div className="flex justify-between items-baseline mb-3">
-        <span className="text-sm font-bold text-slate-300 group-hover:text-white transition-colors">{label}</span>
-        <span className="text-[10px] text-slate-600 tracking-widest uppercase font-bold">{source}</span>
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-4 gap-2">
+        <div className="flex flex-col">
+          <span className="text-sm font-bold text-slate-200 group-hover:text-white transition-colors">{label}</span>
+          <span className="text-[10px] text-slate-500 tracking-widest uppercase font-bold mt-1">{source}</span>
+        </div>
+        <div className={`text-[11px] font-black px-2.5 py-1 rounded border shadow-sm transition-colors ${positive ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : 'bg-rose-500/10 text-rose-400 border-rose-500/20'}`}>
+          {delta}
+        </div>
       </div>
 
       {/* Track container */}
@@ -79,14 +84,9 @@ const DumbbellRow = ({ row }) => {
 
         {/* End dot — filled */}
         <div 
-          className={`absolute top-1/2 w-4 h-4 rounded-full -translate-x-1/2 -translate-y-1/2 z-20 shadow-lg transition-transform group-hover:scale-125 ${positive ? 'bg-emerald-500 shadow-emerald-500/20' : 'bg-rose-500 shadow-rose-500/20'}`}
+          className={`absolute top-1/2 w-4 h-4 rounded-full -translate-x-1/2 -translate-y-1/2 z-20 shadow-lg transition-transform group-hover:scale-125 ${positive ? 'bg-emerald-400 shadow-emerald-400/20' : 'bg-rose-400 shadow-rose-400/20'}`}
           style={{ left: `${endPct}%` }}
         />
-
-        {/* Delta badge — right-anchored */}
-        <div className={`absolute top-1/2 right-0 -translate-y-1/2 text-[11px] font-black px-2 py-0.5 rounded border transition-colors ${positive ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : 'bg-rose-500/10 text-rose-400 border-rose-500/20'}`}>
-          {delta}
-        </div>
       </div>
 
       {/* Value labels under dots */}

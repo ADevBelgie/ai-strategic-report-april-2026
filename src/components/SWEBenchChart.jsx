@@ -63,129 +63,131 @@ export const SWEBenchChart = () => {
   ];
 
   return (
-    <div className="w-full bg-slate-900/50 border border-slate-700/50 rounded-2xl p-6 relative my-8">
-      <div className="flex justify-between items-center mb-6">
-        <h3 className="text-white font-bold tracking-tight">SWE-Bench Capabilities: The Saturation Shift</h3>
-        <div className="flex items-center gap-6">
+    <div className="w-full bg-slate-900/50 border border-slate-700/50 rounded-2xl p-4 md:p-6 relative my-8 overflow-hidden">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+        <h3 className="text-white font-bold tracking-tight text-sm md:text-base">SWE-Bench Capabilities: The Saturation Shift</h3>
+        <div className="flex flex-wrap items-center gap-4 sm:gap-6">
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-slate-500" />
-            <span className="text-xs text-slate-400 font-medium tracking-wide uppercase">Verified (Contaminated)</span>
+            <div className="w-2.5 h-2.5 rounded-full bg-slate-500" />
+            <span className="text-[10px] text-slate-400 font-bold tracking-wide uppercase">Verified (Contaminated)</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-indigo-500" />
-            <span className="text-xs text-indigo-300 font-medium tracking-wide uppercase">Pro (Clean)</span>
+            <div className="w-2.5 h-2.5 rounded-full bg-indigo-500" />
+            <span className="text-[10px] text-indigo-300 font-bold tracking-wide uppercase">Pro (Clean)</span>
           </div>
         </div>
       </div>
       
-      <div className="relative w-full aspect-[2/1] min-h-[300px]">
-        <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-full overflow-visible">
-          {/* Grid Lines */}
-          {[0, 25, 50, 75, 100].map(score => {
-            const y = getY(score);
-            return (
-              <g key={score}>
-                <line x1={padX} y1={y} x2={width-padX} y2={y} stroke="#334155" strokeWidth="1" strokeDasharray="4 4" />
-                <text x={padX - 15} y={y + 4} fill="#64748b" fontSize="12" textAnchor="end" fontFamily="monospace">{score}%</text>
-              </g>
-            );
-          })}
-          
-          {/* X Axis */}
-          <line x1={padX} y1={height - padY} x2={width-padX} y2={height - padY} stroke="#475569" strokeWidth="2" />
-          {xTicks.map((tick, i) => {
-            const x = padX + tick.ratio * graphWidth;
-            return (
-              <g key={i}>
-                <line x1={x} y1={height - padY} x2={x} y2={height - padY + 8} stroke="#475569" strokeWidth="2" />
-                <text x={x} y={height - padY + 24} fill="#64748b" fontSize="12" textAnchor="middle" fontWeight="500">{tick.label}</text>
-              </g>
-            );
-          })}
+      <div className="relative w-full overflow-x-auto overflow-y-hidden pb-4 custom-scrollbar">
+        <div className="min-w-[600px] md:min-w-0 aspect-[2/1] relative">
+          <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-full overflow-visible">
+            {/* Grid Lines */}
+            {[0, 25, 50, 75, 100].map(score => {
+              const y = getY(score);
+              return (
+                <g key={score}>
+                  <line x1={padX} y1={y} x2={width-padX} y2={y} stroke="#334155" strokeWidth="1" strokeDasharray="4 4" />
+                  <text x={padX - 15} y={y + 4} fill="#64748b" fontSize="12" textAnchor="end" fontFamily="monospace">{score}%</text>
+                </g>
+              );
+            })}
+            
+            {/* X Axis */}
+            <line x1={padX} y1={height - padY} x2={width-padX} y2={height - padY} stroke="#475569" strokeWidth="2" />
+            {xTicks.map((tick, i) => {
+              const x = padX + tick.ratio * graphWidth;
+              return (
+                <g key={i}>
+                  <line x1={x} y1={height - padY} x2={x} y2={height - padY + 8} stroke="#475569" strokeWidth="2" />
+                  <text x={x} y={height - padY + 24} fill="#64748b" fontSize="12" textAnchor="middle" fontWeight="500">{tick.label}</text>
+                </g>
+              );
+            })}
 
-          {/* Current Timeline Zone (Apr 2026) */}
-          <line 
-            x1={getX(2026, 'Apr')} 
-            y1={padY} 
-            x2={getX(2026, 'Apr')} 
-            y2={height - padY} 
-            stroke="#f59e0b" 
-            strokeWidth="1" 
-            strokeDasharray="2 4"
-            opacity="0.5" 
-          />
-          <text x={getX(2026, 'Apr')} y={padY - 15} fill="#f59e0b" fontSize="10" textAnchor="middle" fontWeight="bold" opacity="0.8">CURRENT</text>
+            {/* Current Timeline Zone (Apr 2026) */}
+            <line 
+              x1={getX(2026, 'Apr')} 
+              y1={padY} 
+              x2={getX(2026, 'Apr')} 
+              y2={height - padY} 
+              stroke="#f59e0b" 
+              strokeWidth="1" 
+              strokeDasharray="2 4"
+              opacity="0.5" 
+            />
+            <text x={getX(2026, 'Apr')} y={padY - 15} fill="#f59e0b" fontSize="10" textAnchor="middle" fontWeight="bold" opacity="0.8">CURRENT</text>
 
-          {/* Verified Path */}
-          <path d={generatePath(verifiedData)} fill="none" stroke="#64748b" strokeWidth="3" opacity="0.6" strokeLinejoin="round" />
-          {/* Pro Path */}
-          <path d={generatePath(proData).replace(/M/, 'M').replace(/(L\s\d+\s\d+)$/, '')} fill="none" stroke="#6366f1" strokeWidth="4" className="drop-shadow-[0_0_10px_rgba(99,102,241,0.5)]" />
-          {/* Projection Dashed Path for Pro */}
-          <path d={`M ${getX(proData[2].y, proData[2].m)} ${getY(proData[2].score)} L ${getX(proData[3].y, proData[3].m)} ${getY(proData[3].score)}`} fill="none" stroke="#6366f1" strokeWidth="3" strokeDasharray="6 6" opacity="0.7"/>
+            {/* Verified Path */}
+            <path d={generatePath(verifiedData)} fill="none" stroke="#64748b" strokeWidth="3" opacity="0.6" strokeLinejoin="round" />
+            {/* Pro Path */}
+            <path d={generatePath(proData).replace(/M/, 'M').replace(/(L\s\d+\s\d+)$/, '')} fill="none" stroke="#6366f1" strokeWidth="4" className="drop-shadow-[0_0_10px_rgba(99,102,241,0.5)]" />
+            {/* Projection Dashed Path for Pro */}
+            <path d={`M ${getX(proData[2].y, proData[2].m)} ${getY(proData[2].score)} L ${getX(proData[3].y, proData[3].m)} ${getY(proData[3].score)}`} fill="none" stroke="#6366f1" strokeWidth="3" strokeDasharray="6 6" opacity="0.7"/>
 
-          {/* Points & Interactive Zones */}
-          {verifiedData.map((d, i) => {
-            const pointX = getX(d.y, d.m);
-            const pointY = getY(d.score);
-            return (
-              <g key={`v-${i}`} 
-                 onMouseEnter={() => setHoveredPoint({ ...d, type: 'verified', posX: pointX, posY: pointY })}
-                 onMouseLeave={() => setHoveredPoint(null)}
-                 className="cursor-pointer"
-              >
-                <circle cx={pointX} cy={pointY} r="6" fill="#334155" stroke="#94a3b8" strokeWidth="2" className="transition-all hover:r-8 hover:fill-slate-400" />
-                {d.warning && (
-                  <g transform={`translate(${pointX - 30}, ${pointY - 35})`}>
-                    <rect x="-10" y="-12" width="80" height="20" rx="4" fill="#fef3c7" opacity="0.9" />
-                    <text x="30" y="2" fill="#b45309" fontSize="11" textAnchor="middle" fontWeight="bold">⚠️ Audit Fail</text>
-                  </g>
-                )}
-              </g>
-            );
-          })}
+            {/* Points & Interactive Zones */}
+            {verifiedData.map((d, i) => {
+              const pointX = getX(d.y, d.m);
+              const pointY = getY(d.score);
+              return (
+                <g key={`v-${i}`} 
+                  onMouseEnter={() => setHoveredPoint({ ...d, type: 'verified', posX: pointX, posY: pointY })}
+                  onMouseLeave={() => setHoveredPoint(null)}
+                  className="cursor-pointer"
+                >
+                  <circle cx={pointX} cy={pointY} r="6" fill="#334155" stroke="#94a3b8" strokeWidth="2" className="transition-all hover:r-8 hover:fill-slate-400" />
+                  {d.warning && (
+                    <g transform={`translate(${pointX - 30}, ${pointY - 35})`}>
+                      <rect x="-10" y="-12" width="80" height="20" rx="4" fill="#fef3c7" opacity="0.9" />
+                      <text x="30" y="2" fill="#b45309" fontSize="11" textAnchor="middle" fontWeight="bold">⚠️ Audit Fail</text>
+                    </g>
+                  )}
+                </g>
+              );
+            })}
 
-          {proData.map((d, i) => {
-            const pointX = getX(d.y, d.m);
-            const pointY = getY(d.score);
-            return (
-              <g key={`p-${i}`}
-                 onMouseEnter={() => setHoveredPoint({ ...d, type: 'pro', posX: pointX, posY: pointY })}
-                 onMouseLeave={() => setHoveredPoint(null)}
-                 className="cursor-pointer"
-              >
-                <circle cx={pointX} cy={pointY} r={d.projection ? "5" : "7"} fill="#1e1b4b" stroke={d.projection ? "#818cf8" : "#818cf8"} strokeWidth="3" strokeDasharray={d.projection ? "2 2" : "none"} className="transition-all hover:r-9 hover:fill-indigo-500" />
-                {d.projection && (
-                  <text x={pointX+15} y={pointY-5} fill="#818cf8" fontSize="12" fontWeight="bold">75%</text>
-                )}
-                {i === 2 && ( // Current Leader label
-                   <text x={pointX-15} y={pointY+20} fill="#818cf8" fontSize="12" fontWeight="bold" textAnchor="end">45.9% SEAL</text>
-                )}
-              </g>
-            );
-          })}
-        </svg>
+            {proData.map((d, i) => {
+              const pointX = getX(d.y, d.m);
+              const pointY = getY(d.score);
+              return (
+                <g key={`p-${i}`}
+                  onMouseEnter={() => setHoveredPoint({ ...d, type: 'pro', posX: pointX, posY: pointY })}
+                  onMouseLeave={() => setHoveredPoint(null)}
+                  className="cursor-pointer"
+                >
+                  <circle cx={pointX} cy={pointY} r={d.projection ? "5" : "7"} fill="#1e1b4b" stroke={d.projection ? "#818cf8" : "#818cf8"} strokeWidth="3" strokeDasharray={d.projection ? "2 2" : "none"} className="transition-all hover:r-9 hover:fill-indigo-500" />
+                  {d.projection && (
+                    <text x={pointX+15} y={pointY-5} fill="#818cf8" fontSize="12" fontWeight="bold">75%</text>
+                  )}
+                  {i === 2 && ( // Current Leader label
+                    <text x={pointX-15} y={pointY+20} fill="#818cf8" fontSize="12" fontWeight="bold" textAnchor="end">45.9% SEAL</text>
+                  )}
+                </g>
+              );
+            })}
+          </svg>
 
-        {/* Hover Tooltip Overlay (HTML based for better text wrapping) */}
-        {hoveredPoint && (
-          <div 
-            className="absolute z-10 p-3 rounded-lg shadow-xl shadow-slate-900/50 pointer-events-none w-64 backdrop-blur-md"
-            style={{
-              left: `max(10px, min(calc(${hoveredPoint.posX / width * 100}% - 128px), calc(100% - 260px)))`,
-              top: `calc(${hoveredPoint.posY / height * 100}% - ${hoveredPoint.posY > height/2 ? '110px' : '-15px'})`,
-              backgroundColor: hoveredPoint.type === 'pro' ? 'rgba(49, 46, 129, 0.9)' : 'rgba(30, 41, 59, 0.95)',
-              border: `1px solid ${hoveredPoint.type === 'pro' ? 'rgba(99, 102, 241, 0.4)' : 'rgba(100, 116, 139, 0.4)'}`,
-            }}
-          >
-            <div className={`text-[10px] font-mono mb-1 flex items-center justify-between ${hoveredPoint.type === 'pro' ? 'text-indigo-300' : 'text-slate-400'}`}>
-              <span>{hoveredPoint.m} {hoveredPoint.y}</span>
-              <span className={`font-bold px-1.5 py-0.5 rounded text-[10px] ${hoveredPoint.type === 'pro' ? 'bg-indigo-500/20 text-indigo-200' : 'bg-slate-700/50 text-slate-300'}`}>
-                {hoveredPoint.score}%
-              </span>
+          {/* Hover Tooltip Overlay (HTML based for better text wrapping) */}
+          {hoveredPoint && (
+            <div 
+              className="absolute z-10 p-3 rounded-lg shadow-xl shadow-slate-900/50 pointer-events-none w-64 backdrop-blur-md"
+              style={{
+                left: `max(10px, min(calc(${hoveredPoint.posX / width * 100}% - 128px), calc(100% - 260px)))`,
+                top: `calc(${hoveredPoint.posY / height * 100}% - ${hoveredPoint.posY > height/2 ? '110px' : '-15px'})`,
+                backgroundColor: hoveredPoint.type === 'pro' ? 'rgba(49, 46, 129, 0.9)' : 'rgba(30, 41, 59, 0.95)',
+                border: `1px solid ${hoveredPoint.type === 'pro' ? 'rgba(99, 102, 241, 0.4)' : 'rgba(100, 116, 139, 0.4)'}`,
+              }}
+            >
+              <div className={`text-[10px] font-mono mb-1 flex items-center justify-between ${hoveredPoint.type === 'pro' ? 'text-indigo-300' : 'text-slate-400'}`}>
+                <span>{hoveredPoint.m} {hoveredPoint.y}</span>
+                <span className={`font-bold px-1.5 py-0.5 rounded text-[10px] ${hoveredPoint.type === 'pro' ? 'bg-indigo-500/20 text-indigo-200' : 'bg-slate-700/50 text-slate-300'}`}>
+                  {hoveredPoint.score}%
+                </span>
+              </div>
+              <div className="font-bold text-white text-sm mb-1">{hoveredPoint.label}</div>
+              <div className="text-xs text-slate-300 leading-relaxed">{hoveredPoint.note}</div>
             </div>
-            <div className="font-bold text-white text-sm mb-1">{hoveredPoint.label}</div>
-            <div className="text-xs text-slate-300 leading-relaxed">{hoveredPoint.note}</div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

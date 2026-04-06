@@ -1,115 +1,152 @@
 import React from 'react';
-
-const YEAR_START = 2013;
-const YEAR_END = 2037;
-const TOTAL_YEARS = YEAR_END - YEAR_START;
-
-const SVG_W = 1000;
-const SVG_H = 340;
-const MARGIN_L = 40;
-const MARGIN_R = 40;
-const TRACK_W = SVG_W - MARGIN_L - MARGIN_R;
-
-const Y_CENTER = 170;
-const Y_DECISIONS = 60;
-const Y_CONSEQUENCES = 280;
-
-const yx = (year) => MARGIN_L + ((year - YEAR_START) / TOTAL_YEARS) * TRACK_W;
-
-const CONV_X1 = yx(2033);
-const CONV_X2 = yx(2037);
-
-const decisionEvents = [
-  { year: 2013, label: 'CS Degrees: ~52k', sub: 'awarded annually', y: -60, anchor: 'start' },
-  { year: 2023, label: 'CS Degrees: ~113k', sub: 'Doubled in 10 years', y: -60, anchor: 'middle' },
-  { year: 2025.5, label: 'CS Enrollment −8.1%', sub: 'Steepest legacy decline', y: -60, anchor: 'middle', alert: true },
-  { year: 2026, label: '54% stop building', sub: 'junior pipelines', y: -20, anchor: 'middle', alert: true },
-];
-
-const consequenceEvents = [
-  { year: 2029.5, label: 'Graduation Gap', sub: 'First missing cohort', y: 50, anchor: 'middle' },
-  { year: 2032.5, label: 'Seniority Ceiling', sub: 'No mid-level transition', y: 50, anchor: 'middle' },
-  { year: 2035, label: 'Peak Orchestration', sub: 'Maximum labor demand', y: 50, anchor: 'middle', highlight: true },
-];
-
-const tickYears = [2013, 2016, 2019, 2022, 2026, 2030, 2033, 2037];
+import { AlertCircle, TrendingUp, Calendar, AlertTriangle } from 'lucide-react';
 
 const PipelineTimeline = () => {
+  const events = [
+    {
+      year: 2013,
+      label: 'The Baseline',
+      sub: 'CS Degrees: ~52k awarded annually.',
+      category: 'Decision',
+      details: 'A decade of steady growth begins, doubling the candidate pool by 2023.',
+      color: 'blue'
+    },
+    {
+      year: 2023,
+      label: 'The Peak Expansion',
+      sub: 'CS Degrees: ~113k awarded annually.',
+      category: 'Decision',
+      details: 'University graduation volume peaks. Market saturation begins to be felt in junior roles.',
+      color: 'blue'
+    },
+    {
+      year: 2025.5,
+      label: 'The Steepest Decline',
+      sub: 'CS Enrollment falls −8.1%.',
+      category: 'Decision',
+      details: 'The sharpest drop in legacy education enrollment as GenAI capability spikes.',
+      color: 'rose',
+      alert: true
+    },
+    {
+      year: 2026,
+      label: 'Pipeline Abandonment',
+      sub: '54% of companies stop junior hiring.',
+      category: 'Decision',
+      details: 'Executive preference shifts entirely to senior AI-orchestration roles.',
+      color: 'rose',
+      alert: true
+    },
+    {
+      year: 2029.5,
+      label: 'The Graduation Gap',
+      sub: 'First missing cohort enters market.',
+      category: 'Consequence',
+      details: 'The enrollment decline of 2025 reaches the job market. Junior supply dries up.',
+      color: 'amber'
+    },
+    {
+      year: 2032.5,
+      label: 'The Seniority Ceiling',
+      sub: 'No mid-level transition available.',
+      category: 'Consequence',
+      details: 'The lack of junior training in 2026 means there are no 7-year seniors to hire now.',
+      color: 'amber'
+    },
+    {
+      year: 2035,
+      label: 'Peak Orchestration Demand',
+      sub: 'Maximum shortage vs. Demand.',
+      category: 'Consequence',
+      details: 'High-level system design needs peak exactly as the talent shortage hits its maximum depth.',
+      color: 'emerald',
+      highlight: true
+    }
+  ];
+
   return (
-    <div className="my-16 space-y-10">
+    <div className="my-16 space-y-12">
+      {/* Header */}
       <div className="max-w-2xl space-y-2">
-        <p className="text-[10px] tracking-[0.2em] uppercase text-slate-500 font-bold">
+        <p className="text-[10px] tracking-[0.2em] uppercase text-slate-400 font-bold">
           The Pipeline Time Bomb · Section 7
         </p>
-        <h3 className="text-2xl font-black text-white tracking-tight">
+        <h3 className="text-3xl font-black text-white tracking-tight">
           Structural Shortage Meets Peak Demand
         </h3>
-        <p className="text-sm text-slate-400 leading-relaxed font-medium">
+        <p className="text-base text-slate-300 leading-relaxed font-medium">
           Decisions made in the 2026 labor market produce irreversible consequences in 2033. The "mental model gap" being created today is a structural risk for the coming decade.
         </p>
       </div>
 
-      <div className="bg-slate-900/40 border border-slate-800/50 rounded-2xl p-6 md:p-10 overflow-hidden relative group">
-        <div className="overflow-x-auto overflow-y-hidden pb-4 custom-scrollbar">
-          <svg
-            viewBox={`0 0 ${SVG_W} ${SVG_H}`}
-            className="w-full min-w-[800px] h-auto block select-none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {/* Convergence zone background */}
-            <rect x={CONV_X1} y={20} width={CONV_X2 - CONV_X1} height={SVG_H - 40} className="fill-amber-500/5 stroke-amber-500/20" rx={8} />
+      {/* Vertical Timeline container */}
+      <div className="bg-slate-900/40 border border-slate-800/50 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+        {/* Abstract background elements */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
 
-            {/* Labels in Zone */}
-            <g className="font-bold text-[10px] tracking-widest uppercase fill-amber-500">
-              <text x={(CONV_X1 + CONV_X2) / 2} y={Y_CENTER - 15} textAnchor="middle">Peak Demand</text>
-              <text x={(CONV_X1 + CONV_X2) / 2} y={Y_CENTER + 5} textAnchor="middle">Meets</text>
-              <text x={(CONV_X1 + CONV_X2) / 2} y={Y_CENTER + 25} textAnchor="middle">Shortage</text>
-            </g>
+        <div className="relative space-y-0">
+          {/* Vertical central line */}
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/20 via-slate-700 to-emerald-500/20 md:-translate-x-1/2" />
 
-            {/* Axis */}
-            <line x1={MARGIN_L} y1={Y_CENTER} x2={SVG_W - MARGIN_R} y2={Y_CENTER} className="stroke-slate-800" strokeWidth={2} />
-            
-            {/* Track labels */}
-            <text x={MARGIN_L} y={Y_DECISIONS - 15} className="fill-slate-600 font-black text-[9px] tracking-widest uppercase">Decisions</text>
-            <text x={MARGIN_L} y={Y_CONSEQUENCES + 35} className="fill-slate-600 font-black text-[9px] tracking-widest uppercase">Consequences</text>
+          {events.map((ev, i) => (
+            <div key={i} className={`relative flex flex-col md:flex-row items-center mb-24 sm:mb-20 last:mb-0 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''} group`}>
+              
+              {/* Year marker on central line */}
+              <div className="absolute left-4 md:left-1/2 top-2 w-8 h-8 -translate-x-1/2 bg-slate-950 border border-slate-800 rounded-full flex items-center justify-center z-10 shadow-xl group-hover:border-slate-600 transition-colors">
+                <div className={`w-2 h-2 rounded-full ${ev.alert ? 'bg-rose-500 animate-pulse' : ev.color === 'emerald' ? 'bg-emerald-400' : 'bg-slate-500'}`} />
+              </div>
 
-            {/* Ticks */}
-            {tickYears.map((yr) => (
-              <g key={yr}>
-                <line x1={yx(yr)} y1={Y_CENTER - 4} x2={yx(yr)} y2={Y_CENTER + 4} className="stroke-slate-700" />
-                <text x={yx(yr)} y={Y_CENTER + 20} textAnchor="middle" className="fill-slate-600 font-bold text-[9px]">{yr}</text>
-              </g>
-            ))}
+              {/* Content Panel */}
+              <div className={`w-full md:w-[calc(50%-2rem)] ml-12 md:ml-0 ${i % 2 === 0 ? 'md:pr-0' : 'md:pl-0'}`}>
+                <div className={`p-6 rounded-2xl border transition-all duration-300 ${ev.highlight ? 'bg-emerald-500/5 border-emerald-500/30 shadow-lg shadow-emerald-500/5' : 'bg-slate-900/60 border-slate-800/80 hover:border-slate-700'} relative overflow-hidden`}>
+                  
+                  {/* Category tag */}
+                  <div className="flex items-center justify-between mb-3">
+                    <span className={`text-[9px] font-black tracking-widest uppercase px-2 py-0.5 rounded border ${
+                      ev.category === 'Decision' ? 'text-blue-400 border-blue-500/20 bg-blue-500/5' : 
+                      ev.category === 'Consequence' ? 'text-amber-400 border-amber-500/30 bg-amber-500/5' : ''
+                    }`}>
+                      {ev.category}
+                    </span>
+                    <span className="text-sm font-black text-slate-500 font-mono italic">{ev.year}</span>
+                  </div>
 
-            {/* Decision Events */}
-            {decisionEvents.map((ev, i) => (
-              <g key={`d-${i}`}>
-                <line x1={yx(ev.year)} y1={Y_CENTER} x2={yx(ev.year)} y2={Y_CENTER + ev.y + 15} className={ev.alert ? 'stroke-rose-500/20' : 'stroke-slate-800'} strokeDasharray="4 2" />
-                <circle cx={yx(ev.year)} cy={Y_CENTER} r={ev.alert ? 5 : 3} className={ev.alert ? 'fill-rose-500' : 'fill-slate-700'} />
-                <text x={yx(ev.year)} y={Y_CENTER + ev.y} textAnchor={ev.anchor} className={`text-[10px] font-bold ${ev.alert ? 'fill-rose-400' : 'fill-slate-400'}`}>{ev.label}</text>
-                <text x={yx(ev.year)} y={Y_CENTER + ev.y + 12} textAnchor={ev.anchor} className="text-[9px] fill-slate-600 font-medium italic">{ev.sub}</text>
-              </g>
-            ))}
+                  <h4 className={`text-lg font-bold mb-1 tracking-tight ${ev.alert ? 'text-rose-400' : ev.highlight ? 'text-emerald-400' : 'text-white'}`}>
+                    {ev.label}
+                  </h4>
+                  <p className="text-sm text-slate-200 font-semibold mb-2">{ev.sub}</p>
+                  <p className="text-xs text-slate-400 leading-relaxed font-medium">{ev.details}</p>
 
-            {/* Consequence Events */}
-            {consequenceEvents.map((ev, i) => (
-              <g key={`c-${i}`}>
-                <line x1={yx(ev.year)} y1={Y_CENTER} x2={yx(ev.year)} y2={Y_CENTER + ev.y - 12} className={ev.highlight ? 'stroke-amber-500/20' : 'stroke-slate-800'} strokeDasharray="4 2" />
-                <circle cx={yx(ev.year)} cy={Y_CENTER} r={ev.highlight ? 5 : 3} className={ev.highlight ? 'fill-amber-500' : 'fill-slate-700'} />
-                <text x={yx(ev.year)} y={Y_CENTER + ev.y + 4} textAnchor={ev.anchor} className={`text-[10px] font-bold ${ev.highlight ? 'fill-amber-400' : 'fill-slate-400'}`}>{ev.label}</text>
-                <text x={yx(ev.year)} y={Y_CENTER + ev.y + 16} textAnchor={ev.anchor} className="text-[9px] fill-slate-600 font-medium italic">{ev.sub}</text>
-              </g>
-            ))}
-          </svg>
+                  {/* Corner accent for alerts */}
+                  {ev.alert && (
+                    <div className="absolute top-0 right-0 w-8 h-8 flex items-center justify-center">
+                      <AlertTriangle size={14} className="text-rose-500/40" />
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Connector line for mobile (when md hidden) */}
+              <div className="absolute left-4 top-10 bottom--12 w-px bg-slate-800 sm:hidden" />
+            </div>
+          ))}
         </div>
 
-        {/* Footer info */}
-        <div className="mt-8 pt-6 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[11px] text-slate-500 italic max-w-lg text-center md:text-left leading-relaxed font-medium">
-            "Short-term hiring cuts made today produce structural talent bottlenecks exactly as AI orchestration arrives at the enterprise layer."
-          </p>
-          <div className="text-[9px] text-slate-700 font-black tracking-widest uppercase text-right whitespace-nowrap">
-            Sources: NSC / CRA / AlterSquare / Denoise
+        {/* Closing takeaway */}
+        <div className="mt-12 pt-8 border-t border-slate-800/50">
+          <div className="bg-slate-950/50 p-6 rounded-2xl border border-slate-800/30 flex flex-col md:flex-row items-center gap-6">
+            <div className="h-16 w-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
+              <TrendingUp className="text-emerald-400" size={24} />
+            </div>
+            <div className="space-y-1 text-center md:text-left">
+              <p className="text-slate-400 italic text-sm leading-relaxed max-w-lg">
+                "Short-term hiring cuts made today produce structural talent bottlenecks exactly as AI orchestration arrives at the enterprise layer."
+              </p>
+              <p className="text-[10px] text-slate-600 font-bold uppercase tracking-widest mt-2">
+                Sources: NSC / CRA / AlterSquare / Denoise Synthesis
+              </p>
+            </div>
           </div>
         </div>
       </div>

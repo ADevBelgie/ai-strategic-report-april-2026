@@ -22,12 +22,12 @@ const BarbellConcept = () => {
 
         {/* Mid Tier — The Hollow Center */}
         <div className="flex flex-col items-center relative py-2">
-          <div className="w-1/3 h-14 border border-dashed border-slate-800 rounded-xl flex items-center justify-center opacity-30 group hover:opacity-50 transition-opacity">
-            <span className="text-slate-600 font-bold tracking-widest uppercase text-[9px] group-hover:text-slate-400">Hollow Middle</span>
+          <div className="w-1/3 h-14 border border-dashed border-slate-600 bg-slate-900/40 rounded-xl flex items-center justify-center group hover:bg-slate-900/60 transition-all shadow-inner shadow-black/20">
+            <span className="text-slate-100 font-bold tracking-widest uppercase text-[10px] drop-shadow-sm group-hover:text-white transition-colors">Hollow Middle</span>
           </div>
           <div className="absolute -right-8 top-1/2 -translate-y-1/2 hidden md:block">
-            <p className="text-[10px] text-slate-700 font-bold uppercase tracking-widest leading-tight">
-              Coordination <br /> & Synthesis <br /> <span className="text-rose-900/40 line-through">Squeezed</span>
+            <p className="text-[10px] text-slate-300 font-bold uppercase tracking-widest leading-tight">
+              Coordination <br /> & Synthesis <br /> <span className="text-rose-500/30 line-through">Squeezed</span>
             </p>
           </div>
         </div>
@@ -48,7 +48,7 @@ const BarbellConcept = () => {
       </div>
 
       <div className="mt-16 text-center max-w-sm">
-        <p className="text-[11px] text-slate-600 font-medium italic leading-relaxed px-4">
+        <p className="text-[11px] text-slate-400 font-medium italic leading-relaxed px-4">
           "The Barbell is not just a shape—it is a filtering mechanism. Value is accumulating at the ends while the middle is being structurally evacuated."
         </p>
       </div>
