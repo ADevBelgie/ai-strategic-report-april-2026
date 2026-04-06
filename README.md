@@ -46,16 +46,17 @@ Not all benchmarks are created equal. Here is the current map of the frontier:
 
 | Benchmark | Score | Status | Model / Context |
 |-----------|-------|--------|-----------------|
-| **Terminal-Bench 2.0** | 78.4% | ✅ Active | Gemini 3.1 Pro + Forge Code |
-| **SWE-bench Pro** | 45.9% | ✅ Active | Claude Opus 4.5 (SEAL-standardised) |
-| **ARC-AGI-3** | <1% | ✅ Frontier | LLMs score below 1%. Humans score 100%. |
-| **GAIA (All Levels)** | 74.6% | ✅ Active | Claude Sonnet 4.5 + HAL framework |
-| **SWE-bench Verified** | 80.9% | ⚠️ Contaminated | Training data overlap confirmed. |
+| **SWE-bench Pro** | **45.9%** | ✅ Clean (SEAL) | **Current Honest Measure.** Standardised comparison. |
+| **SWE-bench Pro** | **56.8%** | ✅ Clean (Scaffold) | Best system today. *Not comparable* to SEAL standardised figures. |
+| **Terminal-Bench 2.0**| 78.4% | ✅ Active | Real-world terminal execution tasks. |
+| **ARC-AGI-3** | <1% | ✅ Frontier | LLMs score below 1%. Humans score 100%. Launched March 2026. |
+| **GAIA (All Levels)** | 74.6% | ✅ Active | Complex multi-step reasoning. |
+| **SWE-bench Verified**| 80.9% | ❌ Deprecated | **Contaminated.** Training data overlap confirmed by OpenAI audit. |
 | **MMLU / GPQA** | 90%+ | 📁 Retired | Saturated. No meaningful signal remaining. |
 
 ---
 
-## 4. Six Dimensions. Two Realities.
+## 4. The Reliability Paradox
 
 This report tracks what AI services actually deliver to users — regardless of whether the result comes from a base model, a RAG pipeline, or an agent harness.
 

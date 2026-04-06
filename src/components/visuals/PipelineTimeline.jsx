@@ -111,8 +111,13 @@ const PipelineTimeline = () => {
                   </div>
 
                   {/* Content Panel (Width optimized to prevent line overlap on mobile) */}
-                  <div className={`w-[calc(100%-3rem)] sm:w-[calc(100%-4rem)] md:w-[calc(50%-2rem)] ml-auto md:ml-0 ${i % 2 === 0 ? 'md:pr-0' : 'md:pl-0'}`}>
-                    <div className={`p-5 sm:p-6 rounded-2xl border transition-all duration-300 ${ev.highlight ? 'bg-emerald-500/5 border-emerald-500/30 shadow-lg shadow-emerald-500/5' : 'bg-slate-900/80 border-slate-800/80 hover:border-slate-700'} relative overflow-hidden backdrop-blur-sm`}>
+                  <div className={`w-[calc(100%-3rem)] sm:w-[calc(100%-4rem)] ${ev.highlight ? 'md:w-full max-w-2xl mx-auto' : 'md:w-[calc(50%-2rem)]'} ml-auto md:ml-0 ${i % 2 === 0 && !ev.highlight ? 'md:pr-0' : 'md:pl-0'}`}>
+                    <div className={`p-5 sm:p-6 rounded-2xl border transition-all duration-300 ${ev.highlight ? 'bg-emerald-500/10 border-emerald-400/50 shadow-[0_0_50px_-12px_rgba(16,185,129,0.3)]' : 'bg-slate-900/80 border-slate-800/80 hover:border-slate-700'} relative overflow-hidden backdrop-blur-sm`}>
+                      
+                      {/* Arrival Glow for Highlight */}
+                      {ev.highlight && (
+                        <div className="absolute -inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-emerald-500/5 pointer-events-none animate-pulse" />
+                      )}
                       
                       {/* Category tag */}
                       <div className="flex items-center justify-between mb-3">
