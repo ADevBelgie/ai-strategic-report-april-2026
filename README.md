@@ -60,68 +60,138 @@ Not all benchmarks are created equal. Here is the current map of the frontier:
 
 This report tracks what AI services actually deliver to users — regardless of whether the result comes from a base model, a RAG pipeline, or an agent harness.
 
-### The Dimensions:
-- **Execution**: From patch generation to end-to-end completion.
-- **Memory**: The fastest-moving dimension; near-zero six months ago, now approaching 95%+.
-- **Confidence Calibration**: Does the AI know when it's wrong? (Metacognition).
-- **Coherence**: Maintaining the thread across multi-step, messy tasks.
-- **Reliability**: The gap between "confidently wrong" systems and grounded pipelines.
-
 > **Key Meta-Insight**: The gap between "Typical" and "Best System" is not a model problem — it’s a design problem. 95% of enterprise projects fail ROI because they run raw API calls instead of engineered agent systems.
+
+### The Dimensions of Capability:
+
+#### 1. Execution
+Execution measures whether an AI agent can complete real software engineering work end-to-end — not just generate a patch, but explore an environment, run commands, recover from errors, and finish the job.
+
+Two benchmarks now capture this at the system level. On **SWE-bench Pro** (contamination-resistant, multi-language): the best agent systems reach 57% with custom scaffolding; SEAL-standardised (fair comparison) sits at **45.9%**.
+
+**Terminal-Bench 2.0** measures the same capability from a different angle: 89 real terminal tasks across software engineering, security, and data science, each running in a Docker container with automated verification. There's no patch generation here — the agent must explore an unknown environment, run commands, and recover from errors autonomously. Top agent systems reach **78.4%** (Gemini 3.1 Pro + Forge Code) and **74.7%** (Claude Opus 4.6 + Terminus-KIRA).
+
+The dominant failure mode on SWE-bench Pro is context overflow (35.6% of top-model failures) — the exact problem RL-trained search agents like WarpGrep directly address. That's why the 2027 trajectory is aggressive: the bottleneck is addressable and being addressed now.
+
+#### 2. Memory
+Six months ago, memory was effectively zero for most AI services. Every session started fresh. The MIT GenAI Divide report identifies this as the #1 root cause of AI deployment failure: *"systems do not retain feedback, adapt to context, or improve over time."*
+
+By December 2025, Vectorize Hindsight crossed 91.4% on LongMemEval. By February 2026, Mastra's Observational Memory reports 95%+. On LOCOMO, Mem0 achieves 66.9% — 26% above OpenAI's native memory.
+
+The inner/outer track gap on Memory is the widest of any dimension, and it closes faster than any other. This is not incremental improvement — it is a capability that didn't meaningfully exist six months ago and now has clear architectural solutions.
+
+#### 3. Confidence Calibration
+Confidence calibration (metacognition) is the ability to accurately signal uncertainty. Research distinguishes two components: calibration (does confidence match accuracy?) and sensitivity (can the model discriminate its correct answers from incorrect ones?).
+
+GPT-4.1 mini achieves an AUC of 0.83 on metacognitive sensitivity — an 83% chance that a correct answer is rated higher-confidence than an incorrect one. Human baseline: ~0.90–0.95. The gap matters: over-reliance on AI (an OWASP top LLM vulnerability) is directly a self-awareness problem.
+
+The harder problem: current models are systematically reluctant to express uncertainty. Training objectives reward confident guessing over calibrated abstention — models learn to bluff (Kalai & Nachum, OpenAI, arXiv:2509.04664).
+
+#### 4. Coherence
+Coherence asks whether an AI sustains consistent, non-contradictory reasoning across a long agentic task — not just whether it can recall facts.
+
+The clearest whole-system measure: Claude Sonnet 4.5 achieves 74.6% overall on GAIA inside the HAL Generalist Agent framework — the benchmark designed to test whether AI systems can handle the kind of messy, multi-step tasks that humans do every day. The gap to the 44.8% base-model score on the same benchmark is the coherence engineering dividend.
+
+The 'lost in the middle' phenomenon remains real: a model claiming 200k usable tokens typically degrades around 130k, with middle-positioned content dropping to 76–82% accuracy versus 85–95% at the edges. The 2027 trajectory points toward 90% as MCP standardises tool integration and long-context handling matures.
+
+#### 5. Reliability
+Reliability is the dimension where the standard/well-engineered gap is most consequential. Without mitigation: 10%+ hallucination for reasoning models, 64% in medical, 69–88% in legal. With RAG and verification: sub-1% on grounded summarisation, 5.8% in clinical settings.
+
+The mechanistic cause is now understood: Knowledge FFNs inside transformers overemphasise parametric memory while Copying Heads fail to integrate retrieved context (ReDeEP, ICLR 2025 Spotlight). This is fixable at the architecture level.
+
+With tools and search: near-perfect on SimpleQA across all frontier models. Without tools: enormous variance (Gemini 3 Pro 72.1% vs GPT-5.2 ~38%). The delta is the systems design signal.
+
+---
+
+> [!NOTE]
+> Reliability is domain-dependent. Legal floors at 12%, while Medical RAG achieves 57% Best System today.
+
+---
 
 ---
 
 ## 5. The Barbell Economy
 
-The Barbell Economy describes a labor market shaped like its namesake: weight concentrated at both ends, hollowed out in the middle. 
+The initial data behind the Barbell Economy has refined this shape. The V1 barbell assumed a stable base of junior execution work at one end and senior judgment at the other, with the middle hollowing out between them. That base is gone. Entry-level dev postings are down 67% since 2022. The bottom weight isn't holding — it's contracting. 
 
-- **The Ends**: AI handles routine cognitive work at one end; senior judgment, oversight, and accountability roles command increasing premiums at the other.
-- **The Middle**: The project manager, business analyst, and generalist coordinator. The specific skills they built their careers around are precisely the ones the capability curve is climbing fastest.
+What remains is an asymmetric structure: the top growing, the middle under pressure from both directions, and the bottom being **structurally removed**.
 
-### The Barbell in Practice: Sector Divergence
+### 5.1 The Barbell in Practice: Sector Divergence
 Where you work determines whether the Barbell is already here, arriving soon, or structurally delayed:
-- **Tech-Native / Startup**: Junior hiring effectively eliminated. (e.g., Salesforce, Block, Atlassian workforce mix shifts).
-- **Enterprise / Finance**: Hiring maintained for institutional knowledge, but with +40% premiums on AI-literate senior roles.
+- **Tech-Native / Startup**: Junior hiring effectively eliminated. **Salesforce** reported zero new engineering hires in 2025; **Block** cut its workforce from 10,000 to under 6,000.
+- **Enterprise / Finance**: Hiring maintained for institutional knowledge, but with **+40% premiums** on AI-literate senior roles.
 - **Regulated / Legal**: Junior hiring mandated by law for auditable human decision chains (FDA/Court requirements).
 
-### 5.1 Case Study: The Klarna Correction
+> [!IMPORTANT]
+> **The Seniority Gap**: Google's DORA 2024 report found roughly 2% productivity increase for every 25% increase in AI adoption — a gap of ~12× between executive expectation and measured engineering outcome.
+
+### 5.2 Case Study: The Klarna Correction
 Klarna stopped all hiring in 2023, slashed headcount from 5,500 to 3,400, and celebrated $10M in savings. By mid-2025, they were scrambling to rehire after customer satisfaction collapsed and engineers were pulled from product work to cover service. 
 
-**The Lesson:** AI is not a binary replacement. The organisations that maintained junior pipelines through 2024–2026 will have a structural talent advantage by 2030. Harvard research across 62 million workers and 285,000 firms names this pattern: **"seniority-biased technological change."**
+This is not evidence AI can't replace roles. It's the predictable outcome of treating AI as a binary replacement rather than a productivity layer. The organisations that maintained junior pipelines through 2024–2026 will have a structural talent advantage by 2028–2030. Harvard research across 62 million workers and 285,000 firms names this pattern: **"seniority-biased technological change."**
 
-### 5.2 The Pipeline Time Bomb
+### 5.3 The Pipeline Time Bomb
 - **Junior IT Hiring**: Share dropped from 15% to 7% since 2022.
+- **Entry-Level Dev Postings**: –67% since 2022.
 - **CS Enrollment**: Fell 8.1% in 2025–2026 — the steepest decline of any field.
-- **Consequence**: A structural shortage of senior talent is projected to land between **2033–2037**, exactly when enterprise AI orchestration demand peaks.
+- **Consequence**: A structural shortage of senior talent is projected to land between **2033–2037**, exactly when enterprise AI orchestration demand peaks. Decisions made in the 2026 labor market produce irreversible consequences in 2033.
+
+---
 
 ---
 
 ## 6. How We Get From Here to 2027
 
 ### The Timeline:
-- **Late 2025 (Realised)**: The Agentic Era. Reasoning tokens standard. Bottleneck moved from capability to deployment.
-- **2026 (Now)**: The Engineering Year. Framework RAG commoditises. The "Hollow Middle" crystallises in labour data.
-- **EOY 2026 (Projected)**: Coding autonomy crosses 70% on Pro benchmarks. ARC-AGI-3 reaches 30–50%.
-- **2027 (Base Case)**: AI handles 60–70% of software engineering tasks. System engineering is the primary differentiator.
+- **Late 2025 (Realised)**: The Agentic Era. Reasoning tokens standard. Document AI solved. The bottleneck moved from capability to deployment.
+- **2026 (Now)**: The Engineering Year. Framework RAG commoditises. SWE-bench Pro becomes the honest coding measure. ARC-AGI-3 defines the new reasoning frontier. The "Hollow Middle" crystallises in labour data.
+- **EOY 2026 (Projected)**: Coding autonomy crosses 70% on contamination-resistant benchmarks. ARC-AGI-3 reaches 30–50% via RL approaches. Memory and context coherence become table-stakes enterprise features. First AI preceptorship programmes announced publicly.
+- **2027 (Base Case)**: AI handles 60–70% of software engineering tasks under standardised conditions. System engineering is the differentiator. Enterprise adoption crosses 40%. The organisations that closed the architecture gap in 2026 pull ahead.
+
+### 6.1 The Convergence Mechanisms
+Five structural drivers are compressing the timeline between capability and deployment:
+
+1. **Inference Cost Collapse**: 280× drop since Nov 2022. More passes and more verification for the same cost.
+2. **Synthetic Data Verification**: DeepSeek-R1 trained for $294K. AI models are now trained for the cost of a single senior engineer’s annual salary.
+3. **Multimodal / Document AI**: Enterprise workflows broadly unlocked. AI now processes and acts on documents, images, and data — not just text prompts.
+4. **Memory as Infrastructure**: MCP adopted by OpenAI, Google, and Microsoft. Claude Sonnet 4.5 achieves 74.6% on GAIA via HAL framework vs. 44.8% base model. Memory is now a solved architectural layer.
+5. **Open-Source Parity & The Action Moat**: The "Data Moat" is dead. Competitive advantage has shifted to **Action Moats** — integrations, tools, and MCP ecosystems. (434 open-source vs. 217 closed-source API models).
+
+---
 
 ---
 
 ## 7. Where This Goes Next
 
-Three scenarios grounded in current trajectories:
-1. **Conservative (18%)**: Progress slows. Capability plateau below 45% on SWE-bench Pro.
-2. **Base Case (60%)**: AI handles 60–70% of software tasks. Engineering differentiates the top 5% of companies.
-3. **Accelerated (22%)**: Reliability barrier resolved. ARC-AGI-3 cracks 30%+. AI handles most end-to-end tasks.
+The 60% Base Case weight reflects that both the capability trajectory (SWE-bench Pro doubling in 12 months) and the adoption signals (57% of practitioners with agents in production, Gartner's 40% enterprise prediction for EOY 2026) are on track, while the known structural friction — quality as the persistent production blocker — prevents this from being the Accelerated scenario.
+
+### Three scenarios grounded in current trajectories:
+1. **Conservative (18%)**: Progress slows. Capability plateau below 45% on SWE-bench Pro SEAL. AI remains a productivity multiplier — not an autonomous replacement. Hiring patterns stabilise. Junior pipelines survive in most sectors. The gap between AI-native and AI-resistant organisations grows slowly.
+2. **Base Case (60%)**: AI handles 60–70% of software tasks. Engineering differentiates the top 5% of companies. Gartner 40% enterprise adoption. 
+3. **Accelerated (22%)**: Reliability barrier resolved (the 32% quality barrier). ARC-AGI-3 cracks 30%+. AI handles most end-to-end tasks. Self-correcting agent architectures make hallucination largely irrelevant for structured tasks. Reliability converges with capability.
+
+---
 
 ---
 
 ## 8. The Epistemic Flood
 
-The Epistemic Flood is a structural disruption caused by the collapse of inference costs.
+The Epistemic Flood is a structural disruption caused by the collapse of inference costs. 
 
-- **8.1 — The Flood Is Already Here**: NeurIPS submissions doubled. ICLR paper volume up 70% YoY. 21% of peer reviews are AI-generated.
-- **8.2 — The Structural Paradox**: Perfectly accurate AI breaks institutions just as surely as unreliable content. Volume overwhelms verification. Scarcity of expert attention is the new bottleneck.
-- **8.3 — The Verification Layer**: The human role moves upstream—from producer/verifier to **parameter setter**. Deciding what questions are worth asking, not answering them.
+### 8.1 — The Flood Is Already Here
+The signals are no longer emerging; they are measurable, institutional, and accelerating. 
+- **Scientific Publishing**: NeurIPS received 21,575 submissions in 2025—more than double its 2020 volume. ICLR 2026 reported a 70% year-on-year increase in submissions (~20,000 papers). 21% of ICLR peer reviews were found to be fully AI-generated. In response, arXiv changed its endorsement policy to stem the "flood of low-quality submissions."
+- **Legal Practice**: A researcher at HEC Paris tracking AI-related court sanctions globally counts more than 1,200 cases. By late 2025, the rate reached two to three cases per day. In March 2026, a DOJ attorney's brief was found to contain fabricated quotes and misstated case law—identified by a retired colonel who simply knew the regulator text didn't "read right."
+
+### 8.2 — The Structural Paradox
+The standard framing treats the Epistemic Flood as a consequence of AI generating "bad" content. However, perfectly accurate AI breaks institutions just as surely as unreliable content. 
+
+Every institution built on the assumption of human-scale content production has implicit throughput limits baked into its design—"load-bearing walls." Remove them, and the structure responds the same way. Scarcity of expert attention is the new bottleneck. When volume scales 10x, the verification burden on humans increases absolutely.
+
+### 8.3 — The Verification Layer
+If production is automated, verification must follow. The human role moves upstream—from producer/verifier to **parameter setter**. 
+- **Legal**: "Hyperlink Rules" require litigants to hyperlink every citation to an authoritative source at the point of filing. A hallucinated case cannot be hyperlinked because it does not exist.
+- **Scientific**: Researchers are proposing machine-readable "structured appendices" that transform manuscripts into queryable, executable research environments—making computational claims directly verifiable by automated systems rather than trusting human reviewers to catch errors in prose.
 
 ### 8.4 Horizon Watch: Signals to Track
 | Accelerating (Adaptive) | Stalling (Friction) | Reversing (Correction) |
@@ -134,10 +204,27 @@ The Epistemic Flood is a structural disruption caused by the collapse of inferen
 
 ## 9. What This Means for You
 
-- **Enterprise**: Audit your AI ROI. Stop running raw prompts; start building systems.
-- **Investors**: SWE-bench Verified is a fake signal. Use SWE-bench Pro.
-- **Careers**: Position around **orchestration**, not execution. Master the Model Context Protocol (MCP).
-- **Education**: Shift from syntax to system-level debugging and automated verification.
+### 🚀 For Enterprise
+- **The Moment**: Your AI ROI problem is not a model problem; it's an architecture problem. 95% of 2025 enterprise GenAI projects saw no measurable ROI (MIT). The organisations getting results are running engineered systems — RAG, verification loops, memory infrastructure — not raw API calls.
+- **Next Step**: Audit your existing AI deployments against the "Base vs. System-Level" gap. Identify which workflows are running raw model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10× in 18 months.
+- **The Architecture Dividend**: Moving from raw model calls to agentic frameworks increases task autonomy from 45% to over 74%. This is the primary driver of ROI for 2026–2027 deployments.
+
+### 💰 For Investors
+- **The Moment**: The benchmark contamination story is the most important thing to understand for competitive positioning. Companies still using SWE-bench Verified scores to evaluate coding capability are making decisions on a compromised signal. **SWE-bench Pro** is the honest measure.
+- **Next Step**: Add metacognition and context coherence to your AI vendor evaluation criteria. A model that knows what it doesn't know is worth more to an enterprise deployment than a model that scores 5% higher on a saturated benchmark.
+- **The Action Moat**: Evaluate the "Action Moat" (integrations and ecosystem ownership) over model capability. Competitive advantage has shifted to who owns the workflow, not who owns the weights.
+
+### 💼 For Careers
+- **The Moment**: Position around **orchestration**, not execution. The AI-native junior needs system-design understanding. The people who will be valuable are those who understand how to design the environments AI operates inside.
+- **Next Step**: Master agent frameworks (HAL, Mastra) and the Model Context Protocol (MCP). The "Junior 2027" profile is an orchestrator who manages a fleet of agents, not a coder who writes individual patches.
+- **Resilience**: Transition from specialist execution to generalist system engineering. The most resilient professionals in 2027 are those who navigate the whole stack to orchestrate AI components.
+
+### 🎓 For Education
+- **The Moment**: CS education must shift from "will AI replace developers" to "what does a developer do when AI writes the code." The throughput limit is no longer generation; it is verification and coherence management.
+- **Next Step**: Shift curriculum from syntax and patterns to system-level debugging, automated verification, and prompt-less engineering. The goal is to produce humans who can set the parameters for machine production.
+- **The Verification Layer**: Shift focus from syntax acquisition to automated verification. Produce graduates who can build the safeguards that ensure AI-generated output meets professional standards.
+
+---
 
 ---
 
