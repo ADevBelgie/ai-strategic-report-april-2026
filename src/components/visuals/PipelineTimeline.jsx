@@ -5,6 +5,7 @@ const PipelineTimeline = () => {
   const events = [
     {
       year: 2013,
+      displayDate: '2013',
       label: 'The Baseline',
       sub: 'CS Degrees: ~52k awarded annually.',
       category: 'Decision',
@@ -13,6 +14,7 @@ const PipelineTimeline = () => {
     },
     {
       year: 2023,
+      displayDate: '2023',
       label: 'The Peak Expansion',
       sub: 'CS Degrees: ~113k awarded annually.',
       category: 'Decision',
@@ -21,6 +23,7 @@ const PipelineTimeline = () => {
     },
     {
       year: 2025.5,
+      displayDate: 'Mid-2025',
       label: 'The Steepest Decline',
       sub: 'CS Enrollment falls −8.1%.',
       category: 'Decision',
@@ -30,6 +33,7 @@ const PipelineTimeline = () => {
     },
     {
       year: 2026,
+      displayDate: '2026',
       label: 'Pipeline Abandonment',
       sub: '54% of companies stop junior hiring.',
       category: 'Decision',
@@ -39,6 +43,7 @@ const PipelineTimeline = () => {
     },
     {
       year: 2029.5,
+      displayDate: 'Late-2029',
       label: 'The Graduation Gap',
       sub: 'First missing cohort enters market.',
       category: 'Consequence',
@@ -47,6 +52,7 @@ const PipelineTimeline = () => {
     },
     {
       year: 2032.5,
+      displayDate: 'Late-2032',
       label: 'The Seniority Ceiling',
       sub: 'No mid-level transition available.',
       category: 'Consequence',
@@ -55,6 +61,7 @@ const PipelineTimeline = () => {
     },
     {
       year: 2035,
+      displayDate: '2035',
       label: 'Peak Orchestration Demand',
       sub: 'Maximum shortage vs. Demand.',
       category: 'Consequence',
@@ -85,52 +92,72 @@ const PipelineTimeline = () => {
         <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative space-y-0">
-          {/* Vertical central line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/20 via-slate-700 to-emerald-500/20 md:-translate-x-1/2" />
+        <div className="relative">
+          {/* Vertical central line (Made thicker and brighter for visibility) */}
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/40 via-slate-600/60 to-emerald-500/40 md:-translate-x-1/2 z-0" />
 
-          {events.map((ev, i) => (
-            <div key={i} className={`relative flex flex-col md:flex-row items-center mb-24 sm:mb-20 last:mb-0 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''} group`}>
-              
-              {/* Year marker on central line */}
-              <div className="absolute left-4 md:left-1/2 top-2 w-8 h-8 -translate-x-1/2 bg-slate-950 border border-slate-800 rounded-full flex items-center justify-center z-10 shadow-xl group-hover:border-slate-600 transition-colors">
-                <div className={`w-2 h-2 rounded-full ${ev.alert ? 'bg-rose-500 animate-pulse' : ev.color === 'emerald' ? 'bg-emerald-400' : 'bg-slate-500'}`} />
-              </div>
+          {events.map((ev, i) => {
+            const nextEv = events[i+1];
+            const gap = nextEv ? nextEv.year - ev.year : 0;
+            const isLargeGap = gap >= 5;
 
-              {/* Content Panel */}
-              <div className={`w-full md:w-[calc(50%-2rem)] ml-12 md:ml-0 ${i % 2 === 0 ? 'md:pr-0' : 'md:pl-0'}`}>
-                <div className={`p-6 rounded-2xl border transition-all duration-300 ${ev.highlight ? 'bg-emerald-500/5 border-emerald-500/30 shadow-lg shadow-emerald-500/5' : 'bg-slate-900/60 border-slate-800/80 hover:border-slate-700'} relative overflow-hidden`}>
+            return (
+              <React.Fragment key={i}>
+                <div className={`relative flex flex-col md:flex-row items-center mb-8 sm:mb-12 last:mb-0 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''} group z-10`}>
                   
-                  {/* Category tag */}
-                  <div className="flex items-center justify-between mb-3">
-                    <span className={`text-[9px] font-black tracking-widest uppercase px-2 py-0.5 rounded border ${
-                      ev.category === 'Decision' ? 'text-blue-400 border-blue-500/20 bg-blue-500/5' : 
-                      ev.category === 'Consequence' ? 'text-amber-400 border-amber-500/30 bg-amber-500/5' : ''
-                    }`}>
-                      {ev.category}
-                    </span>
-                    <span className="text-sm font-black text-slate-500 font-mono italic">{ev.year}</span>
+                  {/* Year marker on central line */}
+                  <div className="absolute left-4 md:left-1/2 top-4 w-6 h-6 sm:w-8 sm:h-8 -translate-x-1/2 bg-slate-950 border border-slate-700 rounded-full flex items-center justify-center shadow-xl group-hover:border-slate-500 transition-colors z-20">
+                    <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${ev.alert ? 'bg-rose-500 animate-pulse' : ev.color === 'emerald' ? 'bg-emerald-400' : 'bg-slate-500'}`} />
                   </div>
 
-                  <h4 className={`text-lg font-bold mb-1 tracking-tight ${ev.alert ? 'text-rose-400' : ev.highlight ? 'text-emerald-400' : 'text-white'}`}>
-                    {ev.label}
-                  </h4>
-                  <p className="text-sm text-slate-200 font-semibold mb-2">{ev.sub}</p>
-                  <p className="text-xs text-slate-400 leading-relaxed font-medium">{ev.details}</p>
+                  {/* Content Panel (Width optimized to prevent line overlap on mobile) */}
+                  <div className={`w-[calc(100%-3rem)] sm:w-[calc(100%-4rem)] md:w-[calc(50%-2rem)] ml-auto md:ml-0 ${i % 2 === 0 ? 'md:pr-0' : 'md:pl-0'}`}>
+                    <div className={`p-5 sm:p-6 rounded-2xl border transition-all duration-300 ${ev.highlight ? 'bg-emerald-500/5 border-emerald-500/30 shadow-lg shadow-emerald-500/5' : 'bg-slate-900/80 border-slate-800/80 hover:border-slate-700'} relative overflow-hidden backdrop-blur-sm`}>
+                      
+                      {/* Category tag */}
+                      <div className="flex items-center justify-between mb-3">
+                        <span className={`text-[9px] font-black tracking-widest uppercase px-2 py-0.5 rounded border ${
+                          ev.category === 'Decision' ? 'text-blue-400 border-blue-500/20 bg-blue-500/5' : 
+                          ev.category === 'Consequence' ? 'text-amber-400 border-amber-500/30 bg-amber-500/5' : ''
+                        }`}>
+                          {ev.category}
+                        </span>
+                        <span className="text-sm font-black text-slate-500 font-mono italic">{ev.displayDate}</span>
+                      </div>
 
-                  {/* Corner accent for alerts */}
-                  {ev.alert && (
-                    <div className="absolute top-0 right-0 w-8 h-8 flex items-center justify-center">
-                      <AlertTriangle size={14} className="text-rose-500/40" />
+                      <h4 className={`text-base sm:text-lg font-bold mb-1 tracking-tight ${ev.alert ? 'text-rose-400' : ev.highlight ? 'text-emerald-400' : 'text-white'}`}>
+                        {ev.label}
+                      </h4>
+                      <p className="text-sm text-slate-200 font-semibold mb-2">{ev.sub}</p>
+                      <p className="text-xs text-slate-400 leading-relaxed font-medium">{ev.details}</p>
+
+                      {/* Corner accent for alerts */}
+                      {ev.alert && (
+                        <div className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center">
+                          <AlertTriangle size={14} className="text-rose-500/40" />
+                        </div>
+                      )}
                     </div>
-                  )}
+                  </div>
                 </div>
-              </div>
 
-              {/* Connector line for mobile (when md hidden) */}
-              <div className="absolute left-4 top-10 bottom--12 w-px bg-slate-800 sm:hidden" />
-            </div>
-          ))}
+                {/* Large Gap Indicator */}
+                {isLargeGap && (
+                  <div className="relative mb-8 sm:mb-12 h-16 sm:h-20 flex items-center z-10 group/gap">
+                    {/* Horizontal connector for mobile so visual hierarchy is clear */}
+                    <div className="absolute left-4 w-4 h-px bg-slate-700 md:hidden" />
+                    
+                    <div className="absolute left-8 md:left-1/2 md:-translate-x-1/2 bg-slate-950 border border-slate-700 px-3 py-1.5 rounded-full text-[9px] text-slate-400 font-bold uppercase tracking-widest shadow-lg flex items-center gap-2 whitespace-nowrap group-hover/gap:border-slate-500 transition-colors">
+                      <div className="w-1 h-1 rounded-full bg-slate-700 hidden md:block" />
+                      {Math.round(gap)} Years Later
+                      <div className="w-1 h-1 rounded-full bg-slate-700" />
+                    </div>
+                  </div>
+                )}
+
+              </React.Fragment>
+            );
+          })}
         </div>
 
         {/* Closing takeaway */}
