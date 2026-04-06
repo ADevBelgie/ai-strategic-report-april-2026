@@ -103,38 +103,38 @@ const PipelineTimeline = () => {
 
             return (
               <React.Fragment key={i}>
-                <div className={`relative flex flex-col md:flex-row items-center mb-8 sm:mb-12 last:mb-0 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''} group z-10`}>
+                <div className={`relative flex flex-col ${ev.highlight ? 'w-full pt-12 md:pt-16 pb-8 items-center' : 'md:flex-row items-center'} mb-10 sm:mb-16 last:mb-0 ${i % 2 === 0 && !ev.highlight ? 'md:flex-row-reverse' : ''} group z-10`}>
                   
-                  {/* Year marker on central line */}
-                  <div className="absolute left-4 md:left-1/2 top-4 w-6 h-6 sm:w-8 sm:h-8 -translate-x-1/2 bg-slate-950 border border-slate-700 rounded-full flex items-center justify-center shadow-xl group-hover:border-slate-500 transition-colors z-20">
-                    <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${ev.alert ? 'bg-rose-500 animate-pulse' : ev.color === 'emerald' ? 'bg-emerald-400' : 'bg-slate-500'}`} />
+                  {/* Year marker on central line (Centered specifically for highlight) */}
+                  <div className={`absolute left-4 md:left-1/2 ${ev.highlight ? 'top-[-0.5rem] md:top-[-1.5rem]' : 'top-4'} w-9 h-9 sm:w-11 sm:h-11 -translate-x-1/2 bg-slate-950 border-2 border-slate-700 rounded-full flex items-center justify-center shadow-2xl group-hover:border-slate-500 transition-colors z-20`}>
+                    <div className={`w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full ${ev.alert ? 'bg-rose-500 animate-pulse' : ev.color === 'emerald' ? 'bg-emerald-400' : 'bg-slate-500'}`} />
                   </div>
 
                   {/* Content Panel (Width optimized to prevent line overlap on mobile) */}
-                  <div className={`w-[calc(100%-3rem)] sm:w-[calc(100%-4rem)] ${ev.highlight ? 'md:w-full max-w-2xl mx-auto' : 'md:w-[calc(50%-2rem)]'} ml-auto md:ml-0 ${i % 2 === 0 && !ev.highlight ? 'md:pr-0' : 'md:pl-0'}`}>
-                    <div className={`p-5 sm:p-6 rounded-2xl border transition-all duration-300 ${ev.highlight ? 'bg-emerald-500/10 border-emerald-400/50 shadow-[0_0_50px_-12px_rgba(16,185,129,0.3)]' : 'bg-slate-900/80 border-slate-800/80 hover:border-slate-700'} relative overflow-hidden backdrop-blur-sm`}>
+                  <div className={`${ev.highlight ? 'w-full max-w-3xl px-4' : 'w-[calc(100%-4rem)] sm:w-[calc(100%-5rem)] md:w-[calc(50%-3rem)] ml-auto md:ml-0'} ${i % 2 === 0 && !ev.highlight ? 'md:pr-0' : 'md:pl-0'}`}>
+                    <div className={`p-6 sm:p-10 rounded-3xl border transition-all duration-300 ${ev.highlight ? 'bg-emerald-500/10 border-emerald-400/50 shadow-[0_0_80px_-20px_rgba(16,185,129,0.5)] mx-auto' : 'bg-slate-900/80 border-slate-800/80 hover:border-slate-700'} relative overflow-hidden backdrop-blur-md`}>
                       
                       {/* Arrival Glow for Highlight */}
                       {ev.highlight && (
-                        <div className="absolute -inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-emerald-500/5 pointer-events-none animate-pulse" />
+                        <div className="absolute -inset-0 bg-gradient-to-br from-emerald-500/20 via-transparent to-emerald-500/10 pointer-events-none animate-pulse" />
                       )}
                       
                       {/* Category tag */}
-                      <div className="flex items-center justify-between mb-3">
-                        <span className={`text-[9px] font-black tracking-widest uppercase px-2 py-0.5 rounded border ${
-                          ev.category === 'Decision' ? 'text-blue-400 border-blue-500/20 bg-blue-500/5' : 
-                          ev.category === 'Consequence' ? 'text-amber-400 border-amber-500/30 bg-amber-500/5' : ''
+                      <div className="flex items-center justify-between mb-4 sm:mb-6">
+                        <span className={`text-[12px] font-black tracking-widest uppercase px-3 py-1.5 rounded border ${
+                          ev.category === 'Decision' ? 'text-blue-400 border-blue-500/40 bg-blue-500/10' : 
+                          ev.category === 'Consequence' ? 'text-amber-400 border-amber-500/50 bg-amber-500/10' : ''
                         }`}>
                           {ev.category}
                         </span>
-                        <span className="text-sm font-black text-slate-500 font-mono italic">{ev.displayDate}</span>
+                        <span className="text-lg font-black text-slate-500 font-mono italic">{ev.displayDate}</span>
                       </div>
 
-                      <h4 className={`text-base sm:text-lg font-bold mb-1 tracking-tight ${ev.alert ? 'text-rose-400' : ev.highlight ? 'text-emerald-400' : 'text-white'}`}>
+                      <h4 className={`text-2xl sm:text-3xl font-black mb-3 tracking-tight ${ev.alert ? 'text-rose-400' : ev.highlight ? 'text-emerald-400' : 'text-white'}`}>
                         {ev.label}
                       </h4>
-                      <p className="text-sm text-slate-200 font-semibold mb-2">{ev.sub}</p>
-                      <p className="text-xs text-slate-400 leading-relaxed font-medium">{ev.details}</p>
+                      <p className="text-lg sm:text-xl text-slate-200 font-bold mb-4">{ev.sub}</p>
+                      <p className="text-base sm:text-lg text-slate-400 leading-relaxed font-medium">{ev.details}</p>
 
                       {/* Corner accent for alerts */}
                       {ev.alert && (

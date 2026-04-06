@@ -91,7 +91,7 @@ export const content = {
         title: "The Barbell in practice",
         p1: "Junior share of IT hiring: 15% → 7% in three years. Senior AI-role salaries: +40%. Entry-level developer postings: –67% since 2022. Salesforce: zero new engineering hires 2025. Block: workforce cut from 10,000 to under 6,000.",
         p2: "Google's DORA 2024 report found roughly 2% productivity increase for every 25% increase in AI adoption — a gap of ~12× between executive expectation and measured engineering outcome.",
-        signal: "Confidence: 60%, revised upward from 55% in V1. Every pillar confirmed by independent data sources."
+        signal: "Base Case is confirmed by 2026 adoption data. Every pillar is now anchored in direct labor market measurement."
       },
       essentials: {
         title: "How the 'Barbell' works",
@@ -116,8 +116,8 @@ export const content = {
     }
   },
   s5BarbellIntro: {
-    expert: "The Barbell Economy describes a labor market shaped like its namesake: weight concentrated at both ends, hollowed out in the middle. In the AI transition, this shape is asymmetric. The top weight is growing. The bottom weight is not holding — it is also contracting, which makes this more of a collapsing pyramid with a growing peak than a classic barbell. The name persists because the economic mechanism is the same: value concentrating away from the middle. The data shows the bottom collapsing fastest — entry-level postings down 67% and developers aged 22–25 down 20%. The mid-level coordinator and synthesiser faces a second wave: compressed from below by automation and from above by rising expectations for system-level thinking. It is not that these people lack skill. It is that the specific skills they built their careers around — coordination, synthesis, and routine management — are precisely the ones the capability curve is climbing fastest.",
-    essentials: "Picture a barbell: heavy weight on both ends, nothing in the middle. In the AI shift, this shape is unbalanced. The top is growing while the bottom is actually falling away entirely — making it more like a tall, narrow pyramid. The name stays because the result is the same: value disappears from the middle. Current data shows the bottom falling fastest: entry-level job openings are down 67%. The people in the middle — project managers, business analysts, and coordinators — are being squeezed from both sides. Their core value was managing routine complexity, which is exactly what AI is now doing better and cheaper."
+    expert: "The data has refined this shape. The V1 barbell assumed a stable base of junior execution work at one end and senior judgment at the other, with the middle hollowing out between them. That base is gone. Entry-level postings are down 67% since 2022. The bottom weight isn't holding — it's contracting. What remains is an asymmetric structure: the top growing, the middle under pressure from both directions, the bottom being structurally removed. The section name persists because V1 readers will recognise the thesis. The shape has changed.",
+    essentials: "The data has refined this shape. The 'Barbell' model originally assumed we'd have stable senior and junior roles with the middle disappearing. That's no longer what we see. Entry-level job openings are down 67% since 2022. The bottom is falling away entirely. What remains is an unbalanced pyramid: the top is growing, the middle is being squeezed from both sides, and the bottom is being structurally removed. The name stays because it's the same economic shift — just more extreme."
   },
   s5Pipeline: {
     expert: "The Pipeline Problem: CS enrolment dropped 8.1% in 2025–2026 — the steepest decline of any field. If this persists, senior engineer shortage lands 2033–2037.",
@@ -342,6 +342,10 @@ export const content = {
     next: {
       expert: "Audit your existing AI deployments against the Base vs. System-Level gap. Identify which workflows are running raw model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10x in 18 months.",
       essentials: "Look at your current AI projects and find where you're using simple AI prompts that should be replaced with better-engineered systems. The cost of building these systems has fallen dramatically."
+    },
+    architectureDividend: {
+      expert: "The 'Engineering Dividend' on capability is now measurable. Moving from raw model calls to agentic frameworks (HAL, HAL-Pro) increases task autonomy from 45% to over 74%. This is the primary driver of ROI for 2026–2027 deployments.",
+      essentials: "The 'Engineering Bonus' is now clear: moving from simple AI triggers to specialized systems increases efficiency from 45% to 74%. This is the biggest factor in making AI profitable."
     }
   },
   s9Investors: {
@@ -352,6 +356,10 @@ export const content = {
     next: {
       expert: "Add metacognition and context coherence to your AI vendor evaluation criteria. A model that knows what it doesn't know is worth more to an enterprise deployment than a model that scores 5% higher on a saturated benchmark.",
       essentials: "Look for AI that can admit when it's unsure. An AI that knows its limits is more valuable than one that scores slightly higher on a compromised test."
+    },
+    actionMoat: {
+      expert: "Evaluate the 'Action Moat' (integrations and ecosystem ownership) over model capability. Competitive advantage has shifted to who owns the workflow, not who owns the weights.",
+      essentials: "Focus on who owns the actual workflow and tools built around the AI — that's where the lasting value is, not just in the AI itself."
     }
   },
   s9Careers: {
@@ -362,6 +370,10 @@ export const content = {
     next: {
       expert: "Master agent frameworks (HAL, Mastra) and the Model Context Protocol (MCP). The 'Junior 2027' profile is an orchestrator who manages a fleet of agents, not a coder who writes individual patches.",
       essentials: "Look for ways to orchestrate a team of AI tools. Your focus should shift from writing the work yourself to setting the parameters, checking the outputs, and ensuring the whole system hangs together."
+    },
+    resilience: {
+      expert: "Transition from specialist execution to generalist system engineering. The most resilient professionals in 2027 are those who navigate the whole stack to orchestrate AI components.",
+      essentials: "Expand your skills from being a specialist in one area to understanding how whole systems work. Being able to manage AI across different tasks is the most stable career path."
     }
   },
   s9Education: {
@@ -372,6 +384,10 @@ export const content = {
     next: {
       expert: "Shift curriculum from syntax and patterns to system-level debugging, automated verification, and prompt-less engineering. The goal is to produce humans who can set the parameters for automated production.",
       essentials: "Colleges should focus less on teaching coding syntax and more on how to verify and manage AI-generated work. The goal is to train people to direct the machines."
+    },
+    verification: {
+      expert: "Shift from syntax acquisition to automated verification. The goal is to produce graduates who can build the safeguards that ensure AI-generated output meets professional standards.",
+      essentials: "Courses must teach students how to build their own systems for checking AI work, ensuring it meets high professional standards at scale."
     }
   }
 };

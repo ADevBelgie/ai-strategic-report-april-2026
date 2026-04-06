@@ -101,12 +101,12 @@ const AppContent = () => {
 
           {displayMode === 'expert' && (
             <div className="flex items-center gap-2 text-xs font-semibold px-4 py-2 bg-indigo-500/10 border border-indigo-500/20 rounded-full w-fit animate-in fade-in slide-in-from-top-4 duration-1000">
-              <span className="text-white">💡 Not deep in the AI industry?</span>
+              <span className="text-white">New to AI benchmarks?</span>
               <button 
                 onClick={() => setMode('essentials')}
                 className="text-indigo-400 hover:text-indigo-300 underline underline-offset-2 transition-colors cursor-pointer"
               >
-                Read the Essentials version
+                Start with the Essentials version
               </button>
             </div>
           )}
@@ -277,10 +277,10 @@ const AppContent = () => {
         {/* SECTION 5 — ECONOMIC SCENARIOS                            */}
         {/* ═══════════════════════════════════════════════════════════ */}
         <Section title="The Barbell Economy: Confirmed. Accelerating. Compounding." icon={TrendingUp} isOpenDefault={true} id="s5">
-          <BarbellConcept />
           <p className="text-slate-300 leading-relaxed mb-8">
             {translate(content.s5BarbellIntro[displayMode], displayMode)}
           </p>
+          <BarbellConcept />
           <HiringCollapse />
           {/* Probability Badges */}
           <div className="mb-4 text-center">
@@ -397,6 +397,10 @@ const AppContent = () => {
           </div>
 
           <PipelineTimeline />
+
+          <p className="text-slate-400 text-sm mt-12 mb-4 leading-relaxed">
+            The scenario analysis above covers the next 18 months. What follows is the structural frame those scenarios are all sitting inside.
+          </p>
         </Section>
 
         {/* ═══════════════════════════════════════════════════════════ */}
@@ -404,7 +408,7 @@ const AppContent = () => {
         {/* ═══════════════════════════════════════════════════════════ */}
         <SpeculativeSection title="8 · The Epistemic Flood" tag="Structural Horizon" id="s8">
           <p className="text-xl text-slate-200 font-light leading-relaxed mb-4 max-w-4xl">
-            The industry has largely misunderstood the end-state of the inference cost collapse. This is not a speculative addendum. It is the frame the rest of this report is sitting inside.
+            {translate("The industry has largely misunderstood the end-state of the inference cost collapse. It is the frame the rest of this report is sitting inside.", displayMode)}
           </p>
 
           <div className="space-y-12 mt-12">
@@ -527,6 +531,12 @@ const AppContent = () => {
                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
                     <p>{translate(content.s9Enterprise.next[displayMode], displayMode)}</p>
                   </div>
+                  {content.s9Enterprise.architectureDividend && (
+                    <div>
+                      <h5 className="text-blue-400 font-bold text-xs uppercase tracking-wider mb-2">ROI Driver</h5>
+                      <p>{translate(content.s9Enterprise.architectureDividend[displayMode], displayMode)}</p>
+                    </div>
+                  )}
                 </div>
               )
             },
@@ -543,6 +553,12 @@ const AppContent = () => {
                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
                     <p>{translate(content.s9Investors.next[displayMode], displayMode)}</p>
                   </div>
+                  {content.s9Investors.actionMoat && (
+                    <div>
+                      <h5 className="text-blue-400 font-bold text-xs uppercase tracking-wider mb-2">Strategic Shift</h5>
+                      <p>{translate(content.s9Investors.actionMoat[displayMode], displayMode)}</p>
+                    </div>
+                  )}
                 </div>
               )
             },
@@ -559,6 +575,12 @@ const AppContent = () => {
                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
                     <p>{translate(content.s9Careers.next[displayMode], displayMode)}</p>
                   </div>
+                  {content.s9Careers.resilience && (
+                    <div>
+                      <h5 className="text-blue-400 font-bold text-xs uppercase tracking-wider mb-2">Long-term Resilience</h5>
+                      <p>{translate(content.s9Careers.resilience[displayMode], displayMode)}</p>
+                    </div>
+                  )}
                 </div>
               )
             },
@@ -575,6 +597,12 @@ const AppContent = () => {
                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
                     <p>{translate(content.s9Education.next[displayMode], displayMode)}</p>
                   </div>
+                  {content.s9Education.verification && (
+                    <div>
+                      <h5 className="text-blue-400 font-bold text-xs uppercase tracking-wider mb-2">Curriculum Focus</h5>
+                      <p>{translate(content.s9Education.verification[displayMode], displayMode)}</p>
+                    </div>
+                  )}
                 </div>
               )
             },
