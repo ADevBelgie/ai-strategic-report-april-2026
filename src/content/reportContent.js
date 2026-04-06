@@ -116,8 +116,8 @@ export const content = {
     }
   },
   s5BarbellIntro: {
-    expert: "The data has refined this shape. The V1 barbell assumed a stable base of junior execution work at one end and senior judgment at the other, with the middle hollowing out between them. That base is gone. Entry-level postings are down 67% since 2022. The bottom weight isn't holding — it's contracting. What remains is an asymmetric structure: the top growing, the middle under pressure from both directions, the bottom being structurally removed. The section name persists because V1 readers will recognise the thesis. The shape has changed.",
-    essentials: "The data has refined this shape. The 'Barbell' model originally assumed we'd have stable senior and junior roles with the middle disappearing. That's no longer what we see. Entry-level job openings are down 67% since 2022. The bottom is falling away entirely. What remains is an unbalanced pyramid: the top is growing, the middle is being squeezed from both sides, and the bottom is being structurally removed. The name stays because it's the same economic shift — just more extreme."
+    expert: "The data has refined this shape since the previous V1 report. The V1 barbell assumed a stable base of junior execution work at one end and senior judgment at the other, with the middle hollowing out between them. That base is gone. Entry-level postings are down 67% since 2022. The bottom weight isn't holding — it's contracting. What remains is an asymmetric structure: the top growing, the middle under pressure from both directions, the bottom being structurally removed. The section name persists because V1 readers will recognise the thesis. The shape has changed.",
+    essentials: "The data has refined this shape since the previous V1 report. The 'Barbell' model originally assumed we'd have stable senior and junior roles with the middle disappearing. That's no longer what we see. Entry-level job openings are down 67% since 2022. The bottom is falling away entirely. What remains is an unbalanced pyramid: the top is growing, the middle is being squeezed from both sides, and the bottom is being structurally removed. The name stays because it's the same economic shift — just more extreme."
   },
   s5Pipeline: {
     expert: "The Pipeline Problem: CS enrolment dropped 8.1% in 2025–2026 — the steepest decline of any field. If this persists, senior engineer shortage lands 2033–2037.",
@@ -136,13 +136,13 @@ export const content = {
   s6Timeline: {
     expert: [
       { year: 'Late 2025', status: 'Realised', color: 'bg-emerald-500', desc: 'The Agentic Era. Reasoning tokens standard. Document AI solved. The bottleneck moved from capability to deployment.' },
-      { year: '2026', status: 'Now', color: 'bg-indigo-500', desc: 'The Engineering Year. Framework RAG commoditises. SWE-bench Pro becomes the honest coding measure. ARC-AGI-3 defines the new reasoning frontier. The "Hollow Middle" crystallises in labour data.' },
+      { year: '2026', status: 'Now', color: 'bg-indigo-500', desc: 'The Engineering Year. Framework RAG commoditises. SWE-bench Pro becomes the honest coding measure. ARC-AGI-3 defines the new reasoning frontier. The asymmetric collapse in labour data becomes measurable across five independent sources.' },
       { year: 'EOY 2026', status: 'Projected — Base Case', color: 'bg-amber-500', desc: 'Coding autonomy crosses 70% on contamination-resistant benchmarks. ARC-AGI-3 reaches 30–50% via RL approaches. Memory and context coherence become table-stakes enterprise features. First AI preceptorship programmes announced publicly.' },
       { year: '2027', status: 'Base Case Landing', color: 'bg-rose-500', desc: 'AI handles 60–70% of software engineering tasks under standardised conditions. System engineering is the differentiator. Enterprise adoption crosses 40%. The organisations that closed the architecture gap in 2026 pull ahead.' }
     ],
     essentials: [
       { year: 'Late 2025', status: 'Realised', color: 'bg-emerald-500', desc: 'The "Agent" Era. AI systems started acting on their own. The technical bottlenecks began to clear, shifting the focus to how companies actually use the tech.' },
-      { year: '2026', status: 'Now', color: 'bg-indigo-500', desc: 'The Engineering Year. We stopped asking if AI works and started asking how to build systems around it. A new "middle gap" in the workforce becomes obvious.' },
+      { year: '2026', status: 'Now', color: 'bg-indigo-500', desc: 'The Engineering Year. We stopped asking if AI works and started asking how to build systems around it. The asymmetric collapse in labour data becomes measurable across five independent sources.' },
       { year: 'EOY 2026', status: 'Projected — Base Case', color: 'bg-amber-500', desc: 'Programming AI hits 70% competence. Most companies have solved the basic memory and reliability problems. Professional training programs for human-AI collaboration launch.' },
       { year: '2027', status: 'Where we\'re headed', color: 'bg-rose-500', desc: 'In the most likely outcome, AI handles the majority of software development tasks. The companies that built the right systems around AI in 2026 are the ones winning in 2027. The ones that didn\'t are playing catch-up.' }
     ]
@@ -161,8 +161,8 @@ export const content = {
       essentials: "AI can now read, process and act on documents, images and data — not just text prompts."
     },
     memory: {
-      expert: "Memory as Infrastructure — MCP adopted by OpenAI, Google, Microsoft; Claude Sonnet 4.5 achieves 74.6% on GAIA via HAL framework vs 44.8% base model",
-      essentials: "AI now has persistent memory across sessions. The difference this makes is large: the same AI goes from 44.8% to 74.6% accuracy when it can remember and plan across steps."
+      expert: "Memory has moved from effectively zero to a solvable architectural layer — 91.4% on LongMemEval (Vectorize Hindsight, Dec 2025), 95%+ claimed by Mastra (Feb 2026). MCP adopted by OpenAI, Google, Microsoft; Claude Sonnet 4.5 achieves 74.6% on GAIA via HAL framework vs 44.8% base model",
+      essentials: "Memory has moved from effectively zero to a solvable architectural layer — 91.4% on LongMemEval (Vectorize Hindsight, Dec 2025), 95%+ claimed by Mastra (Feb 2026). AI now has persistent memory across sessions. The difference this makes is large: the same AI goes from 44.8% to 74.6% accuracy when it can remember and plan across steps."
     },
     openSource: {
       expert: "Open-Source Parity & The Action Moat — The Data Moat is dead; competitive advantage has shifted to \"Action Moats\" (integrations, tools, and MCP ecosystems). 434 open-source vs 217 closed-source API models.",
@@ -188,6 +188,10 @@ export const content = {
       expert: "32% Quality barrier resolved. ARC-AGI-3 cracks 30%+.",
       essentials: "Reliability problems get solved. AI cracks the next generation of reasoning tests."
     }
+  },
+  s7Transition: {
+    expert: "The scenario analysis above covers the next 18 months. What follows is the structural frame those scenarios are all sitting inside.",
+    essentials: "The scenario analysis above covers the next 18 months. What follows is the structural frame those scenarios are all sitting inside."
   },
 
   s4Dimensions: {

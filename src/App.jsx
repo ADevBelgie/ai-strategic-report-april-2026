@@ -407,7 +407,7 @@ const AppContent = () => {
           <PipelineTimeline />
 
           <p className="text-slate-400 text-sm mt-12 mb-4 leading-relaxed">
-            The scenario analysis above covers the next 18 months. What follows is the structural frame those scenarios are all sitting inside.
+            {translate(content.s7Transition[displayMode], displayMode)}
           </p>
         </Section>
 

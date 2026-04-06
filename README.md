@@ -112,7 +112,7 @@ With tools and search: near-perfect on SimpleQA across all frontier models. With
 
 ## 5. The Barbell Economy
 
-The initial data behind the Barbell Economy has refined this shape. The V1 barbell assumed a stable base of junior execution work at one end and senior judgment at the other, with the middle hollowing out between them. That base is gone. Entry-level dev postings are down 67% since 2022. The bottom weight isn't holding — it's contracting. 
+The data has refined this shape since the previous V1 report. The V1 barbell assumed a stable base of junior execution work at one end and senior judgment at the other, with the middle hollowing out between them. That base is gone. Entry-level dev postings are down 67% since 2022. The bottom weight isn't holding — it's contracting. 
 
 What remains is an asymmetric structure: the top growing, the middle under pressure from both directions, and the bottom being **structurally removed**.
 
@@ -144,7 +144,7 @@ This is not evidence AI can't replace roles. It's the predictable outcome of tre
 
 ### The Timeline:
 - **Late 2025 (Realised)**: The Agentic Era. Reasoning tokens standard. Document AI solved. The bottleneck moved from capability to deployment.
-- **2026 (Now)**: The Engineering Year. Framework RAG commoditises. SWE-bench Pro becomes the honest coding measure. ARC-AGI-3 defines the new reasoning frontier. The "Hollow Middle" crystallises in labour data.
+- **2026 (Now)**: The Engineering Year. Framework RAG commoditises. SWE-bench Pro becomes the honest coding measure. ARC-AGI-3 defines the new reasoning frontier. The asymmetric collapse in labour data becomes measurable across five independent sources.
 - **EOY 2026 (Projected)**: Coding autonomy crosses 70% on contamination-resistant benchmarks. ARC-AGI-3 reaches 30–50% via RL approaches. Memory and context coherence become table-stakes enterprise features. First AI preceptorship programmes announced publicly.
 - **2027 (Base Case)**: AI handles 60–70% of software engineering tasks under standardised conditions. System engineering is the differentiator. Enterprise adoption crosses 40%. The organisations that closed the architecture gap in 2026 pull ahead.
 
@@ -154,7 +154,7 @@ Five structural drivers are compressing the timeline between capability and depl
 1. **Inference Cost Collapse**: 280× drop since Nov 2022. More passes and more verification for the same cost.
 2. **Synthetic Data Verification**: DeepSeek-R1 trained for $294K. AI models are now trained for the cost of a single senior engineer’s annual salary.
 3. **Multimodal / Document AI**: Enterprise workflows broadly unlocked. AI now processes and acts on documents, images, and data — not just text prompts.
-4. **Memory as Infrastructure**: MCP adopted by OpenAI, Google, and Microsoft. Claude Sonnet 4.5 achieves 74.6% on GAIA via HAL framework vs. 44.8% base model. Memory is now a solved architectural layer.
+4. **Memory as Infrastructure**: MCP adopted by OpenAI, Google, and Microsoft. Claude Sonnet 4.5 achieves 74.6% on GAIA via HAL framework vs. 44.8% base model. Memory has moved from effectively zero to a solvable architectural layer — 91.4% on LongMemEval (Vectorize Hindsight, Dec 2025), 95%+ claimed by Mastra (Feb 2026).
 5. **Open-Source Parity & The Action Moat**: The "Data Moat" is dead. Competitive advantage has shifted to **Action Moats** — integrations, tools, and MCP ecosystems. (434 open-source vs. 217 closed-source API models).
 
 ---
@@ -169,6 +169,10 @@ The 60% Base Case weight reflects that both the capability trajectory (SWE-bench
 1. **Conservative (18%)**: Progress slows. Capability plateau below 45% on SWE-bench Pro SEAL. AI remains a productivity multiplier — not an autonomous replacement. Hiring patterns stabilise. Junior pipelines survive in most sectors. The gap between AI-native and AI-resistant organisations grows slowly.
 2. **Base Case (60%)**: AI handles 60–70% of software tasks. Engineering differentiates the top 5% of companies. Gartner 40% enterprise adoption. 
 3. **Accelerated (22%)**: Reliability barrier resolved (the 32% quality barrier). ARC-AGI-3 cracks 30%+. AI handles most end-to-end tasks. Self-correcting agent architectures make hallucination largely irrelevant for structured tasks. Reliability converges with capability.
+
+---
+
+The scenario analysis above covers the next 18 months. What follows is the structural frame those scenarios are all sitting inside.
 
 ---
 
