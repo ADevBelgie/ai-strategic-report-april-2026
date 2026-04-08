@@ -12,10 +12,6 @@ keywords: ["Agentic AI", "SWE-bench Pro", "Barbell Economy", "Epistemic Flood", 
 
 # 🚀 The AI Revolution: 2026 Strategic Brief (V2)
 
-**Published:** April 4, 2026  
-**Authors:** Arthur Devresse & Claude Sonnet 4.6 & Gemini 3.1 Pro  
-**Website:** [ai-strategic-report-april-2026.vercel.app](https://ai-strategic-report-april-2026.vercel.app)
-
 ---
 
 > **"Capability is no longer what's holding AI back. System engineering and talent are — whether you're building, investing, hiring, or deciding what to study next."**
@@ -46,7 +42,7 @@ SWE-bench Verified saturated and was replaced by SWE-bench Pro. ARC-AGI-2 approa
 
 ## 2. The Reasoning Tradeoff
 
-Models best at complex reasoning are, by a measurable margin, the most likely to hallucinate on grounded tasks. Gemini-2.0-Flash leads at 0.7% hallucination; most reasoning models exceed 10% on the same task (Vectara HHEM). *Exception: o3-mini at 0.8% shows constrained reasoning can improve grounding.*
+Models best at complex reasoning are, by a measurable margin, the most likely to hallucinate on grounded tasks. Gemini-2.0-Flash leads at 0.7% hallucination; most reasoning models exceed 10% on the same task [1: Vectara HHEM, 2025]. *Exception: o3-mini at 0.8% shows constrained reasoning can improve grounding.*
 
 The fix is architectural. Self-Reflective RAG reduces hallucination from 64% to 5.8%. Multi-agent verification brings enterprise rates below 2%. Inference costs have collapsed over 280×.
 
@@ -66,6 +62,9 @@ Not all benchmarks are created equal. Here is the current map of the frontier:
 | **GAIA (All Levels)** | 74.6% | ✅ Active | **Claude Sonnet 4.5** (HAL Generalist Agent). *Base models sit at ~44.8%.* |
 | **SWE-bench Verified**| 80.9% | ❌ Deprecated | **Claude Opus 4.5**. OpenAI confirmed training contamination. |
 | **GPQA / MMLU** | 94.3%+ | 📁 Retired | **Gemini 3.1 Pro (GPQA)**. Structurally saturated; signal lost. |
+
+> [!CAUTION]
+> **Caution for Investors**: Agentic benchmarks are highly susceptible to Goodhart's Law. High scores on Terminal-Bench 2.0 often reflect framework overfitting to the benchmark's specific Docker environment rather than generalized capability on undocumented enterprise systems.
 
 ---
 
@@ -87,9 +86,8 @@ Two benchmarks now capture this at the system level. On **SWE-bench Pro** (conta
 The dominant failure mode on SWE-bench Pro is context overflow (35.6% of top-model failures) — the exact problem RL-trained search agents like WarpGrep directly address. That's why the 2027 trajectory is aggressive: the bottleneck is addressable and being addressed now.
 
 #### 2. Memory
-Six months ago, memory was effectively zero for most AI services. Every session started fresh. The MIT GenAI Divide report identifies this as the #1 root cause of AI deployment failure: *"systems do not retain feedback, adapt to context, or improve over time."*
-
-By December 2025, Vectorize Hindsight crossed 91.4% on LongMemEval. By February 2026, Mastra's Observational Memory reports 95%+. On LOCOMO, Mem0 achieves 66.9% — 26% above OpenAI's native memory.
+Six months ago, memory was effectively zero for most AI services. Every session started fresh. The MIT GenAI Divide report identifies this as the #1 root cause of AI deployment failure: *"systems do not retain feedback, adapt to context, or improve over time."* [2: MIT Project NANDA, "The GenAI Divide", July 2025]
+By February 2026, Mastra's Observational Memory reports 95%+. On LOCOMO, Mem0 achieves 66.9% — 26% above OpenAI's native memory.
 
 The inner/outer track gap on Memory is the widest of any dimension, and it closes faster than any other. This is not incremental improvement — it is a capability that didn't meaningfully exist six months ago and now has clear architectural solutions.
 
@@ -98,7 +96,7 @@ Confidence calibration (metacognition) is the ability to accurately signal uncer
 
 GPT-4.1 mini achieves an AUC of 0.83 on metacognitive sensitivity — an 83% chance that a correct answer is rated higher-confidence than an incorrect one. Human baseline: ~0.90–0.95 (domain experts on narrow technical tasks). The gap matters: over-reliance on AI (an OWASP top LLM vulnerability) is directly a self-awareness problem.
 
-The harder problem: current models are systematically reluctant to express uncertainty. Training objectives reward confident guessing over calibrated abstention — models learn to bluff (Kalai & Nachum, OpenAI, arXiv:2509.04664).
+The harder problem: current models are systematically reluctant to express uncertainty. Training objectives reward confident guessing over calibrated abstention — models learn to bluff [3: Kalai & Nachum, OpenAI, arXiv:2509.04664].
 
 #### 4. Coherence
 Coherence asks whether an AI sustains consistent, non-contradictory reasoning across a long agentic task — not just whether it can recall facts.
@@ -110,7 +108,7 @@ The 'lost in the middle' phenomenon remains real: a model claiming 200k usable t
 #### 5. Reliability
 Reliability is the dimension where the standard/well-engineered gap is most consequential. Without mitigation: 10%+ hallucination for reasoning models, 64% in medical, 69–88% in legal. With RAG and verification: sub-1% on grounded summarisation, 5.8% in clinical settings.
 
-The mechanistic cause is now understood: Knowledge FFNs inside transformers overemphasise parametric memory while Copying Heads fail to integrate retrieved context (ReDeEP, ICLR 2025 Spotlight). This is fixable at the architecture level.
+The mechanistic cause is now understood: Knowledge FFNs inside transformers overemphasise parametric memory while Copying Heads fail to integrate retrieved context [4: ReDeEP, ICLR 2025 Spotlight]. This is fixable at the architecture level.
 
 With tools and search: near-perfect on SimpleQA across all frontier models. Without tools: enormous variance (Gemini 3 Pro 72.1% vs GPT-5.2 ~38%). The delta is the systems design signal.
 
@@ -149,7 +147,7 @@ This is not evidence AI can't replace roles. It's the predictable outcome of tre
 
 ### The Timeline:
 - **Late 2025 (Realised)**: The Agentic Era. Reasoning tokens standard. Document AI solved. The bottleneck moved from capability to deployment.
-- **2026 (Now)**: The Engineering Year. Framework RAG commoditises. SWE-bench Pro becomes the honest coding measure. ARC-AGI-3 defines the new reasoning frontier. The asymmetric collapse in labour data becomes measurable across five independent sources.
+- **Mid-2026 (Projected)**: The ROI Reckoning. The 95% failure rate of base-model experiments forces a shift in enterprise capital. Rather than a budget freeze, we see an aggressive reallocation: CFOs cap funding for isolated API wrappers and direct capital toward structured agentic architectures and memory infrastructure. Vendor consolidation accelerates as budget moves from departmental SaaS to foundational orchestration.
 - **EOY 2026 (Projected)**: Coding autonomy crosses 70% on contamination-resistant benchmarks. ARC-AGI-3 reaches 30–50% via RL approaches. Memory and context coherence become table-stakes enterprise features. First AI preceptorship programmes announced publicly.
 - **2027 (Base Case)**: AI handles 60–70% of software engineering tasks under standardised conditions. System engineering is the differentiator. Enterprise adoption crosses 40%. The organisations that closed the architecture gap in 2026 pull ahead.
 
@@ -197,11 +195,11 @@ Every institution built on the assumption of human-scale content production has 
 
 ### 8.3 — The Verification Layer
 If production is automated, verification must follow. The human role moves upstream—from producer/verifier to **parameter setter**.
-- **Legal**: "Hyperlink Rules" require litigants to hyperlink citations, but URLs only verify routing, not truth. The true load-bearing walls emerging against the flood are API-enforced querying against closed institutional databases (RAG constrained strictly to Westlaw) and Zero-Knowledge Proofs (ZKPs) that cryptographically verify a specific model executed a specific search on a certified database, returning a verified hash of the source material.
+- **Legal**: "Hyperlink Rules" require litigants to hyperlink citations, but URLs only verify routing, not truth. The true load-bearing walls emerging against the flood are API-enforced querying against closed institutional databases (RAG constrained strictly to Westlaw) and Zero-Knowledge Proofs (ZKPs) that cryptographically verify a specific model executed a specific search on a certified database, returning a verified hash of the source material. Because generating synthetic text costs fractions of a cent while verification is computationally and humanly expensive, surviving institutions will introduce "friction by design"—financial staking, API-access fees, or algorithmic penalties to deter the mass submission of unverified data.
 - **Scientific**: Researchers are proposing machine-readable "structured appendices" that transform manuscripts into queryable, executable research environments—making computational claims directly verifiable by automated systems rather than trusting human reviewers to catch errors in prose.
 
 ### 8.4 Horizon Watch: Signals to Track
-| Accelerating (Adaptive) | Stalling (Friction) | Reversing (Correction) |
+| [Trend: Accelerating] Adaptive | [Trend: Stalling] Friction | [Trend: Reversing] Correction |
 |-------------------------|---------------------|------------------------|
 | AI-disclosure mandates in journals | Multi-agent scaling proves harder | Human review faster/better than AI |
 | Appellate rulings on AI filings | Regulatory mandates for human HITL | AI-content detection matures |
@@ -212,7 +210,7 @@ If production is automated, verification must follow. The human role moves upstr
 ## 9. What This Means for You
 
 ### 🚀 For Enterprise
-- **Reading the current moment**: 95% of enterprise GenAI projects in 2025 saw no measurable P&L impact — and the data is clear on why. (MIT Project NANDA, "The GenAI Divide", July 2025 — 300+ initiative reviews; the bar is rapid revenue acceleration, not incremental value.) The organisations getting results are running engineered agentic systems: RAG pipelines, verification loops, memory infrastructure. The ones that aren't are running base model API calls and wondering why the numbers don't move. The projected 40% enterprise adoption rate for 2026 is masking a massive capital misallocation. The vast majority of that 40% represents "shadow adoption"—companies buying enterprise licenses for base models and treating it as an AI strategy. The 5% actually extracting ROI are those investing the capital into agentic architecture.
+- **Reading the current moment**: 95% of enterprise GenAI projects in 2025 saw no measurable P&L impact — and the data is clear on why. [2: MIT Project NANDA, "The GenAI Divide", July 2025 — 300+ initiative reviews; the bar is rapid revenue acceleration, not incremental value.] The organisations getting results are running engineered agentic systems: RAG pipelines, verification loops, memory infrastructure. The ones that aren't are running base model API calls and wondering why the numbers don't move. The projected 40% enterprise adoption rate for 2026 is masking a massive capital misallocation. The vast majority of that 40% represents "shadow adoption"—companies buying enterprise licenses for base models and treating it as an AI strategy. The 5% actually extracting ROI are those investing the capital into agentic architecture.
 - **The Epistemic Flood**: For a macro analysis of how automated production will force institutions to adapt, the evolving liability landscape, and where the economic value shifts next, read our companion essay: [https://after-the-intelligence-flood.vercel.app](https://after-the-intelligence-flood.vercel.app)
 - **Next Step**: Your AI ROI problem is not a model problem. It's an architecture problem. Audit your existing deployments against the Base vs. System-Level gap. Identify which workflows are running base model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10× in 18 months.
 - **The Architecture Dividend**: The engineering dividend is now quantified. Moving from base model calls to agentic systems increases task autonomy from 45% to over 74%. This is the primary ROI driver for 2026–2027 deployments — not model selection.
@@ -224,7 +222,7 @@ If production is automated, verification must follow. The human role moves upstr
 
 ### 💼 For Careers
 - **Reading the current moment**: The software talent pipeline is experiencing a historic structural contraction. With entry-level opportunities evaporating and university enrollment hitting a multi-decade inflection point, this is no longer a temporary market correction — it is a permanent shift in who the industry values. The people accumulating the most value right now are move-upstream orchestrators, not those competing with AI on execution.
-- **Next Step**: Position around orchestration, not execution. Master agent frameworks (HAL, Mastra) and the Model Context Protocol (MCP). However, orchestration without domain intuition is just guessing. To survive the seniority gap, build your own "synthetic experience"—use AI to generate high-volume, low-stakes execution sandboxes where you can train your own neural pathways on edge cases. The "Junior 2027" profile is an orchestrator who uses AI to compress 10 years of execution experience into two.
+- **Next Step**: Position around orchestration, not execution. However, orchestration without domain intuition is just guessing. To survive the seniority gap, position yourself as a Human-In-The-Loop (HITL) orchestrator on legacy workflows. The "Junior 2027" profile is an apprentice orchestrator deployed specifically to do the messy translation between rigid AI agents and undocumented legacy enterprise systems. Managing the friction where AI fails against the real world is the only way to forge the structural intuition required to become a Senior Verifier.
 - **Resilience**: Transition from specialist execution to generalist system engineering. The most resilient professionals in 2027 are those who navigate the whole stack to orchestrate AI components — not those one capability level below the current frontier.
 
 ### 🎓 For Education

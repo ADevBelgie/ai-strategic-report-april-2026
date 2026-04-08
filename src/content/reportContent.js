@@ -82,13 +82,13 @@ export const content = {
   s6Timeline: {
     expert: [
       { year: 'Late 2025', status: 'Realised', color: 'bg-emerald-500', desc: 'The Agentic Era. Reasoning tokens standard. Document AI solved. The bottleneck moved from capability to deployment.' },
-      { year: '2026', status: 'Now', color: 'bg-indigo-500', desc: 'The Engineering Year. Framework RAG commoditises. SWE-bench Pro becomes the honest coding measure. ARC-AGI-3 defines the new reasoning frontier. The asymmetric collapse in labour data becomes measurable across five independent sources.' },
+      { year: 'Mid-2026', status: 'Projected', color: 'bg-indigo-500', desc: 'The ROI Reckoning. The 95% failure rate of base-model experiments forces a shift in enterprise capital. CFOs cap funding for isolated API wrappers and direct capital toward structured agentic architectures and memory infrastructure. Vendor consolidation accelerates.' },
       { year: 'EOY 2026', status: 'Projected — Base Case', color: 'bg-amber-500', desc: 'Coding autonomy crosses 70% on contamination-resistant benchmarks. ARC-AGI-3 reaches 30–50% via RL approaches. Memory and context coherence become table-stakes enterprise features. First AI preceptorship programmes announced publicly.' },
       { year: '2027', status: 'Base Case Landing', color: 'bg-rose-500', desc: 'AI handles 60–70% of software engineering tasks under standardised conditions. System engineering is the differentiator. Enterprise adoption crosses 40%. The organisations that closed the architecture gap in 2026 pull ahead.' }
     ],
     essentials: [
       { year: 'Late 2025', status: 'Realised', color: 'bg-emerald-500', desc: 'The "Agent" Era. AI systems started acting on their own. The technical bottlenecks began to clear, shifting the focus to how companies actually use the tech.' },
-      { year: '2026', status: 'Now', color: 'bg-indigo-500', desc: 'The Engineering Year. We stopped asking if AI works and started asking how to build systems around it. The asymmetric collapse in labour data becomes measurable across five independent sources.' },
+      { year: 'Mid-2026', status: 'Projected', color: 'bg-indigo-500', desc: 'The "ROI Reckoning." Companies stop funding simple AI experiments and shift budgets specifically to deeply engineered systems. Large-scale consolidation of AI vendors begins.' },
       { year: 'EOY 2026', status: 'Projected — Base Case', color: 'bg-amber-500', desc: 'Programming AI hits 70% competence. Most companies have solved the basic memory and reliability problems. Professional training programs for human-AI collaboration launch.' },
       { year: '2027', status: 'Where we\'re headed', color: 'bg-rose-500', desc: 'In the most likely outcome, AI handles the majority of software development tasks. The companies that built the right systems around AI in 2026 are the ones winning in 2027. The ones that didn\'t are playing catch-up.' }
     ]
@@ -226,11 +226,11 @@ export const content = {
   },
   s8_8_3: {
     expert: {
-      p1: "If production is automated, verification must follow. \"Hyperlink Rules\" require litigants to hyperlink citations, but URLs only verify routing, not truth. The true load-bearing walls emerging against the flood are API-enforced querying against closed institutional databases (RAG constrained strictly to Westlaw) and Zero-Knowledge Proofs (ZKPs) that cryptographically verify a specific model executed a specific search on a certified database, returning a verified hash of the source material.",
+      p1: "If production is automated, verification must follow. \"Hyperlink Rules\" require litigants to hyperlink citations, but URLs only verify routing, not truth. The true load-bearing walls emerging against the flood are API-enforced querying against closed institutional databases (RAG constrained strictly to Westlaw) and Zero-Knowledge Proofs (ZKPs) that cryptographically verify a specific model executed a specific search on a certified database, returning a verified hash of the source material. Because generating synthetic text costs fractions of a cent while verification is computationally and humanly expensive, surviving institutions will introduce \"friction by design\"—financial staking, API-access fees, or algorithmic penalties to deter the mass submission of unverified data.",
       p2: "In scientific publishing, researchers are proposing machine-readable \"structured appendices\" that transform manuscripts into queryable, executable research environments—making computational claims directly verifiable by automated systems."
     },
     essentials: {
-      p1: "The response across industries is the same: if AI produces, something must verify. Courts now require lawyers to prove citations come from real sources using digital watermarks or cryptographic proofs that verify an AI actually checked a trusted database.",
+      p1: "The response across industries is the same: if AI produces, something must verify. Courts now require lawyers to prove citations come from real sources using digital watermarks or cryptographic proofs that verify an AI actually checked a trusted database. Surviving institutions will introduce 'friction by design'—fees, penalties, or algorithmic roadblocks—to prevent the market from being flooded with unverified AI data.",
       p2: "Scientific publishing is moving toward machine-readable papers that automated systems can directly verify. As we use more AI to create work, the human role shifts from doing the work to setting the rules for how it's checked."
     }
   },
@@ -322,8 +322,8 @@ export const content = {
       essentials: "The pathways into a tech career have fundamentally changed as AI takes over basic coding tasks. Winning in this market means moving past simple execution and focusing on how to direct and manage AI systems to do the work for you."
     },
     next: {
-      expert: "Position around orchestration, not execution. Build your own \"synthetic experience\"—using AI to generate high-volume execution sandboxes to train your own intuition on edge cases. The 'Junior 2027' profile is an orchestrator who uses AI to compress 10 years of execution experience into two.",
-      essentials: "Learn to manage groups of AI tools rather than just executing tasks. Use AI to practice on thousands of 'fake' projects to build the deep intuition you'll need to catch AI errors in real ones."
+      expert: "Position around orchestration, not execution. To survive the seniority gap, position yourself as a Human-In-The-Loop (HITL) orchestrator on legacy workflows. The 'Junior 2027' profile is an apprentice orchestrator deployed specifically to do the messy translation between rigid AI agents and undocumented legacy enterprise systems.",
+      essentials: "Learn to manage groups of AI tools rather than just executing tasks. To stay relevant as a junior, focus on becoming a 'Human-In-The-Loop'—the person who manages the messy handover between new AI tools and old company systems. This 'messy translation' is how you build the experience that AI currently lacks."
     },
     resilience: {
       expert: "Transition from specialist execution to generalist system engineering. The most resilient professionals in 2027 are those who navigate the whole stack to orchestrate AI components — not those who are one capability level below the current frontier.",
@@ -336,8 +336,8 @@ export const content = {
       essentials: "The massive drop in student interest reflects a hard truth: learning to write code by hand is no longer enough for a professional career. Education must now focus on teaching students how to check, manage, and take responsibility for the work that AI produces."
     },
     next: {
-      expert: "Shift curriculum from syntax to system-level debugging and automated verification. Institutions must pioneer \"AI-assisted preceptorships\"—where students act as the human verifiers for automated workflows, building the structural intuition they will need for high-stakes verification.",
-      essentials: "Colleges must start 'AI-assisted training' where students act as the human checkers for automated work, building the experience they'll need as professional verifiers later."
+      expert: "Shift curriculum from syntax to system-level debugging and automated verification. Institutions must pioneer \"AI-assisted preceptorships\"—where students act as the human-in-the-loop verifiers for automated legacy integrations, building the structural intuition they will need for high-stakes verification.",
+      essentials: "Colleges must start 'AI-assisted training' where students act as the human checkers for AI-driven legacy projects, building the real-world experience they'll need as professional verifiers later."
     },
     verification: {
       expert: "The verification layer is the professional value-add. Produce graduates who can build the safeguards that ensure AI-generated output meets professional standards. That is the human role that AI cannot yet automate.",
