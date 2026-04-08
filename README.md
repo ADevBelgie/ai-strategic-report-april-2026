@@ -136,7 +136,7 @@ This is not evidence AI can't replace roles. It's the predictable outcome of tre
 ### 5.3 The Pipeline Time Bomb
 - **Junior IT Hiring**: Share dropped from 15% to 7% since 2022.
 - **Entry-Level Dev Postings**: –67% since 2022.
-- **CS Enrollment**: Fell 8.1% in 2025–2026 — the steepest decline of any field.
+- **The Elastic Education Collapse**: While 4-year CS enrollments lag due to institutional inertia, short-cycle training collapsed instantly. Coding bootcamp enrollments fell roughly 40% by early 2026, and universities report a sharp drop in sophomore-level CS major declarations.
 - **Consequence**: A structural shortage of expert verifiers is projected to land between **2033–2037**. If execution is automated today, the 2033 workforce will lack the deep domain context historically built during junior years. The crisis will not be a lack of human coders, but a lack of humans with the structural intuition to verify complex, orchestrated AI systems.
 
 ---
@@ -234,30 +234,6 @@ If production is automated, verification must follow. The human role moves upstr
 
 ---
 
-<developer_instructions>
-
-## 📊 Technical Appendix (Developer Documentation)
-
-This project is a React-based interactive report designed for high-density data visualization and reading mode optimization.
-
-### Data Sources & Methodology
-This brief synthesises data current as of **April 4, 2026**.
-- **Benchmarks**: Scale AI SEAL, epoch.ai, tbench.ai, awesomeagents.ai (GAIA), ARC Prize Foundation.
-- **Labour Data**: Stanford Digital Economy Lab, Harvard Hosseini & Lichtinger, BLS Occupational Employment Statistics.
-- **Corporate Analysis**: Gartner 2026 Enterprise Predictions, MIT Project NANDA (2025), AlterSquare March Survey.
-- **Epistemic Data**: HEC Paris Legal Sanctions Tracker, arXiv Structured Appendices Proposal.
-
-### Tech Stack
-- **React 19 / Vite 7 / Tailwind CSS 4**
-- **Visualization**: Custom SVG-based Radar, Dumbbell, and Timeline components.
-- **Markdown Parsing**: Ensure the React frontend utilizes `remark-gfm` (or an equivalent plugin) to properly render GitHub Flavored Markdown alerts (e.g., `> [!CAUTION]`). Without this, the investor warnings in Section 3 will render as standard blockquotes instead of high-visibility alerts.
-
-### Local Development
-1. **Install Dependencies**: `npm install`
-2. **Start Dev Server**: `npm run dev`
-3. **Build**: `npm run build`
-
-</developer_instructions>
 
 ---
 
