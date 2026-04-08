@@ -144,7 +144,7 @@ export const content = {
     execution: {
       expert: {
         p1: "Execution measures whether an AI agent can complete real software engineering work end-to-end — not just generate a patch, but explore an environment, run commands, recover from errors, and finish the job.",
-        p2: "Two benchmarks now capture this at the system level. On SWE-bench Pro (contamination-resistant, multi-language): the best agentic systems reach 56.8%; SEAL-standardised (fair comparison) sits at 45.9%.",
+        p2: "Two benchmarks now capture this at the system level. On SWE-bench Pro (contamination-resistant, multi-language): the best agent systems reach 56.8% with custom agentic architecture; SEAL-standardised (fair comparison) sits at 45.9%.",
         p3: "Terminal-Bench 2.0 measures the same capability from a different angle: 89 real terminal tasks across software engineering, security, and data science, each running in a Docker container with automated verification. There's no patch generation here — the agent must explore an unknown environment, run commands, and recover from errors autonomously. Top agent systems reach 78.4% (Gemini 3.1 Pro + Forge Code) and 74.7% (Claude Opus 4.6 + Terminus-KIRA).",
         p4: "The dominant failure mode on SWE-bench Pro is context overflow (35.6% of top-model failures) — the exact problem RL-trained search agents like WarpGrep directly address. That's why the 2027 trajectory is aggressive: the bottleneck is addressable and being addressed now."
       },

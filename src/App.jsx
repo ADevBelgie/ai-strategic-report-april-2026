@@ -218,7 +218,7 @@ const AppContent = () => {
               </p>
             )}
             <p className="text-sm text-slate-400">
-              The radar below shows two polygons deliberately. The inner shape is what a standard deployment delivers today — the 95% that MIT found seeing no measurable P&L impact. (MIT NANDA Initiative, "The GenAI Divide: State of AI in Business 2025", July 2025 — based on 300+ publicly disclosed initiative reviews; the bar is rapid revenue acceleration.) The outer shape is what the top 5% achieve with deliberate systems design. The gap between them is the engineering opportunity.
+              The radar below shows two polygons deliberately. The inner shape is what a standard deployment delivers today — the 95% that MIT found seeing no measurable P&L impact. (MIT NANDA Initiative, "The GenAI Divide: State of AI in Business 2025", July 2025 — based on 300+ publicly disclosed initiative reviews; the bar is rapid revenue acceleration.) The outer shape is what the top 5% achieve with deliberate systems design. <strong>Key Meta-Insight:</strong> The gap is not a model problem — it's a design problem. 95% of enterprise projects fail ROI because they run base models instead of engineered agentic systems.
             </p>
           </div>
 

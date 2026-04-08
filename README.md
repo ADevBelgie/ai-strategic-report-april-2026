@@ -59,16 +59,16 @@ Not all benchmarks are created equal. Here is the current map of the frontier:
 
 ## 4. The Reliability Paradox
 
-This report tracks what AI services actually deliver to users — regardless of whether the result comes from a base model, a RAG pipeline, or an agent harness.
+This report tracks what AI services actually deliver to users — regardless of whether the result comes from a base model, a RAG pipeline, or an agentic system.
 
-> **Key Meta-Insight**: The gap between "Typical" and "Best System" is not a model problem — it’s a design problem. 95% of enterprise projects fail ROI because they run raw API calls instead of engineered agent systems.
+> **Key Meta-Insight**: The gap between "Typical" and "Best System" is not a model problem — it’s a design problem. 95% of enterprise projects fail ROI because they run base models instead of engineered agentic systems.
 
 ### The Dimensions of Capability:
 
 #### 1. Execution
 Execution measures whether an AI agent can complete real software engineering work end-to-end — not just generate a patch, but explore an environment, run commands, recover from errors, and finish the job.
 
-Two benchmarks now capture this at the system level. On **SWE-bench Pro** (contamination-resistant, multi-language): the best agent systems reach **56.8%** with custom scaffolding; SEAL-standardised (fair comparison) sits at **45.9%**.
+Two benchmarks now capture this at the system level. On **SWE-bench Pro** (contamination-resistant, multi-language): the best agent systems reach **56.8%** with custom agentic architecture; SEAL-standardised (fair comparison) sits at **45.9%**.
 
 **Terminal-Bench 2.0** measures the same capability from a different angle: 89 real terminal tasks across software engineering, security, and data science, each running in a Docker container with automated verification. There's no patch generation here — the agent must explore an unknown environment, run commands, and recover from errors autonomously. Top agent systems reach **78.4%** (Gemini 3.1 Pro + Forge Code) and **74.7%** (Claude Opus 4.6 + Terminus-KIRA).
 
