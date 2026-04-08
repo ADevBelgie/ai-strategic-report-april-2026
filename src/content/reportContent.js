@@ -111,8 +111,8 @@ export const content = {
       essentials: "Memory has moved from effectively zero to a solvable architectural layer — 91.4% on LongMemEval (Vectorize Hindsight, Dec 2025), 95%+ claimed by Mastra (Feb 2026). AI now has persistent memory across sessions. The difference this makes is large: the same AI goes from 44.8% to 74.6% accuracy when it can remember and plan across steps."
     },
     openSource: {
-      expert: "Open-Source Parity & The Action Moat — The Data Moat is dead; competitive advantage has shifted to \"Action Moats\" (integrations, tools, and MCP ecosystems). 434 open-source vs 217 closed-source API models.",
-      essentials: "Free, open AI models now match paid ones on almost every test. The competitive edge shifts to integrations and workflows built around the AI — not the AI itself."
+      expert: "Open-Source Parity — free models now match or beat proprietary ones on most standard benchmarks (coding, knowledge, and reasoning), trailing on agentic tasks (67% vs ~90% on SWE-bench Pro). This closes the capability gap and shifts competitive advantage from model weights to execution infrastructure. Action Moat: the durable competitive advantage that comes from owning the integrations, workflows, and tool ecosystems AI operates inside — not the model weights themselves. The Data Moat is dead; 434 open-source vs. 217 closed-source API models.",
+      essentials: "Free, open AI models now match paid ones on almost every test. The competitive edge shifts to the integrations and workflows built around the AI — not the AI itself. Owning the workflow is the new moat."
     }
   },
 
@@ -286,58 +286,58 @@ export const content = {
   // SECTION 9
   s9Enterprise: {
     moment: {
-      expert: "Your AI deployment ROI problem is not a model problem. It's an architecture problem. 95% of 2025 enterprise GenAI projects saw no measurable ROI (MIT). The organisations getting results are running engineered systems — RAG, verification loops, memory infrastructure — not raw API calls.",
-      essentials: "Your AI returns problem isn't about which AI you chose. It's about how the system around it was built. 95% of company AI projects in 2025 showed no measurable financial impact (MIT)."
+      expert: "95% of enterprise GenAI projects in 2025 saw no measurable ROI — and the data is clear on why. The organisations getting results are running engineered systems: RAG pipelines, verification loops, memory infrastructure. The ones that aren't are running raw API calls and wondering why the numbers don't move.",
+      essentials: "95% of company AI projects in 2025 showed no measurable financial impact (MIT). The data is clear on why: the difference isn't which AI model you picked — it's whether the system around it was properly engineered."
     },
     next: {
-      expert: "Audit your existing AI deployments against the Base vs. System-Level gap. Identify which workflows are running raw model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10x in 18 months.",
-      essentials: "Look at your current AI projects and find where you're using simple AI prompts that should be replaced with better-engineered systems. The cost of building these systems has fallen dramatically."
+      expert: "Your AI ROI problem is not a model problem. It's an architecture problem. Audit your existing deployments against the Base vs. System-Level gap. Identify which workflows are running raw model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10× in 18 months.",
+      essentials: "Look at your current AI projects and find where simple AI prompts have replaced what should be better-engineered systems. The gap between what you have and what you need is fixable — and the cost of fixing it has fallen dramatically."
     },
     architectureDividend: {
-      expert: "The 'Engineering Dividend' on capability is now measurable. Moving from raw model calls to agentic frameworks (HAL, HAL-Pro) increases task autonomy from 45% to over 74%. This is the primary driver of ROI for 2026–2027 deployments.",
-      essentials: "The 'Engineering Bonus' is now clear: moving from simple AI triggers to specialized systems increases efficiency from 45% to 74%. This is the biggest factor in making AI profitable."
+      expert: "The engineering dividend is now quantified. Moving from raw model calls to agentic frameworks increases task autonomy from 45% to over 74%. This is the primary ROI driver for 2026–2027 deployments — not model selection.",
+      essentials: "Moving from simple AI triggers to properly engineered systems increases efficiency from 45% to 74%. That gap is the single biggest factor in making AI pay off."
     }
   },
   s9Investors: {
     moment: {
-      expert: "The benchmark contamination story is the most important thing to understand for competitive positioning. Companies still using SWE-bench Verified scores to evaluate coding capability are making decisions on a compromised signal. SWE-bench Pro is the honest measure.",
-      essentials: "If a company is benchmarking AI using the contaminated standard test (SWE-bench Verified), their AI investment decisions are based on misleading numbers."
+      expert: "The benchmark contamination issue is the most important signal for competitive positioning — and most investor decks are still using the wrong number. SWE-bench Verified (80.9%) has confirmed training data overlap. SWE-bench Pro is the honest measure at 45.9% standardised. Companies evaluating coding capability on the contaminated benchmark are making decisions on a compromised signal.",
+      essentials: "If a company is benchmarking AI using the standard contaminated test (SWE-bench Verified), their investment decisions are based on numbers that don't reflect reality. The honest measure is 45.9%, not 80.9%."
     },
     next: {
-      expert: "Add metacognition and context coherence to your AI vendor evaluation criteria. A model that knows what it doesn't know is worth more to an enterprise deployment than a model that scores 5% higher on a saturated benchmark.",
+      expert: "Add metacognition and context coherence to your AI vendor evaluation criteria. A model that accurately signals its own uncertainty is worth more to an enterprise deployment than a model that scores 5% higher on a saturated benchmark.",
       essentials: "Look for AI that can admit when it's unsure. An AI that knows its limits is more valuable than one that scores slightly higher on a compromised test."
     },
     actionMoat: {
-      expert: "Evaluate the 'Action Moat' (integrations and ecosystem ownership) over model capability. Competitive advantage has shifted to who owns the workflow, not who owns the weights.",
-      essentials: "Focus on who owns the actual workflow and tools built around the AI — that's where the lasting value is, not just in the AI itself."
+      expert: "Evaluate the Action Moat over model capability. The action moat is the durable competitive advantage that comes from owning integrations, workflows, and tool ecosystems — not model weights. Open-source parity has commoditised raw capability; competitive advantage now sits in who owns the workflow.",
+      essentials: "Focus on who owns the actual workflow and tools built around the AI — that's where the lasting value sits, not in the model itself. Raw AI capability is becoming a commodity."
     }
   },
   s9Careers: {
     moment: {
-      expert: "Position around orchestration, not execution. The AI-native junior needs system-design understanding. The people who will be valuable are those who understand how to design the environments AI operates inside.",
-      essentials: "Build skills around directing and managing AI systems — not just using them. The valuable professional in 2027 isn't the one who can write the best code. It's the one who knows how to set up, oversee, and course-correct a system where AI is doing most of the work."
+      expert: "Junior developer postings are down 67% since 2022. CS enrollment fell 8.1% in 2025–2026. The pipeline is compressing from both ends simultaneously — and the people accumulating the most value right now are those who understand how to design the environments AI operates inside, not those who are competing with AI on execution.",
+      essentials: "Entry-level tech jobs are down 67% since 2022. The people pulling ahead aren't competing with AI on writing code — they're learning to direct and oversee AI systems doing the work."
     },
     next: {
-      expert: "Master agent frameworks (HAL, Mastra) and the Model Context Protocol (MCP). The 'Junior 2027' profile is an orchestrator who manages a fleet of agents, not a coder who writes individual patches.",
-      essentials: "Look for ways to orchestrate a team of AI tools. Your focus should shift from writing the work yourself to setting the parameters, checking the outputs, and ensuring the whole system hangs together."
+      expert: "Position around orchestration, not execution. Master agent frameworks (HAL, Mastra) and the Model Context Protocol (MCP). The 'Junior 2027' profile is an orchestrator who manages a fleet of agents — not a coder who writes individual patches.",
+      essentials: "Build skills around directing AI systems rather than executing tasks yourself. The most valuable role in 2027 is the person who manages a team of AI tools — not the one who writes the best code."
     },
     resilience: {
-      expert: "Transition from specialist execution to generalist system engineering. The most resilient professionals in 2027 are those who navigate the whole stack to orchestrate AI components.",
-      essentials: "Expand your skills from being a specialist in one area to understanding how whole systems work. Being able to manage AI across different tasks is the most stable career path."
+      expert: "Transition from specialist execution to generalist system engineering. The most resilient professionals in 2027 are those who navigate the whole stack to orchestrate AI components — not those who are one capability level below the current frontier.",
+      essentials: "Expand from deep specialist to someone who understands how whole systems work. Being able to direct AI across different tasks is the most stable career position right now."
     }
   },
   s9Education: {
     moment: {
-      expert: "CS education must shift from \"will AI replace developers\" to \"what does a developer do when AI writes the code.\" The throughput limit is no longer generation; it is verification and coherence management.",
-      essentials: "The question universities need to answer isn't whether AI replaces developers. It's what a developer actually does when AI writes the code."
+      expert: "CS enrollment fell 8.1% in 2025–2026 — the steepest decline of any field. The throughput limit in software development is no longer code generation; it's verification and coherence management. Curricula that still centre syntax acquisition are producing graduates for a role that is being structurally removed.",
+      essentials: "Computer science enrollment dropped more sharply last year than any other field. The skills gap universities need to address isn't about whether students can write code — it's whether they can verify, manage, and take accountability for code that AI generates."
     },
     next: {
-      expert: "Shift curriculum from syntax and patterns to system-level debugging, automated verification, and prompt-less engineering. The goal is to produce humans who can set the parameters for automated production.",
-      essentials: "Colleges should focus less on teaching coding syntax and more on how to verify and manage AI-generated work. The goal is to train people to direct the machines."
+      expert: "Shift curriculum from syntax and patterns to system-level debugging, automated verification, and prompt-less engineering. The goal is to produce humans who can set the parameters for automated production — not compete with it.",
+      essentials: "Colleges should shift from teaching coding syntax to teaching how to verify and manage AI-generated work. The goal is to train people to direct, not replicate, machines."
     },
     verification: {
-      expert: "Shift from syntax acquisition to automated verification. The goal is to produce graduates who can build the safeguards that ensure AI-generated output meets professional standards.",
-      essentials: "Courses must teach students how to build their own systems for checking AI work, ensuring it meets high professional standards at scale."
+      expert: "The verification layer is the professional value-add. Produce graduates who can build the safeguards that ensure AI-generated output meets professional standards. That is the human role that AI cannot yet automate.",
+      essentials: "The most important graduate skill is knowing how to check AI output and catch what looks right but isn't. That's the professional function that remains irreplaceable."
     }
   }
 };

@@ -365,7 +365,7 @@ const AppContent = () => {
               { icon: RotateCcw, color: 'text-emerald-400', title: 'Synthetic Data Verification', desc: content.s6Mechanisms.syntheticData[displayMode] },
               { icon: Layers, color: 'text-indigo-400', title: 'Multimodal / Document AI', desc: content.s6Mechanisms.multimodal[displayMode] },
               { icon: Database, color: 'text-blue-400', title: 'Memory as Infrastructure', desc: content.s6Mechanisms.memory[displayMode] },
-              { icon: Globe, color: 'text-rose-400', title: 'Open-Source Parity & The Action Moat', desc: content.s6Mechanisms.openSource[displayMode] },
+              { icon: Globe, color: 'text-rose-400', title: 'Open-Source Parity', desc: content.s6Mechanisms.openSource[displayMode] },
             ].map((card, i) => (
               <div key={i} className={`bg-slate-800/50 border border-slate-700/50 rounded-xl p-5 hover:border-slate-600/50 transition-colors ${i === 4 ? 'md:col-span-2' : ''}`}>
                 <div className="flex items-center gap-3 mb-3">
@@ -406,6 +406,17 @@ const AppContent = () => {
               </ScenarioCard>
             ))}
           </div>
+
+          <details className="mt-4 mb-8 group">
+            <summary className="text-[10px] text-slate-500 cursor-pointer hover:text-slate-400 transition-colors select-none list-none flex items-center gap-1.5">
+              <span className="group-open:rotate-90 transition-transform duration-200 inline-block">›</span>
+              How we weighted these
+            </summary>
+            <div className="mt-3 pl-4 border-l border-slate-700/50 text-[11px] text-slate-500 leading-relaxed max-w-2xl">
+              <p className="mb-2 text-slate-400">Probability weights are informed estimates derived from six independent data inputs — not outputs of a formal forecasting model.</p>
+              <p>Inputs: ARC-AGI-3 progress rates; inference cost curve (Stanford AI Index); BLS / Stanford / Harvard labour market data; open-source capability trajectory; LangChain practitioner survey (57% production deployment rate); Gartner / Databricks enterprise adoption signals. Full methodology in the supporting data document.</p>
+            </div>
+          </details>
 
           <PipelineTimeline />
 

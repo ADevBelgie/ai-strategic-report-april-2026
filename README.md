@@ -161,7 +161,7 @@ Five structural drivers are compressing the timeline between capability and depl
 2. **Synthetic Data Verification**: DeepSeek-R1 trained for $294K. AI models are now trained for the cost of a single senior engineer’s annual salary.
 3. **Multimodal / Document AI**: Enterprise workflows broadly unlocked. AI now processes and acts on documents, images, and data — not just text prompts.
 4. **Memory as Infrastructure**: MCP adopted by OpenAI, Google, and Microsoft. Claude Sonnet 4.5 achieves 74.6% on GAIA via HAL framework vs. 44.8% base model. Memory has moved from effectively zero to a solvable architectural layer — 91.4% on LongMemEval (Vectorize Hindsight, Dec 2025), 95%+ claimed by Mastra (Feb 2026).
-5. **Open-Source Parity & The Action Moat**: The "Data Moat" is dead. Competitive advantage has shifted to **Action Moats** — integrations, tools, and MCP ecosystems. (434 open-source vs. 217 closed-source API models).
+5. **Open-Source Parity**: Free models now match or beat proprietary ones on most standard benchmarks (coding, knowledge, and reasoning), trailing on agentic tasks (67% vs ~90% on SWE-bench Pro). **Action Moat**: the durable competitive advantage that comes from owning the integrations, workflows, and tool ecosystems AI operates inside — not the model weights themselves. The Data Moat is dead. (434 open-source vs. 217 closed-source API models.)
 
 ---
 
@@ -175,6 +175,9 @@ The 60% Base Case weight reflects that both the capability trajectory (SWE-bench
 1. **Conservative (~18%)**: Progress slows. Capability plateau below 45% on SWE-bench Pro SEAL. AI remains a productivity multiplier — not an autonomous replacement. Hiring patterns stabilise. Junior pipelines survive in most sectors. The gap between AI-native and AI-resistant organisations grows slowly.
 2. **Base Case (~60%)**: AI handles 60–70% of software tasks. Engineering differentiates the top 5% of companies. Gartner 40% enterprise adoption. 
 3. **Accelerated (~22%)**: Reliability barrier resolved (the 32% quality barrier). ARC-AGI-3 cracks 30%+. AI handles most end-to-end tasks. Self-correcting agent architectures make hallucination largely irrelevant for structured tasks. Reliability converges with capability.
+
+> [!NOTE]
+> **Probability methodology**: These weights are informed estimates derived from six independent data inputs — not outputs of a formal forecasting model. Inputs: ARC-AGI-3 progress rates; inference cost curve (Stanford AI Index); BLS / Stanford / Harvard labour market data; open-source capability trajectory; LangChain practitioner survey (57% production rate); Gartner / Databricks enterprise adoption signals.
 
 ---
 
@@ -215,24 +218,24 @@ If production is automated, verification must follow. The human role moves upstr
 ## 9. What This Means for You
 
 ### 🚀 For Enterprise
-- **The Moment**: Your AI ROI problem is not a model problem; it's an architecture problem. 95% of 2025 enterprise GenAI projects saw no measurable ROI (MIT). The organisations getting results are running engineered systems — RAG, verification loops, memory infrastructure — not raw API calls.
-- **Next Step**: Audit your existing AI deployments against the "Base vs. System-Level" gap. Identify which workflows are running raw model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10× in 18 months.
-- **The Architecture Dividend**: Moving from raw model calls to agentic frameworks increases task autonomy from 45% to over 74%. This is the primary driver of ROI for 2026–2027 deployments.
+- **Reading the current moment**: 95% of enterprise GenAI projects in 2025 saw no measurable ROI (MIT) — and the data is clear on why. The organisations getting results are running engineered systems: RAG pipelines, verification loops, memory infrastructure. The ones that aren't are running raw API calls and wondering why the numbers don't move.
+- **Next Step**: Your AI ROI problem is not a model problem. It's an architecture problem. Audit your existing deployments against the Base vs. System-Level gap. Identify which workflows are running raw model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10× in 18 months.
+- **The Architecture Dividend**: The engineering dividend is now quantified. Moving from raw model calls to agentic frameworks increases task autonomy from 45% to over 74%. This is the primary ROI driver for 2026–2027 deployments — not model selection.
 
 ### 💰 For Investors
-- **The Moment**: The benchmark contamination story is the most important thing to understand for competitive positioning. Companies still using SWE-bench Verified scores to evaluate coding capability are making decisions on a compromised signal. **SWE-bench Pro** is the honest measure.
-- **Next Step**: Add metacognition and context coherence to your AI vendor evaluation criteria. A model that knows what it doesn't know is worth more to an enterprise deployment than a model that scores 5% higher on a saturated benchmark.
-- **The Action Moat**: Evaluate the "Action Moat" (integrations and ecosystem ownership) over model capability. Competitive advantage has shifted to who owns the workflow, not who owns the weights.
+- **Reading the current moment**: The benchmark contamination issue is the most important signal for competitive positioning — and most investor decks are still using the wrong number. SWE-bench Verified (80.9%) has confirmed training data overlap. **SWE-bench Pro** is the honest measure at 45.9% standardised. Companies evaluating coding capability on the contaminated benchmark are making decisions on a compromised signal.
+- **Next Step**: Add metacognition and context coherence to your AI vendor evaluation criteria. A model that accurately signals its own uncertainty is worth more to an enterprise deployment than a model that scores 5% higher on a saturated benchmark.
+- **The Action Moat**: Evaluate the Action Moat over model capability. The Action Moat is the durable competitive advantage that comes from owning integrations, workflows, and tool ecosystems — not model weights. Open-source parity has commoditised raw capability; competitive advantage now sits in who owns the workflow.
 
 ### 💼 For Careers
-- **The Moment**: Position around **orchestration**, not execution. The AI-native junior needs system-design understanding. The people who will be valuable are those who understand how to design the environments AI operates inside.
-- **Next Step**: Master agent frameworks (HAL, Mastra) and the Model Context Protocol (MCP). The "Junior 2027" profile is an orchestrator who manages a fleet of agents, not a coder who writes individual patches.
-- **Resilience**: Transition from specialist execution to generalist system engineering. The most resilient professionals in 2027 are those who navigate the whole stack to orchestrate AI components.
+- **Reading the current moment**: Junior developer postings are down 67% since 2022. CS enrollment fell 8.1% in 2025–2026 — the steepest decline of any field. The pipeline is compressing from both ends simultaneously. The people accumulating the most value right now are those who understand how to design the environments AI operates inside, not those competing with AI on execution.
+- **Next Step**: Position around orchestration, not execution. Master agent frameworks (HAL, Mastra) and the Model Context Protocol (MCP). The "Junior 2027" profile is an orchestrator who manages a fleet of agents — not a coder who writes individual patches.
+- **Resilience**: Transition from specialist execution to generalist system engineering. The most resilient professionals in 2027 are those who navigate the whole stack to orchestrate AI components — not those one capability level below the current frontier.
 
 ### 🎓 For Education
-- **The Moment**: CS education must shift from "will AI replace developers" to "what does a developer do when AI writes the code." The throughput limit is no longer generation; it is verification and coherence management.
-- **Next Step**: Shift curriculum from syntax and patterns to system-level debugging, automated verification, and prompt-less engineering. The goal is to produce humans who can set the parameters for machine production.
-- **The Verification Layer**: Shift focus from syntax acquisition to automated verification. Produce graduates who can build the safeguards that ensure AI-generated output meets professional standards.
+- **Reading the current moment**: CS enrollment fell 8.1% in 2025–2026 — the steepest decline of any field. The throughput limit in software development is no longer code generation; it is verification and coherence management. Curricula that still centre syntax acquisition are producing graduates for a role that is being structurally removed.
+- **Next Step**: Shift curriculum from syntax and patterns to system-level debugging, automated verification, and prompt-less engineering. The goal is to produce humans who can set the parameters for automated production — not compete with it.
+- **The Verification Layer**: The verification layer is the professional value-add. Produce graduates who can build the safeguards that ensure AI-generated output meets professional standards. That is the human role that AI cannot yet automate.
 
 ---
 
