@@ -29,8 +29,8 @@ export const content = {
     essentials: "The AI models best at complex thinking are also the most likely to confidently make things up when answering basic factual questions. More powerful doesn't mean more honest."
   },
   s2Fix: {
-    expert: "The fix is architectural. Self-Reflective RAG reduces hallucination from 64% to 5.8%. Multi-agent verification brings enterprise rates below 2%. Inference costs have collapsed 1,000×.",
-    essentials: "The fix isn't a better AI model — it's a better system design. The right architecture can reduce errors from 64% down to under 6%. Running costs for AI have also fallen dramatically — roughly 1,000 times cheaper than three years ago."
+    expert: "The fix is architectural. Self-Reflective RAG reduces hallucination from 64% to 5.8%. Multi-agent verification brings enterprise rates below 2%. Inference costs have collapsed over 280×.",
+    essentials: "The fix isn't a better AI model — it's a better system design. The right architecture can reduce errors from 64% down to under 6%. Running costs for AI have also fallen dramatically — over 280 times cheaper than in late 2022."
   },
 
   // SECTION 3

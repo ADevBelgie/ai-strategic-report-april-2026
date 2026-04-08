@@ -36,7 +36,7 @@ SWE-bench Verified saturated and was replaced by SWE-bench Pro. ARC-AGI-2 approa
 
 Models best at complex reasoning are, by a measurable margin, the most likely to hallucinate on grounded tasks. Gemini-2.0-Flash leads at 0.7% hallucination; most reasoning models exceed 10% on the same task (Vectara HHEM). *Exception: o3-mini at 0.8% shows constrained reasoning can improve grounding.*
 
-The fix is architectural. Self-Reflective RAG reduces hallucination from 64% to 5.8%. Multi-agent verification brings enterprise rates below 2%. Inference costs have collapsed 1,000×.
+The fix is architectural. Self-Reflective RAG reduces hallucination from 64% to 5.8%. Multi-agent verification brings enterprise rates below 2%. Inference costs have collapsed over 280×.
 
 ---
 
