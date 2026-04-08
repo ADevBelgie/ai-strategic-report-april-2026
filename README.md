@@ -136,7 +136,7 @@ This is not evidence AI can't replace roles. It's the predictable outcome of tre
 ### 5.3 The Pipeline Time Bomb
 - **Junior IT Hiring**: Share dropped from 15% to 7% since 2022.
 - **Entry-Level Dev Postings**: –67% since 2022.
-- **The Elastic Education Collapse**: While 4-year CS enrollments lag due to institutional inertia, short-cycle training collapsed instantly. Coding bootcamp enrollments fell roughly 40% by early 2026, and universities report a sharp drop in sophomore-level CS major declarations.
+- **The Elastic Education Collapse**: While 4-year degrees lag, short-cycle training collapsed instantly. By mid-2025, the coding bootcamp industry severely contracted as the ROI of syntax-only education evaporated.
 - **Consequence**: A structural shortage of expert verifiers is projected to land between **2033–2037**. If execution is automated today, the 2033 workforce will lack the deep domain context historically built during junior years. The crisis will not be a lack of human coders, but a lack of humans with the structural intuition to verify complex, orchestrated AI systems.
 
 ---

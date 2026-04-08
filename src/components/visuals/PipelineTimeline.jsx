@@ -24,10 +24,10 @@ const PipelineTimeline = () => {
     {
       year: 2025.5,
       displayDate: 'Mid-2025',
-      label: 'The Steepest Decline',
-      sub: 'CS Enrollment falls −8.1%.',
+      label: 'Education Collapse',
+      sub: 'Short-cycle ROI evaporates.',
       category: 'Decision',
-      details: 'The sharpest drop in legacy education enrollment as GenAI capability spikes.',
+      details: 'The coding bootcamp industry severely contracts as the market value of syntax-only education disappears.',
       color: 'rose',
       alert: true
     },
