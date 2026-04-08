@@ -111,7 +111,7 @@ export const content = {
       essentials: "Memory has moved from effectively zero to a solvable architectural layer — 91.4% on LongMemEval (Vectorize Hindsight, Dec 2025), 95%+ claimed by Mastra (Feb 2026). AI now has persistent memory across sessions. The difference this makes is large: the same AI goes from 44.8% to 74.6% accuracy when it can remember and plan across steps."
     },
     openSource: {
-      expert: "Open-Source Parity — free models now match or beat proprietary ones on most standard benchmarks (coding, knowledge, and reasoning), trailing on agentic tasks (67% vs ~90% on SWE-bench Pro). This closes the capability gap and shifts competitive advantage from model weights to execution infrastructure. Action Moat: the durable competitive advantage that comes from owning the integrations, workflows, and tool ecosystems AI operates inside — not the model weights themselves. The Data Moat is dead; 434 open-source vs. 217 closed-source API models.",
+      expert: "Open-Source Parity — free models now match or beat proprietary ones on most standard benchmarks (coding, knowledge, and reasoning), trailing on agentic tasks (67% vs ~90% on SWE-bench Verified). This closes the capability gap and shifts competitive advantage from model weights to execution infrastructure. Action Moat: the durable competitive advantage that comes from owning the integrations, workflows, and tool ecosystems AI operates inside — not the model weights themselves. The Data Moat is dead; 434 open-source vs. 217 closed-source API models.",
       essentials: "Free, open AI models now match paid ones on almost every test. The competitive edge shifts to the integrations and workflows built around the AI — not the AI itself. Owning the workflow is the new moat."
     }
   },
@@ -144,7 +144,7 @@ export const content = {
     execution: {
       expert: {
         p1: "Execution measures whether an AI agent can complete real software engineering work end-to-end — not just generate a patch, but explore an environment, run commands, recover from errors, and finish the job.",
-        p2: "Two benchmarks now capture this at the system level. On SWE-bench Pro (contamination-resistant, multi-language): the best agent systems reach 57% with custom scaffolding; SEAL-standardised (fair comparison) sits at 45.9%.",
+        p2: "Two benchmarks now capture this at the system level. On SWE-bench Pro (contamination-resistant, multi-language): the best agent systems reach 56.8% with custom scaffolding; SEAL-standardised (fair comparison) sits at 45.9%.",
         p3: "Terminal-Bench 2.0 measures the same capability from a different angle: 89 real terminal tasks across software engineering, security, and data science, each running in a Docker container with automated verification. There's no patch generation here — the agent must explore an unknown environment, run commands, and recover from errors autonomously. Top agent systems reach 78.4% (Gemini 3.1 Pro + Forge Code) and 74.7% (Claude Opus 4.6 + Terminus-KIRA).",
         p4: "The dominant failure mode on SWE-bench Pro is context overflow (35.6% of top-model failures) — the exact problem RL-trained search agents like WarpGrep directly address. That's why the 2027 trajectory is aggressive: the bottleneck is addressable and being addressed now."
       },
@@ -169,7 +169,7 @@ export const content = {
     confidence: {
       expert: {
         p1: "Confidence calibration (metacognition) is the ability to accurately signal uncertainty. Research distinguishes two components: calibration (does confidence match accuracy?) and sensitivity (can the model discriminate its correct answers from incorrect ones?).",
-        p2: "GPT-4.1 mini achieves an AUC of 0.83 on metacognitive sensitivity — an 83% chance that a correct answer is rated higher-confidence than an incorrect one. Human baseline: ~0.90–0.95. The gap matters: over-reliance on AI (an OWASP top LLM vulnerability) is directly a self-awareness problem.",
+        p2: "GPT-4.1 mini achieves an AUC of 0.83 on metacognitive sensitivity — an 83% chance that a correct answer is rated higher-confidence than an incorrect one. Human baseline: ~0.90–0.95 (domain experts on narrow technical tasks). The gap matters: over-reliance on AI (an OWASP top LLM vulnerability) is directly a self-awareness problem.",
         p3: "The harder problem: current models are systematically reluctant to express uncertainty. Training objectives reward confident guessing over calibrated abstention — models learn to bluff (Kalai & Nachum, OpenAI, arXiv:2509.04664)."
       },
       essentials: {
@@ -296,6 +296,10 @@ export const content = {
     architectureDividend: {
       expert: "The engineering dividend is now quantified. Moving from raw model calls to agentic frameworks increases task autonomy from 45% to over 74%. This is the primary ROI driver for 2026–2027 deployments — not model selection.",
       essentials: "Moving from simple AI triggers to properly engineered systems increases efficiency from 45% to 74%. That gap is the single biggest factor in making AI pay off."
+    },
+    epistemicFlood: {
+      expert: "The Epistemic Flood: For operational guidance on building internal Verification Layers and defending against automated data degradation, read our extended structural framework: https://after-the-intelligence-flood.vercel.app",
+      essentials: "Defending Quality: As AI volume increases, internal verification becomes your most critical asset. For guidance on defending your data against automated degradation, read our framework: https://after-the-intelligence-flood.vercel.app"
     }
   },
   s9Investors: {
@@ -308,7 +312,7 @@ export const content = {
       essentials: "Look for AI that can admit when it's unsure. An AI that knows its limits is more valuable than one that scores slightly higher on a compromised test."
     },
     actionMoat: {
-      expert: "Evaluate the Action Moat over model capability. The action moat is the durable competitive advantage that comes from owning integrations, workflows, and tool ecosystems — not model weights. Open-source parity has commoditised raw capability; competitive advantage now sits in who owns the workflow.",
+      expert: "Evaluate the Action Moat over model capability. As defined earlier, open-source parity has commoditised raw capability; competitive advantage now sits in who owns the workflow.",
       essentials: "Focus on who owns the actual workflow and tools built around the AI — that's where the lasting value sits, not in the model itself. Raw AI capability is becoming a commodity."
     }
   },

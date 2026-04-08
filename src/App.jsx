@@ -559,6 +559,12 @@ const AppContent = () => {
                       <p>{translate(content.s9Enterprise.architectureDividend[displayMode], displayMode)}</p>
                     </div>
                   )}
+                  {content.s9Enterprise.epistemicFlood && (
+                    <div>
+                      <h5 className="text-rose-400 font-bold text-xs uppercase tracking-wider mb-2">The Epistemic Flood</h5>
+                      <p>{translate(content.s9Enterprise.epistemicFlood[displayMode], displayMode)}</p>
+                    </div>
+                  )}
                 </div>
               )
             },

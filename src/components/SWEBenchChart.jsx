@@ -41,7 +41,7 @@ export const SWEBenchChart = () => {
   const proData = [
     { m: 'Oct', y: 2025, score: 23, label: "Pro Launch", note: "GPT-5 and Claude Opus 4.1 score ~23% (while scoring 70%+ on Verified)." },
     { m: 'Nov', y: 2025, score: 40, label: "No Cost Cap", note: "Scale updates leaderboard; top models break 40%." },
-    { m: 'Apr', y: 2026, score: 46, label: "Current Leader", note: "Current SEAL-standardised leader. Custom scaffolding reaches 50-57%." },
+    { m: 'Apr', y: 2026, score: 46, label: "Current Leader", note: "Current SEAL-standardised leader. Custom scaffolding reaches 56.8%." },
     { m: 'Dec', y: 2026, score: 75, label: "Base Case Projection", note: "RL search agents address failure modes; 2-3 new model generations.", projection: true }
   ];
 

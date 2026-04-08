@@ -67,7 +67,7 @@ This report tracks what AI services actually deliver to users — regardless of 
 #### 1. Execution
 Execution measures whether an AI agent can complete real software engineering work end-to-end — not just generate a patch, but explore an environment, run commands, recover from errors, and finish the job.
 
-Two benchmarks now capture this at the system level. On **SWE-bench Pro** (contamination-resistant, multi-language): the best agent systems reach 57% with custom scaffolding; SEAL-standardised (fair comparison) sits at **45.9%**.
+Two benchmarks now capture this at the system level. On **SWE-bench Pro** (contamination-resistant, multi-language): the best agent systems reach **56.8%** with custom scaffolding; SEAL-standardised (fair comparison) sits at **45.9%**.
 
 **Terminal-Bench 2.0** measures the same capability from a different angle: 89 real terminal tasks across software engineering, security, and data science, each running in a Docker container with automated verification. There's no patch generation here — the agent must explore an unknown environment, run commands, and recover from errors autonomously. Top agent systems reach **78.4%** (Gemini 3.1 Pro + Forge Code) and **74.7%** (Claude Opus 4.6 + Terminus-KIRA).
 
@@ -83,7 +83,7 @@ The inner/outer track gap on Memory is the widest of any dimension, and it close
 #### 3. Confidence Calibration
 Confidence calibration (metacognition) is the ability to accurately signal uncertainty. Research distinguishes two components: calibration (does confidence match accuracy?) and sensitivity (can the model discriminate its correct answers from incorrect ones?).
 
-GPT-4.1 mini achieves an AUC of 0.83 on metacognitive sensitivity — an 83% chance that a correct answer is rated higher-confidence than an incorrect one. Human baseline: ~0.90–0.95. The gap matters: over-reliance on AI (an OWASP top LLM vulnerability) is directly a self-awareness problem.
+GPT-4.1 mini achieves an AUC of 0.83 on metacognitive sensitivity — an 83% chance that a correct answer is rated higher-confidence than an incorrect one. Human baseline: ~0.90–0.95 (domain experts on narrow technical tasks). The gap matters: over-reliance on AI (an OWASP top LLM vulnerability) is directly a self-awareness problem.
 
 The harder problem: current models are systematically reluctant to express uncertainty. Training objectives reward confident guessing over calibrated abstention — models learn to bluff (Kalai & Nachum, OpenAI, arXiv:2509.04664).
 
@@ -101,6 +101,8 @@ The mechanistic cause is now understood: Knowledge FFNs inside transformers over
 
 With tools and search: near-perfect on SimpleQA across all frontier models. Without tools: enormous variance (Gemini 3 Pro 72.1% vs GPT-5.2 ~38%). The delta is the systems design signal.
 
+> **NOTE:** Reliability is domain-dependent. Legal floors at 12%, while Medical RAG achieves 57% Best System today.
+
 ---
 
 ## 5. The Barbell Economy
@@ -115,8 +117,7 @@ Where you work determines whether the Barbell is already here, arriving soon, or
 - **Enterprise / Finance**: Hiring maintained for institutional knowledge, but with **+40% premiums** on AI-literate senior roles.
 - **Regulated / Legal**: Junior hiring mandated by law for auditable human decision chains (FDA/Court requirements).
 
-> [!IMPORTANT]
-> **The Seniority Gap**: Google's DORA 2024 report found roughly 2% productivity increase for every 25% increase in AI adoption — a gap of ~12× between executive expectation and measured engineering outcome.
+> **IMPORTANT:** **The Seniority Gap**: Google's DORA 2024 report found roughly 2% productivity increase for every 25% increase in AI adoption — a gap of ~12× between executive expectation and measured engineering outcome.
 
 ### 5.2 Case Study: The Klarna Correction
 Klarna stopped all hiring in 2023, slashed headcount from 5,500 to 3,400, and celebrated $10M in savings. By mid-2025, they were scrambling to rehire after customer satisfaction collapsed and engineers were pulled from product work to cover service.
@@ -146,7 +147,7 @@ Five structural drivers are compressing the timeline between capability and depl
 2. **Synthetic Data Verification**: DeepSeek-R1 trained for $294K. AI models are now trained for the cost of a single senior engineer’s annual salary.
 3. **Multimodal / Document AI**: Enterprise workflows broadly unlocked. AI now processes and acts on documents, images, and data — not just text prompts.
 4. **Memory as Infrastructure**: MCP adopted by OpenAI, Google, and Microsoft. Claude Sonnet 4.5 achieves 74.6% on GAIA via HAL framework vs. 44.8% base model. Memory has moved from effectively zero to a solvable architectural layer — 91.4% on LongMemEval (Vectorize Hindsight, Dec 2025), 95%+ claimed by Mastra (Feb 2026).
-5. **Open-Source Parity**: Free models now match or beat proprietary ones on most standard benchmarks (coding, knowledge, and reasoning), trailing on agentic tasks (67% vs ~90% on SWE-bench Pro). **Action Moat**: the durable competitive advantage that comes from owning the integrations, workflows, and tool ecosystems AI operates inside — not the model weights themselves. The Data Moat is dead. (434 open-source vs. 217 closed-source API models.)
+5. **Open-Source Parity**: Free models now match or beat proprietary ones on most standard benchmarks (coding, knowledge, and reasoning), trailing on agentic tasks (67% vs ~90% on **SWE-bench Verified**). **Action Moat**: the durable competitive advantage that comes from owning the integrations, workflows, and tool ecosystems AI operates inside — not the model weights themselves. The Data Moat is dead. (434 open-source vs. 217 closed-source API models.)
 
 ---
 
@@ -159,8 +160,7 @@ The 60% Base Case weight reflects that both the capability trajectory (SWE-bench
 2. **Base Case (~60%)**: AI handles 60–70% of software tasks. Engineering differentiates the top 5% of companies. Gartner 40% enterprise adoption.
 3. **Accelerated (~22%)**: Reliability barrier resolved (the 32% quality barrier). ARC-AGI-3 cracks 30%+. AI handles most end-to-end tasks. Self-correcting agent architectures make hallucination largely irrelevant for structured tasks. Reliability converges with capability.
 
-> [!NOTE]
-> **Probability methodology**: These weights are informed estimates derived from six independent data inputs — not outputs of a formal forecasting model. Inputs: ARC-AGI-3 progress rates; inference cost curve (Stanford AI Index); BLS / Stanford / Harvard labour market data; open-source capability trajectory; LangChain practitioner survey (57% production rate); Gartner / Databricks enterprise adoption signals.
+> **NOTE:** **Probability methodology**: These weights are informed estimates derived from six independent data inputs — not outputs of a formal forecasting model. Inputs: ARC-AGI-3 progress rates; inference cost curve (Stanford AI Index); BLS / Stanford / Harvard labour market data; open-source capability trajectory; LangChain practitioner survey (57% production rate); Gartner / Databricks enterprise adoption signals.
 
 ---
 
@@ -200,13 +200,14 @@ If production is automated, verification must follow. The human role moves upstr
 
 ### 🚀 For Enterprise
 - **Reading the current moment**: 95% of enterprise GenAI projects in 2025 saw no measurable P&L impact — and the data is clear on why. (MIT Project NANDA, "The GenAI Divide", July 2025 — 300+ initiative reviews; the bar is rapid revenue acceleration, not incremental value.) The organisations getting results are running engineered systems: RAG pipelines, verification loops, memory infrastructure. The ones that aren't are running raw API calls and wondering why the numbers don't move.
+- **The Epistemic Flood**: For operational guidance on building internal Verification Layers and defending against automated data degradation, read our extended structural framework: [https://after-the-intelligence-flood.vercel.app](https://after-the-intelligence-flood.vercel.app)
 - **Next Step**: Your AI ROI problem is not a model problem. It's an architecture problem. Audit your existing deployments against the Base vs. System-Level gap. Identify which workflows are running raw model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10× in 18 months.
 - **The Architecture Dividend**: The engineering dividend is now quantified. Moving from raw model calls to agentic frameworks increases task autonomy from 45% to over 74%. This is the primary ROI driver for 2026–2027 deployments — not model selection.
 
 ### 💰 For Investors
 - **Reading the current moment**: The benchmark contamination issue is the most important signal for competitive positioning — and most investor decks are still using the wrong number. SWE-bench Verified (80.9%) has confirmed training data overlap. **SWE-bench Pro** is the honest measure at 45.9% standardised. Companies evaluating coding capability on the contaminated benchmark are making decisions on a compromised signal.
 - **Next Step**: Add metacognition and context coherence to your AI vendor evaluation criteria. A model that accurately signals its own uncertainty is worth more to an enterprise deployment than a model that scores 5% higher on a saturated benchmark.
-- **The Action Moat**: Evaluate the Action Moat over model capability. The Action Moat is the durable competitive advantage that comes from owning integrations, workflows, and tool ecosystems — not model weights. Open-source parity has commoditised raw capability; competitive advantage now sits in who owns the workflow.
+- **The Action Moat**: Evaluate the Action Moat over model capability. As defined earlier, open-source parity has commoditised raw capability; competitive advantage now sits in who owns the workflow.
 
 ### 💼 For Careers
 - **Reading the current moment**: The software talent pipeline is experiencing a historic structural contraction. With entry-level opportunities evaporating and university enrollment hitting a multi-decade inflection point, this is no longer a temporary market correction — it is a permanent shift in who the industry values. The people accumulating the most value right now are move-upstream orchestrators, not those competing with AI on execution.
@@ -219,6 +220,8 @@ If production is automated, verification must follow. The human role moves upstr
 - **The Verification Layer**: The verification layer is the professional value-add. Produce graduates who can build the safeguards that ensure AI-generated output meets professional standards. That is the human role that AI cannot yet automate.
 
 ---
+
+<developer_instructions>
 
 ## 📊 Technical Appendix (Developer Documentation)
 
@@ -239,6 +242,8 @@ This brief synthesises data current as of **April 4, 2026**.
 1. **Install Dependencies**: `npm install`
 2. **Start Dev Server**: `npm run dev`
 3. **Build**: `npm run build`
+
+</developer_instructions>
 
 ---
 
