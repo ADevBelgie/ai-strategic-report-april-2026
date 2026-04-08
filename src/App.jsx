@@ -419,8 +419,11 @@ const AppContent = () => {
           <p className="text-sm text-slate-400 mb-6 leading-relaxed">
             Three scenarios for how AI deployment evolves from here. These aren't predictions — they're structured possibilities, each grounded in current data and trajectories.
           </p>
-          <div className="mb-6">
-            <MarkdownAlert content={content.s7Methodology[displayMode]} />
+          <div className="mb-8 prose-invert prose-p:text-slate-400 prose-p:text-sm">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{content.s7Note[displayMode]}</ReactMarkdown>
+            <p className="mt-4 text-xs text-slate-500 leading-relaxed italic">
+              {content.s7Methodology[displayMode]}
+            </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             {scenarios.map((scenario, index) => (
@@ -439,16 +442,6 @@ const AppContent = () => {
             ))}
           </div>
 
-          <details className="mt-4 mb-8 group">
-            <summary className="text-[10px] text-slate-500 cursor-pointer hover:text-slate-400 transition-colors select-none list-none flex items-center gap-1.5">
-              <span className="group-open:rotate-90 transition-transform duration-200 inline-block">›</span>
-              Methodology note
-            </summary>
-            <div className="mt-3 pl-4 border-l border-slate-700/50 text-[11px] text-slate-500 leading-relaxed max-w-2xl">
-              <p className="mb-2 text-slate-400">Probability weights are informed estimates derived from six independent data inputs — not outputs of a formal forecasting model.</p>
-              <p>Inputs: ARC-AGI-3 progress rates; inference cost curve (Stanford AI Index); BLS / Stanford / Harvard labour market data; open-source capability trajectory; LangChain practitioner survey (57% production deployment rate); Gartner / Databricks enterprise adoption signals. Full methodology in the supporting data document.</p>
-            </div>
-          </details>
 
           <PipelineTimeline />
 

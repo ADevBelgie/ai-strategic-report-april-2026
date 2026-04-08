@@ -135,6 +135,10 @@ export const content = {
       essentials: "Reliability problems get solved. AI cracks the next generation of reasoning tests."
     }
   },
+  s7Note: {
+    expert: "> **NOTE: Probability methodology**: These weights are informed estimates derived from six independent data inputs — not outputs of a formal forecasting model. Inputs: ARC-AGI-3 progress rates; inference cost curve (Stanford AI Index); BLS / Stanford / Harvard labour market data; open-source capability trajectory; LangChain practitioner survey (57% production rate); Gartner / Databricks enterprise adoption signals.",
+    essentials: "> **NOTE**: These probabilities are informed estimates based on multiple data sources, including current AI progress rates, labor market data, and enterprise adoption signals."
+  },
   s7Transition: {
     expert: "The scenario analysis above covers the next 18 months. What follows is the structural frame those scenarios are all sitting inside.",
     essentials: "The scenario analysis above covers the next 18 months. What follows is the structural frame those scenarios are all sitting inside."
