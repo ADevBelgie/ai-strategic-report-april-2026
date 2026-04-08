@@ -48,8 +48,8 @@ export const content = {
   },
 
   s4Opening: {
-    expert: "The original report tracked six capability dimensions. V1's radar measured individual model benchmarks. This one tracks what AI services actually deliver to users — regardless of whether the result comes from a base model, a RAG pipeline, or an agent harness. Six dimensions. Six things that matter to anyone relying on AI output: Reasoning. Execution. Memory. Confidence Calibration. Coherence. Reliability.",
-    essentials: "The original report tracked six capability dimensions. The first version measured individual AI model tests. This one tracks what AI services actually deliver to users — regardless of whether the result comes from an underlying AI model, an AI with access to real-time information, or an AI system. Six dimensions. Six things that matter to anyone relying on AI output: Reasoning. Execution. Memory. Confidence Calibration. Coherence. Reliability."
+    expert: "The original report tracked six capability dimensions. V1's radar measured individual model benchmarks. This one tracks what AI services actually deliver to users — regardless of whether the result comes from a base model, a RAG pipeline, or an agentic system. Six dimensions. Six things that matter to anyone relying on AI output: Reasoning. Execution. Memory. Confidence Calibration. Coherence. Reliability.",
+    essentials: "The original report tracked six capability dimensions. The first version measured individual AI model tests. This one tracks what AI services actually deliver to users — regardless of whether the result comes from an underlying AI model, an AI with access to real-time information, or an agentic system. Six dimensions. Six things that matter to anyone relying on AI output: Reasoning. Execution. Memory. Confidence Calibration. Coherence. Reliability."
   },
   s4ContextLine: {
     expert: "",
@@ -66,8 +66,8 @@ export const content = {
     essentials: "The data has refined this shape since the previous V1 report. The 'Barbell' model originally assumed we'd have stable senior and junior roles with the middle disappearing. That's no longer what we see. Entry-level job openings are down 67% since 2022. The bottom is falling away entirely. What remains is an unbalanced pyramid: the top is growing, the middle is being squeezed from both sides, and the bottom is being structurally removed. The name stays because it's the same economic shift — just more extreme."
   },
   s5Pipeline: {
-    expert: "The Pipeline Problem: CS enrolment dropped 8.1% in 2025–2026 — the steepest decline of any field. If this persists, senior engineer shortage lands 2033–2037.",
-    essentials: "A second problem is building quietly: fewer students are choosing to study computer science — the steepest drop of any field. If that continues, there won't be enough senior engineers to meet demand by the mid-2030s."
+    expert: "The Pipeline Problem: CS enrolment dropped 8.1% in 2025–2026 — the steepest decline of any field. A structural shortage of expert verifiers is projected to land between 2033–2037. The crisis will not be a lack of human coders, but a lack of humans with the structural intuition to verify complex, orchestrated AI systems.",
+    essentials: "A second problem is building quietly: fewer students are choosing to study computer science — the steepest drop of any field. If this continues, we won't just lack coders; we will lack 'expert verifiers' with the experience to catch the subtle errors in massive AI-generated projects."
   },
   s5Klarna: {
     expert: "Klarna stopped all hiring in 2023, slashed headcount from 5,500 to 3,400, and celebrated $10M in savings. By mid-2025 they were scrambling to rehire after customer satisfaction collapsed and engineers were pulled from product work to cover service. This is not evidence AI can't replace roles. It's the predictable outcome of treating AI as binary replacement rather than productivity layer. The organisations that maintained junior pipelines through 2024–2026 will have a structural talent advantage by 2028–2030. Harvard research across 62 million workers and 285,000 firms names this pattern: \"seniority-biased technological change.\"",
@@ -111,7 +111,7 @@ export const content = {
       essentials: "Memory has moved from effectively zero to a solvable architectural layer — 91.4% on LongMemEval (Vectorize Hindsight, Dec 2025), 95%+ claimed by Mastra (Feb 2026). AI now has persistent memory across sessions. The difference this makes is large: the same AI goes from 44.8% to 74.6% accuracy when it can remember and plan across steps."
     },
     openSource: {
-      expert: "Open-Source Parity — free models now match or beat proprietary ones on most standard benchmarks (coding, knowledge, and reasoning), trailing on agentic tasks (67% vs ~90% on SWE-bench Verified). This closes the capability gap and shifts competitive advantage from model weights to execution infrastructure. Action Moat: the durable competitive advantage that comes from owning the integrations, workflows, and tool ecosystems AI operates inside — not the model weights themselves. The Data Moat is dead; 434 open-source vs. 217 closed-source API models.",
+      expert: "Open-Source Parity — free models now match or beat proprietary ones on most standard benchmarks (coding, knowledge, and reasoning), trailing on agentic tasks (45.9% vs 56.8% on SWE-bench Pro). This closes the capability gap and shifts competitive advantage from model weights to execution infrastructure. Action Moat: the durable competitive advantage that comes from owning the integrations, workflows, and tool ecosystems AI operates inside — not the model weights themselves. The Data Moat is dead; 434 open-source vs. 217 closed-source API models.",
       essentials: "Free, open AI models now match paid ones on almost every test. The competitive edge shifts to the integrations and workflows built around the AI — not the AI itself. Owning the workflow is the new moat."
     }
   },
@@ -144,7 +144,7 @@ export const content = {
     execution: {
       expert: {
         p1: "Execution measures whether an AI agent can complete real software engineering work end-to-end — not just generate a patch, but explore an environment, run commands, recover from errors, and finish the job.",
-        p2: "Two benchmarks now capture this at the system level. On SWE-bench Pro (contamination-resistant, multi-language): the best agent systems reach 56.8% with custom scaffolding; SEAL-standardised (fair comparison) sits at 45.9%.",
+        p2: "Two benchmarks now capture this at the system level. On SWE-bench Pro (contamination-resistant, multi-language): the best agentic systems reach 56.8%; SEAL-standardised (fair comparison) sits at 45.9%.",
         p3: "Terminal-Bench 2.0 measures the same capability from a different angle: 89 real terminal tasks across software engineering, security, and data science, each running in a Docker container with automated verification. There's no patch generation here — the agent must explore an unknown environment, run commands, and recover from errors autonomously. Top agent systems reach 78.4% (Gemini 3.1 Pro + Forge Code) and 74.7% (Claude Opus 4.6 + Terminus-KIRA).",
         p4: "The dominant failure mode on SWE-bench Pro is context overflow (35.6% of top-model failures) — the exact problem RL-trained search agents like WarpGrep directly address. That's why the 2027 trajectory is aggressive: the bottleneck is addressable and being addressed now."
       },
@@ -180,7 +180,7 @@ export const content = {
     coherence: {
       expert: {
         p1: "Coherence asks whether an AI sustains consistent, non-contradictory reasoning across a long agentic task — not just whether it can recall facts.",
-        p2: "The clearest whole-system measure: Claude Sonnet 4.5 achieves 74.6% overall on GAIA inside the HAL Generalist Agent framework — the benchmark designed to test whether AI systems can handle the kind of messy, multi-step tasks that humans do every day. The gap to the 44.8% base-model score on the same benchmark is the coherence engineering dividend.",
+        p2: "The clearest whole-system measure: Claude Sonnet 4.5 achieves 74.6% overall on GAIA inside the HAL Generalist Agent framework — the benchmark designed to test whether AI systems can handle the kind of messy, multi-step tasks that humans do every day. The gap to the 44.8% base model score on the same benchmark is the coherence engineering dividend.",
         p3: "The 'lost in the middle' phenomenon remains real: a model claiming 200k usable tokens typically degrades around 130k, with middle-positioned content dropping to 76–82% accuracy versus 85–95% at the edges. The 2027 trajectory points toward 90% as MCP standardises tool integration and long-context handling matures."
       },
       essentials: {
@@ -226,12 +226,12 @@ export const content = {
   },
   s8_8_3: {
     expert: {
-      p1: "If production is automated, verification must follow. We see this in legal \"Hyperlink Rules\"—requiring litigants to hyperlink every citation to an authoritative source at the point of filing. A hallucinated case cannot be hyperlinked because it does not exist. This is human-enforced verification designed in response to machine-generated production.",
-      p2: "In scientific publishing, researchers are proposing machine-readable \"structured appendices\" that transform manuscripts into queryable, executable research environments—making computational claims directly verifiable by automated systems rather than trusting human reviewers to catch errors in prose."
+      p1: "If production is automated, verification must follow. \"Hyperlink Rules\" require litigants to hyperlink citations, but URLs only verify routing, not truth. The true load-bearing walls are cryptographic provenance (C2PA) and API-enforced querying against closed institutional databases (RAG constrained strictly to Westlaw or clinical databases).",
+      p2: "In scientific publishing, researchers are proposing machine-readable \"structured appendices\" that transform manuscripts into queryable, executable research environments—making computational claims directly verifiable by automated systems."
     },
     essentials: {
-      p1: "The response emerging across industries is the same: if AI produces, something must verify. Courts are proposing rules that force lawyers to link every citation to a real, checkable source before filing.",
-      p2: "Scientific publishing is moving toward machine-readable papers that automated systems can directly verify. In enterprise AI, automated production forces automated verification. The human role shifts to setting the rules."
+      p1: "The response starting to appear across industries is the same: if AI produces, something must verify. Courts are proposing rules that force lawyers to prove citations come from real, checkable sources using digital watermarks or trusted databases.",
+      p2: "Scientific publishing is moving toward machine-readable papers that automated systems can directly verify. As we use more AI to create work, the human role shifts from doing the work to setting the rules for how it's checked."
     }
   },
   s8HorizonWatch: {
@@ -286,16 +286,16 @@ export const content = {
   // SECTION 9
   s9Enterprise: {
     moment: {
-      expert: "95% of enterprise GenAI projects in 2025 saw no measurable P&L impact — and the data is clear on why. (MIT Project NANDA, \"The GenAI Divide\", July 2025 — based on 300+ initiative reviews; the bar is rapid revenue acceleration, not incremental value.) The organisations getting results are running engineered systems: RAG pipelines, verification loops, memory infrastructure. The ones that aren't are running raw API calls and wondering why the numbers don't move.",
+      expert: "95% of enterprise GenAI projects in 2025 saw no measurable P&L impact — and the data is clear on why. (MIT Project NANDA, \"The GenAI Divide\", July 2025 — based on 300+ initiative reviews; the bar is rapid revenue acceleration, not incremental value.) The organisations getting results are running engineered agentic systems: RAG pipelines, verification loops, memory infrastructure. The ones that aren't are running base model API calls and wondering why the numbers don't move.",
       essentials: "95% of company AI projects in 2025 showed no measurable financial impact (MIT Project NANDA, July 2025). The data is clear on why: the difference isn't which AI model you picked — it's whether the system around it was properly engineered."
     },
     next: {
-      expert: "Your AI ROI problem is not a model problem. It's an architecture problem. Audit your existing deployments against the Base vs. System-Level gap. Identify which workflows are running raw model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10× in 18 months.",
+      expert: "Your AI ROI problem is not a model problem. It's an architecture problem. Audit your existing deployments against the Base vs. System-Level gap. Identify which workflows are running base model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10× in 18 months.",
       essentials: "Look at your current AI projects and find where simple AI prompts have replaced what should be better-engineered systems. The gap between what you have and what you need is fixable — and the cost of fixing it has fallen dramatically."
     },
     architectureDividend: {
-      expert: "The engineering dividend is now quantified. Moving from raw model calls to agentic frameworks increases task autonomy from 45% to over 74%. This is the primary ROI driver for 2026–2027 deployments — not model selection.",
-      essentials: "Moving from simple AI triggers to properly engineered systems increases efficiency from 45% to 74%. That gap is the single biggest factor in making AI pay off."
+      expert: "The engineering dividend is now quantified. Moving from base model calls to agentic systems increases task autonomy from 45% to over 74%. This is the primary ROI driver for 2026–2027 deployments — not model selection.",
+      essentials: "Moving from simple base model prompts to properly engineered agentic systems increases efficiency from 45% to 74%. That gap is the single biggest factor in making AI pay off."
     },
     epistemicFlood: {
       expert: "The Epistemic Flood: For a macro analysis of how automated production will force institutions to adapt, the evolving liability landscape, and where the economic value shifts next, read our companion essay: https://after-the-intelligence-flood.vercel.app",

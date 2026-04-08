@@ -179,7 +179,7 @@ const AppContent = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 stagger-children">
             <BenchmarkCard status="active" name="SWE-bench Pro" score="45.9%" model="Claude Opus 4.5 (SEAL Standardised)"
-              description="Current honest measure. Evaluated on private codebases, controlled scaffold." source="Scale AI SEAL Leaderboard" />
+              description="Current honest measure. Evaluated on private codebases, controlled agentic environment." source="Scale AI SEAL Leaderboard" />
             <BenchmarkCard status="active" name="SWE-bench Pro" score="56.8%" model="GPT-5.3-Codex (Custom Agentic System)"
               description="Not comparable to SEAL. Best performing agentic system recorded." source="BenchLM.ai (Mar 2026)" />
             <BenchmarkCard status="active" name="Terminal-Bench 2.0" score="78.4%" model="Gemini 3.1 Pro (Forge Code Agent)"

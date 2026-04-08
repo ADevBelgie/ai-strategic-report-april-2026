@@ -118,7 +118,7 @@ Where you work determines whether the Barbell is already here, arriving soon, or
 - **Enterprise / Finance**: Hiring maintained for institutional knowledge, but with **+40% premiums** on AI-literate senior roles.
 - **Regulated / Legal**: Junior hiring mandated by law for auditable human decision chains (FDA/Court requirements).
 
-> **IMPORTANT:** **The Seniority Gap**: Google's DORA 2024 report found roughly 2% productivity increase for every 25% increase in AI adoption — a gap of ~12× between executive expectation and measured engineering outcome.
+> **IMPORTANT:** **The Seniority Gap**: Google's DORA 2024 report found roughly 2% productivity increase for every 25% increase in AI adoption. This reveals a stark market bifurcation: the 60–70% task autonomy projected for 2027 will be heavily concentrated in "AI-native" organisations using engineered agentic systems (HAL, Mastra). Traditional enterprises stuck in the DORA productivity trough remain there because they deploy raw text-generation APIs, treating AI as a tool rather than an orchestrated system.
 
 ### 5.2 Case Study: The Klarna Correction
 Klarna stopped all hiring in 2023, slashed headcount from 5,500 to 3,400, and celebrated $10M in savings. By mid-2025, they were scrambling to rehire after customer satisfaction collapsed and engineers were pulled from product work to cover service.
@@ -129,7 +129,7 @@ This is not evidence AI can't replace roles. It's the predictable outcome of tre
 - **Junior IT Hiring**: Share dropped from 15% to 7% since 2022.
 - **Entry-Level Dev Postings**: –67% since 2022.
 - **CS Enrollment**: Fell 8.1% in 2025–2026 — the steepest decline of any field.
-- **Consequence**: A structural shortage of senior talent is projected to land between **2033–2037**, exactly when enterprise AI orchestration demand peaks. Decisions made in the 2026 labor market produce irreversible consequences in 2033.
+- **Consequence**: A structural shortage of expert verifiers is projected to land between **2033–2037**. If execution is automated today, the 2033 workforce will lack the deep domain context historically built during junior years. The crisis will not be a lack of human coders, but a lack of humans with the structural intuition to verify complex, orchestrated AI systems.
 
 ---
 
@@ -185,7 +185,7 @@ Every institution built on the assumption of human-scale content production has 
 
 ### 8.3 — The Verification Layer
 If production is automated, verification must follow. The human role moves upstream—from producer/verifier to **parameter setter**.
-- **Legal**: "Hyperlink Rules" require litigants to hyperlink every citation to an authoritative source at the point of filing. A hallucinated case cannot be hyperlinked because it does not exist.
+- **Legal**: "Hyperlink Rules" require litigants to hyperlink citations, but URLs only verify routing, not truth — an agent optimizing for task completion can easily hallucinate a fake webpage. The true load-bearing walls emerging against the flood are cryptographic provenance (e.g., C2PA standards applied to legal/scientific text) and API-enforced querying against closed institutional databases (RAG constrained strictly to Westlaw or clinical databases).
 - **Scientific**: Researchers are proposing machine-readable "structured appendices" that transform manuscripts into queryable, executable research environments—making computational claims directly verifiable by automated systems rather than trusting human reviewers to catch errors in prose.
 
 ### 8.4 Horizon Watch: Signals to Track
@@ -200,10 +200,10 @@ If production is automated, verification must follow. The human role moves upstr
 ## 9. What This Means for You
 
 ### 🚀 For Enterprise
-- **Reading the current moment**: 95% of enterprise GenAI projects in 2025 saw no measurable P&L impact — and the data is clear on why. (MIT Project NANDA, "The GenAI Divide", July 2025 — 300+ initiative reviews; the bar is rapid revenue acceleration, not incremental value.) The organisations getting results are running engineered systems: RAG pipelines, verification loops, memory infrastructure. The ones that aren't are running raw API calls and wondering why the numbers don't move.
+- **Reading the current moment**: 95% of enterprise GenAI projects in 2025 saw no measurable P&L impact — and the data is clear on why. (MIT Project NANDA, "The GenAI Divide", July 2025 — 300+ initiative reviews; the bar is rapid revenue acceleration, not incremental value.) The organisations getting results are running engineered agentic systems: RAG pipelines, verification loops, memory infrastructure. The ones that aren't are running base model API calls and wondering why the numbers don't move.
 - **The Epistemic Flood**: For a macro analysis of how automated production will force institutions to adapt, the evolving liability landscape, and where the economic value shifts next, read our companion essay: [https://after-the-intelligence-flood.vercel.app](https://after-the-intelligence-flood.vercel.app)
-- **Next Step**: Your AI ROI problem is not a model problem. It's an architecture problem. Audit your existing deployments against the Base vs. System-Level gap. Identify which workflows are running raw model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10× in 18 months.
-- **The Architecture Dividend**: The engineering dividend is now quantified. Moving from raw model calls to agentic frameworks increases task autonomy from 45% to over 74%. This is the primary ROI driver for 2026–2027 deployments — not model selection.
+- **Next Step**: Your AI ROI problem is not a model problem. It's an architecture problem. Audit your existing deployments against the Base vs. System-Level gap. Identify which workflows are running base model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10× in 18 months.
+- **The Architecture Dividend**: The engineering dividend is now quantified. Moving from base model calls to agentic systems increases task autonomy from 45% to over 74%. This is the primary ROI driver for 2026–2027 deployments — not model selection.
 
 ### 💰 For Investors
 - **Reading the current moment**: The benchmark contamination issue is the most important signal for competitive positioning — and most investor decks are still using the wrong number. SWE-bench Verified (80.9%) has confirmed training data overlap. **SWE-bench Pro** is the honest measure at 45.9% standardised. Companies evaluating coding capability on the contaminated benchmark are making decisions on a compromised signal.

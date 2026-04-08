@@ -44,7 +44,7 @@ const ProductivityParadox = () => {
             +2%
           </div>
           <p className="text-sm text-slate-300 leading-relaxed max-w-[220px] mx-auto">
-            Actual productivity increase per 25% increase in AI adoption
+            Actual increase per 25% AI adoption. This reveals a stark market bifurcation: the 2027 autonomy gains are concentrated in "AI-native" organisations using engineered agentic systems.
           </p>
           <div className="mt-6 text-[9px] tracking-widest uppercase text-emerald-500/40 font-bold">
             Google DORA 2024 · Empirical Data
