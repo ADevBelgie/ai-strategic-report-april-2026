@@ -286,8 +286,8 @@ export const content = {
   // SECTION 9
   s9Enterprise: {
     moment: {
-      expert: "95% of enterprise GenAI projects in 2025 saw no measurable ROI — and the data is clear on why. The organisations getting results are running engineered systems: RAG pipelines, verification loops, memory infrastructure. The ones that aren't are running raw API calls and wondering why the numbers don't move.",
-      essentials: "95% of company AI projects in 2025 showed no measurable financial impact (MIT). The data is clear on why: the difference isn't which AI model you picked — it's whether the system around it was properly engineered."
+      expert: "95% of enterprise GenAI projects in 2025 saw no measurable P&L impact — and the data is clear on why. (MIT Project NANDA, \"The GenAI Divide\", July 2025 — based on 300+ initiative reviews; the bar is rapid revenue acceleration, not incremental value.) The organisations getting results are running engineered systems: RAG pipelines, verification loops, memory infrastructure. The ones that aren't are running raw API calls and wondering why the numbers don't move.",
+      essentials: "95% of company AI projects in 2025 showed no measurable financial impact (MIT Project NANDA, July 2025). The data is clear on why: the difference isn't which AI model you picked — it's whether the system around it was properly engineered."
     },
     next: {
       expert: "Your AI ROI problem is not a model problem. It's an architecture problem. Audit your existing deployments against the Base vs. System-Level gap. Identify which workflows are running raw model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10× in 18 months.",

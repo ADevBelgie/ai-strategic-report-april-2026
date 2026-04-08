@@ -218,7 +218,7 @@ If production is automated, verification must follow. The human role moves upstr
 ## 9. What This Means for You
 
 ### 🚀 For Enterprise
-- **Reading the current moment**: 95% of enterprise GenAI projects in 2025 saw no measurable ROI (MIT) — and the data is clear on why. The organisations getting results are running engineered systems: RAG pipelines, verification loops, memory infrastructure. The ones that aren't are running raw API calls and wondering why the numbers don't move.
+- **Reading the current moment**: 95% of enterprise GenAI projects in 2025 saw no measurable P&L impact — and the data is clear on why. (MIT Project NANDA, "The GenAI Divide", July 2025 — 300+ initiative reviews; the bar is rapid revenue acceleration, not incremental value.) The organisations getting results are running engineered systems: RAG pipelines, verification loops, memory infrastructure. The ones that aren't are running raw API calls and wondering why the numbers don't move.
 - **Next Step**: Your AI ROI problem is not a model problem. It's an architecture problem. Audit your existing deployments against the Base vs. System-Level gap. Identify which workflows are running raw model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10× in 18 months.
 - **The Architecture Dividend**: The engineering dividend is now quantified. Moving from raw model calls to agentic frameworks increases task autonomy from 45% to over 74%. This is the primary ROI driver for 2026–2027 deployments — not model selection.
 
