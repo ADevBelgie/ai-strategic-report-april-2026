@@ -340,8 +340,8 @@ export const content = {
   },
   s9Education: {
     moment: {
-      expert: "The unprecedented flight of students from Computer Science signifies a deep crisis of confidence in the traditional pedagogical model. As code generation becomes a zero-cost commodity, the throughput limit is no longer generation; it is verification and coherence management. Curricula that still centre syntax acquisition are producing graduates for a role that is being structurally removed.",
-      essentials: "The massive drop in student interest reflects a hard truth: learning to write code by hand is no longer enough for a professional career. Education must now focus on teaching students how to check, manage, and take responsibility for the work that AI produces."
+      expert: "The contraction of syntax-focused curricula and the collapse of short-cycle training signifies a deep crisis of confidence in the traditional pedagogical model. As code generation becomes a zero-cost commodity, the throughput limit is no longer generation; it is verification and coherence management. Curricula that still centre syntax acquisition are producing graduates for a role that is being structurally removed.",
+      essentials: "The sudden collapse of short-term training and bootcamps shows a hard truth: learning to write code by hand is no longer enough for a professional career. Education must now focus on teaching students how to check, manage, and take responsibility for the work that AI produces."
     },
     next: {
       expert: "Shift curriculum from syntax to system-level debugging and automated verification. Institutions must pioneer \"AI-assisted preceptorships\"—where students act as the human-in-the-loop verifiers for automated legacy integrations, building the structural intuition they will need for high-stakes verification.",
