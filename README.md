@@ -63,8 +63,6 @@ Not all benchmarks are created equal. Here is the current map of the frontier:
 | **SWE-bench Verified**| 80.9% | ❌ Deprecated | **Claude Opus 4.5**. OpenAI confirmed training contamination. |
 | **GPQA / MMLU** | 94.3%+ | 📁 Retired | **Gemini 3.1 Pro (GPQA)**. Structurally saturated; signal lost. |
 
-> [!CAUTION]
-> **Caution for Investors**: Agentic benchmarks are highly susceptible to Goodhart's Law. High scores on Terminal-Bench 2.0 often reflect framework overfitting to the benchmark's specific Docker environment rather than generalized capability on undocumented enterprise systems.
 
 ---
 
@@ -167,11 +165,12 @@ Five structural drivers are compressing the timeline between capability and depl
 The 60% Base Case weight reflects that both the capability trajectory (SWE-bench Pro doubling in 12 months) and the adoption signals (57% of practitioners with agents in production, Gartner's 40% enterprise prediction for EOY 2026) are on track, while the known structural friction — quality as the persistent production blocker — prevents this from being the Accelerated scenario.
 
 ### Three scenarios grounded in current trajectories:
+
+> **NOTE:** **Probability methodology**: These weights are informed estimates derived from six independent data inputs — not outputs of a formal forecasting model. Inputs: ARC-AGI-3 progress rates; inference cost curve (Stanford AI Index); BLS / Stanford / Harvard labour market data; open-source capability trajectory; LangChain practitioner survey (57% production rate); Gartner / Databricks enterprise adoption signals.
+
 1. **Conservative (~18%)**: Progress slows. Capability plateau below 45% on SWE-bench Pro SEAL. AI remains a productivity multiplier — not an autonomous replacement. Hiring patterns stabilise. Junior pipelines survive in most sectors. The gap between AI-native and AI-resistant organisations grows slowly.
 2. **Base Case (~60%)**: AI handles 60–70% of software tasks. Engineering differentiates the top 5% of companies. Gartner 40% enterprise adoption.
 3. **Accelerated (~22%)**: Reliability barrier resolved (the 32% quality barrier). ARC-AGI-3 cracks 30%+. AI handles most end-to-end tasks. Self-correcting agent architectures make hallucination largely irrelevant for structured tasks. Reliability converges with capability.
-
-> **NOTE:** **Probability methodology**: These weights are informed estimates derived from six independent data inputs — not outputs of a formal forecasting model. Inputs: ARC-AGI-3 progress rates; inference cost curve (Stanford AI Index); BLS / Stanford / Harvard labour market data; open-source capability trajectory; LangChain practitioner survey (57% production rate); Gartner / Databricks enterprise adoption signals.
 
 ---
 
@@ -211,12 +210,15 @@ If production is automated, verification must follow. The human role moves upstr
 
 ### 🚀 For Enterprise
 - **Reading the current moment**: 95% of enterprise GenAI projects in 2025 saw no measurable P&L impact — and the data is clear on why. [2: MIT Project NANDA, "The GenAI Divide", July 2025 — 300+ initiative reviews; the bar is rapid revenue acceleration, not incremental value.] The organisations getting results are running engineered agentic systems: RAG pipelines, verification loops, memory infrastructure. The ones that aren't are running base model API calls and wondering why the numbers don't move. The projected 40% enterprise adoption rate for 2026 is masking a massive capital misallocation. The vast majority of that 40% represents "shadow adoption"—companies buying enterprise licenses for base models and treating it as an AI strategy. The 5% actually extracting ROI are those investing the capital into agentic architecture.
-- **The Epistemic Flood**: For a macro analysis of how automated production will force institutions to adapt, the evolving liability landscape, and where the economic value shifts next, read our companion essay: [https://after-the-intelligence-flood.vercel.app](https://after-the-intelligence-flood.vercel.app)
+- **The Epistemic Flood**: If this brief provides the timeline, our companion essay provides the structural map. To understand why legal liability will become the primary bottleneck for enterprise AI, and how the physical limitations of robotics will create a temporary buffer for your workforce, read: [After the Intelligence Flood](https://after-the-intelligence-flood.vercel.app/)
 - **Next Step**: Your AI ROI problem is not a model problem. It's an architecture problem. Audit your existing deployments against the Base vs. System-Level gap. Identify which workflows are running base model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10× in 18 months.
 - **The Architecture Dividend**: The engineering dividend is now quantified. Moving from base model calls to agentic systems increases task autonomy from 45% to over 74%. This is the primary ROI driver for 2026–2027 deployments — not model selection.
 
 ### 💰 For Investors
 - **Reading the current moment**: The benchmark contamination issue is the most important signal for competitive positioning — and most investor decks are still using the wrong number. SWE-bench Verified (80.9%) has confirmed training data overlap. **SWE-bench Pro** is the honest measure at 45.9% standardised. Companies evaluating coding capability on the contaminated benchmark are making decisions on a compromised signal.
+
+> [!CAUTION]
+> **Caution on Agentic Benchmarks**: Do not underwrite investments based purely on execution benchmarks like Terminal-Bench 2.0. Agent frameworks are highly susceptible to Goodhart's Law, frequently overfitting to a benchmark's specific Docker environment rather than proving generalized capability on undocumented enterprise systems.
 - **Next Step**: Add metacognition and context coherence to your AI vendor evaluation criteria. A model that accurately signals its own uncertainty is worth more to an enterprise deployment than a model that scores 5% higher on a saturated benchmark.
 - **The Action Moat**: Evaluate the Action Moat over model capability. As defined earlier, open-source parity has commoditised raw capability; competitive advantage now sits in who owns the workflow.
 

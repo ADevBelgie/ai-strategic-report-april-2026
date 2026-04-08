@@ -46,10 +46,6 @@ export const content = {
     expert: { score: "<1% Frontier", desc: "Frontier LLMs score below 1%. Note: a non-LLM CNN+RL approach (Tufa Labs) reached 12.58% in preview." },
     essentials: { score: "<1%", desc: "Leading AI models score below 1% on this test. A specialized approach reached 12% recently." }
   },
-  s3Caution: {
-    expert: "> [!CAUTION]\n> **Caution for Investors**: Agentic benchmarks are highly susceptible to Goodhart's Law. High scores on Terminal-Bench 2.0 often reflect framework overfitting to the benchmark's specific Docker environment rather than generalized capability on undocumented enterprise systems.",
-    essentials: "> [!CAUTION]\n> **Caution for Investors**: AI test scores can be misleading. High performance on specific tests often comes from the AI being 'trained for the test' rather than having real-world capability on complex company systems."
-  },
 
   s4Opening: {
     expert: "The original report tracked six capability dimensions. V1's radar measured individual model benchmarks. This one tracks what AI services actually deliver to users — regardless of whether the result comes from a base model, a RAG pipeline, or an agentic system. Six dimensions. Six things that matter to anyone relying on AI output: Reasoning. Execution. Memory. Confidence Calibration. Coherence. Reliability.",
@@ -302,9 +298,13 @@ export const content = {
       essentials: "Moving from simple base model prompts to properly engineered agentic systems increases efficiency from 45% to 74%. That gap is the single biggest factor in making AI pay off."
     },
     epistemicFlood: {
-      expert: "The Epistemic Flood: For a macro analysis of how automated production will force institutions to adapt, the evolving liability landscape, and where the economic value shifts next, read our companion essay: https://after-the-intelligence-flood.vercel.app",
-      essentials: "The Future of Quality: As AI content floods the market, institutions and laws are being forced to change. For a simplified look at how the economy is adapting and where value sits next, read our companion essay: https://after-the-intelligence-flood.vercel.app"
+      expert: "The Epistemic Flood: If this brief provides the timeline, our companion essay provides the structural map. To understand why legal liability will become the primary bottleneck for enterprise AI, and how the physical limitations of robotics will create a temporary buffer for your workforce, read: https://after-the-intelligence-flood.vercel.app",
+      essentials: "The Future of Quality: As AI content floods the market, institutions and laws are being forced to change. To understand why legal rules will change and how physics limits what AI can do in the real world, read: https://after-the-intelligence-flood.vercel.app"
     }
+  },
+  s9Caution: {
+    expert: "> [!CAUTION]\n> **Caution on Agentic Benchmarks**: Do not underwrite investments based purely on execution benchmarks like Terminal-Bench 2.0. Agent frameworks are highly susceptible to Goodhart's Law, frequently overfitting to a benchmark's specific Docker environment rather than proving generalized capability on undocumented enterprise systems.",
+    essentials: "> [!CAUTION]\n> **Caution for Investors**: AI test scores can be misleading. Do not base investment decisions solely on high benchmark scores. Many AI systems are 'trained for the test' rather than having real-world capability on complex, undocumented systems."
   },
   s9Investors: {
     moment: {
