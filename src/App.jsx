@@ -20,6 +20,35 @@ import PipelineTimeline from './components/visuals/PipelineTimeline';
 import BarbellConcept from './components/visuals/BarbellConcept';
 import { content, translate } from './content/reportContent';
 import { scenarios } from './data/scenarios';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+
+const MarkdownAlert = ({ content }) => {
+  if (!content) return null;
+  
+  // Detect GitHub-style alerts in the markdown string
+  if (content.startsWith('> [!CAUTION]')) {
+    const lines = content.split('\n');
+    // Remove the tag line and any leading '> ' from subsequent lines
+    const markdownBody = lines
+      .slice(1)
+      .map(line => line.replace(/^>\s?/, ''))
+      .join('\n');
+    
+    return (
+      <div className="markdown-alert markdown-alert-caution animate-fadeIn">
+        <div className="markdown-alert-title font-bold text-rose-500 mb-2 flex items-center gap-2">
+          <AlertTriangle size={16} /> Caution for Investors
+        </div>
+        <div className="text-slate-300 text-sm leading-relaxed">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdownBody}</ReactMarkdown>
+        </div>
+      </div>
+    );
+  }
+  
+  return <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>;
+};
 
 const App = () => {
   return (
@@ -197,6 +226,10 @@ const AppContent = () => {
               description="OpenAI confirmed training contamination." source="OpenAI internal audit, 2026" />
             <BenchmarkCard status="retired" name="GPQA / MMLU" score="94.3%+" model="Gemini 3.1 Pro (GPQA)"
               description="Structurally saturated; signal lost." />
+          </div>
+
+          <div className="mt-8">
+            <MarkdownAlert content={content.s3Caution[displayMode]} />
           </div>
 
           <CalloutBox type="insight" title="Key Insight">

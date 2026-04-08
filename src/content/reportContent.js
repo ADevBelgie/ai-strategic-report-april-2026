@@ -46,6 +46,10 @@ export const content = {
     expert: { score: "<1% Frontier", desc: "Frontier LLMs score below 1%. Note: a non-LLM CNN+RL approach (Tufa Labs) reached 12.58% in preview." },
     essentials: { score: "<1%", desc: "Leading AI models score below 1% on this test. A specialized approach reached 12% recently." }
   },
+  s3Caution: {
+    expert: "> [!CAUTION]\n> **Caution for Investors**: Agentic benchmarks are highly susceptible to Goodhart's Law. High scores on Terminal-Bench 2.0 often reflect framework overfitting to the benchmark's specific Docker environment rather than generalized capability on undocumented enterprise systems.",
+    essentials: "> [!CAUTION]\n> **Caution for Investors**: AI test scores can be misleading. High performance on specific tests often comes from the AI being 'trained for the test' rather than having real-world capability on complex company systems."
+  },
 
   s4Opening: {
     expert: "The original report tracked six capability dimensions. V1's radar measured individual model benchmarks. This one tracks what AI services actually deliver to users — regardless of whether the result comes from a base model, a RAG pipeline, or an agentic system. Six dimensions. Six things that matter to anyone relying on AI output: Reasoning. Execution. Memory. Confidence Calibration. Coherence. Reliability.",

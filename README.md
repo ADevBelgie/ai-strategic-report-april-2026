@@ -248,6 +248,7 @@ This brief synthesises data current as of **April 4, 2026**.
 ### Tech Stack
 - **React 19 / Vite 7 / Tailwind CSS 4**
 - **Visualization**: Custom SVG-based Radar, Dumbbell, and Timeline components.
+- **Markdown Parsing**: Ensure the React frontend utilizes `remark-gfm` (or an equivalent plugin) to properly render GitHub Flavored Markdown alerts (e.g., `> [!CAUTION]`). Without this, the investor warnings in Section 3 will render as standard blockquotes instead of high-visibility alerts.
 
 ### Local Development
 1. **Install Dependencies**: `npm install`

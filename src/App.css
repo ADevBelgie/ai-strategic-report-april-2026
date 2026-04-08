@@ -90,3 +90,39 @@
 .status-active { color: #22c55e; }
 .status-contaminated { color: #ef4444; }
 .status-retired { color: #64748b; }
+
+/* Markdown Alerts */
+.markdown-alert {
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border-left: 0.25rem solid;
+  border-radius: 0.5rem;
+  background-color: rgba(30, 41, 59, 0.4);
+}
+
+.markdown-alert-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.markdown-alert-caution {
+  border-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.05);
+}
+
+.markdown-alert-caution .markdown-alert-title {
+  color: #ef4444;
+}
+
+.markdown-alert p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
