@@ -43,8 +43,8 @@ export const content = {
     essentials: "Not every AI test score you'll see quoted this year is worth trusting. Here's the current map — what's live, what's broken, and what's been retired. Green = actively measuring the frontier. Red = compromised — don't use for decisions."
   },
   s3Agi3Entry: {
-    expert: { score: "<1% Frontier", desc: "LLMs score below 1%. Humans score 100%. Best result (12.58%) used CNN + RL, not a language model." },
-    essentials: { score: "<1%", desc: "Today's leading AI models score below 1% on this test. Launched March 2026." }
+    expert: { score: "<1% Frontier", desc: "Frontier LLMs score below 1%. Note: a non-LLM CNN+RL approach (Tufa Labs) reached 12.58% in preview." },
+    essentials: { score: "<1%", desc: "Leading AI models score below 1% on this test. A specialized approach reached 12% recently." }
   },
 
   s4Opening: {

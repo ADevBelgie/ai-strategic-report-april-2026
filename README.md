@@ -44,15 +44,16 @@ The fix is architectural. Self-Reflective RAG reduces hallucination from 64% to 
 
 Not all benchmarks are created equal. Here is the current map of the frontier:
 
-| Benchmark | Score | Status | Model / Context |
-|-----------|-------|--------|-----------------|
-| **SWE-bench Pro** | **45.9%** | ✅ Clean (SEAL) | **Current Honest Measure.** Standardised comparison. |
-| **SWE-bench Pro** | **56.8%** | ✅ Clean (Scaffold) | Best system today. *Not comparable* to SEAL standardised figures. |
-| **Terminal-Bench 2.0**| 78.4% | ✅ Active | Real-world terminal execution tasks. |
-| **ARC-AGI-3** | <1% | ✅ Frontier | LLMs score below 1%. Humans score 100%. Launched March 2026. |
-| **GAIA (All Levels)** | 74.6% | ✅ Active | Complex multi-step reasoning. |
-| **SWE-bench Verified**| 80.9% | ❌ Deprecated | **Contaminated.** Training data overlap confirmed by OpenAI audit. |
-| **MMLU / GPQA** | 90%+ | 📁 Retired | Saturated. No meaningful signal remaining. |
+| Benchmark | Score | Status | Model / Agentic System |
+|-----------|-------|--------|------------------------|
+| **SWE-bench Pro** | **45.9%** | ✅ Clean (SEAL) | **Claude Opus 4.5** (SEAL Standardised). Current honest measure. |
+| **SWE-bench Pro** | **56.8%** | ✅ Clean (Agent) | **GPT-5.3-Codex** (Custom Agentic System). *Not comparable* to SEAL. |
+| **Terminal-Bench 2.0**| 78.4% | ✅ Active | **Gemini 3.1 Pro** (Forge Code Agent). Real-world execution tasks. |
+| **ARC-AGI-2** | 77.1% | 🟠 Saturation | **Gemini 3.1 Pro** (Official verified). Approaching saturation; contamination flagged. |
+| **ARC-AGI-3** | <1% | ✅ New Frontier | **Frontier LLMs**. *Note: a non-LLM CNN+RL approach (Tufa Labs) reached 12.58% in preview.* |
+| **GAIA (All Levels)** | 74.6% | ✅ Active | **Claude Sonnet 4.5** (HAL Generalist Agent). *Base models sit at ~44.8%.* |
+| **SWE-bench Verified**| 80.9% | ❌ Deprecated | **Claude Opus 4.5**. OpenAI confirmed training contamination. |
+| **GPQA / MMLU** | 94.3%+ | 📁 Retired | **Gemini 3.1 Pro (GPQA)**. Structurally saturated; signal lost. |
 
 ---
 

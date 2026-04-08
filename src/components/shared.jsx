@@ -90,8 +90,11 @@ export const BenchmarkCard = ({ status, name, score, model, description, source 
   const statusStyles = {
     active: { icon: '🟢', label: 'Active', border: 'border-emerald-500/30', labelColor: 'text-emerald-400' },
     ceiling: { icon: '🟢', label: 'Approaching Saturation', border: 'border-emerald-500/30', labelColor: 'text-emerald-400' },
+    saturation: { icon: '🟠', label: 'Saturation', border: 'border-amber-500/30', labelColor: 'text-amber-400' },
+    'new-frontier': { icon: '✅', label: 'New Frontier', border: 'border-indigo-500/30', labelColor: 'text-indigo-400' },
     contaminated: { icon: '🔴', label: 'Contaminated', border: 'border-rose-500/30', labelColor: 'text-rose-400' },
-    retired: { icon: '⬛', label: 'Retired', border: 'border-slate-600/30', labelColor: 'text-slate-500' },
+    deprecated: { icon: '❌', label: 'Deprecated', border: 'border-rose-500/30', labelColor: 'text-rose-400' },
+    retired: { icon: '📁', label: 'Retired', border: 'border-slate-600/30', labelColor: 'text-slate-500' },
   };
   const s = statusStyles[status] || statusStyles.active;
   return (

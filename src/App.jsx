@@ -116,7 +116,7 @@ const AppContent = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 stagger-children">
             <StatCard label="SWE-bench Pro (SEAL)" value="45.9%" subtext="Coding Autonomy" trend="up" color="indigo" />
             <StatCard label="Junior IT Hiring Share" value="7%" subtext="Down from 15% in 2022" trend="down" color="rose" />
-            <StatCard label="ARC-AGI-2" value="77.1%" subtext="Reasoning Frontier" trend="up" color="emerald" />
+            <StatCard label="ARC-AGI-2" value="77.1%" subtext="Reasoning Frontier" trend="up" color="amber" />
           </div>
         </div>
 
@@ -178,23 +178,25 @@ const AppContent = () => {
             {translate(content.s3Context[displayMode], displayMode)}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 stagger-children">
-            <BenchmarkCard status="active" name="Terminal-Bench 2.0" score="78.4%" model="Gemini 3.1 Pro + Forge Code agent"
-              description="89 realistic terminal tasks — software engineering, security, data science, system administration. Tests whole-system agent performance in real shell environments. Top 5 entries within 3.7pp. Scaffolding contributes 2–6 points over model alone." source="tbench.ai" />
-            <BenchmarkCard status="active" name="SWE-bench Pro" score="45.9%" model="Claude Opus 4.5 (SEAL-standardised)"
-              description="The honest measure of coding autonomy. Evaluated on private codebases, controlled scaffold." source="Scale AI SEAL Leaderboard" />
-            <BenchmarkCard status="ceiling" name="ARC-AGI-2" score="77.1%" model="Gemini 3.1 Pro (official, semi-private)"
-              description="Approaching saturation — launched March 2025, near ceiling by February 2026. With refinement harnesses: 95%+. ARC-AGI-3 now active." source="ARC Prize Foundation" />
-            <BenchmarkCard status="active" name="ARC-AGI-3" 
+            <BenchmarkCard status="active" name="SWE-bench Pro" score="45.9%" model="Claude Opus 4.5 (SEAL Standardised)"
+              description="Current honest measure. Evaluated on private codebases, controlled scaffold." source="Scale AI SEAL Leaderboard" />
+            <BenchmarkCard status="active" name="SWE-bench Pro" score="56.8%" model="GPT-5.3-Codex (Custom Agentic System)"
+              description="Not comparable to SEAL. Best performing agentic system recorded." source="BenchLM.ai (Mar 2026)" />
+            <BenchmarkCard status="active" name="Terminal-Bench 2.0" score="78.4%" model="Gemini 3.1 Pro (Forge Code Agent)"
+              description="Real-world execution tasks. Tests whole-system agent performance in real shell environments." source="tbench.ai" />
+            <BenchmarkCard status="saturation" name="ARC-AGI-2" score="77.1%" model="Gemini 3.1 Pro (Official verified)"
+              description="Approaching saturation; contamination flagged." source="ARC Prize Foundation" />
+            <BenchmarkCard status="new-frontier" name="ARC-AGI-3" 
               score={content.s3Agi3Entry[displayMode].score} 
-              model="Interactive environments — no instructions"
+              model="Frontier LLMs"
               description={content.s3Agi3Entry[displayMode].desc} 
               source="ARC Prize, March 2026" />
-            <BenchmarkCard status="contaminated" name="SWE-bench Verified" score="80.9%" model="Contamination confirmed by OpenAI audit"
-              description="Every frontier model showed training data overlap. OpenAI has stopped reporting this score." source="OpenAI internal audit, 2026" />
-            <BenchmarkCard status="active" name="GAIA (All Levels)" score="74.6%" model="Claude Sonnet 4.5 + HAL framework, Feb 2026"
-              description="The 30-point gap between base model (44.8%, Mar 2026) and agent system on the same benchmark is the clearest demonstration of the engineering opportunity." source="awesomeagents.ai (Feb 2026); hal.cs.princeton.edu" />
-            <BenchmarkCard status="retired" name="MMLU / GPQA / HumanEval"
-              description="Saturated. No meaningful signal remaining. A 27-character answer-length heuristic achieves 93%+ on HaluEval without reading the question." />
+            <BenchmarkCard status="active" name="GAIA (All Levels)" score="74.6%" model="Claude Sonnet 4.5 (HAL Generalist Agent)"
+              description="Base models sit at ~44.8%. The 30-point engineering dividend." source="awesomeagents.ai (Feb 2026)" />
+            <BenchmarkCard status="deprecated" name="SWE-bench Verified" score="80.9%" model="Claude Opus 4.5"
+              description="OpenAI confirmed training contamination." source="OpenAI internal audit, 2026" />
+            <BenchmarkCard status="retired" name="GPQA / MMLU" score="94.3%+" model="Gemini 3.1 Pro (GPQA)"
+              description="Structurally saturated; signal lost." />
           </div>
 
           <CalloutBox type="insight" title="Key Insight">
