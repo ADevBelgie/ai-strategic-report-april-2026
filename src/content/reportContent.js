@@ -298,8 +298,8 @@ export const content = {
       essentials: "Moving from simple AI triggers to properly engineered systems increases efficiency from 45% to 74%. That gap is the single biggest factor in making AI pay off."
     },
     epistemicFlood: {
-      expert: "The Epistemic Flood: For operational guidance on building internal Verification Layers and defending against automated data degradation, read our extended structural framework: https://after-the-intelligence-flood.vercel.app",
-      essentials: "Defending Quality: As AI volume increases, internal verification becomes your most critical asset. For guidance on defending your data against automated degradation, read our framework: https://after-the-intelligence-flood.vercel.app"
+      expert: "The Epistemic Flood: For a macro analysis of how automated production will force institutions to adapt, the evolving liability landscape, and where the economic value shifts next, read our companion essay: https://after-the-intelligence-flood.vercel.app",
+      essentials: "The Future of Quality: As AI content floods the market, institutions and laws are being forced to change. For a simplified look at how the economy is adapting and where value sits next, read our companion essay: https://after-the-intelligence-flood.vercel.app"
     }
   },
   s9Investors: {
