@@ -226,11 +226,11 @@ export const content = {
   },
   s8_8_3: {
     expert: {
-      p1: "If production is automated, verification must follow. \"Hyperlink Rules\" require litigants to hyperlink citations, but URLs only verify routing, not truth. The true load-bearing walls are cryptographic provenance (C2PA) and API-enforced querying against closed institutional databases (RAG constrained strictly to Westlaw or clinical databases).",
+      p1: "If production is automated, verification must follow. \"Hyperlink Rules\" require litigants to hyperlink citations, but URLs only verify routing, not truth. The true load-bearing walls emerging against the flood are API-enforced querying against closed institutional databases (RAG constrained strictly to Westlaw) and Zero-Knowledge Proofs (ZKPs) that cryptographically verify a specific model executed a specific search on a certified database, returning a verified hash of the source material.",
       p2: "In scientific publishing, researchers are proposing machine-readable \"structured appendices\" that transform manuscripts into queryable, executable research environments—making computational claims directly verifiable by automated systems."
     },
     essentials: {
-      p1: "The response starting to appear across industries is the same: if AI produces, something must verify. Courts are proposing rules that force lawyers to prove citations come from real, checkable sources using digital watermarks or trusted databases.",
+      p1: "The response across industries is the same: if AI produces, something must verify. Courts now require lawyers to prove citations come from real sources using digital watermarks or cryptographic proofs that verify an AI actually checked a trusted database.",
       p2: "Scientific publishing is moving toward machine-readable papers that automated systems can directly verify. As we use more AI to create work, the human role shifts from doing the work to setting the rules for how it's checked."
     }
   },
@@ -286,8 +286,8 @@ export const content = {
   // SECTION 9
   s9Enterprise: {
     moment: {
-      expert: "95% of enterprise GenAI projects in 2025 saw no measurable P&L impact — and the data is clear on why. (MIT Project NANDA, \"The GenAI Divide\", July 2025 — based on 300+ initiative reviews; the bar is rapid revenue acceleration, not incremental value.) The organisations getting results are running engineered agentic systems: RAG pipelines, verification loops, memory infrastructure. The ones that aren't are running base model API calls and wondering why the numbers don't move.",
-      essentials: "95% of company AI projects in 2025 showed no measurable financial impact (MIT Project NANDA, July 2025). The data is clear on why: the difference isn't which AI model you picked — it's whether the system around it was properly engineered."
+      expert: "95% of enterprise GenAI projects in 2025 saw no measurable P&L impact — and the data is clear on why. (MIT Project NANDA, \"The GenAI Divide\", July 2025 — based on 300+ initiative reviews; the bar is rapid revenue acceleration, not incremental value.) The projected 40% enterprise adoption rate for 2026 is masking a massive capital misallocation: what we call \"shadow adoption\" where companies buy base model licenses without an agentic architecture. The 5% actually extracting ROI are those investing the capital into orchestrated systems.",
+      essentials: "95% of company AI projects in 2025 showed no measurable financial impact. Much of the current high 'adoption' is just companies buying AI tools for staff. The small group of companies seeing real profit are those building AI into deeply engineered systems."
     },
     next: {
       expert: "Your AI ROI problem is not a model problem. It's an architecture problem. Audit your existing deployments against the Base vs. System-Level gap. Identify which workflows are running base model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10× in 18 months.",
@@ -322,8 +322,8 @@ export const content = {
       essentials: "The pathways into a tech career have fundamentally changed as AI takes over basic coding tasks. Winning in this market means moving past simple execution and focusing on how to direct and manage AI systems to do the work for you."
     },
     next: {
-      expert: "Position around orchestration, not execution. Master agent frameworks (HAL, Mastra) and the Model Context Protocol (MCP). The 'Junior 2027' profile is an orchestrator who manages a fleet of agents — not a coder who writes individual patches.",
-      essentials: "Build skills around directing AI systems rather than executing tasks yourself. The most valuable role in 2027 is the person who manages a team of AI tools — not the one who writes the best code."
+      expert: "Position around orchestration, not execution. Build your own \"synthetic experience\"—using AI to generate high-volume execution sandboxes to train your own intuition on edge cases. The 'Junior 2027' profile is an orchestrator who uses AI to compress 10 years of execution experience into two.",
+      essentials: "Learn to manage groups of AI tools rather than just executing tasks. Use AI to practice on thousands of 'fake' projects to build the deep intuition you'll need to catch AI errors in real ones."
     },
     resilience: {
       expert: "Transition from specialist execution to generalist system engineering. The most resilient professionals in 2027 are those who navigate the whole stack to orchestrate AI components — not those who are one capability level below the current frontier.",
@@ -336,8 +336,8 @@ export const content = {
       essentials: "The massive drop in student interest reflects a hard truth: learning to write code by hand is no longer enough for a professional career. Education must now focus on teaching students how to check, manage, and take responsibility for the work that AI produces."
     },
     next: {
-      expert: "Shift curriculum from syntax and patterns to system-level debugging, automated verification, and prompt-less engineering. The goal is to produce humans who can set the parameters for automated production — not compete with it.",
-      essentials: "Colleges should shift from teaching coding syntax to teaching how to verify and manage AI-generated work. The goal is to train people to direct, not replicate, machines."
+      expert: "Shift curriculum from syntax to system-level debugging and automated verification. Institutions must pioneer \"AI-assisted preceptorships\"—where students act as the human verifiers for automated workflows, building the structural intuition they will need for high-stakes verification.",
+      essentials: "Colleges must start 'AI-assisted training' where students act as the human checkers for automated work, building the experience they'll need as professional verifiers later."
     },
     verification: {
       expert: "The verification layer is the professional value-add. Produce graduates who can build the safeguards that ensure AI-generated output meets professional standards. That is the human role that AI cannot yet automate.",
