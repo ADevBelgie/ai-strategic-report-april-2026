@@ -12,7 +12,7 @@
 
 ## 📑 Executive Summary
 
-Six months ago, this report predicted the transition from emergence to deployment. The benchmarks have moved faster than forecast. The economics have moved faster still. 
+Six months ago, this report predicted the transition from emergence to deployment. The benchmarks have moved faster than forecast. The economics have moved faster still.
 
 What's changed: the hard problem is no longer whether AI can do the task — it's whether the systems, skills, and structures around it can keep up. This brief updates every major prediction and adds new dimensions the original report didn't have language for yet.
 
@@ -103,24 +103,11 @@ With tools and search: near-perfect on SimpleQA across all frontier models. With
 
 ---
 
-> [!NOTE]
-> Reliability is domain-dependent. Legal floors at 12%, while Medical RAG achieves 57% Best System today.
-
----
-
----
-
 ## 5. The Barbell Economy
 
-The data has refined this shape since the previous V1 report. The V1 barbell assumed a stable base of junior execution work at one end and senior judgment at the other, with the middle hollowing out between them. That base is gone. Entry-level dev postings are down 67% since 2022. The bottom weight isn't holding — it's contracting. 
+The data has refined this shape since the previous V1 report. The V1 barbell assumed a stable base of junior execution work at one end and senior judgment at the other, with the middle hollowing out between them. That base is gone. Entry-level dev postings are down 67% since 2022. The bottom weight isn't holding — it's contracting.
 
 What remains is an asymmetric structure: the top growing, the middle under pressure from both directions, and the bottom being **structurally removed**.
-
-| Scenario | Probability | Summary |
-|----------|-------------|---------|
-| 🐢 Conservative | ~18% | Progress slows. Capability plateau below 45% on SWE-bench Pro SEAL. |
-| 📈 Base Case | ~60% | Agentic costs collapse. SWE-bench Pro reaches 60–70%. Confirmed by 2026 adoption data. |
-| 🚀 Accelerated | ~22% | Quality barrier resolved. Self-correction advances. ARC-AGI-3 cracks 30%+. |
 
 ### 5.1 The Barbell in Practice: Sector Divergence
 Where you work determines whether the Barbell is already here, arriving soon, or structurally delayed:
@@ -132,7 +119,7 @@ Where you work determines whether the Barbell is already here, arriving soon, or
 > **The Seniority Gap**: Google's DORA 2024 report found roughly 2% productivity increase for every 25% increase in AI adoption — a gap of ~12× between executive expectation and measured engineering outcome.
 
 ### 5.2 Case Study: The Klarna Correction
-Klarna stopped all hiring in 2023, slashed headcount from 5,500 to 3,400, and celebrated $10M in savings. By mid-2025, they were scrambling to rehire after customer satisfaction collapsed and engineers were pulled from product work to cover service. 
+Klarna stopped all hiring in 2023, slashed headcount from 5,500 to 3,400, and celebrated $10M in savings. By mid-2025, they were scrambling to rehire after customer satisfaction collapsed and engineers were pulled from product work to cover service.
 
 This is not evidence AI can't replace roles. It's the predictable outcome of treating AI as a binary replacement rather than a productivity layer. The organisations that maintained junior pipelines through 2024–2026 will have a structural talent advantage by 2028–2030. Harvard research across 62 million workers and 285,000 firms names this pattern: **"seniority-biased technological change."**
 
@@ -141,8 +128,6 @@ This is not evidence AI can't replace roles. It's the predictable outcome of tre
 - **Entry-Level Dev Postings**: –67% since 2022.
 - **CS Enrollment**: Fell 8.1% in 2025–2026 — the steepest decline of any field.
 - **Consequence**: A structural shortage of senior talent is projected to land between **2033–2037**, exactly when enterprise AI orchestration demand peaks. Decisions made in the 2026 labor market produce irreversible consequences in 2033.
-
----
 
 ---
 
@@ -165,15 +150,13 @@ Five structural drivers are compressing the timeline between capability and depl
 
 ---
 
----
-
 ## 7. Where This Goes Next
 
 The 60% Base Case weight reflects that both the capability trajectory (SWE-bench Pro doubling in 12 months) and the adoption signals (57% of practitioners with agents in production, Gartner's 40% enterprise prediction for EOY 2026) are on track, while the known structural friction — quality as the persistent production blocker — prevents this from being the Accelerated scenario.
 
 ### Three scenarios grounded in current trajectories:
 1. **Conservative (~18%)**: Progress slows. Capability plateau below 45% on SWE-bench Pro SEAL. AI remains a productivity multiplier — not an autonomous replacement. Hiring patterns stabilise. Junior pipelines survive in most sectors. The gap between AI-native and AI-resistant organisations grows slowly.
-2. **Base Case (~60%)**: AI handles 60–70% of software tasks. Engineering differentiates the top 5% of companies. Gartner 40% enterprise adoption. 
+2. **Base Case (~60%)**: AI handles 60–70% of software tasks. Engineering differentiates the top 5% of companies. Gartner 40% enterprise adoption.
 3. **Accelerated (~22%)**: Reliability barrier resolved (the 32% quality barrier). ARC-AGI-3 cracks 30%+. AI handles most end-to-end tasks. Self-correcting agent architectures make hallucination largely irrelevant for structured tasks. Reliability converges with capability.
 
 > [!NOTE]
@@ -185,24 +168,22 @@ The scenario analysis above covers the next 18 months. What follows is the struc
 
 ---
 
----
-
 ## 8. The Epistemic Flood
 
-The Epistemic Flood is a structural disruption caused by the collapse of inference costs. 
+The Epistemic Flood is a structural disruption caused by the collapse of inference costs.
 
 ### 8.1 — The Flood Is Already Here
-The signals are no longer emerging; they are measurable, institutional, and accelerating. 
+The signals are no longer emerging; they are measurable, institutional, and accelerating.
 - **Scientific Publishing**: NeurIPS received 21,575 submissions in 2025—more than double its 2020 volume. ICLR 2026 reported a 70% year-on-year increase in submissions (~20,000 papers). 21% of ICLR peer reviews were found to be fully AI-generated. In response, arXiv changed its endorsement policy to stem the "flood of low-quality submissions."
 - **Legal Practice**: A researcher at HEC Paris tracking AI-related court sanctions globally counts more than 1,200 cases. By late 2025, the rate reached two to three cases per day. In March 2026, a DOJ attorney's brief was found to contain fabricated quotes and misstated case law—identified by a retired colonel who simply knew the regulator text didn't "read right."
 
 ### 8.2 — The Structural Paradox
-The standard framing treats the Epistemic Flood as a consequence of AI generating "bad" content. However, perfectly accurate AI breaks institutions just as surely as unreliable content. 
+The standard framing treats the Epistemic Flood as a consequence of AI generating "bad" content. However, perfectly accurate AI breaks institutions just as surely as unreliable content.
 
 Every institution built on the assumption of human-scale content production has implicit throughput limits baked into its design—"load-bearing walls." Remove them, and the structure responds the same way. Scarcity of expert attention is the new bottleneck. When volume scales 10x, the verification burden on humans increases absolutely.
 
 ### 8.3 — The Verification Layer
-If production is automated, verification must follow. The human role moves upstream—from producer/verifier to **parameter setter**. 
+If production is automated, verification must follow. The human role moves upstream—from producer/verifier to **parameter setter**.
 - **Legal**: "Hyperlink Rules" require litigants to hyperlink every citation to an authoritative source at the point of filing. A hallucinated case cannot be hyperlinked because it does not exist.
 - **Scientific**: Researchers are proposing machine-readable "structured appendices" that transform manuscripts into queryable, executable research environments—making computational claims directly verifiable by automated systems rather than trusting human reviewers to catch errors in prose.
 
@@ -239,8 +220,6 @@ If production is automated, verification must follow. The human role moves upstr
 
 ---
 
----
-
 ## 📊 Technical Appendix (Developer Documentation)
 
 This project is a React-based interactive report designed for high-density data visualization and reading mode optimization.
@@ -266,6 +245,6 @@ This brief synthesises data current as of **April 4, 2026**.
 ## 📄 License & Attribution
 
 Published by **Arthur Devresse & Claude Sonnet 4.6 & Gemini 3.1 Pro**.  
-Data synthesized from Google DORA, MIT Project NANDA, Stanford Digital Economy Lab, and other primary sources. 
+Data synthesized from Google DORA, MIT Project NANDA, Stanford Digital Economy Lab, and other primary sources.
 
 *© 2026 Werk-Ed. All rights reserved.*
