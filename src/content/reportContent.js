@@ -15,8 +15,8 @@ export const content = {
     essentials: "The headline number most companies quote — 80.9% — comes from a test that's been compromised by the AI companies themselves training on it. The clean, independent measure is 45.9%. That's the number worth using."
   },
   s1Callout1: {
-    expert: "The gap that matters most isn't Verified vs. Pro. It's SEAL vs. custom. Three different agent systems running the same base model (Claude Opus 4.5) scored between 50.2% and 55.4% on SWE-bench Pro. The 5–10 point spread comes entirely from agent architecture — not the model.",
-    essentials: "The same underlying AI, set up three different ways by three different teams, scored between 50.2% and 55.4% on the same test. The difference isn't the AI — it's the system built around it."
+    expert: "The gap that matters most isn't Verified vs. Pro. It's SEAL vs. custom. Three different agent systems running the same base model (Claude Opus 4.5) scored between 50.2% and 55.4% on SWE-bench Pro. The 5–10 point spread between standard models and custom agentic architectures proves a fundamental economic shift: hiring better systems engineers to build custom verification loops around a cheaper, faster model yields higher ROI than buying a better frontier model.",
+    essentials: "The same AI, set up in three different ways, scored significantly differently on the same test. The difference isn't the AI — it's the system engineers. Building custom checks around a cheaper AI is now more valuable than simply buying the most expensive AI model available."
   },
   s1TestContext: {
     expert: "SWE-bench Verified saturated and was replaced by SWE-bench Pro. ARC-AGI-2 approached its ceiling in under 12 months; ARC-AGI-3 launched March 25, 2026. MMLU, GPQA, HumanEval — all retired. The ~8-month benchmark half-life this report predicted in November 2025 is holding, and possibly shortening. A field that replaces its measuring sticks this fast is a field where the underlying capability is genuinely moving. The saturation isn't the story. The replacement is.",
@@ -48,8 +48,8 @@ export const content = {
   },
 
   s4Opening: {
-    expert: "The original report tracked six capability dimensions. V1's radar measured individual model benchmarks. This one tracks what AI services actually deliver to users — regardless of whether the result comes from a base model, a RAG pipeline, or an agentic system. Six dimensions. Six things that matter to anyone relying on AI output: Reasoning. Execution. Memory. Confidence Calibration. Coherence. Reliability.",
-    essentials: "The original report tracked six capability dimensions. The first version measured individual AI model tests. This one tracks what AI services actually deliver to users — regardless of whether the result comes from an underlying AI model, an AI with access to real-time information, or an agentic system. Six dimensions. Six things that matter to anyone relying on AI output: Reasoning. Execution. Memory. Confidence Calibration. Coherence. Reliability."
+    expert: "While developer surveys (such as LangChain's) report up to 57% of early-adopter practitioners have agents in production, enterprise reality is starkly different. According to MIT’s Project NANDA (July 2025), up to 95% of enterprise GenAI initiatives fail to deliver measurable ROI—primarily because they deploy base-model API wrappers rather than engineered systems. Consequently, Gartner’s projected 40% enterprise adoption rate for 2026 masks a massive capital misallocation. That 40% largely represents 'shadow adoption' (companies buying seat licenses for raw chat interfaces); true, ROI-positive deployment of custom agentic architectures remains sub-5%.",
+    essentials: "While a majority of tech-savvy developers are using AI agents successfully on their own, roughly 95% of large company AI projects have failed to make a profit. Most companies are just buying AI tools for staff rather than building the systems needed to get real results. While 4 in 10 companies claim to use AI, only about 5% are seeing a real financial return."
   },
   s4ContextLine: {
     expert: "",
@@ -66,8 +66,8 @@ export const content = {
     essentials: "The data has refined this shape since the previous V1 report. The 'Barbell' model originally assumed we'd have stable senior and junior roles with the middle disappearing. That's no longer what we see. Entry-level job openings are down 67% since 2022. The bottom is falling away entirely. What remains is an unbalanced pyramid: the top is growing, the middle is being squeezed from both sides, and the bottom is being structurally removed. The name stays because it's the same economic shift — just more extreme."
   },
   s5Pipeline: {
-    expert: "The Elastic Education Collapse: While 4-year degrees lag, short-cycle training collapsed instantly. By mid-2025, the coding bootcamp industry severely contracted as the ROI of syntax-only education evaporated.",
-    essentials: "The Elastic Education Collapse: While 4-year degrees take time to change, short-term coding bootcamps have seen an immediate contraction as the value of simply learning syntax has disappeared."
+    expert: "The tech industry is currently protected by a 'senior bulge'—a massive cohort of mid-to-senior engineers hired during 2010–2022. The structural crisis will hit 2033–2037 when this bulge ages out and the industry faces the missing 2023–2026 junior cohort. Because it takes a decade to build architectural intuition, the bill for today's entry-level hiring freeze comes due in 2033.",
+    essentials: "Tech's current strength comes from senior staff hired years ago. The crisis isn't now — it's in 2033, when these seniors retire and companies realize they stopped training new people in 2024. Today's hiring freeze creates a massive skill gap that will take ten years to fix."
   },
   s5Klarna: {
     expert: "Klarna stopped all hiring in 2023, slashed headcount from 5,500 to 3,400, and celebrated $10M in savings. By mid-2025 they were scrambling to rehire after customer satisfaction collapsed and engineers were pulled from product work to cover service. This is not evidence AI can't replace roles. It's the predictable outcome of treating AI as binary replacement rather than productivity layer. The organisations that maintained junior pipelines through 2024–2026 will have a structural talent advantage by 2028–2030. Harvard research across 62 million workers and 285,000 firms names this pattern: \"seniority-biased technological change.\"",
@@ -111,8 +111,8 @@ export const content = {
       essentials: "Memory has moved from effectively zero to a solvable architectural layer — 91.4% on LongMemEval (Vectorize Hindsight, Dec 2025), 95%+ claimed by Mastra (Feb 2026). AI now has persistent memory across sessions. The difference this makes is large: the same AI goes from 44.8% to 74.6% accuracy when it can remember and plan across steps."
     },
     openSource: {
-      expert: "Open-Source Parity — free models now match or beat proprietary ones on most standard benchmarks (coding, knowledge, and reasoning), trailing on agentic tasks (45.9% vs 56.8% on SWE-bench Pro). This closes the capability gap and shifts competitive advantage from model weights to execution infrastructure. Action Moat: the durable competitive advantage that comes from owning the integrations, workflows, and tool ecosystems AI operates inside — not the model weights themselves. The Data Moat is dead; 434 open-source vs. 217 closed-source API models.",
-      essentials: "Free, open AI models now match paid ones on almost every test. The competitive edge shifts to the integrations and workflows built around the AI — not the AI itself. Owning the workflow is the new moat."
+      expert: "Action Moat: The true Action Moat is not API syntax; it is enterprise compliance and permission stickiness. Mapping agents to legacy infrastructure (SAP, Active Directory) and surviving SOC2 audits creates a durable advantage. Once an agentic system owns these data flows, ripping it out is as painful as migrating off Salesforce. Capital flows to the integrators, not the tool-chain builders.",
+      essentials: "The real competitive edge isn't the AI — it's the difficult work of connecting AI to a company's old systems (like security and databases). Once these connections are made and security audits are passed, the AI becomes a permanent part of the business that is very hard to replace."
     }
   },
 
@@ -230,8 +230,8 @@ export const content = {
   },
   s8_8_3: {
     expert: {
-      p1: "If production is automated, verification must follow. \"Hyperlink Rules\" require litigants to hyperlink citations, but URLs only verify routing, not truth. The true load-bearing walls emerging against the flood are API-enforced querying against closed institutional databases (RAG constrained strictly to Westlaw) and Zero-Knowledge Proofs (ZKPs) that cryptographically verify a specific model executed a specific search on a certified database, returning a verified hash of the source material. Because generating synthetic text costs fractions of a cent while verification is computationally and humanly expensive, surviving institutions will introduce \"friction by design\"—financial staking, API-access fees, or algorithmic penalties to deter the mass submission of unverified data.",
-      p2: "In scientific publishing, researchers are proposing machine-readable \"structured appendices\" that transform manuscripts into queryable, executable research environments—making computational claims directly verifiable by automated systems."
+      p1: "If production is automated, verification must follow. The flood is fundamentally an asymmetric cost problem: generating a 500-page brief costs fractions of a cent, while human verification costs dollars per minute. Surviving institutions will introduce 'friction by design'—financial staking, API-access fees, or ZKPs—to shift the cost of verification back onto the submitter.",
+      p2: "In scientific publishing, researchers are proposing machine-readable 'structured appendices' that transform manuscripts into queryable, executable research environments—making computational claims directly verifiable by automated systems."
     },
     essentials: {
       p1: "The response across industries is the same: if AI produces, something must verify. Courts now require lawyers to prove citations come from real sources using digital watermarks or cryptographic proofs that verify an AI actually checked a trusted database. Surviving institutions will introduce 'friction by design'—fees, penalties, or algorithmic roadblocks—to prevent the market from being flooded with unverified AI data.",
@@ -290,8 +290,8 @@ export const content = {
   // SECTION 9
   s9Enterprise: {
     moment: {
-      expert: "95% of enterprise GenAI projects in 2025 saw no measurable P&L impact — and the data is clear on why. (MIT Project NANDA, \"The GenAI Divide\", July 2025 — based on 300+ initiative reviews; the bar is rapid revenue acceleration, not incremental value.) The projected 40% enterprise adoption rate for 2026 is masking a massive capital misallocation: what we call \"shadow adoption\" where companies buy base model licenses without an agentic architecture. The 5% actually extracting ROI are those investing the capital into orchestrated systems.",
-      essentials: "95% of company AI projects in 2025 showed no measurable financial impact. Much of the current high 'adoption' is just companies buying AI tools for staff. The small group of companies seeing real profit are those building AI into deeply engineered systems."
+      expert: "While developer surveys report up to 57% of early-adopter practitioners have agents in production, enterprise reality is starkly different. According to MIT’s Project NANDA (July 2025), up to 95% of enterprise GenAI initiatives fail to deliver measurable ROI—primarily because they deploy base-model API wrappers rather than engineered systems. Consequently, Gartner’s projected 40% enterprise adoption rate for 2026 masks a massive capital misallocation. That 40% largely represents 'shadow adoption' (companies buying seat licenses for raw chat interfaces); true, ROI-positive deployment of custom agentic architectures remains sub-5%.",
+      essentials: "Although most advanced developers use AI agents, 95% of corporate AI projects haven't paid off yet. Many companies are simply buying AI seat licenses without a plan for real integration. The small group of companies seeing a real return (sub-5%) are those building deeply engineered systems instead of just using basic toolsets."
     },
     next: {
       expert: "Your AI ROI problem is not a model problem. It's an architecture problem. Audit your existing deployments against the Base vs. System-Level gap. Identify which workflows are running base model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10× in 18 months.",
@@ -320,8 +320,8 @@ export const content = {
       essentials: "Look for AI that can admit when it's unsure. An AI that knows its limits is more valuable than one that scores slightly higher on a compromised test."
     },
     actionMoat: {
-      expert: "Evaluate the Action Moat over model capability. As defined earlier, open-source parity has commoditised raw capability; competitive advantage now sits in who owns the workflow.",
-      essentials: "Focus on who owns the actual workflow and tools built around the AI — that's where the lasting value sits, not in the model itself. Raw AI capability is becoming a commodity."
+      expert: "Evaluate the Action Moat over model capability. Advantage now sits in enterprise compliance and permission stickiness — mapping agents to legacy infrastructure (SAP, Active Directory) and surviving SOC2 audits. Once an agentic system owns these data flows, it becomes a permanent layer.",
+      essentials: "Focus on who owns the connection between the AI and the company's core systems (like security and customer data). Once these connections are built and audited, the AI becomes very difficult to replace."
     }
   },
   s9Careers: {
