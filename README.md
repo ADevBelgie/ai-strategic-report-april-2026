@@ -209,12 +209,12 @@ If production is automated, verification must follow. The human role moves upstr
 - **The Action Moat**: Evaluate the Action Moat over model capability. The Action Moat is the durable competitive advantage that comes from owning integrations, workflows, and tool ecosystems — not model weights. Open-source parity has commoditised raw capability; competitive advantage now sits in who owns the workflow.
 
 ### 💼 For Careers
-- **Reading the current moment**: Junior developer postings are down 67% since 2022. CS enrollment fell 8.1% in 2025–2026 — the steepest decline of any field. The pipeline is compressing from both ends simultaneously. The people accumulating the most value right now are those who understand how to design the environments AI operates inside, not those competing with AI on execution.
+- **Reading the current moment**: The software talent pipeline is experiencing a historic structural contraction. With entry-level opportunities evaporating and university enrollment hitting a multi-decade inflection point, this is no longer a temporary market correction — it is a permanent shift in who the industry values. The people accumulating the most value right now are move-upstream orchestrators, not those competing with AI on execution.
 - **Next Step**: Position around orchestration, not execution. Master agent frameworks (HAL, Mastra) and the Model Context Protocol (MCP). The "Junior 2027" profile is an orchestrator who manages a fleet of agents — not a coder who writes individual patches.
 - **Resilience**: Transition from specialist execution to generalist system engineering. The most resilient professionals in 2027 are those who navigate the whole stack to orchestrate AI components — not those one capability level below the current frontier.
 
 ### 🎓 For Education
-- **Reading the current moment**: CS enrollment fell 8.1% in 2025–2026 — the steepest decline of any field. The throughput limit in software development is no longer code generation; it is verification and coherence management. Curricula that still centre syntax acquisition are producing graduates for a role that is being structurally removed.
+- **Reading the current moment**: The unprecedented flight of students from Computer Science signifies a deep crisis of confidence in the traditional pedagogical model. As code generation becomes a zero-cost commodity, the throughput limit is no longer generation; it is verification and coherence management. Curricula that still centre syntax acquisition are producing graduates for a role that is being structurally removed.
 - **Next Step**: Shift curriculum from syntax and patterns to system-level debugging, automated verification, and prompt-less engineering. The goal is to produce humans who can set the parameters for automated production — not compete with it.
 - **The Verification Layer**: The verification layer is the professional value-add. Produce graduates who can build the safeguards that ensure AI-generated output meets professional standards. That is the human role that AI cannot yet automate.
 
@@ -232,7 +232,7 @@ This brief synthesises data current as of **April 4, 2026**.
 - **Epistemic Data**: HEC Paris Legal Sanctions Tracker, arXiv Structured Appendices Proposal.
 
 ### Tech Stack
-- **React 19 / Vite 7 / Tailwind CSS 3**
+- **React 19 / Vite 7 / Tailwind CSS 4**
 - **Visualization**: Custom SVG-based Radar, Dumbbell, and Timeline components.
 
 ### Local Development

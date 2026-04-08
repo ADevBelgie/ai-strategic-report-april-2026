@@ -314,8 +314,8 @@ export const content = {
   },
   s9Careers: {
     moment: {
-      expert: "Junior developer postings are down 67% since 2022. CS enrollment fell 8.1% in 2025–2026. The pipeline is compressing from both ends simultaneously — and the people accumulating the most value right now are those who understand how to design the environments AI operates inside, not those who are competing with AI on execution.",
-      essentials: "Entry-level tech jobs are down 67% since 2022. The people pulling ahead aren't competing with AI on writing code — they're learning to direct and oversee AI systems doing the work."
+      expert: "The software talent pipeline is experiencing a historic structural contraction. With entry-level opportunities evaporating and university enrollment hitting a multi-decade inflection point, this is no longer a temporary market correction — it is a permanent shift in who the industry values. The surplus of execution-only talent is being replaced by a premium on move-upstream orchestrators.",
+      essentials: "The pathways into a tech career have fundamentally changed as AI takes over basic coding tasks. Winning in this market means moving past simple execution and focusing on how to direct and manage AI systems to do the work for you."
     },
     next: {
       expert: "Position around orchestration, not execution. Master agent frameworks (HAL, Mastra) and the Model Context Protocol (MCP). The 'Junior 2027' profile is an orchestrator who manages a fleet of agents — not a coder who writes individual patches.",
@@ -328,8 +328,8 @@ export const content = {
   },
   s9Education: {
     moment: {
-      expert: "CS enrollment fell 8.1% in 2025–2026 — the steepest decline of any field. The throughput limit in software development is no longer code generation; it's verification and coherence management. Curricula that still centre syntax acquisition are producing graduates for a role that is being structurally removed.",
-      essentials: "Computer science enrollment dropped more sharply last year than any other field. The skills gap universities need to address isn't about whether students can write code — it's whether they can verify, manage, and take accountability for code that AI generates."
+      expert: "The unprecedented flight of students from Computer Science signifies a deep crisis of confidence in the traditional pedagogical model. As code generation becomes a zero-cost commodity, the throughput limit is no longer generation; it is verification and coherence management. Curricula that still centre syntax acquisition are producing graduates for a role that is being structurally removed.",
+      essentials: "The massive drop in student interest reflects a hard truth: learning to write code by hand is no longer enough for a professional career. Education must now focus on teaching students how to check, manage, and take responsibility for the work that AI produces."
     },
     next: {
       expert: "Shift curriculum from syntax and patterns to system-level debugging, automated verification, and prompt-less engineering. The goal is to produce humans who can set the parameters for automated production — not compete with it.",
