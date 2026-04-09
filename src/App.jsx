@@ -3,7 +3,7 @@ import './App.css';
 import {
   Activity, Brain, BarChart3, AlertTriangle, Target, Cpu, Compass, Users,
   Globe, FileText, Zap, Layers, TrendingUp, BookOpen, Database, Lightbulb,
-  Network, RotateCcw, Map, ArrowRight, Download, ExternalLink, Github
+  Network, RotateCcw, Map, ArrowRight, Download, ExternalLink, Github, ShieldCheck
 } from 'lucide-react';
 import { Section, StatCard, CalloutBox, SplitStatDisplay, BenchmarkCard,
   DimensionDetailCard, ScenarioCard, TabComponent, SpeculativeSection, HorizonWatch
@@ -398,8 +398,9 @@ const AppContent = () => {
               { icon: Layers, color: 'text-indigo-400', title: 'Multimodal / Document AI', desc: content.s6Mechanisms.multimodal[displayMode] },
               { icon: Database, color: 'text-blue-400', title: 'Memory as Infrastructure', desc: content.s6Mechanisms.memory[displayMode] },
               { icon: Globe, color: 'text-rose-400', title: 'Open-Source Parity', desc: content.s6Mechanisms.openSource[displayMode] },
+              { icon: ShieldCheck, color: 'text-cyan-400', title: 'The Action Moat', desc: content.s6Mechanisms.actionMoat[displayMode] },
             ].map((card, i) => (
-              <div key={i} className={`bg-slate-800/50 border border-slate-700/50 rounded-xl p-5 hover:border-slate-600/50 transition-colors ${i === 4 ? 'md:col-span-2' : ''}`}>
+              <div key={i} className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-5 hover:border-slate-600/50 transition-colors">
                 <div className="flex items-center gap-3 mb-3">
                   <div className={`p-2 rounded-lg bg-slate-900/50 ${card.color}`}>
                     <card.icon size={18} />

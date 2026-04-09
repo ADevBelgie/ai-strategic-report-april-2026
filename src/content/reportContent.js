@@ -111,8 +111,12 @@ export const content = {
       essentials: "Memory has moved from effectively zero to a solvable architectural layer — 91.4% on LongMemEval (Vectorize Hindsight, Dec 2025), 95%+ claimed by Mastra (Feb 2026). AI now has persistent memory across sessions. The difference this makes is large: the same AI goes from 44.8% to 74.6% accuracy when it can remember and plan across steps."
     },
     openSource: {
-      expert: "Action Moat: The true Action Moat is not API syntax; it is enterprise compliance and permission stickiness. Mapping agents to legacy infrastructure (SAP, Active Directory) and surviving SOC2 audits creates a durable advantage. Once an agentic system owns these data flows, ripping it out is as painful as migrating off Salesforce. Capital flows to the integrators, not the tool-chain builders.",
-      essentials: "The real competitive edge isn't the AI — it's the difficult work of connecting AI to a company's old systems (like security and databases). Once these connections are made and security audits are passed, the AI becomes a permanent part of the business that is very hard to replace."
+      expert: "Open-Source Parity — Free models now match proprietary ones on most benchmarks",
+      essentials: "Free, open AI models now perform as well as the most expensive paid ones. Buying a better model is no longer a major advantage; the advantage comes from how you use it."
+    },
+    actionMoat: {
+      expert: "The Action Moat — Enterprise compliance and permission stickiness",
+      essentials: "The real edge is connecting AI to old company systems (security/databases). Once audited and active, the AI becomes a permanent part of the business."
     }
   },
 
@@ -131,7 +135,7 @@ export const content = {
       essentials: "AI handles 60–70% of software tasks. 4 in 10 large companies actively using AI agents."
     },
     accelerated: {
-      expert: "32% Quality barrier resolved. ARC-AGI-3 cracks 30%+.",
+      expert: "32% Quality barrier resolved. ARC-AGI-3 cracks 50–65%, definitively breaking the reinforcement learning bottleneck.",
       essentials: "Reliability problems get solved. AI cracks the next generation of reasoning tests."
     }
   },
@@ -316,8 +320,8 @@ export const content = {
   },
   s9Investors: {
     moment: {
-      expert: "The benchmark contamination issue is the most important signal for competitive positioning — and most investor decks are still using the wrong number. SWE-bench Verified (80.9%) has confirmed training data overlap. SWE-bench Pro is the honest measure at 45.9% standardised. Companies evaluating coding capability on the contaminated benchmark are making decisions on a compromised signal.",
-      essentials: "If a company is benchmarking AI using the standard contaminated test (SWE-bench Verified), their investment decisions are based on numbers that don't reflect reality. The honest measure is 45.9%, not 80.9%."
+      expert: "The benchmark contamination issue is the most important signal for competitive positioning — and most investor decks are still using the wrong number.",
+      essentials: "The benchmark contamination issue is the most important signal for competitive positioning — and most investor decks are still using the wrong number."
     },
     next: {
       expert: "Add metacognition and context coherence to your AI vendor evaluation criteria. A model that accurately signals its own uncertainty is worth more to an enterprise deployment than a model that scores 5% higher on a saturated benchmark.",
@@ -348,7 +352,7 @@ export const content = {
   },
   s9Education: {
     moment: {
-      expert: "The contraction of syntax-focused curricula and the collapse of short-cycle training signifies a deep crisis of confidence in the traditional pedagogical model. As code generation becomes a zero-cost commodity, the throughput limit is no longer generation; it is verification and coherence management. Curricula that still centre syntax acquisition are producing graduates for a role that is being structurally removed.",
+      expert: "The contraction of syntax-focused curricula and the collapse of short-cycle training signifies a deep crisis of confidence in the traditional pedagogical model. As code generation becomes an automated, low-marginal-cost utility, the throughput limit is no longer generation; it is verification and coherence management. Curricula that still centre syntax acquisition are producing graduates for a role that is being structurally removed.",
       essentials: "The sudden collapse of short-term training and bootcamps shows a hard truth: learning to write code by hand is no longer enough for a professional career. Education must now focus on teaching students how to check, manage, and take responsibility for the work that AI produces."
     },
     verificationParadox: {
