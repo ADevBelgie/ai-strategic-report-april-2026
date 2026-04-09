@@ -1,29 +1,29 @@
 export const scenarios = [
   {
     emoji: "🐢",
-    name: "Conservative",
-    probability: "~18%",
+    name: "Conservative Scenario: The Productivity Plateau",
+    probability: "Low (Tail Risk)", // Replaced percentage with Trajectory Weight
     horizon: "EOY 2027",
-    trigger: "Capability plateau below 45% on SWE-bench Pro SEAL.",
-    description: "Progress slows. The gap between typical and best systems widens rather than narrows. Junior hiring stabilises at current levels. Pipeline problem deepens but enterprise sector maintains apprenticeship hiring. Klarna-pattern corrections dampen full replacement sentiment.",
-    implication: "→ AI remains a productivity multiplier, not an autonomous replacement. Early movers extend leads. Late movers fall further behind."
+    trigger: "* **Trigger Conditions:** Capability plateaus below 45% on SWE-bench Pro SEAL. Multi-agent scaling hits a hard ceiling of context overflow that RL cannot solve.",
+    description: "AI remains a productivity multiplier, not an autonomous replacement. Junior pipelines survive in most sectors. The gap between AI-native and AI-resistant organizations grows slowly.",
+    implication: "AI remains a productivity multiplier, not an autonomous replacement. Junior pipelines survive in most sectors. The gap between AI-native and AI-resistant organizations grows slowly."
   },
   {
     emoji: "📈",
-    name: "Base Case",
-    probability: "~60%",
+    name: "Base Case Scenario: The Deployment Era",
+    probability: "High (Dominant)", // Replaced percentage with Trajectory Weight
     horizon: "Q2 2027",
-    trigger: "SWE-bench Pro 60–70%. Gartner 40% enterprise adoption.",
-    description: "AI handles 60–70% of software engineering tasks under standardised conditions. Junior share falls to 3–5%. Senior orchestrator demand up 60% YoY. Apprenticeship collapse forces industry-level response.",
-    implication: "→ System engineering becomes the primary competitive differentiator in AI deployment."
+    trigger: "* **Trigger Conditions:** AI cleanly handles 60–70% of software tasks. Enterprise adoption crosses 40% as organizations shift budget from shadow API wrappers to agentic CapEx.",
+    description: "Engineering differentiation moves entirely to systems architecture. The Action Moat (compliance/integration) becomes the primary barrier to entry.",
+    implication: "Engineering differentiation moves entirely to systems architecture. The Action Moat (compliance/integration) becomes the primary barrier to entry."
   },
   {
     emoji: "🚀",
-    name: "Accelerated",
-    probability: "~22%",
+    name: "Accelerated Scenario: The Reliability Breakthrough",
+    probability: "Moderate (Emerging)", // Replaced percentage with Trajectory Weight
     horizon: "EOY 2026 → 2027",
-    trigger: "32% Quality barrier resolved. ARC-AGI-3 cracks 30%+.",
-    description: "SWE-bench Pro exceeds 70%. Junior roles largely automated in tech-native orgs. New hybrid roles — AI-paired engineers — become the dominant hiring category. Reliability gap closes for structured domains.",
-    implication: "→ Reliability convergence ahead of schedule. Regulated sectors unlock at scale."
+    trigger: "* **Trigger Conditions:** The 32% quality barrier is resolved. ARC-AGI-3 definitively breaks the reinforcement learning bottleneck, crossing 50–65% by EOY 2026. Hallucination drops below 1% for unstructured tasks.",
+    description: "AI handles most end-to-end tasks. Reliability converges with capability, triggering the rapid phase of the Barbell Economy contraction.",
+    implication: "AI handles most end-to-end tasks. Reliability converges with capability, triggering the rapid phase of the Barbell Economy contraction."
   }
 ];

@@ -61,7 +61,7 @@ const App = () => {
 const AppContent = () => {
   const { mode, setMode } = useReadingMode();
   const [activeEconScenario, setActiveEconScenario] = useState('B');
-  const [active2027Scenario, setActive2027Scenario] = useState('base');
+  const [active2027Scenario, setActive2027Scenario] = useState('📈');
   const [isFading, setIsFading] = useState(false);
   const [displayMode, setDisplayMode] = useState(mode);
 
@@ -432,13 +432,15 @@ const AppContent = () => {
                 key={index}
                 emoji={scenario.emoji} 
                 title={scenario.name} 
-                probability={scenario.probability} 
+                probability={scenario.probability} // Trajectory Weight
                 horizon={scenario.horizon} 
-                headline={scenario.implication}
-                isActive={active2027Scenario === scenario.name.toLowerCase().replace(' ', '')} 
-                onClick={() => setActive2027Scenario(scenario.name.toLowerCase().replace(' ', ''))}
+                headline={scenario.implication} // Outcome
+                isActive={active2027Scenario === scenario.emoji} 
+                onClick={() => setActive2027Scenario(scenario.emoji)}
               >
-                {scenario.trigger}
+                <div className="scenario-markdown text-[13px]">
+                   <ReactMarkdown remarkPlugins={[remarkGfm]}>{scenario.trigger}</ReactMarkdown>
+                </div>
               </ScenarioCard>
             ))}
           </div>
@@ -570,37 +572,15 @@ const AppContent = () => {
               label: 'Enterprise',
               title: 'Enterprise Leaders',
               content: (
-                <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
-                  <div>
-                    <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
-                    <p>{translate(content.s9Enterprise.moment[displayMode], displayMode)}</p>
-                  </div>
-                   <div>
-                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
-                     <p>{translate(content.s9Enterprise.moment[displayMode], displayMode)}</p>
-                   </div>
-                   {content.s9Enterprise.capex && (
-                     <div>
-                       <h5 className="text-amber-400 font-bold text-xs uppercase tracking-wider mb-2">CapEx vs. OpEx Failure Mode</h5>
-                       <p>{translate(content.s9Enterprise.capex[displayMode], displayMode)}</p>
-                     </div>
-                   )}
-                   <div>
-                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next step</h5>
-                     <p>{translate(content.s9Enterprise.next[displayMode], displayMode)}</p>
-                   </div>
-                  {content.s9Enterprise.architectureDividend && (
-                    <div>
-                      <h5 className="text-blue-400 font-bold text-xs uppercase tracking-wider mb-2">ROI Driver</h5>
-                      <p>{translate(content.s9Enterprise.architectureDividend[displayMode], displayMode)}</p>
+                <div className="space-y-6 text-sm text-slate-300 leading-relaxed">
+                  {Object.entries(content.s9Enterprise).map(([key, node], i) => (
+                    <div key={key}>
+                       <h5 className={`${i === 0 ? 'text-indigo-400' : 'text-blue-400'} font-bold text-xs uppercase tracking-wider mb-2`}>
+                        {key === 'capexTrap' ? 'The CapEx vs. Variable OpEx Trap' : 'The Architecture Dividend'}
+                       </h5>
+                       <p>{translate(node[displayMode], displayMode)}</p>
                     </div>
-                  )}
-                  {content.s9Enterprise.epistemicFlood && (
-                    <div>
-                      <h5 className="text-rose-400 font-bold text-xs uppercase tracking-wider mb-2">The Epistemic Flood</h5>
-                      <p>{translate(content.s9Enterprise.epistemicFlood[displayMode], displayMode)}</p>
-                    </div>
-                  )}
+                  ))}
                 </div>
               )
             },
@@ -608,24 +588,24 @@ const AppContent = () => {
               label: 'Investors',
               title: 'Strategists & Investors',
               content: (
-                <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
-                  <div>
-                    <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
-                    <p>{translate(content.s9Investors.moment[displayMode], displayMode)}</p>
-                  </div>
-                  <div className="my-4">
-                    <MarkdownAlert content={content.s9Caution[displayMode]} />
-                  </div>
-                  <div>
-                    <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
-                    <p>{translate(content.s9Investors.next[displayMode], displayMode)}</p>
-                  </div>
-                  {content.s9Investors.actionMoat && (
-                    <div>
-                      <h5 className="text-blue-400 font-bold text-xs uppercase tracking-wider mb-2">Strategic Shift</h5>
-                      <p>{translate(content.s9Investors.actionMoat[displayMode], displayMode)}</p>
-                    </div>
-                  )}
+                <div className="space-y-6 text-sm text-slate-300 leading-relaxed">
+                  {Object.entries(content.s9Investors).map(([key, node]) => {
+                    if (key === 'caution') {
+                      return (
+                        <div key={key} className="my-6">
+                          <MarkdownAlert content={node[displayMode]} />
+                        </div>
+                      );
+                    }
+                    return (
+                      <div key={key}>
+                        <h5 className={`${key === 'readingMoment' ? 'text-indigo-400' : 'text-emerald-400'} font-bold text-xs uppercase tracking-wider mb-2`}>
+                          {key === 'actionMoatMa' ? 'The Action Moat as an M&A Target' : 'Reading the Current Moment'}
+                        </h5>
+                        <p>{translate(node[displayMode], displayMode)}</p>
+                      </div>
+                    );
+                  })}
                 </div>
               )
             },
@@ -633,27 +613,13 @@ const AppContent = () => {
               label: 'Careers',
               title: 'Tech Professionals & Career Entrants',
               content: (
-                <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
-                  <div>
-                    <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
-                    <p>{translate(content.s9Careers.moment[displayMode], displayMode)}</p>
-                  </div>
-                   {content.s9Careers.verificationParadox && (
-                     <div>
-                       <h5 className="text-amber-400 font-bold text-xs uppercase tracking-wider mb-2">The Verification Paradox</h5>
-                       <p>{translate(content.s9Careers.verificationParadox[displayMode], displayMode)}</p>
-                     </div>
-                   )}
-                   <div>
-                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next step</h5>
-                     <p>{translate(content.s9Careers.next[displayMode], displayMode)}</p>
-                   </div>
-                  {content.s9Careers.resilience && (
-                    <div>
-                      <h5 className="text-blue-400 font-bold text-xs uppercase tracking-wider mb-2">Long-term Resilience</h5>
-                      <p>{translate(content.s9Careers.resilience[displayMode], displayMode)}</p>
+                <div className="space-y-6 text-sm text-slate-300 leading-relaxed">
+                  {Object.entries(content.s9Careers).map(([key, node]) => (
+                    <div key={key}>
+                       <h5 className="text-amber-400 font-bold text-xs uppercase tracking-wider mb-2">The Rise of Training Enclaves</h5>
+                       <p>{translate(node[displayMode], displayMode)}</p>
                     </div>
-                  )}
+                  ))}
                 </div>
               )
             },
@@ -661,27 +627,15 @@ const AppContent = () => {
               label: 'Education',
               title: 'Educational Institutions',
               content: (
-                <div className="space-y-4 text-sm text-slate-300 leading-relaxed">
-                  <div>
-                    <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
-                    <p>{translate(content.s9Education.moment[displayMode], displayMode)}</p>
-                  </div>
-                   {content.s9Education.verificationParadox && (
-                     <div>
-                       <h5 className="text-amber-400 font-bold text-xs uppercase tracking-wider mb-2">The Verification Paradox</h5>
-                       <p>{translate(content.s9Education.verificationParadox[displayMode], displayMode)}</p>
-                     </div>
-                   )}
-                   <div>
-                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next step — Training Enclaves</h5>
-                     <p>{translate(content.s9Education.next[displayMode], displayMode)}</p>
-                   </div>
-                  {content.s9Education.verification && (
-                    <div>
-                      <h5 className="text-blue-400 font-bold text-xs uppercase tracking-wider mb-2">Curriculum Focus</h5>
-                      <p>{translate(content.s9Education.verification[displayMode], displayMode)}</p>
+                <div className="space-y-6 text-sm text-slate-300 leading-relaxed">
+                  {Object.entries(content.s9Education).map(([key, node]) => (
+                    <div key={key}>
+                       <h5 className={`${key === 'newCurriculum' ? 'text-indigo-400' : 'text-amber-400'} font-bold text-xs uppercase tracking-wider mb-2`}>
+                        {key === 'newCurriculum' ? 'The New Curriculum' : 'The Verification Paradox'}
+                       </h5>
+                       <p>{translate(node[displayMode], displayMode)}</p>
                     </div>
-                  )}
+                  ))}
                 </div>
               )
             },

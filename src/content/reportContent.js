@@ -111,37 +111,37 @@ export const content = {
       essentials: "Memory has moved from effectively zero to a solvable architectural layer — 91.4% on LongMemEval (Vectorize Hindsight, Dec 2025), 95%+ claimed by Mastra (Feb 2026). AI now has persistent memory across sessions. The difference this makes is large: the same AI goes from 44.8% to 74.6% accuracy when it can remember and plan across steps."
     },
     openSource: {
-      expert: "Open-Source Parity — Free models now match proprietary ones on most benchmarks",
-      essentials: "Free, open AI models now perform as well as the most expensive paid ones. Buying a better model is no longer a major advantage; the advantage comes from how you use it."
+      expert: "Open-Source Parity — Free models now match or beat proprietary ones on most standard benchmarks.",
+      essentials: "Open-Source Parity — Free models now match or beat proprietary ones on most standard benchmarks."
     },
     actionMoat: {
-      expert: "The Action Moat — Enterprise compliance and permission stickiness",
-      essentials: "The real edge is connecting AI to old company systems (security/databases). Once audited and active, the AI becomes a permanent part of the business."
+      expert: "The Action Moat — The true defensible moat is no longer API syntax; it is enterprise compliance and permission stickiness. Once an organisation grants an agentic system read/write permissions to its core infrastructure, ripping it out is as painful as migrating off Salesforce.",
+      essentials: "The Action Moat — The true defensible moat is no longer API syntax; it is enterprise compliance and permission stickiness. Once an organisation grants an agentic system read/write permissions to its core infrastructure, ripping it out is as painful as migrating off Salesforce."
     }
   },
 
   // SECTION 7
   s7Methodology: {
-    expert: "The 60% Base Case weight reflects that both the capability trajectory (SWE-bench Pro doubling in 12 months) and the adoption signals (57% of practitioners with agents in production, Gartner's 40% enterprise prediction for EOY 2026) are on track, while the known structural friction — quality as the persistent production blocker — prevents this from being the Accelerated scenario.",
-    essentials: "The most likely outcome gets 60% because the capability improvements and real-world adoption are both on track — but persistent reliability problems in production prevent this from being the fastest scenario."
+    expert: "The Base Case reflects that both the capability trajectory (SWE-bench Pro doubling in 12 months) and the adoption signals (57% of practitioners with agents in production, Gartner's 40% enterprise prediction for EOY 2026) are on track, while the known structural friction — quality as the persistent production blocker — prevents this from being the Accelerated scenario.",
+    essentials: "The Base Case reflects that both the capability trajectory and the adoption signals are on track, while persistent reliability problems in production prevent this from being the Accelerated scenario."
   },
   s7Triggers: {
     conservative: {
-      expert: "Capability plateau below 45% on SWE-bench Pro SEAL.",
-      essentials: "AI stops meaningfully improving on independent tests."
+      expert: "Capability plateaus below 45% on SWE-bench Pro SEAL. Multi-agent scaling hits a hard ceiling of context overflow that RL cannot solve.",
+      essentials: "Capability plateaus below 45% on SWE-bench Pro SEAL. Multi-agent scaling hits a hard ceiling of context overflow that RL cannot solve."
     },
     base: {
-      expert: "SWE-bench Pro 60–70%. Gartner 40% enterprise adoption.",
-      essentials: "AI handles 60–70% of software tasks. 4 in 10 large companies actively using AI agents."
+      expert: "AI cleanly handles 60–70% of software tasks. Enterprise adoption crosses 40% as organizations shift budget from shadow API wrappers to agentic CapEx.",
+      essentials: "AI cleanly handles 60–70% of software tasks. Enterprise adoption crosses 40% as organizations shift budget from shadow API wrappers to agentic CapEx."
     },
     accelerated: {
-      expert: "32% Quality barrier resolved. ARC-AGI-3 cracks 50–65%, definitively breaking the reinforcement learning bottleneck.",
-      essentials: "Reliability problems get solved. AI cracks the next generation of reasoning tests."
+      expert: "The 32% quality barrier is resolved. ARC-AGI-3 definitively breaks the reinforcement learning bottleneck, crossing 50–65% by EOY 2026. Hallucination drops below 1% for unstructured tasks.",
+      essentials: "The 32% quality barrier is resolved. ARC-AGI-3 definitively breaks the reinforcement learning bottleneck, crossing 50–65% by EOY 2026. Hallucination drops below 1% for unstructured tasks."
     }
   },
   s7Note: {
-    expert: "> **NOTE: Probability methodology**: These weights are informed estimates derived from six independent data inputs — not outputs of a formal forecasting model. Inputs: ARC-AGI-3 progress rates; inference cost curve (Stanford AI Index); BLS / Stanford / Harvard labour market data; open-source capability trajectory; LangChain practitioner survey (57% production rate); Gartner / Databricks enterprise adoption signals.",
-    essentials: "> **NOTE**: These probabilities are informed estimates based on multiple data sources, including current AI progress rates, labor market data, and enterprise adoption signals."
+    expert: "> **NOTE: Scenario methodology**: These trigger conditions are informed by six independent data inputs — not outputs of a formal forecasting model. Inputs: ARC-AGI-3 progress rates; inference cost curve (Stanford AI Index); BLS / Stanford / Harvard labour market data; open-source capability trajectory; LangChain practitioner survey (57% production rate); Gartner / Databricks enterprise adoption signals.",
+    essentials: "> **NOTE: Scenario methodology**: These trigger conditions are informed by six independent data inputs — not outputs of a formal forecasting model. Inputs: ARC-AGI-3 progress rates; inference cost curve (Stanford AI Index); BLS / Stanford / Harvard labour market data; open-source capability trajectory; LangChain practitioner survey (57% production rate); Gartner / Databricks enterprise adoption signals."
   },
   s7Transition: {
     expert: "The scenario analysis above covers the next 18 months. What follows is the structural frame those scenarios are all sitting inside.",
@@ -293,79 +293,43 @@ export const content = {
 
   // SECTION 9
   s9Enterprise: {
-    moment: {
-      expert: "While developer surveys report up to 57% of early-adopter practitioners have agents in production, enterprise reality is starkly different. According to MIT's Project NANDA (July 2025), up to 95% of enterprise GenAI initiatives fail to deliver measurable ROI—primarily because they deploy base-model API wrappers rather than engineered systems. Consequently, Gartner's projected 40% enterprise adoption rate for 2026 masks a massive capital misallocation. That 40% largely represents 'shadow adoption' (companies buying seat licenses for raw chat interfaces); true, ROI-positive deployment of custom agentic architectures remains sub-5%.",
-      essentials: "Although most advanced developers use AI agents, 95% of corporate AI projects haven't paid off yet. Many companies are simply buying AI seat licenses without a plan for real integration. The small group of companies seeing a real return (sub-5%) are those building deeply engineered systems instead of just using basic toolsets."
-    },
-    capex: {
-      expert: "The CapEx vs. Variable OpEx Trap: Companies treat AI as a predictable SaaS API subscription. Building state-managed agentic systems is actually a CapEx systems integration project, equivalent to deploying a new ERP. But the runtime economics are entirely different: highly autonomous, looping agents generate variable, non-deterministic compute OpEx. When an agent gets stuck in an error-recovery loop, it burns tokens at machine speed. CFOs must budget for CapEx integration while building hard circuit-breakers to cap runaway variable inference costs.",
-      essentials: "Most companies are failing at AI because they are paying for it the wrong way. Buying access to an AI chat interface is like renting a car—predictable monthly cost, builds nothing. But real agentic systems are more like hiring staff: you pay integration costs upfront (CapEx), then face variable monthly bills that spike when the AI gets confused and loops. Companies need both a capital plan and a circuit-breaker to stop runaway costs."
-    },
-    next: {
-      expert: "Your AI ROI problem is not a model problem. It's an architecture problem. Audit your existing deployments against the Base vs. System-Level gap. Identify which workflows are running base model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10× in 18 months.",
-      essentials: "Look at your current AI projects and find where simple AI prompts have replaced what should be better-engineered systems. The gap between what you have and what you need is fixable—and the cost of fixing it has fallen dramatically."
+    capexTrap: {
+      expert: "The CapEx vs. Variable OpEx Trap: Treat AI not as a predictable SaaS API subscription, but as a CapEx systems integration project. The runtime economics of autonomous, looping agents generate variable, non-deterministic compute OpEx. When an agent gets stuck in an error-recovery loop, it burns tokens at machine speed. CFOs must budget for CapEx integration while building hard circuit-breakers to cap runaway inference costs.",
+      essentials: "The CapEx vs. Variable OpEx Trap: Treat AI not as a predictable SaaS API subscription, but as a CapEx systems integration project. The runtime economics of autonomous, looping agents generate variable, non-deterministic compute OpEx. When an agent gets stuck in an error-recovery loop, it burns tokens at machine speed. CFOs must budget for CapEx integration while building hard circuit-breakers to cap runaway inference costs."
     },
     architectureDividend: {
-      expert: "The engineering dividend is now quantified. Moving from base model calls to agentic systems increases task autonomy from 45% to over 74%. This is the primary ROI driver for 2026–2027 deployments—not model selection.",
-      essentials: "Moving from simple base model prompts to properly engineered agentic systems increases efficiency from 45% to 74%. That gap is the single biggest factor in making AI pay off."
-    },
-    epistemicFlood: {
-      expert: "The Epistemic Flood: If this brief provides the timeline, our companion essay provides the structural map. To understand why legal liability will become the primary bottleneck for enterprise AI, and how the physical limitations of robotics will create a temporary buffer for your workforce, read: https://after-the-intelligence-flood.vercel.app",
-      essentials: "The Future of Quality: As AI content floods the market, institutions and laws are being forced to change. To understand why legal rules will change and how physics limits what AI can do in the real world, read: https://after-the-intelligence-flood.vercel.app"
+      expert: "The Architecture Dividend: Stop evaluating models; evaluate your pipelines. Moving from base model calls to agentic systems increases task autonomy from 45% to over 74%. Audit your existing deployments to identify which workflows are running vulnerable base model calls where they should be running grounded, state-managed pipelines.",
+      essentials: "The Architecture Dividend: Stop evaluating models; evaluate your pipelines. Moving from base model calls to agentic systems increases task autonomy from 45% to over 74%. Audit your existing deployments to identify which workflows are running vulnerable base model calls where they should be running grounded, state-managed pipelines."
     }
   },
-  s9Caution: {
-    expert: "> [!CAUTION]\n> **Caution on Agentic Benchmarks**: Do not underwrite investments based purely on execution benchmarks like Terminal-Bench 2.0. Agent frameworks are highly susceptible to Goodhart's Law, frequently overfitting to a benchmark's specific Docker environment rather than proving generalized capability on undocumented enterprise systems.",
-    essentials: "> [!CAUTION]\n> **Caution for Investors**: AI test scores can be misleading. Do not base investment decisions solely on high benchmark scores. Many AI systems are 'trained for the test' rather than having real-world capability on complex, undocumented systems."
-  },
   s9Investors: {
-    moment: {
-      expert: "The benchmark contamination issue is the most important signal for competitive positioning — and most investor decks are still using the wrong number. SWE-bench Verified (80.9%) has confirmed training data overlap. SWE-bench Pro is the honest measure at 45.9% standardised. Companies evaluating coding capability on the contaminated benchmark are making decisions on a compromised signal.",
-      essentials: "If a company is benchmarking AI using the standard contaminated test (SWE-bench Verified), their investment decisions are based on numbers that don't reflect reality. The honest measure is 45.9%, not 80.9%."
+    actionMoatMa: {
+      expert: "The Action Moat as an M&A Target: Capital should not just flow to model builders or clever UX wrappers; it must flow to the startups winning deep enterprise integrations. Getting an agent mapped to a legacy on-prem SAP instance, securing Active Directory permissions, and surviving a SOC2 audit is the true barrier to entry. Startups that capture these permission flows are the prime acquisition targets for 2027.",
+      essentials: "The Action Moat as an M&A Target: Capital should not just flow to model builders or clever UX wrappers; it must flow to the startups winning deep enterprise integrations. Getting an agent mapped to a legacy on-prem SAP instance, securing Active Directory permissions, and surviving a SOC2 audit is the true barrier to entry. Startups that capture these permission flows are the prime acquisition targets for 2027."
     },
-    next: {
-      expert: "Add metacognition and context coherence to your AI vendor evaluation criteria. A model that accurately signals its own uncertainty is worth more to an enterprise deployment than a model that scores 5% higher on a saturated benchmark.",
-      essentials: "Look for AI that can admit when it's unsure. An AI that knows its limits is more valuable than one that scores slightly higher on a compromised test."
+    readingMoment: {
+      expert: "Reading the Current Moment: The benchmark contamination issue is the most important signal for competitive positioning. SWE-bench Verified (80.9%) has confirmed training data overlap. SWE-bench Pro is the honest measure at 45.9% standardised. Companies evaluating coding capability on the contaminated benchmark are making decisions on a compromised signal.",
+      essentials: "Reading the Current Moment: The benchmark contamination issue is the most important signal for competitive positioning. SWE-bench Verified (80.9%) has confirmed training data overlap. SWE-bench Pro is the honest measure at 45.9% standardised. Companies evaluating coding capability on the contaminated benchmark are making decisions on a compromised signal."
     },
-    actionMoat: {
-      expert: "Evaluate the Action Moat over model capability. Advantage now sits in enterprise compliance and permission stickiness — mapping agents to legacy infrastructure (SAP, Active Directory) and surviving SOC2 audits. Once an agentic system owns these data flows, it becomes a permanent layer.",
-      essentials: "Focus on who owns the connection between the AI and the company's core systems (like security and customer data). Once these connections are built and audited, the AI becomes very difficult to replace."
+    caution: {
+      expert: "> [!CAUTION]\n> **Caution on Agentic Benchmarks**: Do not underwrite investments based purely on execution benchmarks like Terminal-Bench 2.0. Agent frameworks are highly susceptible to Goodhart's Law, frequently overfitting to a benchmark's specific Docker environment rather than proving generalized capability on undocumented enterprise systems. Demand metacognitive sensitivity data from your portfolio companies—a model that accurately signals its own uncertainty is worth more than a model that scores 5% higher on a saturated execution benchmark.",
+      essentials: "> [!CAUTION]\n> **Caution on Agentic Benchmarks**: Do not underwrite investments based purely on execution benchmarks like Terminal-Bench 2.0. Agent frameworks are highly susceptible to Goodhart's Law, frequently overfitting to a benchmark's specific Docker environment rather than proving generalized capability on undocumented enterprise systems. Demand metacognitive sensitivity data from your portfolio companies—a model that accurately signals its own uncertainty is worth more than a model that scores 5% higher on a saturated execution benchmark."
     }
   },
   s9Careers: {
-    moment: {
-      expert: "The software talent pipeline is experiencing a historic structural contraction. With entry-level opportunities evaporating and university enrollment hitting a multi-decade inflection point, this is no longer a temporary market correction—it is a permanent shift in who the industry values. The surplus of execution-only talent is being replaced by a premium on move-upstream orchestrators.",
-      essentials: "The pathways into a tech career have fundamentally changed as AI takes over basic coding tasks. Winning in this market means moving past simple execution and focusing on how to direct and manage AI systems to do the work for you."
-    },
-    verificationParadox: {
-      expert: "The Verification Paradox — Meta-Verification: A human cannot manually read a million-line codebase or a 500-page synthetic legal brief. The future of senior work is Meta-Verification. The role is no longer reviewing the output; it is designing the automated testing agents, setting the operational constraints, and evaluating the cryptographic proofs-of-work. Juniors in 'Training Enclaves' are not building subsystems to learn how to code—they are learning how systems break so they possess the structural intuition to govern the automated verifiers.",
-      essentials: "A warning: just checking AI work is not the career. The real senior role is Meta-Verification—designing the automated systems that check the AI, setting the rules those systems follow, and interpreting the cryptographic proofs that the AI did what it was told. Juniors who build real systems in 'Training Enclaves' are not just learning to code—they are learning how things break, which is what lets them build trustworthy verifiers later."
-    },
-    next: {
-      expert: "Seek roles inside 'Training Enclaves'—organisations that deliberately pay juniors to build constrained subsystems from scratch, not as operational work but as structured apprenticeship. The companies that invest in this will manufacture their own Senior Verifiers. Prioritise roles where the AI is a collaborator on your work, not a replacement for it.",
-      essentials: "Look for companies that deliberately give juniors real building work, not just AI supervision. These 'Training Enclave' roles—where you build constrained systems from scratch alongside AI—are how you forge the expertise that makes you a Senior Verifier later. The AI should be your collaborator, not your replacement."
-    },
-    resilience: {
-      expert: "Transition from specialist execution to generalist system engineering. The most resilient professionals in 2027 are those who navigate the whole stack to orchestrate AI components—not those who are one capability level below the current frontier.",
-      essentials: "Expand from deep specialist to someone who understands how whole systems work. Being able to direct AI across different tasks is the most stable career position right now."
+    trainingEnclaves: {
+      expert: "The Rise of Training Enclaves: The collapse of the junior pipeline means the industry will structurally bankrupt its future supply of Meta-Verifiers. Organizations must treat junior hiring not as operational capacity, but as pure CapEx R&D. Enterprises must fund 'Training Enclaves' where juniors build constrained subsystems under AI-free conditions, explicitly to learn how systems break.",
+      essentials: "The Rise of Training Enclaves: The collapse of the junior pipeline means the industry will structurally bankrupt its future supply of Meta-Verifiers. Organizations must treat junior hiring not as operational capacity, but as pure CapEx R&D. Enterprises must fund 'Training Enclaves' where juniors build constrained subsystems under AI-free conditions, explicitly to learn how systems break."
     }
   },
   s9Education: {
-    moment: {
-      expert: "The contraction of syntax-focused curricula and the collapse of short-cycle training signifies a deep crisis of confidence in the traditional pedagogical model. As code generation becomes an automated, low-marginal-cost utility, the throughput limit is no longer generation; it is verification and coherence management. Curricula that still centre syntax acquisition are producing graduates for a role that is being structurally removed.",
-      essentials: "The sudden collapse of short-term training and bootcamps shows a hard truth: learning to write code by hand is no longer enough for a professional career. Education must now focus on teaching students how to check, manage, and take responsibility for the work that AI produces."
+    newCurriculum: {
+      expert: "The New Curriculum: Curricula that center syntax acquisition are producing graduates for a role that is being structurally removed. As code generation becomes an automated, low-marginal-cost utility, universities must pivot entirely to teaching verification, system constraints, and cryptographic proofs-of-work. If students only learn to blindly trust or manually read AI output, they are being trained for a role that no longer exists.",
+      essentials: "The New Curriculum: Curricula that center syntax acquisition are producing graduates for a role that is being structurally removed. As code generation becomes an automated, low-marginal-cost utility, universities must pivot entirely to teaching verification, system constraints, and cryptographic proofs-of-work. If students only learn to blindly trust or manually read AI output, they are being trained for a role that no longer exists."
     },
     verificationParadox: {
       expert: "The Verification Paradox — Teaching Meta-Verification: A human cannot manually read a million-line codebase or a 500-page synthetic legal brief. The future of senior work is Meta-Verification. Curricula must shift from teaching students to write the code, to teaching them how to design automated testing agents, set operational constraints, and evaluate cryptographic proofs-of-work. If students only learn to blindly trust or manually read AI output, they are being trained for a role that no longer exists.",
-      essentials: "Warning to educators: teaching students to just check AI output is not enough. The curriculum must equip graduates to design the systems that check the AI—setting operational constraints, building automated test harnesses, and interpreting proofs-of-work. 'Training Enclave' courses where students build real systems from scratch teach them how things break, which is the foundation for designing trustworthy verifiers."
-    },
-    next: {
-      expert: "Institutions must introduce 'Training Enclaves'—deliberate CapEx zones where students build constrained subsystems from scratch under AI-free conditions, then compare their output against AI-generated equivalents. This is not Luddism; it is the mandatory R&D cost of manufacturing future Senior Verifiers. Frame it to funders as an infrastructure investment, not a pedagogical philosophy.",
-      essentials: "Colleges must create 'Training Enclave' courses where students actually build real systems from scratch—without AI—and then compare their work to what AI produces. This feels inefficient, but it is the only way to produce graduates with the deep intuition to catch AI errors later in their careers."
-    },
-    verification: {
-      expert: "The verification layer is the professional value-add. Produce graduates who can build the safeguards that ensure AI-generated output meets professional standards. That is the human role that AI cannot yet automate.",
-      essentials: "The most important graduate skill is knowing how to check AI output and catch what looks right but isn't. That's the professional function that remains irreplaceable."
+      essentials: "The Verification Paradox — Teaching Meta-Verification: A human cannot manually read a million-line codebase or a 500-page synthetic legal brief. The future of senior work is Meta-Verification. Curricula must shift from teaching students to write the code, to teaching them how to design automated testing agents, set operational constraints, and evaluate cryptographic proofs-of-work. If students only learn to blindly trust or manually read AI output, they are being trained for a role that no longer exists."
     }
   }
 };
