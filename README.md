@@ -171,13 +171,13 @@ The Base Case reflects that both the capability trajectory (SWE-bench Pro doubli
 
 > **NOTE:** **Scenario methodology**: These trigger conditions are informed by six independent data inputs — not outputs of a formal forecasting model. Inputs: ARC-AGI-3 progress rates; inference cost curve (Stanford AI Index); BLS / Stanford / Harvard labour market data; open-source capability trajectory; LangChain practitioner survey (57% production rate); Gartner / Databricks enterprise adoption signals.
 
-1. **Conservative Scenario: The Productivity Plateau**
+1. **Scenario 1: The Analog Gridlock**
    * **Trigger Conditions:** Capability plateaus below 45% on SWE-bench Pro SEAL. Multi-agent scaling hits a hard ceiling of context overflow that RL cannot solve.
    * **Outcome:** AI remains a productivity multiplier, not an autonomous replacement. Junior pipelines survive in most sectors. The gap between AI-native and AI-resistant organizations grows slowly.
-2. **Base Case Scenario: The Deployment Era**
+2. **Scenario 2: The CapEx Integration Era**
    * **Trigger Conditions:** AI cleanly handles 60–70% of software tasks. Enterprise adoption crosses 40% as organizations shift budget from shadow API wrappers to agentic CapEx.
    * **Outcome:** Engineering differentiation moves entirely to systems architecture. The Action Moat (compliance/integration) becomes the primary barrier to entry. 
-3. **Accelerated Scenario: The Reliability Breakthrough**
+3. **Scenario 3: The Meta-Verifier Crisis**
    * **Trigger Conditions:** The 32% quality barrier is resolved. ARC-AGI-3 definitively breaks the reinforcement learning bottleneck, crossing 50–65% by EOY 2026. Hallucination drops below 1% for unstructured tasks.
    * **Outcome:** AI handles most end-to-end tasks. Reliability converges with capability, triggering the rapid phase of the Barbell Economy contraction.
 

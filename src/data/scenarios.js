@@ -1,7 +1,7 @@
 export const scenarios = [
   {
     emoji: "🐢",
-    name: "Conservative Scenario: The Productivity Plateau",
+    name: "Scenario 1: The Analog Gridlock",
     probability: "Low (Tail Risk)", // Replaced percentage with Trajectory Weight
     horizon: "EOY 2027",
     trigger: "* **Trigger Conditions:** Capability plateaus below 45% on SWE-bench Pro SEAL. Multi-agent scaling hits a hard ceiling of context overflow that RL cannot solve.",
@@ -10,7 +10,7 @@ export const scenarios = [
   },
   {
     emoji: "📈",
-    name: "Base Case Scenario: The Deployment Era",
+    name: "Scenario 2: The CapEx Integration Era",
     probability: "High (Dominant)", // Replaced percentage with Trajectory Weight
     horizon: "Q2 2027",
     trigger: "* **Trigger Conditions:** AI cleanly handles 60–70% of software tasks. Enterprise adoption crosses 40% as organizations shift budget from shadow API wrappers to agentic CapEx.",
@@ -19,7 +19,7 @@ export const scenarios = [
   },
   {
     emoji: "🚀",
-    name: "Accelerated Scenario: The Reliability Breakthrough",
+    name: "Scenario 3: The Meta-Verifier Crisis",
     probability: "Moderate (Emerging)", // Replaced percentage with Trajectory Weight
     horizon: "EOY 2026 → 2027",
     trigger: "* **Trigger Conditions:** The 32% quality barrier is resolved. ARC-AGI-3 definitively breaks the reinforcement learning bottleneck, crossing 50–65% by EOY 2026. Hallucination drops below 1% for unstructured tasks.",

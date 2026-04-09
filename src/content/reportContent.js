@@ -122,8 +122,8 @@ export const content = {
 
   // SECTION 7
   s7Methodology: {
-    expert: "The Base Case reflects that both the capability trajectory (SWE-bench Pro doubling in 12 months) and the adoption signals (57% of practitioners with agents in production, Gartner's 40% enterprise prediction for EOY 2026) are on track, while the known structural friction — quality as the persistent production blocker — prevents this from being the Accelerated scenario.",
-    essentials: "The Base Case reflects that both the capability trajectory and the adoption signals are on track, while persistent reliability problems in production prevent this from being the Accelerated scenario."
+    expert: "Scenario 2 reflects that both the capability trajectory (SWE-bench Pro doubling in 12 months) and the adoption signals (57% of practitioners with agents in production, Gartner's 40% enterprise prediction for EOY 2026) are on track, while the known structural friction — quality as the persistent production blocker — prevents this from being Scenario 3.",
+    essentials: "Scenario 2 reflects that both the capability trajectory and the adoption signals are on track, while persistent reliability problems in production prevent this from being Scenario 3."
   },
   s7Triggers: {
     conservative: {
