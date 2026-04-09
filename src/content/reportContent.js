@@ -318,8 +318,8 @@ export const content = {
   },
   s9Careers: {
     trainingEnclaves: {
-      expert: "The Rise of Training Enclaves: The collapse of the junior pipeline means the industry will structurally bankrupt its future supply of Meta-Verifiers. Organizations must treat junior hiring not as operational capacity, but as pure CapEx R&D. Enterprises must fund 'Training Enclaves' where juniors build constrained subsystems under AI-free conditions, explicitly to learn how systems break.",
-      essentials: "The Rise of Training Enclaves: The collapse of the junior pipeline means the industry will structurally bankrupt its future supply of Meta-Verifiers. Organizations must treat junior hiring not as operational capacity, but as pure CapEx R&D. Enterprises must fund 'Training Enclaves' where juniors build constrained subsystems under AI-free conditions, explicitly to learn how systems break."
+      expert: "The Rise of Training Enclaves: The collapse of the junior pipeline means the industry will structurally bankrupt its future supply of Meta-Verifiers. Organizations must treat junior hiring not as operational capacity, but as pure CapEx R&D. Enterprises must fund 'Training Enclaves' where juniors build constrained subsystems under AI-free conditions, explicitly to learn how systems break. Treat this not as a drag on quarterly productivity, but as the mandatory cost of manufacturing your future senior leadership.",
+      essentials: "The Rise of Training Enclaves: The collapse of the junior pipeline means the industry will structurally bankrupt its future supply of Meta-Verifiers. Organizations must treat junior hiring not as operational capacity, but as pure CapEx R&D. Enterprises must fund 'Training Enclaves' where juniors build constrained subsystems under AI-free conditions, explicitly to learn how systems break. Treat this not as a drag on quarterly productivity, but as the mandatory cost of manufacturing your future senior leadership."
     }
   },
   s9Education: {
