@@ -66,8 +66,8 @@ export const content = {
     essentials: "The data has refined this shape since the previous V1 report. The 'Barbell' model originally assumed we'd have stable senior and junior roles with the middle disappearing. That's no longer what we see. Entry-level job openings are down 67% since 2022. The bottom is falling away entirely. What remains is an unbalanced pyramid: the top is growing, the middle is being squeezed from both sides, and the bottom is being structurally removed. The name stays because it's the same economic shift — just more extreme."
   },
   s5Pipeline: {
-    expert: "The tech industry is currently protected by a 'senior bulge'—a massive cohort of mid-to-senior engineers hired during 2010–2022. The structural crisis will hit 2033–2037 when this bulge ages out and the industry faces the missing 2023–2026 junior cohort. Because it takes a decade to build architectural intuition, the bill for today's entry-level hiring freeze comes due in 2033.",
-    essentials: "Tech's current strength comes from senior staff hired years ago. The crisis isn't now — it's in 2033, when these seniors retire and companies realize they stopped training new people in 2024. Today's hiring freeze creates a massive skill gap that will take ten years to fix."
+    expert: "The tech industry is currently protected by a 'senior bulge'—a massive cohort of mid-to-senior engineers hired during 2010–2022. The structural crisis will hit 2033–2037 when this bulge ages out and the industry faces the missing 2023–2026 junior cohort. Important caveat on the 67% entry-level drop: the end of ZIRP in 2022–2023 triggered the initial hiring freeze. In past downturns, junior headcount rebounded when capital loosened. What makes this contraction structural is that as rates stabilised in 2025–2026, junior roles did not return—because AI had absorbed the capacity. The ZIRP shock set the freeze; AI capability is what made it permanent.",
+    essentials: "Tech's current strength comes from senior staff hired years ago. The crisis isn't now—it's in 2033, when these seniors retire and companies realize they stopped training new people in 2024. One important caveat: the initial hiring freeze was partly caused by higher interest rates ending the era of cheap capital. But in past slowdowns, junior hiring rebounded when rates stabilised. This time it hasn't, because AI absorbed the work. Today's freeze is permanent."
   },
   s5Klarna: {
     expert: "Klarna stopped all hiring in 2023, slashed headcount from 5,500 to 3,400, and celebrated $10M in savings. By mid-2025 they were scrambling to rehire after customer satisfaction collapsed and engineers were pulled from product work to cover service. This is not evidence AI can't replace roles. It's the predictable outcome of treating AI as binary replacement rather than productivity layer. The organisations that maintained junior pipelines through 2024–2026 will have a structural talent advantage by 2028–2030. Harvard research across 62 million workers and 285,000 firms names this pattern: \"seniority-biased technological change.\"",
@@ -230,12 +230,12 @@ export const content = {
   },
   s8_8_3: {
     expert: {
-      p1: "If production is automated, verification must follow. The flood is fundamentally an asymmetric cost problem: generating a 500-page brief costs fractions of a cent, while human verification costs dollars per minute. Surviving institutions will introduce 'friction by design'—financial staking, API-access fees, or ZKPs—to shift the cost of verification back onto the submitter.",
-      p2: "In scientific publishing, researchers are proposing machine-readable 'structured appendices' that transform manuscripts into queryable, executable research environments—making computational claims directly verifiable by automated systems."
+      p1: "If production is automated, verification must follow. The flood is fundamentally an asymmetric cost problem: generating a 500-page brief costs fractions of a cent, while human verification costs dollars per minute. Before cryptographic verification becomes institutionally standard, enterprises should plan for a 36-to-60 month 'Analog Gridlock' phase (2026–2030). Institutions do not move at the speed of software. The near-term response will not be ZKPs—it will be a reversion to physical mandates: in-person depositions, wet-ink notarizations, oral defenses. Enterprises in regulated industries must prepare for this.",
+      p2: "Medium-term (post-Gridlock), institutions will adopt API-enforced querying against closed databases and Zero-Knowledge Proofs (ZKPs) that shift the verification cost onto the submitter via financial staking and API-access fees. In scientific publishing, machine-readable 'structured appendices' will make computational claims directly verifiable by automated systems."
     },
     essentials: {
-      p1: "The response across industries is the same: if AI produces, something must verify. Courts now require lawyers to prove citations come from real sources using digital watermarks or cryptographic proofs that verify an AI actually checked a trusted database. Surviving institutions will introduce 'friction by design'—fees, penalties, or algorithmic roadblocks—to prevent the market from being flooded with unverified AI data.",
-      p2: "Scientific publishing is moving toward machine-readable papers that automated systems can directly verify. As we use more AI to create work, the human role shifts from doing the work to setting the rules for how it's checked."
+      p1: "The institutional response will come in two phases. First, a period of 'Analog Gridlock' (roughly 2026–2030) where courts and regulators fall back on physical proof—in-person hearings, paper trails, wet signatures—because they don't yet have the digital tools to verify AI output. Companies in law, medicine, and finance should plan for this friction now.",
+      p2: "Longer-term, institutions will adopt cryptographic verification systems that force whoever submits an AI-generated document to financially guarantee its accuracy. Scientific publishing is moving toward machine-readable papers that automated systems can directly check."
     }
   },
   s8HorizonWatch: {
@@ -290,15 +290,19 @@ export const content = {
   // SECTION 9
   s9Enterprise: {
     moment: {
-      expert: "While developer surveys report up to 57% of early-adopter practitioners have agents in production, enterprise reality is starkly different. According to MIT’s Project NANDA (July 2025), up to 95% of enterprise GenAI initiatives fail to deliver measurable ROI—primarily because they deploy base-model API wrappers rather than engineered systems. Consequently, Gartner’s projected 40% enterprise adoption rate for 2026 masks a massive capital misallocation. That 40% largely represents 'shadow adoption' (companies buying seat licenses for raw chat interfaces); true, ROI-positive deployment of custom agentic architectures remains sub-5%.",
+      expert: "While developer surveys report up to 57% of early-adopter practitioners have agents in production, enterprise reality is starkly different. According to MIT's Project NANDA (July 2025), up to 95% of enterprise GenAI initiatives fail to deliver measurable ROI—primarily because they deploy base-model API wrappers rather than engineered systems. Consequently, Gartner's projected 40% enterprise adoption rate for 2026 masks a massive capital misallocation. That 40% largely represents 'shadow adoption' (companies buying seat licenses for raw chat interfaces); true, ROI-positive deployment of custom agentic architectures remains sub-5%.",
       essentials: "Although most advanced developers use AI agents, 95% of corporate AI projects haven't paid off yet. Many companies are simply buying AI seat licenses without a plan for real integration. The small group of companies seeing a real return (sub-5%) are those building deeply engineered systems instead of just using basic toolsets."
+    },
+    capex: {
+      expert: "The CapEx vs. OpEx Failure Mode: The majority of enterprise AI projects fail not because the technology is wrong but because they are budgeted incorrectly. Companies treat AI as an OpEx decision—a SaaS API subscription—when building true, state-managed agentic systems is a CapEx systems integration project equivalent to deploying a new ERP. You do not buy Salesforce on a monthly API plan and call it a CRM strategy. The CFO question is not 'what is our AI spend this quarter' but 'what is our agentic infrastructure capital programme for 2026–2028.'",
+      essentials: "Most companies are failing at AI because they are paying for it the wrong way. Buying access to an AI chat interface is like renting a car—it gets you moving but builds nothing. Building a real agentic system is like buying a fleet—it is a capital investment that requires upfront planning and budget. Companies treating AI as a monthly subscription are not building the infrastructure that delivers a return."
     },
     next: {
       expert: "Your AI ROI problem is not a model problem. It's an architecture problem. Audit your existing deployments against the Base vs. System-Level gap. Identify which workflows are running base model calls where they should be running grounded, verified pipelines. The cost to fix this has fallen 10× in 18 months.",
-      essentials: "Look at your current AI projects and find where simple AI prompts have replaced what should be better-engineered systems. The gap between what you have and what you need is fixable — and the cost of fixing it has fallen dramatically."
+      essentials: "Look at your current AI projects and find where simple AI prompts have replaced what should be better-engineered systems. The gap between what you have and what you need is fixable—and the cost of fixing it has fallen dramatically."
     },
     architectureDividend: {
-      expert: "The engineering dividend is now quantified. Moving from base model calls to agentic systems increases task autonomy from 45% to over 74%. This is the primary ROI driver for 2026–2027 deployments — not model selection.",
+      expert: "The engineering dividend is now quantified. Moving from base model calls to agentic systems increases task autonomy from 45% to over 74%. This is the primary ROI driver for 2026–2027 deployments—not model selection.",
       essentials: "Moving from simple base model prompts to properly engineered agentic systems increases efficiency from 45% to 74%. That gap is the single biggest factor in making AI pay off."
     },
     epistemicFlood: {
@@ -326,15 +330,19 @@ export const content = {
   },
   s9Careers: {
     moment: {
-      expert: "The software talent pipeline is experiencing a historic structural contraction. With entry-level opportunities evaporating and university enrollment hitting a multi-decade inflection point, this is no longer a temporary market correction — it is a permanent shift in who the industry values. The surplus of execution-only talent is being replaced by a premium on move-upstream orchestrators.",
+      expert: "The software talent pipeline is experiencing a historic structural contraction. With entry-level opportunities evaporating and university enrollment hitting a multi-decade inflection point, this is no longer a temporary market correction—it is a permanent shift in who the industry values. The surplus of execution-only talent is being replaced by a premium on move-upstream orchestrators.",
       essentials: "The pathways into a tech career have fundamentally changed as AI takes over basic coding tasks. Winning in this market means moving past simple execution and focusing on how to direct and manage AI systems to do the work for you."
     },
+    verificationParadox: {
+      expert: "The Verification Paradox: Simply 'verifying' AI output is not a career. You cannot verify an architecture you do not know how to build. A junior who rubber-stamps AI output without understanding the underlying system is being trained in complacency, not mastery. The career path requires genuine domain intuition—which is only built through deliberate execution, not observation.",
+      essentials: "A warning: just checking AI work is not enough. If you don't understand how to build what the AI is building, you can't catch the most dangerous errors—the ones that look right but are architecturally wrong. Real expertise only comes from doing, not just reviewing."
+    },
     next: {
-      expert: "Position around orchestration, not execution. To survive the seniority gap, position yourself as a Human-In-The-Loop (HITL) orchestrator on legacy workflows. The 'Junior 2027' profile is an apprentice orchestrator deployed specifically to do the messy translation between rigid AI agents and undocumented legacy enterprise systems.",
-      essentials: "Learn to manage groups of AI tools rather than just executing tasks. To stay relevant as a junior, focus on becoming a 'Human-In-The-Loop'—the person who manages the messy handover between new AI tools and old company systems. This 'messy translation' is how you build the experience that AI currently lacks."
+      expert: "Seek roles inside 'Training Enclaves'—organisations that deliberately pay juniors to build constrained subsystems from scratch, not as operational work but as structured apprenticeship. The companies that invest in this will manufacture their own Senior Verifiers. Prioritise roles where the AI is a collaborator on your work, not a replacement for it.",
+      essentials: "Look for companies that deliberately give juniors real building work, not just AI supervision. These 'Training Enclave' roles—where you build constrained systems from scratch alongside AI—are how you forge the expertise that makes you a Senior Verifier later. The AI should be your collaborator, not your replacement."
     },
     resilience: {
-      expert: "Transition from specialist execution to generalist system engineering. The most resilient professionals in 2027 are those who navigate the whole stack to orchestrate AI components — not those who are one capability level below the current frontier.",
+      expert: "Transition from specialist execution to generalist system engineering. The most resilient professionals in 2027 are those who navigate the whole stack to orchestrate AI components—not those who are one capability level below the current frontier.",
       essentials: "Expand from deep specialist to someone who understands how whole systems work. Being able to direct AI across different tasks is the most stable career position right now."
     }
   },
@@ -343,9 +351,13 @@ export const content = {
       expert: "The contraction of syntax-focused curricula and the collapse of short-cycle training signifies a deep crisis of confidence in the traditional pedagogical model. As code generation becomes a zero-cost commodity, the throughput limit is no longer generation; it is verification and coherence management. Curricula that still centre syntax acquisition are producing graduates for a role that is being structurally removed.",
       essentials: "The sudden collapse of short-term training and bootcamps shows a hard truth: learning to write code by hand is no longer enough for a professional career. Education must now focus on teaching students how to check, manage, and take responsibility for the work that AI produces."
     },
+    verificationParadox: {
+      expert: "The Verification Paradox (Critical): Teaching students to 'validate AI output' without teaching them to build what the AI is building is not a curriculum—it is learned helplessness. A graduate who cannot independently architect what they are verifying will be unable to catch the most dangerous class of AI errors: the ones that are plausible, coherent, and subtly wrong at the architectural level.",
+      essentials: "Warning to educators: teaching students to just check AI output without also teaching them to build what the AI builds creates graduates who are helpless when the AI is wrong in a sophisticated way. The curriculum must include real building, not just review."
+    },
     next: {
-      expert: "Shift curriculum from syntax to system-level debugging and automated verification. Institutions must pioneer \"AI-assisted preceptorships\"—where students act as the human-in-the-loop verifiers for automated legacy integrations, building the structural intuition they will need for high-stakes verification.",
-      essentials: "Colleges must start 'AI-assisted training' where students act as the human checkers for AI-driven legacy projects, building the real-world experience they'll need as professional verifiers later."
+      expert: "Institutions must introduce 'Training Enclaves'—deliberate CapEx zones where students build constrained subsystems from scratch under AI-free conditions, then compare their output against AI-generated equivalents. This is not Luddism; it is the mandatory R&D cost of manufacturing future Senior Verifiers. Frame it to funders as an infrastructure investment, not a pedagogical philosophy.",
+      essentials: "Colleges must create 'Training Enclave' courses where students actually build real systems from scratch—without AI—and then compare their work to what AI produces. This feels inefficient, but it is the only way to produce graduates with the deep intuition to catch AI errors later in their careers."
     },
     verification: {
       expert: "The verification layer is the professional value-add. Produce graduates who can build the safeguards that ensure AI-generated output meets professional standards. That is the human role that AI cannot yet automate.",

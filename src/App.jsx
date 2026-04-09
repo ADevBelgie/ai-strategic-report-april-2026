@@ -574,10 +574,20 @@ const AppContent = () => {
                     <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
                     <p>{translate(content.s9Enterprise.moment[displayMode], displayMode)}</p>
                   </div>
-                  <div>
-                    <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
-                    <p>{translate(content.s9Enterprise.next[displayMode], displayMode)}</p>
-                  </div>
+                   <div>
+                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
+                     <p>{translate(content.s9Enterprise.moment[displayMode], displayMode)}</p>
+                   </div>
+                   {content.s9Enterprise.capex && (
+                     <div>
+                       <h5 className="text-amber-400 font-bold text-xs uppercase tracking-wider mb-2">CapEx vs. OpEx Failure Mode</h5>
+                       <p>{translate(content.s9Enterprise.capex[displayMode], displayMode)}</p>
+                     </div>
+                   )}
+                   <div>
+                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next step</h5>
+                     <p>{translate(content.s9Enterprise.next[displayMode], displayMode)}</p>
+                   </div>
                   {content.s9Enterprise.architectureDividend && (
                     <div>
                       <h5 className="text-blue-400 font-bold text-xs uppercase tracking-wider mb-2">ROI Driver</h5>
@@ -627,10 +637,16 @@ const AppContent = () => {
                     <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
                     <p>{translate(content.s9Careers.moment[displayMode], displayMode)}</p>
                   </div>
-                  <div>
-                    <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
-                    <p>{translate(content.s9Careers.next[displayMode], displayMode)}</p>
-                  </div>
+                   {content.s9Careers.verificationParadox && (
+                     <div>
+                       <h5 className="text-amber-400 font-bold text-xs uppercase tracking-wider mb-2">The Verification Paradox</h5>
+                       <p>{translate(content.s9Careers.verificationParadox[displayMode], displayMode)}</p>
+                     </div>
+                   )}
+                   <div>
+                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next step</h5>
+                     <p>{translate(content.s9Careers.next[displayMode], displayMode)}</p>
+                   </div>
                   {content.s9Careers.resilience && (
                     <div>
                       <h5 className="text-blue-400 font-bold text-xs uppercase tracking-wider mb-2">Long-term Resilience</h5>
@@ -649,10 +665,16 @@ const AppContent = () => {
                     <h5 className="text-indigo-400 font-bold text-xs uppercase tracking-wider mb-2">Reading the current moment</h5>
                     <p>{translate(content.s9Education.moment[displayMode], displayMode)}</p>
                   </div>
-                  <div>
-                    <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next quarter</h5>
-                    <p>{translate(content.s9Education.next[displayMode], displayMode)}</p>
-                  </div>
+                   {content.s9Education.verificationParadox && (
+                     <div>
+                       <h5 className="text-amber-400 font-bold text-xs uppercase tracking-wider mb-2">The Verification Paradox</h5>
+                       <p>{translate(content.s9Education.verificationParadox[displayMode], displayMode)}</p>
+                     </div>
+                   )}
+                   <div>
+                     <h5 className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">Next step — Training Enclaves</h5>
+                     <p>{translate(content.s9Education.next[displayMode], displayMode)}</p>
+                   </div>
                   {content.s9Education.verification && (
                     <div>
                       <h5 className="text-blue-400 font-bold text-xs uppercase tracking-wider mb-2">Curriculum Focus</h5>
