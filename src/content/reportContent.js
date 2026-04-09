@@ -320,8 +320,8 @@ export const content = {
   },
   s9Investors: {
     moment: {
-      expert: "The benchmark contamination issue is the most important signal for competitive positioning — and most investor decks are still using the wrong number.",
-      essentials: "The benchmark contamination issue is the most important signal for competitive positioning — and most investor decks are still using the wrong number."
+      expert: "The benchmark contamination issue is the most important signal for competitive positioning — and most investor decks are still using the wrong number. SWE-bench Verified (80.9%) has confirmed training data overlap. SWE-bench Pro is the honest measure at 45.9% standardised. Companies evaluating coding capability on the contaminated benchmark are making decisions on a compromised signal.",
+      essentials: "If a company is benchmarking AI using the standard contaminated test (SWE-bench Verified), their investment decisions are based on numbers that don't reflect reality. The honest measure is 45.9%, not 80.9%."
     },
     next: {
       expert: "Add metacognition and context coherence to your AI vendor evaluation criteria. A model that accurately signals its own uncertainty is worth more to an enterprise deployment than a model that scores 5% higher on a saturated benchmark.",

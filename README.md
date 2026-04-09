@@ -223,7 +223,7 @@ If production is automated, verification must follow. The human role moves upstr
 - **The Architecture Dividend**: The engineering dividend is now quantified. Moving from base model calls to agentic systems increases task autonomy from 45% to over 74%. This is the primary ROI driver for 2026–2027 deployments — not model selection.
 
 ### 💰 For Investors
-- **Reading the current moment**: The benchmark contamination issue is the most important signal for competitive positioning — and most investor decks are still using the wrong number.
+- **Reading the current moment**: The benchmark contamination issue is the most important signal for competitive positioning — and most investor decks are still using the wrong number. SWE-bench Verified (80.9%) has confirmed training data overlap. **SWE-bench Pro** is the honest measure at 45.9% standardised. Companies evaluating coding capability on the contaminated benchmark are making decisions on a compromised signal.
 
 > [!CAUTION]
 > **Caution on Agentic Benchmarks**: Do not underwrite investments based purely on execution benchmarks like Terminal-Bench 2.0. Agent frameworks are highly susceptible to Goodhart's Law, frequently overfitting to a benchmark's specific Docker environment rather than proving generalized capability on undocumented enterprise systems.
