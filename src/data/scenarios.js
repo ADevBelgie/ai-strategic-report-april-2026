@@ -1,7 +1,7 @@
 export const scenarios = [
   {
     emoji: "🐢",
-    name: "Scenario 1: The Analog Gridlock",
+    name: "Scenario 1: The Plateau",
     probability: "Low (Tail Risk)", // Replaced percentage with Trajectory Weight
     horizon: "EOY 2027",
     trigger: "* **Trigger Conditions:** Capability plateaus below 45% on SWE-bench Pro SEAL. Multi-agent scaling hits a hard ceiling of context overflow that RL cannot solve.",

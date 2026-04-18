@@ -135,7 +135,7 @@ Klarna stopped all hiring in 2023, slashed headcount from 5,500 to 3,400, and ce
 This is not evidence AI can't replace roles. It's the predictable outcome of treating AI as a binary replacement rather than a productivity layer. The organisations that maintained junior pipelines through 2024–2026 will have a structural talent advantage by 2028–2030. Harvard research across 62 million workers and 285,000 firms names this pattern: **"seniority-biased technological change."**
 
 ### 5.3 The Pipeline Time Bomb
-- **Junior IT Hiring**: Share dropped from 15% to 7% since 2022.
+- **Junior IT Hiring**: Share dropped from 15% to 7% since 2022, coinciding with the end of ZIRP but not reversing with the capital recovery.
 - **Entry-Level Dev Postings**: –67% since 2022. The end of the Zero Interest Rate Policy (ZIRP) triggered the initial hiring freeze. But what makes this contraction structural rather than cyclical is the decoupling of capital and headcount. As budgets stabilized in 2025–2026, junior roles did not return. Companies are deploying returning capital into compute and Senior Orchestrators. AI broke the historic, linear relationship between corporate growth and entry-level hiring.
 - **The Elastic Education Collapse**: While 4-year degrees lag, short-cycle training collapsed instantly. By mid-2025, the coding bootcamp industry severely contracted as the ROI of syntax-only education evaporated.
 - **The Senior Bulge Context**: The tech industry is currently protected by a "senior bulge"—a massive cohort of mid-to-senior engineers hired during the 2010–2022 boom. They are highly productive and acting as today's Meta-Verifiers. The structural crisis will not hit tomorrow; it hits between 2033–2037 when this senior bulge ages out, transitions to pure management, or retires, and the system looks down to find the missing junior cohort of 2023–2026. Because it takes roughly a decade to build the deep systems architecture intuition required to govern complex AI safely, the bill for today's entry-level hiring freeze comes due in 2033.
@@ -171,7 +171,7 @@ The Base Case reflects that both the capability trajectory (SWE-bench Pro doubli
 
 > **NOTE:** **Scenario methodology**: These trigger conditions are informed by six independent data inputs — not outputs of a formal forecasting model. Inputs: ARC-AGI-3 progress rates; inference cost curve (Stanford AI Index); BLS / Stanford / Harvard labour market data; open-source capability trajectory; LangChain practitioner survey (57% production rate); Gartner / Databricks enterprise adoption signals.
 
-1. **Scenario 1: The Analog Gridlock**
+1. **Scenario 1: The Plateau**
    * **Trigger Conditions:** Capability plateaus below 45% on SWE-bench Pro SEAL. Multi-agent scaling hits a hard ceiling of context overflow that RL cannot solve.
    * **Outcome:** AI remains a productivity multiplier, not an autonomous replacement. Junior pipelines survive in most sectors. The gap between AI-native and AI-resistant organizations grows slowly.
 2. **Scenario 2: The CapEx Integration Era**
